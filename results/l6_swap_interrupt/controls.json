@@ -1,0 +1,69 @@
+{
+ "no_slip_first_success": {
+  "naive": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "blind": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ "mismatched_memory_adaptive_first_success": [
+  null,
+  1,
+  null,
+  null,
+  1,
+  null,
+  null,
+  null,
+  null,
+  null
+ ],
+ "blind_continue_first_success": [
+  null,
+  null,
+  2,
+  null,
+  2,
+  null,
+  null,
+  2,
+  null,
+  null,
+  2,
+  2,
+  null,
+  1,
+  null,
+  null,
+  1,
+  1,
+  1,
+  2
+ ],
+ "blind_continue_succ_at_k": [
+  0.2,
+  0.5,
+  0.5,
+  0.5,
+  0.5
+ ]
+}

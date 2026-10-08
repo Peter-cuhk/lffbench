@@ -1,0 +1,1856 @@
+[
+ {
+  "seed": 1000,
+  "case": "swap_wide",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is inside the red cup, standing on its bottom. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.45,
+   5.49
+  ],
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "bottom_cm": [
+   4.01,
+   2.81,
+   5.47
+  ],
+  "opening_cm": [
+   5.54,
+   3.52,
+   6.36
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "swap_wide",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.45,
+   5.49
+  ],
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "bottom_cm": [
+   4.01,
+   2.81,
+   5.47
+  ],
+  "opening_cm": [
+   5.54,
+   3.52,
+   6.36
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "swap_wide",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.45,
+   5.49
+  ],
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "bottom_cm": [
+   4.01,
+   2.81,
+   5.47
+  ],
+  "opening_cm": [
+   5.54,
+   3.52,
+   6.36
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "swap_wide",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.45,
+   5.49
+  ],
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "bottom_cm": [
+   4.01,
+   2.81,
+   5.47
+  ],
+  "opening_cm": [
+   5.54,
+   3.52,
+   6.36
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "swap_wide",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   4.45,
+   5.49
+  ],
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "bottom_cm": [
+   4.01,
+   2.81,
+   5.47
+  ],
+  "opening_cm": [
+   5.54,
+   3.52,
+   6.36
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "swap_wide",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is inside the blue cup, standing on its bottom. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.45,
+   5.49
+  ],
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "bottom_cm": [
+   4.01,
+   2.81,
+   5.47
+  ],
+  "opening_cm": [
+   5.54,
+   3.52,
+   6.36
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "swap_wide",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The green cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.13,
+   4.98
+  ],
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "bottom_cm": [
+   2.14,
+   3.47,
+   4.82
+  ],
+  "opening_cm": [
+   2.78,
+   5.16,
+   5.83
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "swap_wide",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.13,
+   4.98
+  ],
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "bottom_cm": [
+   2.14,
+   3.47,
+   4.82
+  ],
+  "opening_cm": [
+   2.78,
+   5.16,
+   5.83
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "swap_wide",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "incomplete",
+  "detail": "The red cup has fallen over. The green cup has fallen over. The blue cup has fallen over.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   5.13,
+   4.98
+  ],
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "bottom_cm": [
+   2.14,
+   3.47,
+   4.82
+  ],
+  "opening_cm": [
+   2.78,
+   5.16,
+   5.83
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "swap_wide",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   0.01
+  ],
+  "clear_mm": [
+   5.13,
+   4.98
+  ],
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "bottom_cm": [
+   2.14,
+   3.47,
+   4.82
+  ],
+  "opening_cm": [
+   2.78,
+   5.16,
+   5.83
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "swap_wide",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The red cup is inside the blue cup, standing on its bottom. The green cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.13,
+   4.98
+  ],
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "bottom_cm": [
+   2.14,
+   3.47,
+   4.82
+  ],
+  "opening_cm": [
+   2.78,
+   5.16,
+   5.83
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "swap_wide",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   5.13,
+   4.98
+  ],
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "bottom_cm": [
+   2.14,
+   3.47,
+   4.82
+  ],
+  "opening_cm": [
+   2.78,
+   5.16,
+   5.83
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "swap_wide",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   3.94,
+   5.62
+  ],
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "bottom_cm": [
+   5.64,
+   4.15,
+   3.04
+  ],
+  "opening_cm": [
+   6.49,
+   5.78,
+   3.7
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "swap_wide",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The blue cup is inside the red cup, standing on its bottom. The green cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   3.94,
+   5.62
+  ],
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "bottom_cm": [
+   5.64,
+   4.15,
+   3.04
+  ],
+  "opening_cm": [
+   6.49,
+   5.78,
+   3.7
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "swap_wide",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   3.94,
+   5.62
+  ],
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "bottom_cm": [
+   5.64,
+   4.15,
+   3.04
+  ],
+  "opening_cm": [
+   6.49,
+   5.78,
+   3.7
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "swap_wide",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The blue cup is inside the green cup, standing on its bottom. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   3.94,
+   5.62
+  ],
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "bottom_cm": [
+   5.64,
+   4.15,
+   3.04
+  ],
+  "opening_cm": [
+   6.49,
+   5.78,
+   3.7
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "swap_wide",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The blue cup is standing on the table, not in another cup. The red cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   3.94,
+   5.62
+  ],
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "bottom_cm": [
+   5.64,
+   4.15,
+   3.04
+  ],
+  "opening_cm": [
+   6.49,
+   5.78,
+   3.7
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "swap_wide",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The blue cup is standing on the table, not in another cup. The green cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   3.94,
+   5.62
+  ],
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "bottom_cm": [
+   5.64,
+   4.15,
+   3.04
+  ],
+  "opening_cm": [
+   6.49,
+   5.78,
+   3.7
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "swap_wide",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   5.45,
+   4.82
+  ],
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "bottom_cm": [
+   5.67,
+   4.34,
+   2.94
+  ],
+  "opening_cm": [
+   6.48,
+   5.97,
+   3.55
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "swap_wide",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The blue cup is inside the red cup, standing on its bottom. The green cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.45,
+   4.82
+  ],
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "bottom_cm": [
+   5.67,
+   4.34,
+   2.94
+  ],
+  "opening_cm": [
+   6.48,
+   5.97,
+   3.55
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "swap_wide",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   0.01
+  ],
+  "clear_mm": [
+   5.45,
+   4.82
+  ],
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "bottom_cm": [
+   5.67,
+   4.34,
+   2.94
+  ],
+  "opening_cm": [
+   6.48,
+   5.97,
+   3.55
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "swap_wide",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The blue cup is inside the green cup, standing on its bottom. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   0.01
+  ],
+  "clear_mm": [
+   5.45,
+   4.82
+  ],
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "bottom_cm": [
+   5.67,
+   4.34,
+   2.94
+  ],
+  "opening_cm": [
+   6.48,
+   5.97,
+   3.55
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "swap_wide",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The blue cup is standing on the table, not in another cup. The red cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.45,
+   4.82
+  ],
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "bottom_cm": [
+   5.67,
+   4.34,
+   2.94
+  ],
+  "opening_cm": [
+   6.48,
+   5.97,
+   3.55
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "swap_wide",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The blue cup is standing on the table, not in another cup. The green cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.45,
+   4.82
+  ],
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "bottom_cm": [
+   5.67,
+   4.34,
+   2.94
+  ],
+  "opening_cm": [
+   6.48,
+   5.97,
+   3.55
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "agree",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The green cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.02,
+   4.29
+  ],
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "bottom_cm": [
+   3.5,
+   4.7,
+   2.17
+  ],
+  "opening_cm": [
+   4.72,
+   6.19,
+   3.16
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "agree",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The blue cup is inside the red cup, standing on its bottom. The green cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -1.05
+  ],
+  "clear_mm": [
+   5.02,
+   4.29
+  ],
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "bottom_cm": [
+   3.5,
+   4.7,
+   2.17
+  ],
+  "opening_cm": [
+   4.72,
+   6.19,
+   3.16
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "agree",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   5.02,
+   4.29
+  ],
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "bottom_cm": [
+   3.5,
+   4.7,
+   2.17
+  ],
+  "opening_cm": [
+   4.72,
+   6.19,
+   3.16
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "agree",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The blue cup is inside the green cup, standing on its bottom. The red cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.02,
+   4.29
+  ],
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "bottom_cm": [
+   3.5,
+   4.7,
+   2.17
+  ],
+  "opening_cm": [
+   4.72,
+   6.19,
+   3.16
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "agree",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The blue cup is standing on the table, not in another cup. The red cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.02,
+   4.29
+  ],
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "bottom_cm": [
+   3.5,
+   4.7,
+   2.17
+  ],
+  "opening_cm": [
+   4.72,
+   6.19,
+   3.16
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "agree",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The blue cup is standing on the table, not in another cup. The green cup is sitting on the rim of the blue cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.02,
+   4.29
+  ],
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "bottom_cm": [
+   3.5,
+   4.7,
+   2.17
+  ],
+  "opening_cm": [
+   4.72,
+   6.19,
+   3.16
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "agree",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is inside the red cup, standing on its bottom. The blue cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.98
+  ],
+  "clear_mm": [
+   4.11,
+   3.94
+  ],
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "bottom_cm": [
+   3.49,
+   2.35,
+   4.61
+  ],
+  "opening_cm": [
+   4.55,
+   3.19,
+   5.93
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "agree",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.11,
+   3.94
+  ],
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "bottom_cm": [
+   3.49,
+   2.35,
+   4.61
+  ],
+  "opening_cm": [
+   4.55,
+   3.19,
+   5.93
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "agree",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.11,
+   3.94
+  ],
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "bottom_cm": [
+   3.49,
+   2.35,
+   4.61
+  ],
+  "opening_cm": [
+   4.55,
+   3.19,
+   5.93
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "agree",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.11,
+   3.94
+  ],
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "bottom_cm": [
+   3.49,
+   2.35,
+   4.61
+  ],
+  "opening_cm": [
+   4.55,
+   3.19,
+   5.93
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "agree",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   4.11,
+   3.94
+  ],
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "bottom_cm": [
+   3.49,
+   2.35,
+   4.61
+  ],
+  "opening_cm": [
+   4.55,
+   3.19,
+   5.93
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "agree",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is inside the blue cup, standing on its bottom. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.11,
+   3.94
+  ],
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "bottom_cm": [
+   3.49,
+   2.35,
+   4.61
+  ],
+  "opening_cm": [
+   4.55,
+   3.19,
+   5.93
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1006,
+  "case": "swap_wide",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is inside the red cup, standing on its bottom. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   0.01
+  ],
+  "clear_mm": [
+   4.67,
+   4.81
+  ],
+  "tol_mm": [
+   12.77,
+   9.77
+  ],
+  "bottom_cm": [
+   3.6,
+   2.36,
+   4.92
+  ],
+  "opening_cm": [
+   5.27,
+   3.09,
+   5.97
+  ],
+  "height_cm": [
+   9.57,
+   4.21,
+   5.97
+  ]
+ },
+ {
+  "seed": 1006,
+  "case": "swap_wide",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the red cup, not inside it, tilted about 9 degrees.",
+  "below_rim_cm": [
+   0.02
+  ],
+  "clear_mm": [
+   4.67,
+   4.81
+  ],
+  "tol_mm": [
+   12.77,
+   9.77
+  ],
+  "bottom_cm": [
+   3.6,
+   2.36,
+   4.92
+  ],
+  "opening_cm": [
+   5.27,
+   3.09,
+   5.97
+  ],
+  "height_cm": [
+   9.57,
+   4.21,
+   5.97
+  ]
+ },
+ {
+  "seed": 1006,
+  "case": "swap_wide",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.67,
+   4.81
+  ],
+  "tol_mm": [
+   12.77,
+   9.77
+  ],
+  "bottom_cm": [
+   3.6,
+   2.36,
+   4.92
+  ],
+  "opening_cm": [
+   5.27,
+   3.09,
+   5.97
+  ],
+  "height_cm": [
+   9.57,
+   4.21,
+   5.97
+  ]
+ },
+ {
+  "seed": 1006,
+  "case": "swap_wide",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.67,
+   4.81
+  ],
+  "tol_mm": [
+   12.77,
+   9.77
+  ],
+  "bottom_cm": [
+   3.6,
+   2.36,
+   4.92
+  ],
+  "opening_cm": [
+   5.27,
+   3.09,
+   5.97
+  ],
+  "height_cm": [
+   9.57,
+   4.21,
+   5.97
+  ]
+ },
+ {
+  "seed": 1006,
+  "case": "swap_wide",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   4.67,
+   4.81
+  ],
+  "tol_mm": [
+   12.77,
+   9.77
+  ],
+  "bottom_cm": [
+   3.6,
+   2.36,
+   4.92
+  ],
+  "opening_cm": [
+   5.27,
+   3.09,
+   5.97
+  ],
+  "height_cm": [
+   9.57,
+   4.21,
+   5.97
+  ]
+ },
+ {
+  "seed": 1006,
+  "case": "swap_wide",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is inside the blue cup, standing on its bottom. The red cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   4.67,
+   4.81
+  ],
+  "tol_mm": [
+   12.77,
+   9.77
+  ],
+  "bottom_cm": [
+   3.6,
+   2.36,
+   4.92
+  ],
+  "opening_cm": [
+   5.27,
+   3.09,
+   5.97
+  ],
+  "height_cm": [
+   9.57,
+   4.21,
+   5.97
+  ]
+ },
+ {
+  "seed": 1007,
+  "case": "agree",
+  "order": [
+   0,
+   1,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The green cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.24,
+   3.87
+  ],
+  "tol_mm": [
+   9.83,
+   11.93
+  ],
+  "bottom_cm": [
+   2.2,
+   3.56,
+   4.67
+  ],
+  "opening_cm": [
+   2.96,
+   4.53,
+   6.33
+  ],
+  "height_cm": [
+   4.36,
+   5.55,
+   9.51
+  ]
+ },
+ {
+  "seed": 1007,
+  "case": "agree",
+  "order": [
+   0,
+   2,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The red cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.24,
+   3.87
+  ],
+  "tol_mm": [
+   9.83,
+   11.93
+  ],
+  "bottom_cm": [
+   2.2,
+   3.56,
+   4.67
+  ],
+  "opening_cm": [
+   2.96,
+   4.53,
+   6.33
+  ],
+  "height_cm": [
+   4.36,
+   5.55,
+   9.51
+  ]
+ },
+ {
+  "seed": 1007,
+  "case": "agree",
+  "order": [
+   1,
+   0,
+   2
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The green cup is standing on the table, not in another cup. The red cup is inside the green cup, standing on its bottom. The blue cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.91
+  ],
+  "clear_mm": [
+   5.24,
+   3.87
+  ],
+  "tol_mm": [
+   9.83,
+   11.93
+  ],
+  "bottom_cm": [
+   2.2,
+   3.56,
+   4.67
+  ],
+  "opening_cm": [
+   2.96,
+   4.53,
+   6.33
+  ],
+  "height_cm": [
+   4.36,
+   5.55,
+   9.51
+  ]
+ },
+ {
+  "seed": 1007,
+  "case": "agree",
+  "order": [
+   1,
+   2,
+   0
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The red cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The blue cup is sitting on the rim of the green cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.24,
+   3.87
+  ],
+  "tol_mm": [
+   9.83,
+   11.93
+  ],
+  "bottom_cm": [
+   2.2,
+   3.56,
+   4.67
+  ],
+  "opening_cm": [
+   2.96,
+   4.53,
+   6.33
+  ],
+  "height_cm": [
+   4.36,
+   5.55,
+   9.51
+  ]
+ },
+ {
+  "seed": 1007,
+  "case": "agree",
+  "order": [
+   2,
+   0,
+   1
+  ],
+  "success": false,
+  "expect": false,
+  "failure": "blocked",
+  "detail": "The blue cup is standing on the table, not in another cup. The red cup is inside the blue cup, standing on its bottom. The green cup is sitting on the rim of the red cup, not inside it.",
+  "below_rim_cm": [
+   -0.01
+  ],
+  "clear_mm": [
+   5.24,
+   3.87
+  ],
+  "tol_mm": [
+   9.83,
+   11.93
+  ],
+  "bottom_cm": [
+   2.2,
+   3.56,
+   4.67
+  ],
+  "opening_cm": [
+   2.96,
+   4.53,
+   6.33
+  ],
+  "height_cm": [
+   4.36,
+   5.55,
+   9.51
+  ]
+ },
+ {
+  "seed": 1007,
+  "case": "agree",
+  "order": [
+   2,
+   1,
+   0
+  ],
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "below_rim_cm": [],
+  "clear_mm": [
+   5.24,
+   3.87
+  ],
+  "tol_mm": [
+   9.83,
+   11.93
+  ],
+  "bottom_cm": [
+   2.2,
+   3.56,
+   4.67
+  ],
+  "opening_cm": [
+   2.96,
+   4.53,
+   6.33
+  ],
+  "height_cm": [
+   4.36,
+   5.55,
+   9.51
+  ]
+ }
+]

@@ -1,0 +1,9889 @@
+{
+ "task": "l6_sequence_resume",
+ "level": "L6",
+ "capabilities": [
+  "Perceive",
+  "Save",
+  "Retrieve",
+  "Utilize"
+ ],
+ "n": 20,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.25,
+   0.25,
+   0.25,
+   0.25,
+   0.25
+  ],
+  "adaptive": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "order": [
+     "chocolate_pudding_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2406,
+      -0.0264
+     ],
+     [
+      -0.2284,
+      -0.2603
+     ],
+     [
+      -0.017,
+      0.2584
+     ],
+     [
+      -0.0526,
+      -0.1925
+     ]
+    ],
+    "scale_xy": [
+     0.0023,
+     -0.0155
+    ],
+    "item_off": [
+     [
+      0.0027607206495348785,
+      0.0025834762747810654
+     ],
+     [
+      -0.004544183872124016,
+      -0.004646496983620365
+     ],
+     [
+      0.004218269221510446,
+      -0.0072962819355649414
+     ],
+     [
+      -0.0028195085794204214,
+      0.004685242936972849
+     ]
+    ],
+    "item_yaw": [
+     -0.19800091811138362,
+     -0.07071062753244195,
+     -0.11353450461065384,
+     -0.273680469549718
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07981795366915628,
+    "stop_off": [
+     0.005839633919821691,
+     0.006713004949436257
+    ],
+    "stop_yaw": 0.24306664337917444,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_B"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "cream cheese",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "order": [
+     "chocolate_pudding_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2406,
+      -0.0264
+     ],
+     [
+      -0.2284,
+      -0.2603
+     ],
+     [
+      -0.017,
+      0.2584
+     ],
+     [
+      -0.0526,
+      -0.1925
+     ]
+    ],
+    "scale_xy": [
+     0.0023,
+     -0.0155
+    ],
+    "item_off": [
+     [
+      0.0027607206495348785,
+      0.0025834762747810654
+     ],
+     [
+      -0.004544183872124016,
+      -0.004646496983620365
+     ],
+     [
+      0.004218269221510446,
+      -0.0072962819355649414
+     ],
+     [
+      -0.0028195085794204214,
+      0.004685242936972849
+     ]
+    ],
+    "item_yaw": [
+     -0.19800091811138362,
+     -0.07071062753244195,
+     -0.11353450461065384,
+     -0.273680469549718
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07981795366915628,
+    "stop_off": [
+     0.005839633919821691,
+     0.006713004949436257
+    ],
+    "stop_yaw": 0.24306664337917444,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 4 items already weighed"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "cream cheese",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "order": [
+     "chocolate_pudding_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2406,
+      -0.0264
+     ],
+     [
+      -0.2284,
+      -0.2603
+     ],
+     [
+      -0.017,
+      0.2584
+     ],
+     [
+      -0.0526,
+      -0.1925
+     ]
+    ],
+    "scale_xy": [
+     0.0023,
+     -0.0155
+    ],
+    "item_off": [
+     [
+      0.0027607206495348785,
+      0.0025834762747810654
+     ],
+     [
+      -0.004544183872124016,
+      -0.004646496983620365
+     ],
+     [
+      0.004218269221510446,
+      -0.0072962819355649414
+     ],
+     [
+      -0.0028195085794204214,
+      0.004685242936972849
+     ]
+    ],
+    "item_yaw": [
+     -0.19800091811138362,
+     -0.07071062753244195,
+     -0.11353450461065384,
+     -0.273680469549718
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07981795366915628,
+    "stop_off": [
+     0.005839633919821691,
+     0.006713004949436257
+    ],
+    "stop_yaw": 0.24306664337917444,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "cream cheese",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "order": [
+     "chocolate_pudding_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2406,
+      -0.0264
+     ],
+     [
+      -0.2284,
+      -0.2603
+     ],
+     [
+      -0.017,
+      0.2584
+     ],
+     [
+      -0.0526,
+      -0.1925
+     ]
+    ],
+    "scale_xy": [
+     0.0023,
+     -0.0155
+    ],
+    "item_off": [
+     [
+      0.0027607206495348785,
+      0.0025834762747810654
+     ],
+     [
+      -0.004544183872124016,
+      -0.004646496983620365
+     ],
+     [
+      0.004218269221510446,
+      -0.0072962819355649414
+     ],
+     [
+      -0.0028195085794204214,
+      0.004685242936972849
+     ]
+    ],
+    "item_yaw": [
+     -0.19800091811138362,
+     -0.07071062753244195,
+     -0.11353450461065384,
+     -0.273680469549718
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07981795366915628,
+    "stop_off": [
+     0.005839633919821691,
+     0.006713004949436257
+    ],
+    "stop_yaw": 0.24306664337917444,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "chocolate pudding",
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 5,
+       "step": 1107,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1942,
+      -0.0172
+     ],
+     [
+      -0.0242,
+      0.0216
+     ],
+     [
+      -0.0003,
+      0.2103
+     ],
+     [
+      -0.2676,
+      -0.19
+     ]
+    ],
+    "scale_xy": [
+     -0.2281,
+     0.1778
+    ],
+    "item_off": [
+     [
+      -0.000999990508970084,
+      -0.007070405567412932
+     ],
+     [
+      0.0046822828301771886,
+      0.0036663988894410585
+     ],
+     [
+      0.0012183987699032114,
+      0.006081803186460798
+     ],
+     [
+      0.006177806720485318,
+      0.002646374646947336
+     ]
+    ],
+    "item_yaw": [
+     -0.21894652127396041,
+     -0.22680996250858315,
+     -0.1794641712246397,
+     0.11231486571528565
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06615882411206933,
+    "stop_off": [
+     0.004699598262094928,
+     -0.006554773200547604
+    ],
+    "stop_yaw": 0.26748911462584496,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "stop_A"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 675
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1942,
+      -0.0172
+     ],
+     [
+      -0.0242,
+      0.0216
+     ],
+     [
+      -0.0003,
+      0.2103
+     ],
+     [
+      -0.2676,
+      -0.19
+     ]
+    ],
+    "scale_xy": [
+     -0.2281,
+     0.1778
+    ],
+    "item_off": [
+     [
+      -0.000999990508970084,
+      -0.007070405567412932
+     ],
+     [
+      0.0046822828301771886,
+      0.0036663988894410585
+     ],
+     [
+      0.0012183987699032114,
+      0.006081803186460798
+     ],
+     [
+      0.006177806720485318,
+      0.002646374646947336
+     ]
+    ],
+    "item_yaw": [
+     -0.21894652127396041,
+     -0.22680996250858315,
+     -0.1794641712246397,
+     0.11231486571528565
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06615882411206933,
+    "stop_off": [
+     0.004699598262094928,
+     -0.006554773200547604
+    ],
+    "stop_yaw": 0.26748911462584496,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 3 items already weighed"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 675
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1942,
+      -0.0172
+     ],
+     [
+      -0.0242,
+      0.0216
+     ],
+     [
+      -0.0003,
+      0.2103
+     ],
+     [
+      -0.2676,
+      -0.19
+     ]
+    ],
+    "scale_xy": [
+     -0.2281,
+     0.1778
+    ],
+    "item_off": [
+     [
+      -0.000999990508970084,
+      -0.007070405567412932
+     ],
+     [
+      0.0046822828301771886,
+      0.0036663988894410585
+     ],
+     [
+      0.0012183987699032114,
+      0.006081803186460798
+     ],
+     [
+      0.006177806720485318,
+      0.002646374646947336
+     ]
+    ],
+    "item_yaw": [
+     -0.21894652127396041,
+     -0.22680996250858315,
+     -0.1794641712246397,
+     0.11231486571528565
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06615882411206933,
+    "stop_off": [
+     0.004699598262094928,
+     -0.006554773200547604
+    ],
+    "stop_yaw": 0.26748911462584496,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 675
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1942,
+      -0.0172
+     ],
+     [
+      -0.0242,
+      0.0216
+     ],
+     [
+      -0.0003,
+      0.2103
+     ],
+     [
+      -0.2676,
+      -0.19
+     ]
+    ],
+    "scale_xy": [
+     -0.2281,
+     0.1778
+    ],
+    "item_off": [
+     [
+      -0.000999990508970084,
+      -0.007070405567412932
+     ],
+     [
+      0.0046822828301771886,
+      0.0036663988894410585
+     ],
+     [
+      0.0012183987699032114,
+      0.006081803186460798
+     ],
+     [
+      0.006177806720485318,
+      0.002646374646947336
+     ]
+    ],
+    "item_yaw": [
+     -0.21894652127396041,
+     -0.22680996250858315,
+     -0.1794641712246397,
+     0.11231486571528565
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06615882411206933,
+    "stop_off": [
+     0.004699598262094928,
+     -0.006554773200547604
+    ],
+    "stop_yaw": 0.26748911462584496,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "butter",
+       "cream cheese",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 4,
+       "step": 1021,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 675
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "order": [
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2422,
+      0.2671
+     ],
+     [
+      -0.2013,
+      0.0999
+     ],
+     [
+      -0.0383,
+      -0.2608
+     ],
+     [
+      -0.0289,
+      0.1154
+     ]
+    ],
+    "scale_xy": [
+     0.0339,
+     -0.0729
+    ],
+    "item_off": [
+     [
+      0.00037529694375647814,
+      0.006474207060333031
+     ],
+     [
+      -0.00613497302139964,
+      -0.0075104679262723555
+     ],
+     [
+      0.007730780620903516,
+      -0.006576939563025692
+     ],
+     [
+      -0.006340553091556073,
+      -0.007569934876779749
+     ]
+    ],
+    "item_yaw": [
+     0.03815589796970281,
+     0.07795450342593446,
+     -0.1399472589976415,
+     -0.12875443069023823
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06612813758724186,
+    "stop_off": [
+     0.00244349226915363,
+     0.007449610412552382
+    ],
+    "stop_yaw": -0.03769896961870084,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "stop_A"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "popcorn",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 679
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "order": [
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2422,
+      0.2671
+     ],
+     [
+      -0.2013,
+      0.0999
+     ],
+     [
+      -0.0383,
+      -0.2608
+     ],
+     [
+      -0.0289,
+      0.1154
+     ]
+    ],
+    "scale_xy": [
+     0.0339,
+     -0.0729
+    ],
+    "item_off": [
+     [
+      0.00037529694375647814,
+      0.006474207060333031
+     ],
+     [
+      -0.00613497302139964,
+      -0.0075104679262723555
+     ],
+     [
+      0.007730780620903516,
+      -0.006576939563025692
+     ],
+     [
+      -0.006340553091556073,
+      -0.007569934876779749
+     ]
+    ],
+    "item_yaw": [
+     0.03815589796970281,
+     0.07795450342593446,
+     -0.1399472589976415,
+     -0.12875443069023823
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06612813758724186,
+    "stop_off": [
+     0.00244349226915363,
+     0.007449610412552382
+    ],
+    "stop_yaw": -0.03769896961870084,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 0 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "butter",
+       "popcorn",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 4,
+       "step": 1032,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 679
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "order": [
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2422,
+      0.2671
+     ],
+     [
+      -0.2013,
+      0.0999
+     ],
+     [
+      -0.0383,
+      -0.2608
+     ],
+     [
+      -0.0289,
+      0.1154
+     ]
+    ],
+    "scale_xy": [
+     0.0339,
+     -0.0729
+    ],
+    "item_off": [
+     [
+      0.00037529694375647814,
+      0.006474207060333031
+     ],
+     [
+      -0.00613497302139964,
+      -0.0075104679262723555
+     ],
+     [
+      0.007730780620903516,
+      -0.006576939563025692
+     ],
+     [
+      -0.006340553091556073,
+      -0.007569934876779749
+     ]
+    ],
+    "item_yaw": [
+     0.03815589796970281,
+     0.07795450342593446,
+     -0.1399472589976415,
+     -0.12875443069023823
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06612813758724186,
+    "stop_off": [
+     0.00244349226915363,
+     0.007449610412552382
+    ],
+    "stop_yaw": -0.03769896961870084,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "popcorn",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 679
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "order": [
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2422,
+      0.2671
+     ],
+     [
+      -0.2013,
+      0.0999
+     ],
+     [
+      -0.0383,
+      -0.2608
+     ],
+     [
+      -0.0289,
+      0.1154
+     ]
+    ],
+    "scale_xy": [
+     0.0339,
+     -0.0729
+    ],
+    "item_off": [
+     [
+      0.00037529694375647814,
+      0.006474207060333031
+     ],
+     [
+      -0.00613497302139964,
+      -0.0075104679262723555
+     ],
+     [
+      0.007730780620903516,
+      -0.006576939563025692
+     ],
+     [
+      -0.006340553091556073,
+      -0.007569934876779749
+     ]
+    ],
+    "item_yaw": [
+     0.03815589796970281,
+     0.07795450342593446,
+     -0.1399472589976415,
+     -0.12875443069023823
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06612813758724186,
+    "stop_off": [
+     0.00244349226915363,
+     0.007449610412552382
+    ],
+    "stop_yaw": -0.03769896961870084,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "butter",
+       "popcorn",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 4,
+       "step": 1032,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 679
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.005,
+      -0.0326
+     ],
+     [
+      -0.2655,
+      -0.2611
+     ],
+     [
+      -0.0483,
+      -0.2071
+     ],
+     [
+      -0.0741,
+      0.1166
+     ]
+    ],
+    "scale_xy": [
+     -0.2148,
+     0.2222
+    ],
+    "item_off": [
+     [
+      -0.004906313052733898,
+      0.00629599913802717
+     ],
+     [
+      0.0018881641779169064,
+      -0.005481507830822491
+     ],
+     [
+      0.0060858945590215215,
+      -0.007402024404497246
+     ],
+     [
+      -0.0009068143137392079,
+      0.004419984058076136
+     ]
+    ],
+    "item_yaw": [
+     -0.19002184934158,
+     0.27892315469444123,
+     0.24532069038310406,
+     -0.2576330737498646
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.05304034478227694,
+    "stop_off": [
+     0.007396084279696935,
+     0.00513244692131057
+    ],
+    "stop_yaw": -0.19028080620131413,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_A"
+       ],
+       [
+        "butter",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 676
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.005,
+      -0.0326
+     ],
+     [
+      -0.2655,
+      -0.2611
+     ],
+     [
+      -0.0483,
+      -0.2071
+     ],
+     [
+      -0.0741,
+      0.1166
+     ]
+    ],
+    "scale_xy": [
+     -0.2148,
+     0.2222
+    ],
+    "item_off": [
+     [
+      -0.004906313052733898,
+      0.00629599913802717
+     ],
+     [
+      0.0018881641779169064,
+      -0.005481507830822491
+     ],
+     [
+      0.0060858945590215215,
+      -0.007402024404497246
+     ],
+     [
+      -0.0009068143137392079,
+      0.004419984058076136
+     ]
+    ],
+    "item_yaw": [
+     -0.19002184934158,
+     0.27892315469444123,
+     0.24532069038310406,
+     -0.2576330737498646
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.05304034478227694,
+    "stop_off": [
+     0.007396084279696935,
+     0.00513244692131057
+    ],
+    "stop_yaw": -0.19028080620131413,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 4,
+       "step": 1018,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 676
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.005,
+      -0.0326
+     ],
+     [
+      -0.2655,
+      -0.2611
+     ],
+     [
+      -0.0483,
+      -0.2071
+     ],
+     [
+      -0.0741,
+      0.1166
+     ]
+    ],
+    "scale_xy": [
+     -0.2148,
+     0.2222
+    ],
+    "item_off": [
+     [
+      -0.004906313052733898,
+      0.00629599913802717
+     ],
+     [
+      0.0018881641779169064,
+      -0.005481507830822491
+     ],
+     [
+      0.0060858945590215215,
+      -0.007402024404497246
+     ],
+     [
+      -0.0009068143137392079,
+      0.004419984058076136
+     ]
+    ],
+    "item_yaw": [
+     -0.19002184934158,
+     0.27892315469444123,
+     0.24532069038310406,
+     -0.2576330737498646
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.05304034478227694,
+    "stop_off": [
+     0.007396084279696935,
+     0.00513244692131057
+    ],
+    "stop_yaw": -0.19028080620131413,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 676
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.005,
+      -0.0326
+     ],
+     [
+      -0.2655,
+      -0.2611
+     ],
+     [
+      -0.0483,
+      -0.2071
+     ],
+     [
+      -0.0741,
+      0.1166
+     ]
+    ],
+    "scale_xy": [
+     -0.2148,
+     0.2222
+    ],
+    "item_off": [
+     [
+      -0.004906313052733898,
+      0.00629599913802717
+     ],
+     [
+      0.0018881641779169064,
+      -0.005481507830822491
+     ],
+     [
+      0.0060858945590215215,
+      -0.007402024404497246
+     ],
+     [
+      -0.0009068143137392079,
+      0.004419984058076136
+     ]
+    ],
+    "item_yaw": [
+     -0.19002184934158,
+     0.27892315469444123,
+     0.24532069038310406,
+     -0.2576330737498646
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.05304034478227694,
+    "stop_off": [
+     0.007396084279696935,
+     0.00513244692131057
+    ],
+    "stop_yaw": -0.19028080620131413,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 4,
+       "step": 1017,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 676
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1491,
+      0.0744
+     ],
+     [
+      -0.247,
+      0.2083
+     ],
+     [
+      -0.1907,
+      -0.2503
+     ],
+     [
+      -0.0228,
+      0.2107
+     ]
+    ],
+    "scale_xy": [
+     0.0031,
+     -0.0473
+    ],
+    "item_off": [
+     [
+      -0.0005150551023721485,
+      0.00013289020647288922
+     ],
+     [
+      0.005598662420482965,
+      0.003091773869767535
+     ],
+     [
+      -0.005908982149088196,
+      0.0012556718753178285
+     ],
+     [
+      -0.006051084061601389,
+      -0.0030309714193128626
+     ]
+    ],
+    "item_yaw": [
+     -0.2716292752373268,
+     -0.06514397929406654,
+     0.07785315817257726,
+     -0.1924905406031826
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.05992744219346096,
+    "stop_off": [
+     -0.004601908570680392,
+     0.0065518399196899495
+    ],
+    "stop_yaw": 0.2380171395429958,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "stop_B"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1491,
+      0.0744
+     ],
+     [
+      -0.247,
+      0.2083
+     ],
+     [
+      -0.1907,
+      -0.2503
+     ],
+     [
+      -0.0228,
+      0.2107
+     ]
+    ],
+    "scale_xy": [
+     0.0031,
+     -0.0473
+    ],
+    "item_off": [
+     [
+      -0.0005150551023721485,
+      0.00013289020647288922
+     ],
+     [
+      0.005598662420482965,
+      0.003091773869767535
+     ],
+     [
+      -0.005908982149088196,
+      0.0012556718753178285
+     ],
+     [
+      -0.006051084061601389,
+      -0.0030309714193128626
+     ]
+    ],
+    "item_yaw": [
+     -0.2716292752373268,
+     -0.06514397929406654,
+     0.07785315817257726,
+     -0.1924905406031826
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.05992744219346096,
+    "stop_off": [
+     -0.004601908570680392,
+     0.0065518399196899495
+    ],
+    "stop_yaw": 0.2380171395429958,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 4 items already weighed"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1491,
+      0.0744
+     ],
+     [
+      -0.247,
+      0.2083
+     ],
+     [
+      -0.1907,
+      -0.2503
+     ],
+     [
+      -0.0228,
+      0.2107
+     ]
+    ],
+    "scale_xy": [
+     0.0031,
+     -0.0473
+    ],
+    "item_off": [
+     [
+      -0.0005150551023721485,
+      0.00013289020647288922
+     ],
+     [
+      0.005598662420482965,
+      0.003091773869767535
+     ],
+     [
+      -0.005908982149088196,
+      0.0012556718753178285
+     ],
+     [
+      -0.006051084061601389,
+      -0.0030309714193128626
+     ]
+    ],
+    "item_yaw": [
+     -0.2716292752373268,
+     -0.06514397929406654,
+     0.07785315817257726,
+     -0.1924905406031826
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.05992744219346096,
+    "stop_off": [
+     -0.004601908570680392,
+     0.0065518399196899495
+    ],
+    "stop_yaw": 0.2380171395429958,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.1491,
+      0.0744
+     ],
+     [
+      -0.247,
+      0.2083
+     ],
+     [
+      -0.1907,
+      -0.2503
+     ],
+     [
+      -0.0228,
+      0.2107
+     ]
+    ],
+    "scale_xy": [
+     0.0031,
+     -0.0473
+    ],
+    "item_off": [
+     [
+      -0.0005150551023721485,
+      0.00013289020647288922
+     ],
+     [
+      0.005598662420482965,
+      0.003091773869767535
+     ],
+     [
+      -0.005908982149088196,
+      0.0012556718753178285
+     ],
+     [
+      -0.006051084061601389,
+      -0.0030309714193128626
+     ]
+    ],
+    "item_yaw": [
+     -0.2716292752373268,
+     -0.06514397929406654,
+     0.07785315817257726,
+     -0.1924905406031826
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.05992744219346096,
+    "stop_off": [
+     -0.004601908570680392,
+     0.0065518399196899495
+    ],
+    "stop_yaw": 0.2380171395429958,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_B",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 5,
+       "step": 1101,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 758
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.2528,
+      0.0319
+     ],
+     [
+      -0.057,
+      -0.2528
+     ],
+     [
+      -0.2664,
+      0.2459
+     ],
+     [
+      -0.2245,
+      -0.1988
+     ]
+    ],
+    "scale_xy": [
+     -0.0838,
+     0.1534
+    ],
+    "item_off": [
+     [
+      0.0026127424727282623,
+      -0.0016562601480085903
+     ],
+     [
+      -0.0059941209614179985,
+      -0.005064327794204158
+     ],
+     [
+      -0.0014790713606211712,
+      -0.00012106368346906198
+     ],
+     [
+      -0.0057815258114445245,
+      -0.0015602655303371621
+     ]
+    ],
+    "item_yaw": [
+     0.0544845486258585,
+     -0.12152219273835621,
+     0.220795069065798,
+     0.22705995644932436
+    ],
+    "stop_w": 1,
+    "stop_phase": "B",
+    "trigger_dist": 0.07642569308110984,
+    "stop_off": [
+     -0.0008631356953528934,
+     0.005493989506503498
+    ],
+    "stop_yaw": 0.00620878615670839,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "stop_B"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "butter",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 1,
+       "step": 155
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.2528,
+      0.0319
+     ],
+     [
+      -0.057,
+      -0.2528
+     ],
+     [
+      -0.2664,
+      0.2459
+     ],
+     [
+      -0.2245,
+      -0.1988
+     ]
+    ],
+    "scale_xy": [
+     -0.0838,
+     0.1534
+    ],
+    "item_off": [
+     [
+      0.0026127424727282623,
+      -0.0016562601480085903
+     ],
+     [
+      -0.0059941209614179985,
+      -0.005064327794204158
+     ],
+     [
+      -0.0014790713606211712,
+      -0.00012106368346906198
+     ],
+     [
+      -0.0057815258114445245,
+      -0.0015602655303371621
+     ]
+    ],
+    "item_yaw": [
+     0.0544845486258585,
+     -0.12152219273835621,
+     0.220795069065798,
+     0.22705995644932436
+    ],
+    "stop_w": 1,
+    "stop_phase": "B",
+    "trigger_dist": 0.07642569308110984,
+    "stop_off": [
+     -0.0008631356953528934,
+     0.005493989506503498
+    ],
+    "stop_yaw": 0.00620878615670839,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 4 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "log": [
+       "cream cheese"
+      ],
+      "n_weighed": 1,
+      "complete": false,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 1,
+       "step": 155
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. Not every item has been weighed yet."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.2528,
+      0.0319
+     ],
+     [
+      -0.057,
+      -0.2528
+     ],
+     [
+      -0.2664,
+      0.2459
+     ],
+     [
+      -0.2245,
+      -0.1988
+     ]
+    ],
+    "scale_xy": [
+     -0.0838,
+     0.1534
+    ],
+    "item_off": [
+     [
+      0.0026127424727282623,
+      -0.0016562601480085903
+     ],
+     [
+      -0.0059941209614179985,
+      -0.005064327794204158
+     ],
+     [
+      -0.0014790713606211712,
+      -0.00012106368346906198
+     ],
+     [
+      -0.0057815258114445245,
+      -0.0015602655303371621
+     ]
+    ],
+    "item_yaw": [
+     0.0544845486258585,
+     -0.12152219273835621,
+     0.220795069065798,
+     0.22705995644932436
+    ],
+    "stop_w": 1,
+    "stop_phase": "B",
+    "trigger_dist": 0.07642569308110984,
+    "stop_off": [
+     -0.0008631356953528934,
+     0.005493989506503498
+    ],
+    "stop_yaw": 0.00620878615670839,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "stop_B",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "butter",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 1,
+       "step": 155
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.2528,
+      0.0319
+     ],
+     [
+      -0.057,
+      -0.2528
+     ],
+     [
+      -0.2664,
+      0.2459
+     ],
+     [
+      -0.2245,
+      -0.1988
+     ]
+    ],
+    "scale_xy": [
+     -0.0838,
+     0.1534
+    ],
+    "item_off": [
+     [
+      0.0026127424727282623,
+      -0.0016562601480085903
+     ],
+     [
+      -0.0059941209614179985,
+      -0.005064327794204158
+     ],
+     [
+      -0.0014790713606211712,
+      -0.00012106368346906198
+     ],
+     [
+      -0.0057815258114445245,
+      -0.0015602655303371621
+     ]
+    ],
+    "item_yaw": [
+     0.0544845486258585,
+     -0.12152219273835621,
+     0.220795069065798,
+     0.22705995644932436
+    ],
+    "stop_w": 1,
+    "stop_phase": "B",
+    "trigger_dist": 0.07642569308110984,
+    "stop_off": [
+     -0.0008631356953528934,
+     0.005493989506503498
+    ],
+    "stop_yaw": 0.00620878615670839,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "stop_B",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "cream cheese"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 2,
+       "step": 504,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 1,
+       "step": 155
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2297,
+      0.0095
+     ],
+     [
+      0.0057,
+      -0.1793
+     ],
+     [
+      -0.2562,
+      0.1768
+     ],
+     [
+      0.003,
+      -0.0117
+     ]
+    ],
+    "scale_xy": [
+     -0.0683,
+     0.2273
+    ],
+    "item_off": [
+     [
+      0.006310134991738546,
+      -0.0009131167445483842
+     ],
+     [
+      -0.005113241123718153,
+      0.003927761519865429
+     ],
+     [
+      0.0009301043363538,
+      0.0073388397972316746
+     ],
+     [
+      0.006013482199893677,
+      -0.0036367504217615513
+     ]
+    ],
+    "item_yaw": [
+     0.1327980580812772,
+     -0.0581271195224681,
+     0.18329152502995177,
+     0.007399237075246701
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07984255520645804,
+    "stop_off": [
+     0.002452045609806837,
+     -0.001957401981181402
+    ],
+    "stop_yaw": 0.2731052833106103,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "stop_A"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 643
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2297,
+      0.0095
+     ],
+     [
+      0.0057,
+      -0.1793
+     ],
+     [
+      -0.2562,
+      0.1768
+     ],
+     [
+      0.003,
+      -0.0117
+     ]
+    ],
+    "scale_xy": [
+     -0.0683,
+     0.2273
+    ],
+    "item_off": [
+     [
+      0.006310134991738546,
+      -0.0009131167445483842
+     ],
+     [
+      -0.005113241123718153,
+      0.003927761519865429
+     ],
+     [
+      0.0009301043363538,
+      0.0073388397972316746
+     ],
+     [
+      0.006013482199893677,
+      -0.0036367504217615513
+     ]
+    ],
+    "item_yaw": [
+     0.1327980580812772,
+     -0.0581271195224681,
+     0.18329152502995177,
+     0.007399237075246701
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07984255520645804,
+    "stop_off": [
+     0.002452045609806837,
+     -0.001957401981181402
+    ],
+    "stop_yaw": 0.2731052833106103,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ]
+      ],
+      "recovery": "memoryless: guesses 4 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 643
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. Not every item has been weighed yet."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2297,
+      0.0095
+     ],
+     [
+      0.0057,
+      -0.1793
+     ],
+     [
+      -0.2562,
+      0.1768
+     ],
+     [
+      0.003,
+      -0.0117
+     ]
+    ],
+    "scale_xy": [
+     -0.0683,
+     0.2273
+    ],
+    "item_off": [
+     [
+      0.006310134991738546,
+      -0.0009131167445483842
+     ],
+     [
+      -0.005113241123718153,
+      0.003927761519865429
+     ],
+     [
+      0.0009301043363538,
+      0.0073388397972316746
+     ],
+     [
+      0.006013482199893677,
+      -0.0036367504217615513
+     ]
+    ],
+    "item_yaw": [
+     0.1327980580812772,
+     -0.0581271195224681,
+     0.18329152502995177,
+     0.007399237075246701
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07984255520645804,
+    "stop_off": [
+     0.002452045609806837,
+     -0.001957401981181402
+    ],
+    "stop_yaw": 0.2731052833106103,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 643
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2297,
+      0.0095
+     ],
+     [
+      0.0057,
+      -0.1793
+     ],
+     [
+      -0.2562,
+      0.1768
+     ],
+     [
+      0.003,
+      -0.0117
+     ]
+    ],
+    "scale_xy": [
+     -0.0683,
+     0.2273
+    ],
+    "item_off": [
+     [
+      0.006310134991738546,
+      -0.0009131167445483842
+     ],
+     [
+      -0.005113241123718153,
+      0.003927761519865429
+     ],
+     [
+      0.0009301043363538,
+      0.0073388397972316746
+     ],
+     [
+      0.006013482199893677,
+      -0.0036367504217615513
+     ]
+    ],
+    "item_yaw": [
+     0.1327980580812772,
+     -0.0581271195224681,
+     0.18329152502995177,
+     0.007399237075246701
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07984255520645804,
+    "stop_off": [
+     0.002452045609806837,
+     -0.001957401981181402
+    ],
+    "stop_yaw": 0.2731052833106103,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 4,
+       "step": 982,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 643
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.1753,
+      0.082
+     ],
+     [
+      -0.2386,
+      0.2456
+     ],
+     [
+      -0.0195,
+      -0.2668
+     ],
+     [
+      0.0082,
+      0.0522
+     ]
+    ],
+    "scale_xy": [
+     -0.2159,
+     -0.2023
+    ],
+    "item_off": [
+     [
+      0.0026770892880293683,
+      -0.0015306166925800786
+     ],
+     [
+      -0.005729287961396063,
+      -0.005653724765683724
+     ],
+     [
+      -0.0004358454770522135,
+      -0.002347005888868747
+     ],
+     [
+      -0.0011395580466267872,
+      -0.0035654224590140502
+     ]
+    ],
+    "item_yaw": [
+     -0.1250679576082453,
+     -0.05924222313322425,
+     -0.03313679294184185,
+     0.15260803502302178
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.0653747416521606,
+    "stop_off": [
+     -0.0019481994290714158,
+     0.00554024954612569
+    ],
+    "stop_yaw": 0.28325176952802206,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "stop_A"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 462
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.1753,
+      0.082
+     ],
+     [
+      -0.2386,
+      0.2456
+     ],
+     [
+      -0.0195,
+      -0.2668
+     ],
+     [
+      0.0082,
+      0.0522
+     ]
+    ],
+    "scale_xy": [
+     -0.2159,
+     -0.2023
+    ],
+    "item_off": [
+     [
+      0.0026770892880293683,
+      -0.0015306166925800786
+     ],
+     [
+      -0.005729287961396063,
+      -0.005653724765683724
+     ],
+     [
+      -0.0004358454770522135,
+      -0.002347005888868747
+     ],
+     [
+      -0.0011395580466267872,
+      -0.0035654224590140502
+     ]
+    ],
+    "item_yaw": [
+     -0.1250679576082453,
+     -0.05924222313322425,
+     -0.03313679294184185,
+     0.15260803502302178
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.0653747416521606,
+    "stop_off": [
+     -0.0019481994290714158,
+     0.00554024954612569
+    ],
+    "stop_yaw": 0.28325176952802206,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "butter",
+       "cream cheese",
+       "cream cheese"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 3,
+       "step": 796,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 462
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.1753,
+      0.082
+     ],
+     [
+      -0.2386,
+      0.2456
+     ],
+     [
+      -0.0195,
+      -0.2668
+     ],
+     [
+      0.0082,
+      0.0522
+     ]
+    ],
+    "scale_xy": [
+     -0.2159,
+     -0.2023
+    ],
+    "item_off": [
+     [
+      0.0026770892880293683,
+      -0.0015306166925800786
+     ],
+     [
+      -0.005729287961396063,
+      -0.005653724765683724
+     ],
+     [
+      -0.0004358454770522135,
+      -0.002347005888868747
+     ],
+     [
+      -0.0011395580466267872,
+      -0.0035654224590140502
+     ]
+    ],
+    "item_yaw": [
+     -0.1250679576082453,
+     -0.05924222313322425,
+     -0.03313679294184185,
+     0.15260803502302178
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.0653747416521606,
+    "stop_off": [
+     -0.0019481994290714158,
+     0.00554024954612569
+    ],
+    "stop_yaw": 0.28325176952802206,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 462
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1"
+    ],
+    "pads": [
+     [
+      -0.1753,
+      0.082
+     ],
+     [
+      -0.2386,
+      0.2456
+     ],
+     [
+      -0.0195,
+      -0.2668
+     ],
+     [
+      0.0082,
+      0.0522
+     ]
+    ],
+    "scale_xy": [
+     -0.2159,
+     -0.2023
+    ],
+    "item_off": [
+     [
+      0.0026770892880293683,
+      -0.0015306166925800786
+     ],
+     [
+      -0.005729287961396063,
+      -0.005653724765683724
+     ],
+     [
+      -0.0004358454770522135,
+      -0.002347005888868747
+     ],
+     [
+      -0.0011395580466267872,
+      -0.0035654224590140502
+     ]
+    ],
+    "item_yaw": [
+     -0.1250679576082453,
+     -0.05924222313322425,
+     -0.03313679294184185,
+     0.15260803502302178
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.0653747416521606,
+    "stop_off": [
+     -0.0019481994290714158,
+     0.00554024954612569
+    ],
+    "stop_yaw": 0.28325176952802206,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "butter",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 3,
+       "step": 809,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 462
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.0466,
+      0.2254
+     ],
+     [
+      -0.2414,
+      -0.2355
+     ],
+     [
+      0.0043,
+      0.0639
+     ],
+     [
+      -0.2427,
+      -0.0672
+     ]
+    ],
+    "scale_xy": [
+     -0.2661,
+     0.239
+    ],
+    "item_off": [
+     [
+      -0.004915263410115685,
+      0.0021814673211149604
+     ],
+     [
+      -0.005625583718795523,
+      0.0029186737539453403
+     ],
+     [
+      -0.003048392458914309,
+      -0.006190359949701371
+     ],
+     [
+      0.007895896370625266,
+      -0.0036603014035625284
+     ]
+    ],
+    "item_yaw": [
+     -0.14228719775043444,
+     0.010935056287214973,
+     -0.0901620573767509,
+     -0.1975776926116068
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08170543514029802,
+    "stop_off": [
+     0.005408652725587061,
+     -0.007179281857530334
+    ],
+    "stop_yaw": 0.05895636735968113,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "stop_B"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 814
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.0466,
+      0.2254
+     ],
+     [
+      -0.2414,
+      -0.2355
+     ],
+     [
+      0.0043,
+      0.0639
+     ],
+     [
+      -0.2427,
+      -0.0672
+     ]
+    ],
+    "scale_xy": [
+     -0.2661,
+     0.239
+    ],
+    "item_off": [
+     [
+      -0.004915263410115685,
+      0.0021814673211149604
+     ],
+     [
+      -0.005625583718795523,
+      0.0029186737539453403
+     ],
+     [
+      -0.003048392458914309,
+      -0.006190359949701371
+     ],
+     [
+      0.007895896370625266,
+      -0.0036603014035625284
+     ]
+    ],
+    "item_yaw": [
+     -0.14228719775043444,
+     0.010935056287214973,
+     -0.0901620573767509,
+     -0.1975776926116068
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08170543514029802,
+    "stop_off": [
+     0.005408652725587061,
+     -0.007179281857530334
+    ],
+    "stop_yaw": 0.05895636735968113,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_B",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 5,
+       "step": 1164,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 814
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.0466,
+      0.2254
+     ],
+     [
+      -0.2414,
+      -0.2355
+     ],
+     [
+      0.0043,
+      0.0639
+     ],
+     [
+      -0.2427,
+      -0.0672
+     ]
+    ],
+    "scale_xy": [
+     -0.2661,
+     0.239
+    ],
+    "item_off": [
+     [
+      -0.004915263410115685,
+      0.0021814673211149604
+     ],
+     [
+      -0.005625583718795523,
+      0.0029186737539453403
+     ],
+     [
+      -0.003048392458914309,
+      -0.006190359949701371
+     ],
+     [
+      0.007895896370625266,
+      -0.0036603014035625284
+     ]
+    ],
+    "item_yaw": [
+     -0.14228719775043444,
+     0.010935056287214973,
+     -0.0901620573767509,
+     -0.1975776926116068
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08170543514029802,
+    "stop_off": [
+     0.005408652725587061,
+     -0.007179281857530334
+    ],
+    "stop_yaw": 0.05895636735968113,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 814
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.0466,
+      0.2254
+     ],
+     [
+      -0.2414,
+      -0.2355
+     ],
+     [
+      0.0043,
+      0.0639
+     ],
+     [
+      -0.2427,
+      -0.0672
+     ]
+    ],
+    "scale_xy": [
+     -0.2661,
+     0.239
+    ],
+    "item_off": [
+     [
+      -0.004915263410115685,
+      0.0021814673211149604
+     ],
+     [
+      -0.005625583718795523,
+      0.0029186737539453403
+     ],
+     [
+      -0.003048392458914309,
+      -0.006190359949701371
+     ],
+     [
+      0.007895896370625266,
+      -0.0036603014035625284
+     ]
+    ],
+    "item_yaw": [
+     -0.14228719775043444,
+     0.010935056287214973,
+     -0.0901620573767509,
+     -0.1975776926116068
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08170543514029802,
+    "stop_off": [
+     0.005408652725587061,
+     -0.007179281857530334
+    ],
+    "stop_yaw": 0.05895636735968113,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_B",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese",
+       "popcorn"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 5,
+       "step": 1156,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 814
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2084,
+      0.2301
+     ],
+     [
+      -0.144,
+      0.0387
+     ],
+     [
+      -0.0277,
+      0.2124
+     ],
+     [
+      -0.1815,
+      -0.1644
+     ]
+    ],
+    "scale_xy": [
+     0.026,
+     -0.0136
+    ],
+    "item_off": [
+     [
+      0.0034020266313813073,
+      -0.000171765126809666
+     ],
+     [
+      0.005780569301580997,
+      0.003595895513692729
+     ],
+     [
+      -0.0009549776673169639,
+      0.004109669714835194
+     ],
+     [
+      -0.0072331644395981646,
+      -0.0019855535449829383
+     ]
+    ],
+    "item_yaw": [
+     0.015266582480279955,
+     0.11804971013160848,
+     -0.2281220392979004,
+     -0.16695927962190182
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.05339923766017987,
+    "stop_off": [
+     -0.0012542491289078668,
+     0.00409148281997929
+    ],
+    "stop_yaw": -0.11172693850111373,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "stop_A"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 471
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2084,
+      0.2301
+     ],
+     [
+      -0.144,
+      0.0387
+     ],
+     [
+      -0.0277,
+      0.2124
+     ],
+     [
+      -0.1815,
+      -0.1644
+     ]
+    ],
+    "scale_xy": [
+     0.026,
+     -0.0136
+    ],
+    "item_off": [
+     [
+      0.0034020266313813073,
+      -0.000171765126809666
+     ],
+     [
+      0.005780569301580997,
+      0.003595895513692729
+     ],
+     [
+      -0.0009549776673169639,
+      0.004109669714835194
+     ],
+     [
+      -0.0072331644395981646,
+      -0.0019855535449829383
+     ]
+    ],
+    "item_yaw": [
+     0.015266582480279955,
+     0.11804971013160848,
+     -0.2281220392979004,
+     -0.16695927962190182
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.05339923766017987,
+    "stop_off": [
+     -0.0012542491289078668,
+     0.00409148281997929
+    ],
+    "stop_yaw": -0.11172693850111373,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ]
+      ],
+      "recovery": "memoryless: guesses 4 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 471
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. Not every item has been weighed yet."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2084,
+      0.2301
+     ],
+     [
+      -0.144,
+      0.0387
+     ],
+     [
+      -0.0277,
+      0.2124
+     ],
+     [
+      -0.1815,
+      -0.1644
+     ]
+    ],
+    "scale_xy": [
+     0.026,
+     -0.0136
+    ],
+    "item_off": [
+     [
+      0.0034020266313813073,
+      -0.000171765126809666
+     ],
+     [
+      0.005780569301580997,
+      0.003595895513692729
+     ],
+     [
+      -0.0009549776673169639,
+      0.004109669714835194
+     ],
+     [
+      -0.0072331644395981646,
+      -0.0019855535449829383
+     ]
+    ],
+    "item_yaw": [
+     0.015266582480279955,
+     0.11804971013160848,
+     -0.2281220392979004,
+     -0.16695927962190182
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.05339923766017987,
+    "stop_off": [
+     -0.0012542491289078668,
+     0.00409148281997929
+    ],
+    "stop_yaw": -0.11172693850111373,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "butter",
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 471
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "order": [
+     "butter_1",
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.2084,
+      0.2301
+     ],
+     [
+      -0.144,
+      0.0387
+     ],
+     [
+      -0.0277,
+      0.2124
+     ],
+     [
+      -0.1815,
+      -0.1644
+     ]
+    ],
+    "scale_xy": [
+     0.026,
+     -0.0136
+    ],
+    "item_off": [
+     [
+      0.0034020266313813073,
+      -0.000171765126809666
+     ],
+     [
+      0.005780569301580997,
+      0.003595895513692729
+     ],
+     [
+      -0.0009549776673169639,
+      0.004109669714835194
+     ],
+     [
+      -0.0072331644395981646,
+      -0.0019855535449829383
+     ]
+    ],
+    "item_yaw": [
+     0.015266582480279955,
+     0.11804971013160848,
+     -0.2281220392979004,
+     -0.16695927962190182
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.05339923766017987,
+    "stop_off": [
+     -0.0012542491289078668,
+     0.00409148281997929
+    ],
+    "stop_yaw": -0.11172693850111373,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "butter",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 3,
+       "step": 820,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 471
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "order": [
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2147,
+      -0.1626
+     ],
+     [
+      -0.2113,
+      0.2469
+     ],
+     [
+      -0.0477,
+      0.2694
+     ],
+     [
+      0.0251,
+      -0.0012
+     ]
+    ],
+    "scale_xy": [
+     -0.1554,
+     0.0092
+    ],
+    "item_off": [
+     [
+      0.00468663918505936,
+      -0.0025300017431099083
+     ],
+     [
+      0.007224817919536079,
+      -0.0008794570738558868
+     ],
+     [
+      0.006198585024530677,
+      -0.00541845514775186
+     ],
+     [
+      0.001693957405993235,
+      0.006628827257096676
+     ]
+    ],
+    "item_yaw": [
+     0.1500346927367549,
+     -0.1747473060642476,
+     0.12134934917488172,
+     0.25737167885913753
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07471709550922398,
+    "stop_off": [
+     0.004884991121119469,
+     0.005040222130952123
+    ],
+    "stop_yaw": -0.10147794989094297,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_A"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "butter",
+       "popcorn",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 266
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "order": [
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2147,
+      -0.1626
+     ],
+     [
+      -0.2113,
+      0.2469
+     ],
+     [
+      -0.0477,
+      0.2694
+     ],
+     [
+      0.0251,
+      -0.0012
+     ]
+    ],
+    "scale_xy": [
+     -0.1554,
+     0.0092
+    ],
+    "item_off": [
+     [
+      0.00468663918505936,
+      -0.0025300017431099083
+     ],
+     [
+      0.007224817919536079,
+      -0.0008794570738558868
+     ],
+     [
+      0.006198585024530677,
+      -0.00541845514775186
+     ],
+     [
+      0.001693957405993235,
+      0.006628827257096676
+     ]
+    ],
+    "item_yaw": [
+     0.1500346927367549,
+     -0.1747473060642476,
+     0.12134934917488172,
+     0.25737167885913753
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07471709550922398,
+    "stop_off": [
+     0.004884991121119469,
+     0.005040222130952123
+    ],
+    "stop_yaw": -0.10147794989094297,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 2 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "chocolate pudding",
+       "popcorn"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 2,
+       "step": 617,
+       "kind": "out_of_order"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 266
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "order": [
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2147,
+      -0.1626
+     ],
+     [
+      -0.2113,
+      0.2469
+     ],
+     [
+      -0.0477,
+      0.2694
+     ],
+     [
+      0.0251,
+      -0.0012
+     ]
+    ],
+    "scale_xy": [
+     -0.1554,
+     0.0092
+    ],
+    "item_off": [
+     [
+      0.00468663918505936,
+      -0.0025300017431099083
+     ],
+     [
+      0.007224817919536079,
+      -0.0008794570738558868
+     ],
+     [
+      0.006198585024530677,
+      -0.00541845514775186
+     ],
+     [
+      0.001693957405993235,
+      0.006628827257096676
+     ]
+    ],
+    "item_yaw": [
+     0.1500346927367549,
+     -0.1747473060642476,
+     0.12134934917488172,
+     0.25737167885913753
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07471709550922398,
+    "stop_off": [
+     0.004884991121119469,
+     0.005040222130952123
+    ],
+    "stop_yaw": -0.10147794989094297,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "butter",
+       "popcorn",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 266
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "order": [
+     "chocolate_pudding_1",
+     "butter_1",
+     "popcorn_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2147,
+      -0.1626
+     ],
+     [
+      -0.2113,
+      0.2469
+     ],
+     [
+      -0.0477,
+      0.2694
+     ],
+     [
+      0.0251,
+      -0.0012
+     ]
+    ],
+    "scale_xy": [
+     -0.1554,
+     0.0092
+    ],
+    "item_off": [
+     [
+      0.00468663918505936,
+      -0.0025300017431099083
+     ],
+     [
+      0.007224817919536079,
+      -0.0008794570738558868
+     ],
+     [
+      0.006198585024530677,
+      -0.00541845514775186
+     ],
+     [
+      0.001693957405993235,
+      0.006628827257096676
+     ]
+    ],
+    "item_yaw": [
+     0.1500346927367549,
+     -0.1747473060642476,
+     0.12134934917488172,
+     0.25737167885913753
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07471709550922398,
+    "stop_off": [
+     0.004884991121119469,
+     0.005040222130952123
+    ],
+    "stop_yaw": -0.10147794989094297,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "chocolate pudding",
+       "chocolate pudding"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 2,
+       "step": 609,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 266
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.0336,
+      -0.04
+     ],
+     [
+      -0.1837,
+      0.2552
+     ],
+     [
+      -0.2637,
+      0.0398
+     ],
+     [
+      0.0059,
+      0.1211
+     ]
+    ],
+    "scale_xy": [
+     -0.1649,
+     -0.1683
+    ],
+    "item_off": [
+     [
+      0.0024137293618335994,
+      0.007927205133492592
+     ],
+     [
+      2.0271356477648272e-05,
+      -0.001801682899157422
+     ],
+     [
+      -0.001165210720524573,
+      -0.0010007248040399567
+     ],
+     [
+      5.4683551508420344e-05,
+      -0.0071312234290469585
+     ]
+    ],
+    "item_yaw": [
+     0.19759104743222544,
+     -0.11965738920075361,
+     -0.06714031537532805,
+     -0.23623751957928046
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07107220429804217,
+    "stop_off": [
+     -0.006656525029198024,
+     0.0038710605136627312
+    ],
+    "stop_yaw": -0.21985307497413742,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_B"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 763
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.0336,
+      -0.04
+     ],
+     [
+      -0.1837,
+      0.2552
+     ],
+     [
+      -0.2637,
+      0.0398
+     ],
+     [
+      0.0059,
+      0.1211
+     ]
+    ],
+    "scale_xy": [
+     -0.1649,
+     -0.1683
+    ],
+    "item_off": [
+     [
+      0.0024137293618335994,
+      0.007927205133492592
+     ],
+     [
+      2.0271356477648272e-05,
+      -0.001801682899157422
+     ],
+     [
+      -0.001165210720524573,
+      -0.0010007248040399567
+     ],
+     [
+      5.4683551508420344e-05,
+      -0.0071312234290469585
+     ]
+    ],
+    "item_yaw": [
+     0.19759104743222544,
+     -0.11965738920075361,
+     -0.06714031537532805,
+     -0.23623751957928046
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07107220429804217,
+    "stop_off": [
+     -0.006656525029198024,
+     0.0038710605136627312
+    ],
+    "stop_yaw": -0.21985307497413742,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 2 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 5,
+       "step": 1112,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 763
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.0336,
+      -0.04
+     ],
+     [
+      -0.1837,
+      0.2552
+     ],
+     [
+      -0.2637,
+      0.0398
+     ],
+     [
+      0.0059,
+      0.1211
+     ]
+    ],
+    "scale_xy": [
+     -0.1649,
+     -0.1683
+    ],
+    "item_off": [
+     [
+      0.0024137293618335994,
+      0.007927205133492592
+     ],
+     [
+      2.0271356477648272e-05,
+      -0.001801682899157422
+     ],
+     [
+      -0.001165210720524573,
+      -0.0010007248040399567
+     ],
+     [
+      5.4683551508420344e-05,
+      -0.0071312234290469585
+     ]
+    ],
+    "item_yaw": [
+     0.19759104743222544,
+     -0.11965738920075361,
+     -0.06714031537532805,
+     -0.23623751957928046
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07107220429804217,
+    "stop_off": [
+     -0.006656525029198024,
+     0.0038710605136627312
+    ],
+    "stop_yaw": -0.21985307497413742,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 763
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      0.0336,
+      -0.04
+     ],
+     [
+      -0.1837,
+      0.2552
+     ],
+     [
+      -0.2637,
+      0.0398
+     ],
+     [
+      0.0059,
+      0.1211
+     ]
+    ],
+    "scale_xy": [
+     -0.1649,
+     -0.1683
+    ],
+    "item_off": [
+     [
+      0.0024137293618335994,
+      0.007927205133492592
+     ],
+     [
+      2.0271356477648272e-05,
+      -0.001801682899157422
+     ],
+     [
+      -0.001165210720524573,
+      -0.0010007248040399567
+     ],
+     [
+      5.4683551508420344e-05,
+      -0.0071312234290469585
+     ]
+    ],
+    "item_yaw": [
+     0.19759104743222544,
+     -0.11965738920075361,
+     -0.06714031537532805,
+     -0.23623751957928046
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.07107220429804217,
+    "stop_off": [
+     -0.006656525029198024,
+     0.0038710605136627312
+    ],
+    "stop_yaw": -0.21985307497413742,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 5,
+       "step": 1116,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 763
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2222,
+      -0.2626
+     ],
+     [
+      -0.155,
+      -0.1017
+     ],
+     [
+      -0.0839,
+      0.1574
+     ],
+     [
+      -0.0172,
+      -0.1936
+     ]
+    ],
+    "scale_xy": [
+     -0.2326,
+     0.2613
+    ],
+    "item_off": [
+     [
+      -0.004223689439594475,
+      0.001796931249216479
+     ],
+     [
+      -0.002153089222646242,
+      0.0011693030658837984
+     ],
+     [
+      -0.006043904263336408,
+      0.004047786387320758
+     ],
+     [
+      0.0013228159132938795,
+      0.005605589458621026
+     ]
+    ],
+    "item_yaw": [
+     -0.08654322449272922,
+     0.08535366077883294,
+     -0.10009894955647272,
+     0.1778392458756018
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.06937756239870825,
+    "stop_off": [
+     -0.004902502313684048,
+     0.002814447472884325
+    ],
+    "stop_yaw": -0.01743505840556958,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "stop_A"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "popcorn",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 256
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2222,
+      -0.2626
+     ],
+     [
+      -0.155,
+      -0.1017
+     ],
+     [
+      -0.0839,
+      0.1574
+     ],
+     [
+      -0.0172,
+      -0.1936
+     ]
+    ],
+    "scale_xy": [
+     -0.2326,
+     0.2613
+    ],
+    "item_off": [
+     [
+      -0.004223689439594475,
+      0.001796931249216479
+     ],
+     [
+      -0.002153089222646242,
+      0.0011693030658837984
+     ],
+     [
+      -0.006043904263336408,
+      0.004047786387320758
+     ],
+     [
+      0.0013228159132938795,
+      0.005605589458621026
+     ]
+    ],
+    "item_yaw": [
+     -0.08654322449272922,
+     0.08535366077883294,
+     -0.10009894955647272,
+     0.1778392458756018
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.06937756239870825,
+    "stop_off": [
+     -0.004902502313684048,
+     0.002814447472884325
+    ],
+    "stop_yaw": -0.01743505840556958,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "popcorn",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 256
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2222,
+      -0.2626
+     ],
+     [
+      -0.155,
+      -0.1017
+     ],
+     [
+      -0.0839,
+      0.1574
+     ],
+     [
+      -0.0172,
+      -0.1936
+     ]
+    ],
+    "scale_xy": [
+     -0.2326,
+     0.2613
+    ],
+    "item_off": [
+     [
+      -0.004223689439594475,
+      0.001796931249216479
+     ],
+     [
+      -0.002153089222646242,
+      0.0011693030658837984
+     ],
+     [
+      -0.006043904263336408,
+      0.004047786387320758
+     ],
+     [
+      0.0013228159132938795,
+      0.005605589458621026
+     ]
+    ],
+    "item_yaw": [
+     -0.08654322449272922,
+     0.08535366077883294,
+     -0.10009894955647272,
+     0.1778392458756018
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.06937756239870825,
+    "stop_off": [
+     -0.004902502313684048,
+     0.002814447472884325
+    ],
+    "stop_yaw": -0.01743505840556958,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "popcorn",
+       "cream cheese",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 256
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "cream_cheese_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.2222,
+      -0.2626
+     ],
+     [
+      -0.155,
+      -0.1017
+     ],
+     [
+      -0.0839,
+      0.1574
+     ],
+     [
+      -0.0172,
+      -0.1936
+     ]
+    ],
+    "scale_xy": [
+     -0.2326,
+     0.2613
+    ],
+    "item_off": [
+     [
+      -0.004223689439594475,
+      0.001796931249216479
+     ],
+     [
+      -0.002153089222646242,
+      0.0011693030658837984
+     ],
+     [
+      -0.006043904263336408,
+      0.004047786387320758
+     ],
+     [
+      0.0013228159132938795,
+      0.005605589458621026
+     ]
+    ],
+    "item_yaw": [
+     -0.08654322449272922,
+     0.08535366077883294,
+     -0.10009894955647272,
+     0.1778392458756018
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.06937756239870825,
+    "stop_off": [
+     -0.004902502313684048,
+     0.002814447472884325
+    ],
+    "stop_yaw": -0.01743505840556958,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "chocolate pudding",
+       "chocolate pudding"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 2,
+       "step": 599,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 256
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      0.0116,
+      -0.0994
+     ],
+     [
+      0.0147,
+      0.0987
+     ],
+     [
+      -0.1338,
+      -0.0268
+     ],
+     [
+      -0.1846,
+      -0.2692
+     ]
+    ],
+    "scale_xy": [
+     -0.1466,
+     0.2021
+    ],
+    "item_off": [
+     [
+      0.0021921976083007534,
+      0.0007126128440776355
+     ],
+     [
+      -0.0018053833913336441,
+      0.0058770656206836094
+     ],
+     [
+      -0.007105081137905402,
+      0.0004583128966745339
+     ],
+     [
+      0.0004970920153119472,
+      0.0028693614988877757
+     ]
+    ],
+    "item_yaw": [
+     0.26136863175209385,
+     -0.10963212236341538,
+     0.044395484235437765,
+     0.005731272660370601
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07088486444551836,
+    "stop_off": [
+     -0.007025917321650438,
+     -0.0075975059164972375
+    ],
+    "stop_yaw": 0.2281745848033761,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "stop_A"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 661
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      0.0116,
+      -0.0994
+     ],
+     [
+      0.0147,
+      0.0987
+     ],
+     [
+      -0.1338,
+      -0.0268
+     ],
+     [
+      -0.1846,
+      -0.2692
+     ]
+    ],
+    "scale_xy": [
+     -0.1466,
+     0.2021
+    ],
+    "item_off": [
+     [
+      0.0021921976083007534,
+      0.0007126128440776355
+     ],
+     [
+      -0.0018053833913336441,
+      0.0058770656206836094
+     ],
+     [
+      -0.007105081137905402,
+      0.0004583128966745339
+     ],
+     [
+      0.0004970920153119472,
+      0.0028693614988877757
+     ]
+    ],
+    "item_yaw": [
+     0.26136863175209385,
+     -0.10963212236341538,
+     0.044395484235437765,
+     0.005731272660370601
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07088486444551836,
+    "stop_off": [
+     -0.007025917321650438,
+     -0.0075975059164972375
+    ],
+    "stop_yaw": 0.2281745848033761,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 0 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 4,
+       "step": 1011,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 661
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      0.0116,
+      -0.0994
+     ],
+     [
+      0.0147,
+      0.0987
+     ],
+     [
+      -0.1338,
+      -0.0268
+     ],
+     [
+      -0.1846,
+      -0.2692
+     ]
+    ],
+    "scale_xy": [
+     -0.1466,
+     0.2021
+    ],
+    "item_off": [
+     [
+      0.0021921976083007534,
+      0.0007126128440776355
+     ],
+     [
+      -0.0018053833913336441,
+      0.0058770656206836094
+     ],
+     [
+      -0.007105081137905402,
+      0.0004583128966745339
+     ],
+     [
+      0.0004970920153119472,
+      0.0028693614988877757
+     ]
+    ],
+    "item_yaw": [
+     0.26136863175209385,
+     -0.10963212236341538,
+     0.044395484235437765,
+     0.005731272660370601
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07088486444551836,
+    "stop_off": [
+     -0.007025917321650438,
+     -0.0075975059164972375
+    ],
+    "stop_yaw": 0.2281745848033761,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 661
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      0.0116,
+      -0.0994
+     ],
+     [
+      0.0147,
+      0.0987
+     ],
+     [
+      -0.1338,
+      -0.0268
+     ],
+     [
+      -0.1846,
+      -0.2692
+     ]
+    ],
+    "scale_xy": [
+     -0.1466,
+     0.2021
+    ],
+    "item_off": [
+     [
+      0.0021921976083007534,
+      0.0007126128440776355
+     ],
+     [
+      -0.0018053833913336441,
+      0.0058770656206836094
+     ],
+     [
+      -0.007105081137905402,
+      0.0004583128966745339
+     ],
+     [
+      0.0004970920153119472,
+      0.0028693614988877757
+     ]
+    ],
+    "item_yaw": [
+     0.26136863175209385,
+     -0.10963212236341538,
+     0.044395484235437765,
+     0.005731272660370601
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07088486444551836,
+    "stop_off": [
+     -0.007025917321650438,
+     -0.0075975059164972375
+    ],
+    "stop_yaw": 0.2281745848033761,
+    "stop_item": "chocolate_pudding_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 4,
+       "step": 1011,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "chocolate_pudding_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 661
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0321,
+      -0.2426
+     ],
+     [
+      -0.0452,
+      -0.0605
+     ],
+     [
+      0.0191,
+      0.0976
+     ],
+     [
+      -0.1891,
+      -0.1333
+     ]
+    ],
+    "scale_xy": [
+     -0.1662,
+     0.0938
+    ],
+    "item_off": [
+     [
+      0.0009950235991071192,
+      0.0062215700946532705
+     ],
+     [
+      0.0010004032682262628,
+      0.00013101913303601755
+     ],
+     [
+      0.002837794962774828,
+      0.0035218244901553137
+     ],
+     [
+      0.00613946967788254,
+      0.004705067357852807
+     ]
+    ],
+    "item_yaw": [
+     0.2728907911510467,
+     0.2328617080450614,
+     0.009507851495851039,
+     -0.10330779467034612
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08525051174880008,
+    "stop_off": [
+     0.0005424241596978189,
+     -0.006039048706916092
+    ],
+    "stop_yaw": -0.009035107771488748,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_B"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 737
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0321,
+      -0.2426
+     ],
+     [
+      -0.0452,
+      -0.0605
+     ],
+     [
+      0.0191,
+      0.0976
+     ],
+     [
+      -0.1891,
+      -0.1333
+     ]
+    ],
+    "scale_xy": [
+     -0.1662,
+     0.0938
+    ],
+    "item_off": [
+     [
+      0.0009950235991071192,
+      0.0062215700946532705
+     ],
+     [
+      0.0010004032682262628,
+      0.00013101913303601755
+     ],
+     [
+      0.002837794962774828,
+      0.0035218244901553137
+     ],
+     [
+      0.00613946967788254,
+      0.004705067357852807
+     ]
+    ],
+    "item_yaw": [
+     0.2728907911510467,
+     0.2328617080450614,
+     0.009507851495851039,
+     -0.10330779467034612
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08525051174880008,
+    "stop_off": [
+     0.0005424241596978189,
+     -0.006039048706916092
+    ],
+    "stop_yaw": -0.009035107771488748,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 5,
+       "step": 1089,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 737
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0321,
+      -0.2426
+     ],
+     [
+      -0.0452,
+      -0.0605
+     ],
+     [
+      0.0191,
+      0.0976
+     ],
+     [
+      -0.1891,
+      -0.1333
+     ]
+    ],
+    "scale_xy": [
+     -0.1662,
+     0.0938
+    ],
+    "item_off": [
+     [
+      0.0009950235991071192,
+      0.0062215700946532705
+     ],
+     [
+      0.0010004032682262628,
+      0.00013101913303601755
+     ],
+     [
+      0.002837794962774828,
+      0.0035218244901553137
+     ],
+     [
+      0.00613946967788254,
+      0.004705067357852807
+     ]
+    ],
+    "item_yaw": [
+     0.2728907911510467,
+     0.2328617080450614,
+     0.009507851495851039,
+     -0.10330779467034612
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08525051174880008,
+    "stop_off": [
+     0.0005424241596978189,
+     -0.006039048706916092
+    ],
+    "stop_yaw": -0.009035107771488748,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 737
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0321,
+      -0.2426
+     ],
+     [
+      -0.0452,
+      -0.0605
+     ],
+     [
+      0.0191,
+      0.0976
+     ],
+     [
+      -0.1891,
+      -0.1333
+     ]
+    ],
+    "scale_xy": [
+     -0.1662,
+     0.0938
+    ],
+    "item_off": [
+     [
+      0.0009950235991071192,
+      0.0062215700946532705
+     ],
+     [
+      0.0010004032682262628,
+      0.00013101913303601755
+     ],
+     [
+      0.002837794962774828,
+      0.0035218244901553137
+     ],
+     [
+      0.00613946967788254,
+      0.004705067357852807
+     ]
+    ],
+    "item_yaw": [
+     0.2728907911510467,
+     0.2328617080450614,
+     0.009507851495851039,
+     -0.10330779467034612
+    ],
+    "stop_w": 4,
+    "stop_phase": "B",
+    "trigger_dist": 0.08525051174880008,
+    "stop_off": [
+     0.0005424241596978189,
+     -0.006039048706916092
+    ],
+    "stop_yaw": -0.009035107771488748,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_B",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 5,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 5,
+       "step": 1087,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "B",
+       "weighed": 4,
+       "step": 737
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0417,
+      0.2108
+     ],
+     [
+      -0.0282,
+      -0.0254
+     ],
+     [
+      -0.2392,
+      0.1863
+     ],
+     [
+      -0.1888,
+      0.0285
+     ]
+    ],
+    "scale_xy": [
+     -0.2478,
+     -0.1385
+    ],
+    "item_off": [
+     [
+      0.0010878070769227421,
+      -0.0007544713795838882
+     ],
+     [
+      0.005909818175141024,
+      -0.004127573925967206
+     ],
+     [
+      -0.006846526863977076,
+      0.0031476830026479306
+     ],
+     [
+      0.005700913286753449,
+      0.004700054399760343
+     ]
+    ],
+    "item_yaw": [
+     0.002489648758226659,
+     0.07241504785141906,
+     -0.057830072890662665,
+     -0.120701195008069
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.06785391248275563,
+    "stop_off": [
+     0.004474493506194888,
+     -0.006908419329164191
+    ],
+    "stop_yaw": -0.14201806710477707,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "stop_A"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 459
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0417,
+      0.2108
+     ],
+     [
+      -0.0282,
+      -0.0254
+     ],
+     [
+      -0.2392,
+      0.1863
+     ],
+     [
+      -0.1888,
+      0.0285
+     ]
+    ],
+    "scale_xy": [
+     -0.2478,
+     -0.1385
+    ],
+    "item_off": [
+     [
+      0.0010878070769227421,
+      -0.0007544713795838882
+     ],
+     [
+      0.005909818175141024,
+      -0.004127573925967206
+     ],
+     [
+      -0.006846526863977076,
+      0.0031476830026479306
+     ],
+     [
+      0.005700913286753449,
+      0.004700054399760343
+     ]
+    ],
+    "item_yaw": [
+     0.002489648758226659,
+     0.07241504785141906,
+     -0.057830072890662665,
+     -0.120701195008069
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.06785391248275563,
+    "stop_off": [
+     0.004474493506194888,
+     -0.006908419329164191
+    ],
+    "stop_yaw": -0.14201806710477707,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "butter",
+       "butter"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 3,
+       "step": 806,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 459
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0417,
+      0.2108
+     ],
+     [
+      -0.0282,
+      -0.0254
+     ],
+     [
+      -0.2392,
+      0.1863
+     ],
+     [
+      -0.1888,
+      0.0285
+     ]
+    ],
+    "scale_xy": [
+     -0.2478,
+     -0.1385
+    ],
+    "item_off": [
+     [
+      0.0010878070769227421,
+      -0.0007544713795838882
+     ],
+     [
+      0.005909818175141024,
+      -0.004127573925967206
+     ],
+     [
+      -0.006846526863977076,
+      0.0031476830026479306
+     ],
+     [
+      0.005700913286753449,
+      0.004700054399760343
+     ]
+    ],
+    "item_yaw": [
+     0.002489648758226659,
+     0.07241504785141906,
+     -0.057830072890662665,
+     -0.120701195008069
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.06785391248275563,
+    "stop_off": [
+     0.004474493506194888,
+     -0.006908419329164191
+    ],
+    "stop_yaw": -0.14201806710477707,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "butter",
+       "cream cheese",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 459
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "order": [
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0417,
+      0.2108
+     ],
+     [
+      -0.0282,
+      -0.0254
+     ],
+     [
+      -0.2392,
+      0.1863
+     ],
+     [
+      -0.1888,
+      0.0285
+     ]
+    ],
+    "scale_xy": [
+     -0.2478,
+     -0.1385
+    ],
+    "item_off": [
+     [
+      0.0010878070769227421,
+      -0.0007544713795838882
+     ],
+     [
+      0.005909818175141024,
+      -0.004127573925967206
+     ],
+     [
+      -0.006846526863977076,
+      0.0031476830026479306
+     ],
+     [
+      0.005700913286753449,
+      0.004700054399760343
+     ]
+    ],
+    "item_yaw": [
+     0.002489648758226659,
+     0.07241504785141906,
+     -0.057830072890662665,
+     -0.120701195008069
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.06785391248275563,
+    "stop_off": [
+     0.004474493506194888,
+     -0.006908419329164191
+    ],
+    "stop_yaw": -0.14201806710477707,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "butter",
+       "popcorn"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 3,
+       "step": 799,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 459
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.1163,
+      -0.267
+     ],
+     [
+      0.017,
+      -0.0296
+     ],
+     [
+      -0.1789,
+      0.2175
+     ],
+     [
+      -0.0182,
+      0.2671
+     ]
+    ],
+    "scale_xy": [
+     -0.239,
+     -0.0346
+    ],
+    "item_off": [
+     [
+      -0.001811329740183611,
+      0.0036860454618179665
+     ],
+     [
+      -0.00777792553377302,
+      0.006285575706445981
+     ],
+     [
+      0.0004379675202203625,
+      0.00311714243404119
+     ],
+     [
+      -0.0073442563769685575,
+      0.0064221365101489025
+     ]
+    ],
+    "item_yaw": [
+     0.18976018402270073,
+     0.14484085496437826,
+     0.14645211239892164,
+     0.28200535311349934
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07586206183007496,
+    "stop_off": [
+     -0.0018030152308581735,
+     0.0018766845439009104
+    ],
+    "stop_yaw": -0.2738304203537419,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "stop_A"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "popcorn",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 253
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.1163,
+      -0.267
+     ],
+     [
+      0.017,
+      -0.0296
+     ],
+     [
+      -0.1789,
+      0.2175
+     ],
+     [
+      -0.0182,
+      0.2671
+     ]
+    ],
+    "scale_xy": [
+     -0.239,
+     -0.0346
+    ],
+    "item_off": [
+     [
+      -0.001811329740183611,
+      0.0036860454618179665
+     ],
+     [
+      -0.00777792553377302,
+      0.006285575706445981
+     ],
+     [
+      0.0004379675202203625,
+      0.00311714243404119
+     ],
+     [
+      -0.0073442563769685575,
+      0.0064221365101489025
+     ]
+    ],
+    "item_yaw": [
+     0.18976018402270073,
+     0.14484085496437826,
+     0.14645211239892164,
+     0.28200535311349934
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07586206183007496,
+    "stop_off": [
+     -0.0018030152308581735,
+     0.0018766845439009104
+    ],
+    "stop_yaw": -0.2738304203537419,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 2 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "chocolate pudding",
+       "butter"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 2,
+       "step": 595,
+       "kind": "out_of_order"
+      },
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 253
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.1163,
+      -0.267
+     ],
+     [
+      0.017,
+      -0.0296
+     ],
+     [
+      -0.1789,
+      0.2175
+     ],
+     [
+      -0.0182,
+      0.2671
+     ]
+    ],
+    "scale_xy": [
+     -0.239,
+     -0.0346
+    ],
+    "item_off": [
+     [
+      -0.001811329740183611,
+      0.0036860454618179665
+     ],
+     [
+      -0.00777792553377302,
+      0.006285575706445981
+     ],
+     [
+      0.0004379675202203625,
+      0.00311714243404119
+     ],
+     [
+      -0.0073442563769685575,
+      0.0064221365101489025
+     ]
+    ],
+    "item_yaw": [
+     0.18976018402270073,
+     0.14484085496437826,
+     0.14645211239892164,
+     0.28200535311349934
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07586206183007496,
+    "stop_off": [
+     -0.0018030152308581735,
+     0.0018766845439009104
+    ],
+    "stop_yaw": -0.2738304203537419,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "chocolate pudding",
+       "popcorn",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 253
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "order": [
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.1163,
+      -0.267
+     ],
+     [
+      0.017,
+      -0.0296
+     ],
+     [
+      -0.1789,
+      0.2175
+     ],
+     [
+      -0.0182,
+      0.2671
+     ]
+    ],
+    "scale_xy": [
+     -0.239,
+     -0.0346
+    ],
+    "item_off": [
+     [
+      -0.001811329740183611,
+      0.0036860454618179665
+     ],
+     [
+      -0.00777792553377302,
+      0.006285575706445981
+     ],
+     [
+      0.0004379675202203625,
+      0.00311714243404119
+     ],
+     [
+      -0.0073442563769685575,
+      0.0064221365101489025
+     ]
+    ],
+    "item_yaw": [
+     0.18976018402270073,
+     0.14484085496437826,
+     0.14645211239892164,
+     0.28200535311349934
+    ],
+    "stop_w": 1,
+    "stop_phase": "A",
+    "trigger_dist": 0.07586206183007496,
+    "stop_off": [
+     -0.0018030152308581735,
+     0.0018766845439009104
+    ],
+    "stop_yaw": -0.2738304203537419,
+    "stop_item": "popcorn_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "stop_A",
+        false
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "chocolate pudding",
+       "chocolate pudding"
+      ],
+      "n_weighed": 2,
+      "complete": false,
+      "error": {
+       "item": "chocolate_pudding_1",
+       "position": 2,
+       "step": 596,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "popcorn_1",
+       "phase": "A",
+       "weighed": 1,
+       "step": 253
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0656,
+      -0.2696
+     ],
+     [
+      -0.0037,
+      -0.1032
+     ],
+     [
+      -0.2323,
+      -0.2591
+     ],
+     [
+      -0.116,
+      0.0842
+     ]
+    ],
+    "scale_xy": [
+     -0.006,
+     0.224
+    ],
+    "item_off": [
+     [
+      -0.0067799435235127116,
+      -0.0032629869077038156
+     ],
+     [
+      0.003262183533485133,
+      -0.0020295872745747035
+     ],
+     [
+      0.004818305404906353,
+      0.006875252130374383
+     ],
+     [
+      0.005852970896546628,
+      0.0007272828477220446
+     ]
+    ],
+    "item_yaw": [
+     0.09273632167175139,
+     0.2602109973538462,
+     0.09498073342238089,
+     -0.1065267994301527
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06536520131544139,
+    "stop_off": [
+     0.006150954371084198,
+     -0.0020790379298793425
+    ],
+    "stop_yaw": -0.25323388743076036,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_A"
+       ],
+       [
+        "butter",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 687
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0656,
+      -0.2696
+     ],
+     [
+      -0.0037,
+      -0.1032
+     ],
+     [
+      -0.2323,
+      -0.2591
+     ],
+     [
+      -0.116,
+      0.0842
+     ]
+    ],
+    "scale_xy": [
+     -0.006,
+     0.224
+    ],
+    "item_off": [
+     [
+      -0.0067799435235127116,
+      -0.0032629869077038156
+     ],
+     [
+      0.003262183533485133,
+      -0.0020295872745747035
+     ],
+     [
+      0.004818305404906353,
+      0.006875252130374383
+     ],
+     [
+      0.005852970896546628,
+      0.0007272828477220446
+     ]
+    ],
+    "item_yaw": [
+     0.09273632167175139,
+     0.2602109973538462,
+     0.09498073342238089,
+     -0.1065267994301527
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06536520131544139,
+    "stop_off": [
+     0.006150954371084198,
+     -0.0020790379298793425
+    ],
+    "stop_yaw": -0.25323388743076036,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 3 items already weighed"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 687
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0656,
+      -0.2696
+     ],
+     [
+      -0.0037,
+      -0.1032
+     ],
+     [
+      -0.2323,
+      -0.2591
+     ],
+     [
+      -0.116,
+      0.0842
+     ]
+    ],
+    "scale_xy": [
+     -0.006,
+     0.224
+    ],
+    "item_off": [
+     [
+      -0.0067799435235127116,
+      -0.0032629869077038156
+     ],
+     [
+      0.003262183533485133,
+      -0.0020295872745747035
+     ],
+     [
+      0.004818305404906353,
+      0.006875252130374383
+     ],
+     [
+      0.005852970896546628,
+      0.0007272828477220446
+     ]
+    ],
+    "item_yaw": [
+     0.09273632167175139,
+     0.2602109973538462,
+     0.09498073342238089,
+     -0.1065267994301527
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06536520131544139,
+    "stop_off": [
+     0.006150954371084198,
+     -0.0020790379298793425
+    ],
+    "stop_yaw": -0.25323388743076036,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 687
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "order": [
+     "cream_cheese_1",
+     "chocolate_pudding_1",
+     "popcorn_1",
+     "butter_1"
+    ],
+    "pads": [
+     [
+      -0.0656,
+      -0.2696
+     ],
+     [
+      -0.0037,
+      -0.1032
+     ],
+     [
+      -0.2323,
+      -0.2591
+     ],
+     [
+      -0.116,
+      0.0842
+     ]
+    ],
+    "scale_xy": [
+     -0.006,
+     0.224
+    ],
+    "item_off": [
+     [
+      -0.0067799435235127116,
+      -0.0032629869077038156
+     ],
+     [
+      0.003262183533485133,
+      -0.0020295872745747035
+     ],
+     [
+      0.004818305404906353,
+      0.006875252130374383
+     ],
+     [
+      0.005852970896546628,
+      0.0007272828477220446
+     ]
+    ],
+    "item_yaw": [
+     0.09273632167175139,
+     0.2602109973538462,
+     0.09498073342238089,
+     -0.1065267994301527
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.06536520131544139,
+    "stop_off": [
+     0.006150954371084198,
+     -0.0020790379298793425
+    ],
+    "stop_yaw": -0.25323388743076036,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "chocolate pudding",
+       "popcorn",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 4,
+       "step": 1047,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 687
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0613,
+      -0.2653
+     ],
+     [
+      -0.0252,
+      -0.0975
+     ],
+     [
+      -0.252,
+      -0.2693
+     ],
+     [
+      -0.221,
+      0.0571
+     ]
+    ],
+    "scale_xy": [
+     -0.0644,
+     0.1615
+    ],
+    "item_off": [
+     [
+      0.004144002128893293,
+      0.0069685992303119195
+     ],
+     [
+      -0.0008121474013169771,
+      0.005227822805395918
+     ],
+     [
+      -0.003973587188675731,
+      0.004318095680496459
+     ],
+     [
+      -0.0034865557792398954,
+      0.002105256071640525
+     ]
+    ],
+    "item_yaw": [
+     0.038100617606794895,
+     0.19609647771794542,
+     0.1041063946045746,
+     0.10806981107067293
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.052003657908537594,
+    "stop_off": [
+     0.003246080954252774,
+     0.007899781294408874
+    ],
+    "stop_yaw": 0.23186175618389987,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "cream cheese",
+        "ok"
+       ],
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "butter",
+        "stop_A"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 470
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0613,
+      -0.2653
+     ],
+     [
+      -0.0252,
+      -0.0975
+     ],
+     [
+      -0.252,
+      -0.2693
+     ],
+     [
+      -0.221,
+      0.0571
+     ]
+    ],
+    "scale_xy": [
+     -0.0644,
+     0.1615
+    ],
+    "item_off": [
+     [
+      0.004144002128893293,
+      0.0069685992303119195
+     ],
+     [
+      -0.0008121474013169771,
+      0.005227822805395918
+     ],
+     [
+      -0.003973587188675731,
+      0.004318095680496459
+     ],
+     [
+      -0.0034865557792398954,
+      0.002105256071640525
+     ]
+    ],
+    "item_yaw": [
+     0.038100617606794895,
+     0.19609647771794542,
+     0.1041063946045746,
+     0.10806981107067293
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.052003657908537594,
+    "stop_off": [
+     0.003246080954252774,
+     0.007899781294408874
+    ],
+    "stop_yaw": 0.23186175618389987,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 1 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "popcorn"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 3,
+       "step": 819,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 470
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0613,
+      -0.2653
+     ],
+     [
+      -0.0252,
+      -0.0975
+     ],
+     [
+      -0.252,
+      -0.2693
+     ],
+     [
+      -0.221,
+      0.0571
+     ]
+    ],
+    "scale_xy": [
+     -0.0644,
+     0.1615
+    ],
+    "item_off": [
+     [
+      0.004144002128893293,
+      0.0069685992303119195
+     ],
+     [
+      -0.0008121474013169771,
+      0.005227822805395918
+     ],
+     [
+      -0.003973587188675731,
+      0.004318095680496459
+     ],
+     [
+      -0.0034865557792398954,
+      0.002105256071640525
+     ]
+    ],
+    "item_yaw": [
+     0.038100617606794895,
+     0.19609647771794542,
+     0.1041063946045746,
+     0.10806981107067293
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.052003657908537594,
+    "stop_off": [
+     0.003246080954252774,
+     0.007899781294408874
+    ],
+    "stop_yaw": 0.23186175618389987,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "butter",
+       "chocolate pudding"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 470
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "order": [
+     "cream_cheese_1",
+     "popcorn_1",
+     "butter_1",
+     "chocolate_pudding_1"
+    ],
+    "pads": [
+     [
+      -0.0613,
+      -0.2653
+     ],
+     [
+      -0.0252,
+      -0.0975
+     ],
+     [
+      -0.252,
+      -0.2693
+     ],
+     [
+      -0.221,
+      0.0571
+     ]
+    ],
+    "scale_xy": [
+     -0.0644,
+     0.1615
+    ],
+    "item_off": [
+     [
+      0.004144002128893293,
+      0.0069685992303119195
+     ],
+     [
+      -0.0008121474013169771,
+      0.005227822805395918
+     ],
+     [
+      -0.003973587188675731,
+      0.004318095680496459
+     ],
+     [
+      -0.0034865557792398954,
+      0.002105256071640525
+     ]
+    ],
+    "item_yaw": [
+     0.038100617606794895,
+     0.19609647771794542,
+     0.1041063946045746,
+     0.10806981107067293
+    ],
+    "stop_w": 2,
+    "stop_phase": "A",
+    "trigger_dist": 0.052003657908537594,
+    "stop_off": [
+     0.003246080954252774,
+     0.007899781294408874
+    ],
+    "stop_yaw": 0.23186175618389987,
+    "stop_item": "butter_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "cream cheese",
+        "ok",
+        true
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "cream cheese",
+       "popcorn",
+       "cream cheese"
+      ],
+      "n_weighed": 3,
+      "complete": false,
+      "error": {
+       "item": "cream_cheese_1",
+       "position": 3,
+       "step": 827,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "butter_1",
+       "phase": "A",
+       "weighed": 2,
+       "step": 470
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2177,
+      -0.024
+     ],
+     [
+      -0.2045,
+      0.2499
+     ],
+     [
+      -0.0355,
+      -0.1134
+     ],
+     [
+      -0.197,
+      -0.2355
+     ]
+    ],
+    "scale_xy": [
+     -0.0376,
+     0.1469
+    ],
+    "item_off": [
+     [
+      0.002887724926943846,
+      -0.0011142678748361362
+     ],
+     [
+      0.0005345627261563995,
+      0.006349460049949379
+     ],
+     [
+      0.0030081274644545887,
+      -0.0037677396061757467
+     ],
+     [
+      -0.0060723217675422245,
+      0.003153324279852635
+     ]
+    ],
+    "item_yaw": [
+     -0.23486314490499022,
+     -0.02735812315271291,
+     0.012973682579662582,
+     -0.05772514711492338
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07735599054384913,
+    "stop_off": [
+     -0.006184476809513921,
+     0.006179912720549267
+    ],
+    "stop_yaw": 0.0064062489438052594,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "steps": [
+       [
+        "popcorn",
+        "ok"
+       ],
+       [
+        "chocolate pudding",
+        "ok"
+       ],
+       [
+        "butter",
+        "ok"
+       ],
+       [
+        "cream cheese",
+        "stop_A"
+       ],
+       [
+        "cream cheese",
+        "ok"
+       ]
+      ],
+      "recovery": "oracle: privileged scale log"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 666
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2177,
+      -0.024
+     ],
+     [
+      -0.2045,
+      0.2499
+     ],
+     [
+      -0.0355,
+      -0.1134
+     ],
+     [
+      -0.197,
+      -0.2355
+     ]
+    ],
+    "scale_xy": [
+     -0.0376,
+     0.1469
+    ],
+    "item_off": [
+     [
+      0.002887724926943846,
+      -0.0011142678748361362
+     ],
+     [
+      0.0005345627261563995,
+      0.006349460049949379
+     ],
+     [
+      0.0030081274644545887,
+      -0.0037677396061757467
+     ],
+     [
+      -0.0060723217675422245,
+      0.003153324279852635
+     ]
+    ],
+    "item_yaw": [
+     -0.23486314490499022,
+     -0.02735812315271291,
+     0.012973682579662582,
+     -0.05772514711492338
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07735599054384913,
+    "stop_off": [
+     -0.006184476809513921,
+     0.006179912720549267
+    ],
+    "stop_yaw": 0.0064062489438052594,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_A",
+        false
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless: guesses 2 items already weighed"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "butter"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "butter_1",
+       "position": 4,
+       "step": 1019,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 666
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2177,
+      -0.024
+     ],
+     [
+      -0.2045,
+      0.2499
+     ],
+     [
+      -0.0355,
+      -0.1134
+     ],
+     [
+      -0.197,
+      -0.2355
+     ]
+    ],
+    "scale_xy": [
+     -0.0376,
+     0.1469
+    ],
+    "item_off": [
+     [
+      0.002887724926943846,
+      -0.0011142678748361362
+     ],
+     [
+      0.0005345627261563995,
+      0.006349460049949379
+     ],
+     [
+      0.0030081274644545887,
+      -0.0037677396061757467
+     ],
+     [
+      -0.0060723217675422245,
+      0.003153324279852635
+     ]
+    ],
+    "item_yaw": [
+     -0.23486314490499022,
+     -0.02735812315271291,
+     0.012973682579662582,
+     -0.05772514711492338
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07735599054384913,
+    "stop_off": [
+     -0.006184476809513921,
+     0.006179912720549267
+    ],
+    "stop_yaw": 0.0064062489438052594,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_A",
+        false
+       ],
+       [
+        "cream cheese",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "own record of readings: resume from order[len(record)]"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "cream cheese"
+      ],
+      "n_weighed": 4,
+      "complete": true,
+      "error": null,
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 666
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. All four items were weighed once, in the requested order, and are back on their pads."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "order": [
+     "popcorn_1",
+     "chocolate_pudding_1",
+     "butter_1",
+     "cream_cheese_1"
+    ],
+    "pads": [
+     [
+      -0.2177,
+      -0.024
+     ],
+     [
+      -0.2045,
+      0.2499
+     ],
+     [
+      -0.0355,
+      -0.1134
+     ],
+     [
+      -0.197,
+      -0.2355
+     ]
+    ],
+    "scale_xy": [
+     -0.0376,
+     0.1469
+    ],
+    "item_off": [
+     [
+      0.002887724926943846,
+      -0.0011142678748361362
+     ],
+     [
+      0.0005345627261563995,
+      0.006349460049949379
+     ],
+     [
+      0.0030081274644545887,
+      -0.0037677396061757467
+     ],
+     [
+      -0.0060723217675422245,
+      0.003153324279852635
+     ]
+    ],
+    "item_yaw": [
+     -0.23486314490499022,
+     -0.02735812315271291,
+     0.012973682579662582,
+     -0.05772514711492338
+    ],
+    "stop_w": 3,
+    "stop_phase": "A",
+    "trigger_dist": 0.07735599054384913,
+    "stop_off": [
+     -0.006184476809513921,
+     0.006179912720549267
+    ],
+    "stop_yaw": 0.0064062489438052594,
+    "stop_item": "cream_cheese_1"
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "steps": [
+       [
+        "popcorn",
+        "ok",
+        true
+       ],
+       [
+        "chocolate pudding",
+        "ok",
+        true
+       ],
+       [
+        "butter",
+        "ok",
+        true
+       ],
+       [
+        "cream cheese",
+        "stop_A",
+        false
+       ],
+       [
+        "popcorn",
+        "ok",
+        true
+       ]
+      ],
+      "recovery": "memoryless restart from the first item"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "log": [
+       "popcorn",
+       "chocolate pudding",
+       "butter",
+       "popcorn"
+      ],
+      "n_weighed": 4,
+      "complete": false,
+      "error": {
+       "item": "popcorn_1",
+       "position": 4,
+       "step": 1015,
+       "kind": "repeat"
+      },
+      "stop": {
+       "item": "cream_cheese_1",
+       "phase": "A",
+       "weighed": 3,
+       "step": 666
+      },
+      "off_pad": [],
+      "detail": "During this attempt: Emergency stop! The gripper opened, the safety routine put the item the robot was holding back on its pad and moved the arm to its home pose. You may continue the task. The scale log does not follow the requested order (an item was weighed a second time or out of turn). The log cannot be edited, so the task can no longer be completed."
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 1035.8931844234467
+}

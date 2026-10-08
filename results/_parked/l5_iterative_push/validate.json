@@ -1,0 +1,2772 @@
+{
+ "task": "l5_iterative_push",
+ "level": "L5",
+ "capabilities": [
+  "Reason",
+  "Save",
+  "Utilize"
+ ],
+ "n": 12,
+ "k": 3,
+ "succ_at_k": {
+  "oracle": [
+   0.0,
+   0.0,
+   0.5
+  ],
+  "naive": [
+   0.0,
+   0.0,
+   0.25
+  ],
+  "adaptive": [
+   0.0,
+   0.0,
+   0.3333333333333333
+  ],
+  "blind": [
+   0.0,
+   0.0,
+   0.25
+  ]
+ },
+ "runs": [
+  {
+   "seed": 2000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2000,
+    "cube_xy": [
+     -0.24699454724569456,
+     0.025027937486861926
+    ],
+    "target_dist": 0.22216301631513982,
+    "mu": 0.05320264262308829
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.11293741139045343,
+      "across_err": -3.3242188627439356e-05,
+      "detail": "The cube is 11.3 cm short of the centre of the target zone.",
+      "moved": 0.10922560492468639
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.12
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.08562680838420098,
+      "across_err": -0.00016523885774456792,
+      "detail": "The cube is 8.6 cm short of the centre of the target zone.",
+      "moved": 0.02731060300625246
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3932610416827125
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.010268621182499188,
+      "across_err": -0.00014412275601970517,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.09589542956670015
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2000,
+   "kind": "naive",
+   "inst": {
+    "seed": 2000,
+    "cube_xy": [
+     -0.24699454724569456,
+     0.025027937486861926
+    ],
+    "target_dist": 0.22216301631513982,
+    "mu": 0.05320264262308829
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.13699677688571876,
+      "across_err": 2.720691510331788e-05,
+      "detail": "The cube is 13.7 cm short of the centre of the target zone.",
+      "moved": 0.08516623942942106
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.05437994289211637,
+      "across_err": 0.0002576348720394264,
+      "detail": "The cube is 5.4 cm short of the centre of the target zone.",
+      "moved": 0.08261683399360238
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.00510522736636812,
+      "across_err": -0.0001974456323672394,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.049274715525748275
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2000,
+    "cube_xy": [
+     -0.24699454724569456,
+     0.025027937486861926
+    ],
+    "target_dist": 0.22216301631513982,
+    "mu": 0.05320264262308829
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.13699677688571876,
+      "across_err": 2.720691510331788e-05,
+      "detail": "The cube is 13.7 cm short of the centre of the target zone.",
+      "moved": 0.08516623942942106
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2547674628066544
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.06889957772492386,
+      "across_err": -6.417873768378712e-05,
+      "detail": "The cube is 6.9 cm short of the centre of the target zone.",
+      "moved": 0.06809719916079492
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2570720774280581
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.004094352971549919,
+      "across_err": -0.00021708687249920658,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.07299393069647377
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2000,
+   "kind": "blind",
+   "inst": {
+    "seed": 2000,
+    "cube_xy": [
+     -0.24699454724569456,
+     0.025027937486861926
+    ],
+    "target_dist": 0.22216301631513982,
+    "mu": 0.05320264262308829
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.36718128769473474
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1233903466037285,
+      "across_err": -7.772477061122884e-05,
+      "detail": "The cube is 12.3 cm short of the centre of the target zone.",
+      "moved": 0.09877266971141133
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3433568891498909
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.03403168632767223,
+      "across_err": 0.0006306254798236662,
+      "detail": "The cube is 3.4 cm short of the centre of the target zone.",
+      "moved": 0.08935866027605627
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.023365036726916255,
+      "across_err": 0.0005511152808287956,
+      "detail": "The cube passed the target zone: it is 2.3 cm beyond its centre. The task has failed.",
+      "moved": 0.05739672305458848
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2001,
+    "cube_xy": [
+     -0.2530532079001857,
+     -0.047404077715330326
+    ],
+    "target_dist": 0.2580080204173931,
+    "mu": 0.07753547470701835
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.17872015729156618,
+      "across_err": 7.144150469983596e-05,
+      "detail": "The cube is 17.9 cm short of the centre of the target zone.",
+      "moved": 0.07928786312582695
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.06492477312496617,
+      "across_err": -0.002936516651342126,
+      "detail": "The cube is 6.5 cm short of the centre of the target zone.",
+      "moved": 0.11379538416660001
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3842448916424783
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.007802228130577682,
+      "across_err": -0.0025193071054030874,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.07272700125554385
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2001,
+   "kind": "naive",
+   "inst": {
+    "seed": 2001,
+    "cube_xy": [
+     -0.2530532079001857,
+     -0.047404077715330326
+    ],
+    "target_dist": 0.2580080204173931,
+    "mu": 0.07753547470701835
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.19323845200123124,
+      "across_err": -0.0008352665878839233,
+      "detail": "The cube is 19.3 cm short of the centre of the target zone.",
+      "moved": 0.06476956841616188
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1345270888968859,
+      "across_err": -3.336046851331459e-05,
+      "detail": "The cube is 13.5 cm short of the centre of the target zone.",
+      "moved": 0.058711363104345354
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.07685156039889768,
+      "across_err": 0.0007967519521005981,
+      "detail": "The cube is 7.7 cm short of the centre of the target zone.",
+      "moved": 0.057675528497988224
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2001,
+    "cube_xy": [
+     -0.2530532079001857,
+     -0.047404077715330326
+    ],
+    "target_dist": 0.2580080204173931,
+    "mu": 0.07753547470701835
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.19323845200123124,
+      "across_err": -0.0008352665878839233,
+      "detail": "The cube is 19.3 cm short of the centre of the target zone.",
+      "moved": 0.06476956841616188
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.45556520135831924
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.10658336905514953,
+      "across_err": 0.00011040063910747883,
+      "detail": "The cube is 10.7 cm short of the centre of the target zone.",
+      "moved": 0.0866550829460817
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.5608633500361149
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.016881777282421517,
+      "across_err": 0.00027840285019597316,
+      "detail": "The cube is 1.7 cm short of the centre of the target zone.",
+      "moved": 0.08970159177272802
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2001,
+   "kind": "blind",
+   "inst": {
+    "seed": 2001,
+    "cube_xy": [
+     -0.2530532079001857,
+     -0.047404077715330326
+    ],
+    "target_dist": 0.2580080204173931,
+    "mu": 0.07753547470701835
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.31031624057798723
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.20166880838474183,
+      "across_err": 4.115755070948496e-05,
+      "detail": "The cube is 20.2 cm short of the centre of the target zone.",
+      "moved": 0.0563392120326513
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.23874865743876658
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.15022345191456657,
+      "across_err": -0.00019178788524971957,
+      "detail": "The cube is 15.0 cm short of the centre of the target zone.",
+      "moved": 0.05144535647017526
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.38764389043436165
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.08631163271759479,
+      "across_err": -0.0017220597384723438,
+      "detail": "The cube is 8.6 cm short of the centre of the target zone.",
+      "moved": 0.0639118191969718
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2002,
+    "cube_xy": [
+     -0.2344496257058793,
+     0.0737137964048921
+    ],
+    "target_dist": 0.2726490089096905,
+    "mu": 0.03966180228827895
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.12106329051579517,
+      "across_err": 0.004463672011799605,
+      "detail": "The cube is 12.1 cm short of the centre of the target zone.",
+      "moved": 0.15158571839389534
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.12
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09122226873685238,
+      "across_err": 0.004483625301618235,
+      "detail": "The cube is 9.1 cm short of the centre of the target zone.",
+      "moved": 0.029841021778942788
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3419886652765634
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.03445447631829662,
+      "across_err": 0.0046335376274693335,
+      "detail": "The cube passed the target zone: it is 3.4 cm beyond its centre. The task has failed.",
+      "moved": 0.12567674505514898
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2002,
+   "kind": "naive",
+   "inst": {
+    "seed": 2002,
+    "cube_xy": [
+     -0.2344496257058793,
+     0.0737137964048921
+    ],
+    "target_dist": 0.2726490089096905,
+    "mu": 0.03966180228827895
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.14879034932386404,
+      "across_err": 0.0007182803584445535,
+      "detail": "The cube is 14.9 cm short of the centre of the target zone.",
+      "moved": 0.12385865958582647
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.04669652677374292,
+      "across_err": 0.0001770546146947355,
+      "detail": "The cube is 4.7 cm short of the centre of the target zone.",
+      "moved": 0.10209382255012112
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.015976779055147883,
+      "across_err": 0.0003214029798303264,
+      "detail": "The cube passed the target zone: it is 1.6 cm beyond its centre. The task has failed.",
+      "moved": 0.06267330582889082
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2002,
+    "cube_xy": [
+     -0.2344496257058793,
+     0.0737137964048921
+    ],
+    "target_dist": 0.2726490089096905,
+    "mu": 0.03966180228827895
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.14879034932386404,
+      "across_err": 0.0007182803584445535,
+      "detail": "The cube is 14.9 cm short of the centre of the target zone.",
+      "moved": 0.12385865958582647
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.22571110060442529
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.06447038268221472,
+      "across_err": 0.0005198155637882312,
+      "detail": "The cube is 6.4 cm short of the centre of the target zone.",
+      "moved": 0.08431996664164934
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.17702823647994045
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.005885248843263191,
+      "across_err": 0.0009435639692813164,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.05858513383895152
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2002,
+   "kind": "blind",
+   "inst": {
+    "seed": 2002,
+    "cube_xy": [
+     -0.2344496257058793,
+     0.0737137964048921
+    ],
+    "target_dist": 0.2726490089096905,
+    "mu": 0.03966180228827895
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.30627517421400374
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1282830350456901,
+      "across_err": 0.0007322121361892225,
+      "detail": "The cube is 12.8 cm short of the centre of the target zone.",
+      "moved": 0.1443659738640004
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.23643610591609376
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.044696499866064554,
+      "across_err": 0.0012541459589681253,
+      "detail": "The cube is 4.5 cm short of the centre of the target zone.",
+      "moved": 0.08358653517962555
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.032900390470824714,
+      "across_err": 0.0010892810599557878,
+      "detail": "The cube passed the target zone: it is 3.3 cm beyond its centre. The task has failed.",
+      "moved": 0.07759689033688925
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2003,
+    "cube_xy": [
+     -0.2582148100175267,
+     0.06098542753410645
+    ],
+    "target_dist": 0.2721076626436766,
+    "mu": 0.0798952046914549
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1932874125036479,
+      "across_err": 0.0013625542922439185,
+      "detail": "The cube is 19.3 cm short of the centre of the target zone.",
+      "moved": 0.07882025014002869
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09422416462807942,
+      "across_err": 0.00018193026965384468,
+      "detail": "The cube is 9.4 cm short of the centre of the target zone.",
+      "moved": 0.09906324787556847
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.0007297755627655444,
+      "across_err": 0.0004884391437460014,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.09349438906531389
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2003,
+   "kind": "naive",
+   "inst": {
+    "seed": 2003,
+    "cube_xy": [
+     -0.2582148100175267,
+     0.06098542753410645
+    ],
+    "target_dist": 0.2721076626436766,
+    "mu": 0.0798952046914549
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2070812092503442,
+      "across_err": 0.001028975203060431,
+      "detail": "The cube is 20.7 cm short of the centre of the target zone.",
+      "moved": 0.06502645339333238
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.15396664344408198,
+      "across_err": 0.000279019807069604,
+      "detail": "The cube is 15.4 cm short of the centre of the target zone.",
+      "moved": 0.053114565806262226
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.10577449895584745,
+      "across_err": 0.00023759613908235638,
+      "detail": "The cube is 10.6 cm short of the centre of the target zone.",
+      "moved": 0.04819214448823453
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2003,
+    "cube_xy": [
+     -0.2582148100175267,
+     0.06098542753410645
+    ],
+    "target_dist": 0.2721076626436766,
+    "mu": 0.0798952046914549
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2070812092503442,
+      "across_err": 0.001028975203060431,
+      "detail": "The cube is 20.7 cm short of the centre of the target zone.",
+      "moved": 0.06502645339333238
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.4837611458658221
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1005825252800071,
+      "across_err": -0.004325299586279904,
+      "detail": "The cube is 10.1 cm short of the centre of the target zone.",
+      "moved": 0.10649868397033711
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.4620380919153527
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.019769721053881528,
+      "across_err": -0.002517025331505253,
+      "detail": "The cube is 2.0 cm short of the centre of the target zone.",
+      "moved": 0.08081280422612556
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2003,
+   "kind": "blind",
+   "inst": {
+    "seed": 2003,
+    "cube_xy": [
+     -0.2582148100175267,
+     0.06098542753410645
+    ],
+    "target_dist": 0.2721076626436766,
+    "mu": 0.0798952046914549
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.2839158805483521
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.20276102010327515,
+      "across_err": 5.581391610914865e-06,
+      "detail": "The cube is 20.3 cm short of the centre of the target zone.",
+      "moved": 0.06934664254040143
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.29481794687054985
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.15329123098109365,
+      "across_err": 3.951861715246335e-05,
+      "detail": "The cube is 15.3 cm short of the centre of the target zone.",
+      "moved": 0.0494697891221815
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3266627252625733
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09238534806677523,
+      "across_err": 0.000298337462651746,
+      "detail": "The cube is 9.2 cm short of the centre of the target zone.",
+      "moved": 0.06090588291431841
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2004,
+    "cube_xy": [
+     -0.24439187933960682,
+     -0.03345499536043693
+    ],
+    "target_dist": 0.2933018299147545,
+    "mu": 0.0605373372830695
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1956488536350873,
+      "across_err": 3.6542318174737076e-05,
+      "detail": "The cube is 19.6 cm short of the centre of the target zone.",
+      "moved": 0.09765297627966721
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.0755522323975279,
+      "across_err": -0.0021681054654052664,
+      "detail": "The cube is 7.6 cm short of the centre of the target zone.",
+      "moved": 0.12009662123755939
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.35791720930356774
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.016372507298417438,
+      "across_err": -0.002067569635370199,
+      "detail": "The cube passed the target zone: it is 1.6 cm beyond its centre. The task has failed.",
+      "moved": 0.09192473969594533
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2004,
+   "kind": "naive",
+   "inst": {
+    "seed": 2004,
+    "cube_xy": [
+     -0.24439187933960682,
+     -0.03345499536043693
+    ],
+    "target_dist": 0.2933018299147545,
+    "mu": 0.0605373372830695
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2091244111250323,
+      "across_err": -7.510958294570935e-06,
+      "detail": "The cube is 20.9 cm short of the centre of the target zone.",
+      "moved": 0.08417741878972221
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1351343665610962,
+      "across_err": -0.0006059108214880177,
+      "detail": "The cube is 13.5 cm short of the centre of the target zone.",
+      "moved": 0.0739900445639361
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.059460922772014535,
+      "across_err": 0.0004384707954377953,
+      "detail": "The cube is 5.9 cm short of the centre of the target zone.",
+      "moved": 0.07567344378908168
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2004,
+    "cube_xy": [
+     -0.24439187933960682,
+     -0.03345499536043693
+    ],
+    "target_dist": 0.2933018299147545,
+    "mu": 0.0605373372830695
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2091244111250323,
+      "across_err": -7.510958294570935e-06,
+      "detail": "The cube is 20.9 cm short of the centre of the target zone.",
+      "moved": 0.08417741878972221
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.4087243531602429
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1158626775785706,
+      "across_err": -0.0016843167223180508,
+      "detail": "The cube is 11.6 cm short of the centre of the target zone.",
+      "moved": 0.09326173354646171
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.0015003286983600872,
+      "across_err": -0.00032354875554387735,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.11736300627693066
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2004,
+   "kind": "blind",
+   "inst": {
+    "seed": 2004,
+    "cube_xy": [
+     -0.24439187933960682,
+     -0.03345499536043693
+    ],
+    "target_dist": 0.2933018299147545,
+    "mu": 0.0605373372830695
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.31152120181784443
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2090928302021339,
+      "across_err": -0.00013398136132188737,
+      "detail": "The cube is 20.9 cm short of the centre of the target zone.",
+      "moved": 0.08420899971262061
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3358159469896175
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.12849849056832463,
+      "across_err": 0.0005231567860636901,
+      "detail": "The cube is 12.8 cm short of the centre of the target zone.",
+      "moved": 0.08059433963380926
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3281092515972055
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.05184658591724295,
+      "across_err": 0.0005339826005330561,
+      "detail": "The cube is 5.2 cm short of the centre of the target zone.",
+      "moved": 0.0766519046510817
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2005,
+    "cube_xy": [
+     -0.2412901199114421,
+     -0.0025806563512759673
+    ],
+    "target_dist": 0.2844061572658023,
+    "mu": 0.07348612257807255
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.18926835616050652,
+      "across_err": 5.146719854551545e-06,
+      "detail": "The cube is 18.9 cm short of the centre of the target zone.",
+      "moved": 0.0951378011052958
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09060532564153623,
+      "across_err": 0.0019053287539144586,
+      "detail": "The cube is 9.1 cm short of the centre of the target zone.",
+      "moved": 0.09866303051897031
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.5149260544456988
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.007543599135651169,
+      "across_err": 0.0007292181365050967,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.09814892477718738
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2005,
+   "kind": "naive",
+   "inst": {
+    "seed": 2005,
+    "cube_xy": [
+     -0.2412901199114421,
+     -0.0025806563512759673
+    ],
+    "target_dist": 0.2844061572658023,
+    "mu": 0.07348612257807255
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.22442841503721117,
+      "across_err": 8.115670347445467e-06,
+      "detail": "The cube is 22.4 cm short of the centre of the target zone.",
+      "moved": 0.05997774222859115
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.16020343174438292,
+      "across_err": -0.000831493785432538,
+      "detail": "The cube is 16.0 cm short of the centre of the target zone.",
+      "moved": 0.06422498329282825
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09031222623791138,
+      "across_err": -0.0009008369601851249,
+      "detail": "The cube is 9.0 cm short of the centre of the target zone.",
+      "moved": 0.06989120550647154
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2005,
+    "cube_xy": [
+     -0.2412901199114421,
+     -0.0025806563512759673
+    ],
+    "target_dist": 0.2844061572658023,
+    "mu": 0.07348612257807255
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.22442841503721117,
+      "across_err": 8.115670347445467e-06,
+      "detail": "The cube is 22.4 cm short of the centre of the target zone.",
+      "moved": 0.05997774222859115
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.5501202885418014
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1298345758126057,
+      "across_err": -0.0014166201241196524,
+      "detail": "The cube is 13.0 cm short of the centre of the target zone.",
+      "moved": 0.09459383922460547
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.031171743571441812,
+      "across_err": -0.0001099915086500594,
+      "detail": "The cube is 3.1 cm short of the centre of the target zone.",
+      "moved": 0.0986628322411639
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2005,
+   "kind": "blind",
+   "inst": {
+    "seed": 2005,
+    "cube_xy": [
+     -0.2412901199114421,
+     -0.0025806563512759673
+    ],
+    "target_dist": 0.2844061572658023,
+    "mu": 0.07348612257807255
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3589863466101064
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.22078954165734996,
+      "across_err": 2.467399367828702e-05,
+      "detail": "The cube is 22.1 cm short of the centre of the target zone.",
+      "moved": 0.06361661560845236
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.33051267347946817
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1591437780340334,
+      "across_err": -3.8792683502638335e-05,
+      "detail": "The cube is 15.9 cm short of the centre of the target zone.",
+      "moved": 0.06164576362331654
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.33248843831848673
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09418145467827962,
+      "across_err": 0.00012302313214006873,
+      "detail": "The cube is 9.4 cm short of the centre of the target zone.",
+      "moved": 0.06496232335575378
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2006,
+    "cube_xy": [
+     -0.23512094536654082,
+     0.009451459371901422
+    ],
+    "target_dist": 0.24421286292551767,
+    "mu": 0.04706184261540827
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.09836748302626003,
+      "across_err": -1.1134002150742575e-05,
+      "detail": "The cube is 9.8 cm short of the centre of the target zone.",
+      "moved": 0.14584537989925764
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.12
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.07037420311468459,
+      "across_err": -6.552526129681609e-05,
+      "detail": "The cube is 7.0 cm short of the centre of the target zone.",
+      "moved": 0.027993279911575443
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2939492561932172
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.029311869187779477,
+      "across_err": 3.0715610219497064e-06,
+      "detail": "The cube passed the target zone: it is 2.9 cm beyond its centre. The task has failed.",
+      "moved": 0.09968607230246405
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2006,
+   "kind": "naive",
+   "inst": {
+    "seed": 2006,
+    "cube_xy": [
+     -0.23512094536654082,
+     0.009451459371901422
+    ],
+    "target_dist": 0.24421286292551767,
+    "mu": 0.04706184261540827
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1398794881228048,
+      "across_err": -3.043186987805417e-05,
+      "detail": "The cube is 14.0 cm short of the centre of the target zone.",
+      "moved": 0.10433337480271287
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.04670659258389023,
+      "across_err": 0.00048185328548092446,
+      "detail": "The cube is 4.7 cm short of the centre of the target zone.",
+      "moved": 0.09317289553891456
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.007844590342344387,
+      "across_err": 0.0007389533417063339,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.054551182926234634
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2006,
+    "cube_xy": [
+     -0.23512094536654082,
+     0.009451459371901422
+    ],
+    "target_dist": 0.24421286292551767,
+    "mu": 0.04706184261540827
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1398794881228048,
+      "across_err": -3.043186987805417e-05,
+      "detail": "The cube is 14.0 cm short of the centre of the target zone.",
+      "moved": 0.10433337480271287
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.23071854738155848
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.06434537752939504,
+      "across_err": -0.0004801312065803847,
+      "detail": "The cube is 6.4 cm short of the centre of the target zone.",
+      "moved": 0.07553411059340977
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.19734748742864117
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.000979005919799436,
+      "across_err": -0.0005629235951304119,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.06336637160959557
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2006,
+   "kind": "blind",
+   "inst": {
+    "seed": 2006,
+    "cube_xy": [
+     -0.23512094536654082,
+     0.009451459371901422
+    ],
+    "target_dist": 0.24421286292551767,
+    "mu": 0.04706184261540827
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.33597752490602056
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.15256272880323934,
+      "across_err": -6.288646707942533e-06,
+      "detail": "The cube is 15.3 cm short of the centre of the target zone.",
+      "moved": 0.09165013412227832
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.25503864672335036
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.07330425785992442,
+      "across_err": -0.0001260616819003628,
+      "detail": "The cube is 7.3 cm short of the centre of the target zone.",
+      "moved": 0.07925847094331494
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2176225639082216
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.010135777955686154,
+      "across_err": -0.00024708392181174016,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.06316847990423825
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2007,
+    "cube_xy": [
+     -0.23960512472881898,
+     -0.00283285822673425
+    ],
+    "target_dist": 0.23734126711774275,
+    "mu": 0.060417637680172664
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.12720100344738078,
+      "across_err": 2.9339364690296812e-05,
+      "detail": "The cube is 12.7 cm short of the centre of the target zone.",
+      "moved": 0.11014026367036198
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.19729816303306347
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.07996760621818702,
+      "across_err": -0.0001305304297392106,
+      "detail": "The cube is 8.0 cm short of the centre of the target zone.",
+      "moved": 0.04723339722919377
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.4024876500274926
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.014737447819494903,
+      "across_err": 0.0006858225192281982,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.09470505403768191
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2007,
+   "kind": "naive",
+   "inst": {
+    "seed": 2007,
+    "cube_xy": [
+     -0.23960512472881898,
+     -0.00283285822673425
+    ],
+    "target_dist": 0.23734126711774275,
+    "mu": 0.060417637680172664
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.15177007622792432,
+      "across_err": -0.00010089934277632663,
+      "detail": "The cube is 15.2 cm short of the centre of the target zone.",
+      "moved": 0.08557119088981843
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.08014118797432154,
+      "across_err": -6.799362149916043e-05,
+      "detail": "The cube is 8.0 cm short of the centre of the target zone.",
+      "moved": 0.07162888825360277
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.00535408402574597,
+      "across_err": -0.00014775564683868012,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.07478710394857559
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2007,
+    "cube_xy": [
+     -0.23960512472881898,
+     -0.00283285822673425
+    ],
+    "target_dist": 0.23734126711774275,
+    "mu": 0.060417637680172664
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.15177007622792432,
+      "across_err": -0.00010089934277632663,
+      "detail": "The cube is 15.2 cm short of the centre of the target zone.",
+      "moved": 0.08557119088981843
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.29117480125536616
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.08614742845622217,
+      "across_err": -0.00015706935223177816,
+      "detail": "The cube is 8.6 cm short of the centre of the target zone.",
+      "moved": 0.06562264777170217
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.15010175546853763
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.05738101796011749,
+      "across_err": -0.0001307580741995106,
+      "detail": "The cube is 5.7 cm short of the centre of the target zone.",
+      "moved": 0.028766410496104677
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2007,
+   "kind": "blind",
+   "inst": {
+    "seed": 2007,
+    "cube_xy": [
+     -0.23960512472881898,
+     -0.00283285822673425
+    ],
+    "target_dist": 0.23734126711774275,
+    "mu": 0.060417637680172664
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3080734143220789
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1561499923107466,
+      "across_err": 3.8927149627174164e-05,
+      "detail": "The cube is 15.6 cm short of the centre of the target zone.",
+      "moved": 0.08119127480699614
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.36070564373592956
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.07550778230503102,
+      "across_err": -1.3208865815213591e-05,
+      "detail": "The cube is 7.6 cm short of the centre of the target zone.",
+      "moved": 0.08064221000571559
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.24734427428446254
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.00964621035994817,
+      "across_err": -0.00022094548546055517,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.06586157194508287
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2008,
+    "cube_xy": [
+     -0.23419369958645292,
+     0.029752324624234994
+    ],
+    "target_dist": 0.2877462569326423,
+    "mu": 0.035418952370118564
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.11899285419705707,
+      "across_err": 0.00018811018063024168,
+      "detail": "The cube is 11.9 cm short of the centre of the target zone.",
+      "moved": 0.1687534027355852
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.12
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.08762977092028842,
+      "across_err": 3.389758043033375e-05,
+      "detail": "The cube is 8.8 cm short of the centre of the target zone.",
+      "moved": 0.03136308327676864
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2888570918116363
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.021006214254153555,
+      "across_err": -5.608671538908511e-06,
+      "detail": "The cube passed the target zone: it is 2.1 cm beyond its centre. The task has failed.",
+      "moved": 0.10863598517444195
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2008,
+   "kind": "naive",
+   "inst": {
+    "seed": 2008,
+    "cube_xy": [
+     -0.23419369958645292,
+     0.029752324624234994
+    ],
+    "target_dist": 0.2877462569326423,
+    "mu": 0.035418952370118564
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.14835148945813642,
+      "across_err": 0.00036516203607991557,
+      "detail": "The cube is 14.8 cm short of the centre of the target zone.",
+      "moved": 0.13939476747450585
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.019048925098298253,
+      "across_err": 0.0005006639743315236,
+      "detail": "The cube is 1.9 cm short of the centre of the target zone.",
+      "moved": 0.12930256435983814
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.05890848850043878,
+      "across_err": 0.0008700271346269058,
+      "detail": "The cube passed the target zone: it is 5.9 cm beyond its centre. The task has failed.",
+      "moved": 0.07795741359873704
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2008,
+    "cube_xy": [
+     -0.23419369958645292,
+     0.029752324624234994
+    ],
+    "target_dist": 0.2877462569326423,
+    "mu": 0.035418952370118564
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.14835148945813642,
+      "across_err": 0.00036516203607991557,
+      "detail": "The cube is 14.8 cm short of the centre of the target zone.",
+      "moved": 0.13939476747450585
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2097271140415562
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.060026549631796905,
+      "across_err": 0.0005386912642082464,
+      "detail": "The cube is 6.0 cm short of the centre of the target zone.",
+      "moved": 0.0883249398263395
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.1359715691936427
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.01769390730931919,
+      "across_err": 0.00029287778497069303,
+      "detail": "The cube is 1.8 cm short of the centre of the target zone.",
+      "moved": 0.04233264232247772
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2008,
+   "kind": "blind",
+   "inst": {
+    "seed": 2008,
+    "cube_xy": [
+     -0.23419369958645292,
+     0.029752324624234994
+    ],
+    "target_dist": 0.2877462569326423,
+    "mu": 0.035418952370118564
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.28431651713267686
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1555631451558636,
+      "across_err": -4.4559937103075264e-05,
+      "detail": "The cube is 15.6 cm short of the centre of the target zone.",
+      "moved": 0.13218311177677866
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2546024996402542
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.04467580992170844,
+      "across_err": -0.00045226851689114667,
+      "detail": "The cube is 4.5 cm short of the centre of the target zone.",
+      "moved": 0.11088733523415518
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.035245333286498315,
+      "across_err": -0.0006229162760829597,
+      "detail": "The cube passed the target zone: it is 3.5 cm beyond its centre. The task has failed.",
+      "moved": 0.07992114320820679
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2009,
+    "cube_xy": [
+     -0.2615216897716321,
+     0.01623300646942885
+    ],
+    "target_dist": 0.2988649367686392,
+    "mu": 0.04983560283705326
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.19798814599551498,
+      "across_err": -0.0013197699727636979,
+      "detail": "The cube is 19.8 cm short of the centre of the target zone.",
+      "moved": 0.1008767907731242
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.05512624999768043,
+      "across_err": -0.0020638448165840612,
+      "detail": "The cube is 5.5 cm short of the centre of the target zone.",
+      "moved": 0.14286189599783455
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.1630980145500798
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": -0.0140838588609693,
+      "across_err": -0.002240094666529427,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.04104239113671112
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2009,
+   "kind": "naive",
+   "inst": {
+    "seed": 2009,
+    "cube_xy": [
+     -0.2615216897716321,
+     0.01623300646942885
+    ],
+    "target_dist": 0.2988649367686392,
+    "mu": 0.04983560283705326
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2257338016816128,
+      "across_err": -0.00011049803965164362,
+      "detail": "The cube is 22.6 cm short of the centre of the target zone.",
+      "moved": 0.07313113508702637
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.13630293335706256,
+      "across_err": -0.00012327247800578492,
+      "detail": "The cube is 13.6 cm short of the centre of the target zone.",
+      "moved": 0.08943086832455023
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.0497981405578376,
+      "across_err": 0.0006636509341714711,
+      "detail": "The cube is 5.0 cm short of the centre of the target zone.",
+      "moved": 0.08650479279922499
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2009,
+    "cube_xy": [
+     -0.2615216897716321,
+     0.01623300646942885
+    ],
+    "target_dist": 0.2988649367686392,
+    "mu": 0.04983560283705326
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.2257338016816128,
+      "across_err": -0.00011049803965164362,
+      "detail": "The cube is 22.6 cm short of the centre of the target zone.",
+      "moved": 0.07313113508702637
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.47950232154390254
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1035456689437188,
+      "across_err": -0.0006872041432086241,
+      "detail": "The cube is 10.4 cm short of the centre of the target zone.",
+      "moved": 0.122188132737894
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.4204160322639019
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.016584651616544432,
+      "across_err": -0.0014155076420370068,
+      "detail": "The cube passed the target zone: it is 1.7 cm beyond its centre. The task has failed.",
+      "moved": 0.12013032056026321
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2009,
+   "kind": "blind",
+   "inst": {
+    "seed": 2009,
+    "cube_xy": [
+     -0.2615216897716321,
+     0.01623300646942885
+    ],
+    "target_dist": 0.2988649367686392,
+    "mu": 0.04983560283705326
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3562671243542543
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.20916886099375734,
+      "across_err": 0.000418585184557934,
+      "detail": "The cube is 20.9 cm short of the centre of the target zone.",
+      "moved": 0.08969607577488184
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21024135026814786
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1422576811862954,
+      "across_err": 0.0006169007133126139,
+      "detail": "The cube is 14.2 cm short of the centre of the target zone.",
+      "moved": 0.06691117980746195
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3588351925467505
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.027141712720382905,
+      "across_err": 0.0003898982510913175,
+      "detail": "The cube is 2.7 cm short of the centre of the target zone.",
+      "moved": 0.1151159684659125
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2010,
+    "cube_xy": [
+     -0.26026035018480964,
+     0.01349110214998231
+    ],
+    "target_dist": 0.24568930471044365,
+    "mu": 0.04270890346503173
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.11508458892683318,
+      "across_err": -0.00032584522063880926,
+      "detail": "The cube is 11.5 cm short of the centre of the target zone.",
+      "moved": 0.13060471578361046
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.12
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.0851291336240396,
+      "across_err": -0.00023508085273863007,
+      "detail": "The cube is 8.5 cm short of the centre of the target zone.",
+      "moved": 0.029955455302793588
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.4465218276987688
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.053939689708424554,
+      "across_err": 0.0002506736919471748,
+      "detail": "The cube passed the target zone: it is 5.4 cm beyond its centre. The task has failed.",
+      "moved": 0.13906882333246418
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2010,
+   "kind": "naive",
+   "inst": {
+    "seed": 2010,
+    "cube_xy": [
+     -0.26026035018480964,
+     0.01349110214998231
+    ],
+    "target_dist": 0.24568930471044365,
+    "mu": 0.04270890346503173
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.13903011970372417,
+      "across_err": -0.0001356555477944662,
+      "detail": "The cube is 13.9 cm short of the centre of the target zone.",
+      "moved": 0.10665918500671948
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.02969875101892755,
+      "across_err": -6.2256257914172775e-06,
+      "detail": "The cube is 3.0 cm short of the centre of the target zone.",
+      "moved": 0.10933136868479662
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.04145351720197743,
+      "across_err": -9.834074916591044e-05,
+      "detail": "The cube passed the target zone: it is 4.1 cm beyond its centre. The task has failed.",
+      "moved": 0.07115226822090501
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2010,
+    "cube_xy": [
+     -0.26026035018480964,
+     0.01349110214998231
+    ],
+    "target_dist": 0.24568930471044365,
+    "mu": 0.04270890346503173
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.13903011970372417,
+      "across_err": -0.0001356555477944662,
+      "detail": "The cube is 13.9 cm short of the centre of the target zone.",
+      "moved": 0.10665918500671948
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2256552444026829
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.05975994619779251,
+      "across_err": -0.00017112354521680966,
+      "detail": "The cube is 6.0 cm short of the centre of the target zone.",
+      "moved": 0.07927017350593164
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.15192871837920097
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.02098832675287382,
+      "across_err": -0.00019945708242330613,
+      "detail": "The cube is 2.1 cm short of the centre of the target zone.",
+      "moved": 0.0387716194449187
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2010,
+   "kind": "blind",
+   "inst": {
+    "seed": 2010,
+    "cube_xy": [
+     -0.26026035018480964,
+     0.01349110214998231
+    ],
+    "target_dist": 0.24568930471044365,
+    "mu": 0.04270890346503173
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.26140471541385324
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.14782314446426528,
+      "across_err": -0.00022081581915536948,
+      "detail": "The cube is 14.8 cm short of the centre of the target zone.",
+      "moved": 0.09786616024617836
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2664355881566327
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.059146438921895805,
+      "across_err": -3.431054386820835e-05,
+      "detail": "The cube is 5.9 cm short of the centre of the target zone.",
+      "moved": 0.08867670554236948
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2
+     },
+     "outcome": {
+      "success": true,
+      "overshoot": false,
+      "along_err": 0.0076126630353712255,
+      "across_err": -0.00030113552762039107,
+      "detail": "The cube is inside the target zone.",
+      "moved": 0.06675910195726703
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 2011,
+    "cube_xy": [
+     -0.2400999999632379,
+     -0.03969632291711155
+    ],
+    "target_dist": 0.27462089920177535,
+    "mu": 0.042581312169569716
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.6
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.125634470547844,
+      "across_err": -0.000460608032329439,
+      "detail": "The cube is 12.6 cm short of the centre of the target zone.",
+      "moved": 0.14898642865393136
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.16351305063977944
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.08404271700696878,
+      "across_err": -2.219643165595614e-05,
+      "detail": "The cube is 8.4 cm short of the centre of the target zone.",
+      "moved": 0.04159175354087523
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.40191847688240157
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.05190968950309954,
+      "across_err": 0.0012280253482643833,
+      "detail": "The cube passed the target zone: it is 5.2 cm beyond its centre. The task has failed.",
+      "moved": 0.1359524065100683
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2011,
+   "kind": "naive",
+   "inst": {
+    "seed": 2011,
+    "cube_xy": [
+     -0.2400999999632379,
+     -0.03969632291711155
+    ],
+    "target_dist": 0.27462089920177535,
+    "mu": 0.042581312169569716
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1779419700366103,
+      "across_err": -0.00010797466339691059,
+      "detail": "The cube is 17.8 cm short of the centre of the target zone.",
+      "moved": 0.09667892916516505
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.07591922969290535,
+      "across_err": -0.000760375067928476,
+      "detail": "The cube is 7.6 cm short of the centre of the target zone.",
+      "moved": 0.10202274034370495
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.023276756266209675,
+      "across_err": -0.001406980460102937,
+      "detail": "The cube passed the target zone: it is 2.3 cm beyond its centre. The task has failed.",
+      "moved": 0.09919598595911502
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 2011,
+    "cube_xy": [
+     -0.2400999999632379,
+     -0.03969632291711155
+    ],
+    "target_dist": 0.27462089920177535,
+    "mu": 0.042581312169569716
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1779419700366103,
+      "across_err": -0.00010797466339691059,
+      "detail": "The cube is 17.8 cm short of the centre of the target zone.",
+      "moved": 0.09667892916516505
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.32127825346941197
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.06567021614954216,
+      "across_err": -0.0007694637627608109,
+      "detail": "The cube is 6.6 cm short of the centre of the target zone.",
+      "moved": 0.11227175388706816
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.23595701285444778
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.015098267534733423,
+      "across_err": -0.0008687244249190873,
+      "detail": "The cube passed the target zone: it is 1.5 cm beyond its centre. The task has failed.",
+      "moved": 0.08076848368427555
+     }
+    }
+   ]
+  },
+  {
+   "seed": 2011,
+   "kind": "blind",
+   "inst": {
+    "seed": 2011,
+    "cube_xy": [
+     -0.2400999999632379,
+     -0.03969632291711155
+    ],
+    "target_dist": 0.27462089920177535,
+    "mu": 0.042581312169569716
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.2508404223334924
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.1818556088125132,
+      "across_err": -2.0448840770230514e-05,
+      "detail": "The cube is 18.2 cm short of the centre of the target zone.",
+      "moved": 0.09276529038926215
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2978028044022816
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": false,
+      "along_err": -0.0829746873883059,
+      "across_err": -0.00015515792847348164,
+      "detail": "The cube is 8.3 cm short of the centre of the target zone.",
+      "moved": 0.09888092142420729
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.36995666617546663
+     },
+     "outcome": {
+      "success": false,
+      "overshoot": true,
+      "along_err": 0.04958599539880776,
+      "across_err": 0.0008241188092452251,
+      "detail": "The cube passed the target zone: it is 5.0 cm beyond its centre. The task has failed.",
+      "moved": 0.13256068278711367
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 494.40163826942444
+}

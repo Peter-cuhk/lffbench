@@ -1,0 +1,1298 @@
+[
+ {
+  "seed": 1000,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.2 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   11.8,
+   10.56
+  ],
+  "bar_cm": 13.0,
+  "fit_margin_cm": 1.17,
+  "fit_window_deg": 8.3
+ },
+ {
+  "seed": 1000,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 2.4 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   11.8,
+   10.56
+  ],
+  "bar_cm": 13.0,
+  "fit_margin_cm": 1.17,
+  "fit_window_deg": 8.3
+ },
+ {
+  "seed": 1000,
+  "case": "best+",
+  "rel_deg": 40.70000000000001,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.8,
+   10.56
+  ],
+  "bar_cm": 13.0,
+  "fit_margin_cm": 1.17,
+  "fit_window_deg": 8.3
+ },
+ {
+  "seed": 1000,
+  "case": "best-",
+  "rel_deg": -40.70000000000001,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.8,
+   10.56
+  ],
+  "bar_cm": 13.0,
+  "fit_margin_cm": 1.17,
+  "fit_window_deg": 8.3
+ },
+ {
+  "seed": 1000,
+  "case": "best-6",
+  "rel_deg": 34.7,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.8,
+   10.56
+  ],
+  "bar_cm": 13.0,
+  "fit_margin_cm": 1.17,
+  "fit_window_deg": 8.3
+ },
+ {
+  "seed": 1000,
+  "case": "best+6",
+  "rel_deg": 46.70000000000001,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.8,
+   10.56
+  ],
+  "bar_cm": 13.0,
+  "fit_margin_cm": 1.17,
+  "fit_window_deg": 8.3
+ },
+ {
+  "seed": 1001,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.4 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.08,
+   11.08
+  ],
+  "bar_cm": 13.47,
+  "fit_margin_cm": 1.22,
+  "fit_window_deg": 8.7
+ },
+ {
+  "seed": 1001,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees counterclockwise (towards the left), seen from above, from the box's long side. At that angle the bar's footprint is 2.4 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.08,
+   11.08
+  ],
+  "bar_cm": 13.47,
+  "fit_margin_cm": 1.22,
+  "fit_window_deg": 8.7
+ },
+ {
+  "seed": 1001,
+  "case": "best+",
+  "rel_deg": 41.7,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.08,
+   11.08
+  ],
+  "bar_cm": 13.47,
+  "fit_margin_cm": 1.22,
+  "fit_window_deg": 8.7
+ },
+ {
+  "seed": 1001,
+  "case": "best-",
+  "rel_deg": -41.7,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.08,
+   11.08
+  ],
+  "bar_cm": 13.47,
+  "fit_margin_cm": 1.22,
+  "fit_window_deg": 8.7
+ },
+ {
+  "seed": 1001,
+  "case": "best-6",
+  "rel_deg": 35.7,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.08,
+   11.08
+  ],
+  "bar_cm": 13.47,
+  "fit_margin_cm": 1.22,
+  "fit_window_deg": 8.7
+ },
+ {
+  "seed": 1001,
+  "case": "best+6",
+  "rel_deg": 47.7,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.08,
+   11.08
+  ],
+  "bar_cm": 13.47,
+  "fit_margin_cm": 1.22,
+  "fit_window_deg": 8.7
+ },
+ {
+  "seed": 1002,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.2 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   11.85,
+   11.24
+  ],
+  "bar_cm": 13.07,
+  "fit_margin_cm": 1.47,
+  "fit_window_deg": 12.7
+ },
+ {
+  "seed": 1002,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 1.8 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   11.85,
+   11.24
+  ],
+  "bar_cm": 13.07,
+  "fit_margin_cm": 1.47,
+  "fit_window_deg": 12.7
+ },
+ {
+  "seed": 1002,
+  "case": "best+",
+  "rel_deg": 42.90000000000001,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.85,
+   11.24
+  ],
+  "bar_cm": 13.07,
+  "fit_margin_cm": 1.47,
+  "fit_window_deg": 12.7
+ },
+ {
+  "seed": 1002,
+  "case": "best-",
+  "rel_deg": -42.90000000000001,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.85,
+   11.24
+  ],
+  "bar_cm": 13.07,
+  "fit_margin_cm": 1.47,
+  "fit_window_deg": 12.7
+ },
+ {
+  "seed": 1002,
+  "case": "best-6",
+  "rel_deg": 36.900000000000006,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.85,
+   11.24
+  ],
+  "bar_cm": 13.07,
+  "fit_margin_cm": 1.47,
+  "fit_window_deg": 12.7
+ },
+ {
+  "seed": 1002,
+  "case": "best+6",
+  "rel_deg": 48.90000000000001,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.85,
+   11.24
+  ],
+  "bar_cm": 13.07,
+  "fit_margin_cm": 1.47,
+  "fit_window_deg": 12.7
+ },
+ {
+  "seed": 1003,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.8 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.57,
+   12.03
+  ],
+  "bar_cm": 14.4,
+  "fit_margin_cm": 1.27,
+  "fit_window_deg": 8.6
+ },
+ {
+  "seed": 1003,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 2.4 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.57,
+   12.03
+  ],
+  "bar_cm": 14.4,
+  "fit_margin_cm": 1.27,
+  "fit_window_deg": 8.6
+ },
+ {
+  "seed": 1003,
+  "case": "best+",
+  "rel_deg": 43.35,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.57,
+   12.03
+  ],
+  "bar_cm": 14.4,
+  "fit_margin_cm": 1.27,
+  "fit_window_deg": 8.6
+ },
+ {
+  "seed": 1003,
+  "case": "best-",
+  "rel_deg": -43.35,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.57,
+   12.03
+  ],
+  "bar_cm": 14.4,
+  "fit_margin_cm": 1.27,
+  "fit_window_deg": 8.6
+ },
+ {
+  "seed": 1003,
+  "case": "best-6",
+  "rel_deg": 37.35,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.57,
+   12.03
+  ],
+  "bar_cm": 14.4,
+  "fit_margin_cm": 1.27,
+  "fit_window_deg": 8.6
+ },
+ {
+  "seed": 1003,
+  "case": "best+6",
+  "rel_deg": 49.35,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.57,
+   12.03
+  ],
+  "bar_cm": 14.4,
+  "fit_margin_cm": 1.27,
+  "fit_window_deg": 8.6
+ },
+ {
+  "seed": 1004,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.1 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   11.5,
+   10.89
+  ],
+  "bar_cm": 12.64,
+  "fit_margin_cm": 1.42,
+  "fit_window_deg": 12.4
+ },
+ {
+  "seed": 1004,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 1.7 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   11.5,
+   10.89
+  ],
+  "bar_cm": 12.64,
+  "fit_margin_cm": 1.42,
+  "fit_window_deg": 12.4
+ },
+ {
+  "seed": 1004,
+  "case": "best+",
+  "rel_deg": 42.85,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.5,
+   10.89
+  ],
+  "bar_cm": 12.64,
+  "fit_margin_cm": 1.42,
+  "fit_window_deg": 12.4
+ },
+ {
+  "seed": 1004,
+  "case": "best-",
+  "rel_deg": -42.85,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.5,
+   10.89
+  ],
+  "bar_cm": 12.64,
+  "fit_margin_cm": 1.42,
+  "fit_window_deg": 12.4
+ },
+ {
+  "seed": 1004,
+  "case": "best-6",
+  "rel_deg": 36.849999999999994,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.5,
+   10.89
+  ],
+  "bar_cm": 12.64,
+  "fit_margin_cm": 1.42,
+  "fit_window_deg": 12.4
+ },
+ {
+  "seed": 1004,
+  "case": "best+6",
+  "rel_deg": 48.85,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.5,
+   10.89
+  ],
+  "bar_cm": 12.64,
+  "fit_margin_cm": 1.42,
+  "fit_window_deg": 12.4
+ },
+ {
+  "seed": 1005,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.1 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.73,
+   12.11
+  ],
+  "bar_cm": 13.84,
+  "fit_margin_cm": 1.79,
+  "fit_window_deg": 16.9
+ },
+ {
+  "seed": 1005,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 1.7 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.73,
+   12.11
+  ],
+  "bar_cm": 13.84,
+  "fit_margin_cm": 1.79,
+  "fit_window_deg": 16.9
+ },
+ {
+  "seed": 1005,
+  "case": "best+",
+  "rel_deg": 43.0,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.73,
+   12.11
+  ],
+  "bar_cm": 13.84,
+  "fit_margin_cm": 1.79,
+  "fit_window_deg": 16.9
+ },
+ {
+  "seed": 1005,
+  "case": "best-",
+  "rel_deg": -43.0,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.73,
+   12.11
+  ],
+  "bar_cm": 13.84,
+  "fit_margin_cm": 1.79,
+  "fit_window_deg": 16.9
+ },
+ {
+  "seed": 1005,
+  "case": "best-6",
+  "rel_deg": 37.0,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.73,
+   12.11
+  ],
+  "bar_cm": 13.84,
+  "fit_margin_cm": 1.79,
+  "fit_window_deg": 16.9
+ },
+ {
+  "seed": 1005,
+  "case": "best+6",
+  "rel_deg": 49.00000000000001,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.73,
+   12.11
+  ],
+  "bar_cm": 13.84,
+  "fit_margin_cm": 1.79,
+  "fit_window_deg": 16.9
+ },
+ {
+  "seed": 1006,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.1 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.25,
+   11.44
+  ],
+  "bar_cm": 13.34,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1006,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 1.9 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.25,
+   11.44
+  ],
+  "bar_cm": 13.34,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1006,
+  "case": "best+",
+  "rel_deg": 42.300000000000004,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.25,
+   11.44
+  ],
+  "bar_cm": 13.34,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1006,
+  "case": "best-",
+  "rel_deg": -42.300000000000004,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.25,
+   11.44
+  ],
+  "bar_cm": 13.34,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1006,
+  "case": "best-6",
+  "rel_deg": 36.3,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.25,
+   11.44
+  ],
+  "bar_cm": 13.34,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1006,
+  "case": "best+6",
+  "rel_deg": 48.300000000000004,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.25,
+   11.44
+  ],
+  "bar_cm": 13.34,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1007,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.4 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.18,
+   11.46
+  ],
+  "bar_cm": 13.53,
+  "fit_margin_cm": 1.41,
+  "fit_window_deg": 11.3
+ },
+ {
+  "seed": 1007,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 2.1 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.18,
+   11.46
+  ],
+  "bar_cm": 13.53,
+  "fit_margin_cm": 1.41,
+  "fit_window_deg": 11.3
+ },
+ {
+  "seed": 1007,
+  "case": "best+",
+  "rel_deg": 42.65,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.18,
+   11.46
+  ],
+  "bar_cm": 13.53,
+  "fit_margin_cm": 1.41,
+  "fit_window_deg": 11.3
+ },
+ {
+  "seed": 1007,
+  "case": "best-",
+  "rel_deg": -42.65,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.18,
+   11.46
+  ],
+  "bar_cm": 13.53,
+  "fit_margin_cm": 1.41,
+  "fit_window_deg": 11.3
+ },
+ {
+  "seed": 1007,
+  "case": "best-6",
+  "rel_deg": 36.65,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.18,
+   11.46
+  ],
+  "bar_cm": 13.53,
+  "fit_margin_cm": 1.41,
+  "fit_window_deg": 11.3
+ },
+ {
+  "seed": 1007,
+  "case": "best+6",
+  "rel_deg": 48.65,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.18,
+   11.46
+  ],
+  "bar_cm": 13.53,
+  "fit_margin_cm": 1.41,
+  "fit_window_deg": 11.3
+ },
+ {
+  "seed": 1008,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.3 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.1,
+   11.66
+  ],
+  "bar_cm": 13.37,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1008,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees counterclockwise (towards the left), seen from above, from the box's long side. At that angle the bar's footprint is 1.7 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.1,
+   11.66
+  ],
+  "bar_cm": 13.37,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1008,
+  "case": "best+",
+  "rel_deg": 43.550000000000004,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.1,
+   11.66
+  ],
+  "bar_cm": 13.37,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1008,
+  "case": "best-",
+  "rel_deg": -43.550000000000004,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.1,
+   11.66
+  ],
+  "bar_cm": 13.37,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1008,
+  "case": "best-6",
+  "rel_deg": 37.550000000000004,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.1,
+   11.66
+  ],
+  "bar_cm": 13.37,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1008,
+  "case": "best+6",
+  "rel_deg": 49.55000000000001,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.1,
+   11.66
+  ],
+  "bar_cm": 13.37,
+  "fit_margin_cm": 1.58,
+  "fit_window_deg": 14.2
+ },
+ {
+  "seed": 1009,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.1 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   11.58,
+   10.66
+  ],
+  "bar_cm": 12.63,
+  "fit_margin_cm": 1.35,
+  "fit_window_deg": 11.5
+ },
+ {
+  "seed": 1009,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees counterclockwise (towards the left), seen from above, from the box's long side. At that angle the bar's footprint is 2.0 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   11.58,
+   10.66
+  ],
+  "bar_cm": 12.63,
+  "fit_margin_cm": 1.35,
+  "fit_window_deg": 11.5
+ },
+ {
+  "seed": 1009,
+  "case": "best+",
+  "rel_deg": 41.75000000000001,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.58,
+   10.66
+  ],
+  "bar_cm": 12.63,
+  "fit_margin_cm": 1.35,
+  "fit_window_deg": 11.5
+ },
+ {
+  "seed": 1009,
+  "case": "best-",
+  "rel_deg": -41.75000000000001,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.58,
+   10.66
+  ],
+  "bar_cm": 12.63,
+  "fit_margin_cm": 1.35,
+  "fit_window_deg": 11.5
+ },
+ {
+  "seed": 1009,
+  "case": "best-6",
+  "rel_deg": 35.75,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.58,
+   10.66
+  ],
+  "bar_cm": 12.63,
+  "fit_margin_cm": 1.35,
+  "fit_window_deg": 11.5
+ },
+ {
+  "seed": 1009,
+  "case": "best+6",
+  "rel_deg": 47.75000000000001,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.58,
+   10.66
+  ],
+  "bar_cm": 12.63,
+  "fit_margin_cm": 1.35,
+  "fit_window_deg": 11.5
+ },
+ {
+  "seed": 1010,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.1 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   12.11,
+   10.81
+  ],
+  "bar_cm": 13.2,
+  "fit_margin_cm": 1.31,
+  "fit_window_deg": 10.2
+ },
+ {
+  "seed": 1010,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees clockwise (towards the right), seen from above, from the box's long side. At that angle the bar's footprint is 2.4 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   12.11,
+   10.81
+  ],
+  "bar_cm": 13.2,
+  "fit_margin_cm": 1.31,
+  "fit_window_deg": 10.2
+ },
+ {
+  "seed": 1010,
+  "case": "best+",
+  "rel_deg": 40.6,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.11,
+   10.81
+  ],
+  "bar_cm": 13.2,
+  "fit_margin_cm": 1.31,
+  "fit_window_deg": 10.2
+ },
+ {
+  "seed": 1010,
+  "case": "best-",
+  "rel_deg": -40.6,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.11,
+   10.81
+  ],
+  "bar_cm": 13.2,
+  "fit_margin_cm": 1.31,
+  "fit_window_deg": 10.2
+ },
+ {
+  "seed": 1010,
+  "case": "best-6",
+  "rel_deg": 34.6,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.11,
+   10.81
+  ],
+  "bar_cm": 13.2,
+  "fit_margin_cm": 1.31,
+  "fit_window_deg": 10.2
+ },
+ {
+  "seed": 1010,
+  "case": "best+6",
+  "rel_deg": 46.6,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   12.11,
+   10.81
+  ],
+  "bar_cm": 13.2,
+  "fit_margin_cm": 1.31,
+  "fit_window_deg": 10.2
+ },
+ {
+  "seed": 1011,
+  "case": "aligned",
+  "rel_deg": 0.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar lies along the box's long side (within 2 degrees). At that angle the bar's footprint is 1.2 cm longer than the inside of the box along the box's long side.",
+  "inner_cm": [
+   11.93,
+   10.62
+  ],
+  "bar_cm": 13.14,
+  "fit_margin_cm": 1.16,
+  "fit_window_deg": 8.1
+ },
+ {
+  "seed": 1011,
+  "case": "crossed",
+  "rel_deg": 90.0,
+  "success": false,
+  "expect": false,
+  "failure": "rim",
+  "height_cm": 3.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar did not go in: it is lying across the top of the box on its rim, 3.0 cm above the box floor. The bar is turned about 90 degrees counterclockwise (towards the left), seen from above, from the box's long side. At that angle the bar's footprint is 2.5 cm longer than the inside of the box along the box's short side.",
+  "inner_cm": [
+   11.93,
+   10.62
+  ],
+  "bar_cm": 13.14,
+  "fit_margin_cm": 1.16,
+  "fit_window_deg": 8.1
+ },
+ {
+  "seed": 1011,
+  "case": "best+",
+  "rel_deg": 40.6,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.93,
+   10.62
+  ],
+  "bar_cm": 13.14,
+  "fit_margin_cm": 1.16,
+  "fit_window_deg": 8.1
+ },
+ {
+  "seed": 1011,
+  "case": "best-",
+  "rel_deg": -40.6,
+  "success": true,
+  "expect": true,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.93,
+   10.62
+  ],
+  "bar_cm": 13.14,
+  "fit_margin_cm": 1.16,
+  "fit_window_deg": 8.1
+ },
+ {
+  "seed": 1011,
+  "case": "best-6",
+  "rel_deg": 34.6,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.93,
+   10.62
+  ],
+  "bar_cm": 13.14,
+  "fit_margin_cm": 1.16,
+  "fit_window_deg": 8.1
+ },
+ {
+  "seed": 1011,
+  "case": "best+6",
+  "rel_deg": 46.6,
+  "success": true,
+  "expect": null,
+  "failure": null,
+  "height_cm": -0.0,
+  "tilt_deg": 0.0,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "inner_cm": [
+   11.93,
+   10.62
+  ],
+  "bar_cm": 13.14,
+  "fit_margin_cm": 1.16,
+  "fit_window_deg": 8.1
+ }
+]

@@ -1,0 +1,812 @@
+[
+ {
+  "seed": 1000,
+  "case": "centred",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "off3",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "off5",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "off7",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "off9",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "off4_drop3cm",
+  "success": false,
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is standing on the table, not in another cup. The red cup is inside the blue cup, standing on its bottom.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "grasp2cm",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1000,
+  "case": "fast_carry",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   11.83,
+   9.66
+  ],
+  "height_cm": [
+   8.73,
+   4.05,
+   5.07
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "centred",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "off3",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "off5",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "off7",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "off9",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "off4_drop3cm",
+  "success": false,
+  "detail": "The blue cup is standing on the table, not in another cup. The green cup is inside the blue cup, standing on its bottom. The red cup is inside the blue cup, standing on its bottom.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "grasp2cm",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1001,
+  "case": "fast_carry",
+  "success": true,
+  "detail": "All three cups are nested: the red cup stands inside the green cup, which stands inside the blue cup.",
+  "tol_mm": [
+   13.31,
+   9.76
+  ],
+  "height_cm": [
+   3.65,
+   9.65,
+   5.76
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "centred",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "off3",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "off5",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "off7",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "off9",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "off4_drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "grasp2cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1002,
+  "case": "fast_carry",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   11.85,
+   9.64
+  ],
+  "height_cm": [
+   4.9,
+   9.33,
+   3.73
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "centred",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "off3",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "off5",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "off7",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "off9",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "off4_drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "grasp2cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1003,
+  "case": "fast_carry",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the green cup, which stands inside the red cup.",
+  "tol_mm": [
+   13.32,
+   8.58
+  ],
+  "height_cm": [
+   4.6,
+   9.29,
+   3.5
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "centred",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "off3",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "off5",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "off7",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "off9",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "off4_drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "grasp2cm",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1004,
+  "case": "fast_carry",
+  "success": true,
+  "detail": "All three cups are nested: the blue cup stands inside the red cup, which stands inside the green cup.",
+  "tol_mm": [
+   10.87,
+   11.51
+  ],
+  "height_cm": [
+   6.99,
+   8.54,
+   5.65
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "centred",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "off3",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "off5",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "off7",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "off9",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "off4_drop3cm",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "grasp2cm",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ },
+ {
+  "seed": 1005,
+  "case": "fast_carry",
+  "success": true,
+  "detail": "All three cups are nested: the green cup stands inside the red cup, which stands inside the blue cup.",
+  "tol_mm": [
+   9.15,
+   10.28
+  ],
+  "height_cm": [
+   6.06,
+   4.79,
+   7.55
+  ]
+ }
+]

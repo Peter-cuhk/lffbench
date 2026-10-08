@@ -1,0 +1,6024 @@
+{
+ "task": "l3_under_table_tool",
+ "level": "L3",
+ "capabilities": [
+  "Perceive",
+  "Reason",
+  "Plan"
+ ],
+ "n": 20,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "adaptive": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "table_xy": [
+     -0.12376948917962023,
+     0.05412825391966762
+    ],
+    "cube_xy": [
+     -0.12970453032872664,
+     0.054703434432068675
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14871262223866366,
+     -0.18115521243698507
+    ],
+    "stick_yaw": 1.4629476431589001,
+    "bin_xy": [
+     0.06726394635500405,
+     0.07595157846217093
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19888650410006578,
+      "under": false,
+      "cube_rel_bin": [
+       0.0008252867876417658,
+       -0.0004282342085816515
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "table_xy": [
+     -0.12376948917962023,
+     0.05412825391966762
+    ],
+    "cube_xy": [
+     -0.12970453032872664,
+     0.054703434432068675
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14871262223866366,
+     -0.18115521243698507
+    ],
+    "stick_yaw": 1.4629476431589001,
+    "bin_xy": [
+     0.06726394635500405,
+     0.07595157846217093
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "table_xy": [
+     -0.12376948917962023,
+     0.05412825391966762
+    ],
+    "cube_xy": [
+     -0.12970453032872664,
+     0.054703434432068675
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14871262223866366,
+     -0.18115521243698507
+    ],
+    "stick_yaw": 1.4629476431589001,
+    "bin_xy": [
+     0.06726394635500405,
+     0.07595157846217093
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19888650410006578,
+      "under": false,
+      "cube_rel_bin": [
+       0.0008252867876417658,
+       -0.0004282342085816515
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "table_xy": [
+     -0.12376948917962023,
+     0.05412825391966762
+    ],
+    "cube_xy": [
+     -0.12970453032872664,
+     0.054703434432068675
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14871262223866366,
+     -0.18115521243698507
+    ],
+    "stick_yaw": 1.4629476431589001,
+    "bin_xy": [
+     0.06726394635500405,
+     0.07595157846217093
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0025706416479832316,
+       -0.0038852918261346415
+      ],
+      "dyaw": 0.2520087192881956
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.015764215056845724,
+       0.001241469291884718
+      ],
+      "dyaw": -0.18866481710965236
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0016017473219231977,
+       0.00033642393779178485
+      ],
+      "dyaw": -0.1317024702482427
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.012235263179178713,
+       0.007964297394100237
+      ],
+      "dyaw": -0.2113859607221307
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1969684766837307,
+       -0.021248144030102258
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "table_xy": [
+     -0.1590579719307801,
+     -0.04563068730645789
+    ],
+    "cube_xy": [
+     -0.15190017063995762,
+     -0.0541067146211016
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13513375427156168,
+     0.17660093343220362
+    ],
+    "stick_yaw": -1.6751355148100717,
+    "bin_xy": [
+     0.023986116159425877,
+     -0.06481598686169535
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1750864006502754,
+      "under": false,
+      "cube_rel_bin": [
+       -0.001124366929144749,
+       5.474006236087792e-05
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "table_xy": [
+     -0.1590579719307801,
+     -0.04563068730645789
+    ],
+    "cube_xy": [
+     -0.15190017063995762,
+     -0.0541067146211016
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13513375427156168,
+     0.17660093343220362
+    ],
+    "stick_yaw": -1.6751355148100717,
+    "bin_xy": [
+     0.023986116159425877,
+     -0.06481598686169535
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "table_xy": [
+     -0.1590579719307801,
+     -0.04563068730645789
+    ],
+    "cube_xy": [
+     -0.15190017063995762,
+     -0.0541067146211016
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13513375427156168,
+     0.17660093343220362
+    ],
+    "stick_yaw": -1.6751355148100717,
+    "bin_xy": [
+     0.023986116159425877,
+     -0.06481598686169535
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1750864006502754,
+      "under": false,
+      "cube_rel_bin": [
+       -0.001124366929144749,
+       5.474006236087792e-05
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "table_xy": [
+     -0.1590579719307801,
+     -0.04563068730645789
+    ],
+    "cube_xy": [
+     -0.15190017063995762,
+     -0.0541067146211016
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13513375427156168,
+     0.17660093343220362
+    ],
+    "stick_yaw": -1.6751355148100717,
+    "bin_xy": [
+     0.023986116159425877,
+     -0.06481598686169535
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.007458579480963633,
+       -0.001078739268055055
+      ],
+      "dyaw": -0.16466566630672758
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.00967450908682154,
+       -0.012160487819407149
+      ],
+      "dyaw": -0.054885836762792
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0007002924974370674,
+       -0.005388205256004927
+      ],
+      "dyaw": -0.04683009532303139
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.005214009853819404,
+       0.0008150669119580759
+      ],
+      "dyaw": 0.31774921002811746
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1758862867993835,
+       0.010709272240593745
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "table_xy": [
+     -0.13856863973974318,
+     -0.06242836951204574
+    ],
+    "cube_xy": [
+     -0.14077880135764495,
+     -0.065685745776055
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.14964027941670835,
+     0.16093971094658072
+    ],
+    "stick_yaw": -1.5516345211623928,
+    "bin_xy": [
+     0.05823835675195683,
+     -0.06826636606412755
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19858399726805287,
+      "under": false,
+      "cube_rel_bin": [
+       -0.00044707908229172505,
+       0.00022951713298373366
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "table_xy": [
+     -0.13856863973974318,
+     -0.06242836951204574
+    ],
+    "cube_xy": [
+     -0.14077880135764495,
+     -0.065685745776055
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.14964027941670835,
+     0.16093971094658072
+    ],
+    "stick_yaw": -1.5516345211623928,
+    "bin_xy": [
+     0.05823835675195683,
+     -0.06826636606412755
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "table_xy": [
+     -0.13856863973974318,
+     -0.06242836951204574
+    ],
+    "cube_xy": [
+     -0.14077880135764495,
+     -0.065685745776055
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.14964027941670835,
+     0.16093971094658072
+    ],
+    "stick_yaw": -1.5516345211623928,
+    "bin_xy": [
+     0.05823835675195683,
+     -0.06826636606412755
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19858399726805287,
+      "under": false,
+      "cube_rel_bin": [
+       -0.00044707908229172505,
+       0.00022951713298373366
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "table_xy": [
+     -0.13856863973974318,
+     -0.06242836951204574
+    ],
+    "cube_xy": [
+     -0.14077880135764495,
+     -0.065685745776055
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.14964027941670835,
+     0.16093971094658072
+    ],
+    "stick_yaw": -1.5516345211623928,
+    "bin_xy": [
+     0.05823835675195683,
+     -0.06826636606412755
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0008560264999707429,
+       -0.01305365274454182
+      ],
+      "dyaw": 0.19826939459754642
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0006614921434634735,
+       -0.009414312604449384
+      ],
+      "dyaw": 0.1734524227501755
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.007849627648312643,
+       -0.011601861039547192
+      ],
+      "dyaw": 0.16646151840914944
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.004894611686703367,
+       -0.007830807711629605
+      ],
+      "dyaw": 0.11002655385547833
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19901715810960177,
+       0.0025806202880725437
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "table_xy": [
+     -0.14459765138687067,
+     0.054840379815665544
+    ],
+    "cube_xy": [
+     -0.14138182023718696,
+     0.05988263704918708
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.13399266303080293,
+     -0.1776982442980783
+    ],
+    "stick_yaw": 1.648672173859247,
+    "bin_xy": [
+     0.054813890863370775,
+     0.06724262824366808
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19701017695264547,
+      "under": false,
+      "cube_rel_bin": [
+       0.0006793587001328941,
+       -6.501251830462462e-05
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "table_xy": [
+     -0.14459765138687067,
+     0.054840379815665544
+    ],
+    "cube_xy": [
+     -0.14138182023718696,
+     0.05988263704918708
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.13399266303080293,
+     -0.1776982442980783
+    ],
+    "stick_yaw": 1.648672173859247,
+    "bin_xy": [
+     0.054813890863370775,
+     0.06724262824366808
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "table_xy": [
+     -0.14459765138687067,
+     0.054840379815665544
+    ],
+    "cube_xy": [
+     -0.14138182023718696,
+     0.05988263704918708
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.13399266303080293,
+     -0.1776982442980783
+    ],
+    "stick_yaw": 1.648672173859247,
+    "bin_xy": [
+     0.054813890863370775,
+     0.06724262824366808
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19701017695264547,
+      "under": false,
+      "cube_rel_bin": [
+       0.0006793587001328941,
+       -6.501251830462462e-05
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "table_xy": [
+     -0.14459765138687067,
+     0.054840379815665544
+    ],
+    "cube_xy": [
+     -0.14138182023718696,
+     0.05988263704918708
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.13399266303080293,
+     -0.1776982442980783
+    ],
+    "stick_yaw": 1.648672173859247,
+    "bin_xy": [
+     0.054813890863370775,
+     0.06724262824366808
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.008173858447663588,
+       -0.0009645101095337212
+      ],
+      "dyaw": -0.2137152756846029
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0031788030359853987,
+       -0.0004094337556228628
+      ],
+      "dyaw": 0.22302258292097457
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.011889137204326621,
+       0.004528668384516967
+      ],
+      "dyaw": 0.08320325691744455
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0024243740786145038,
+       0.0034435231627134386
+      ],
+      "dyaw": -0.04234138001291499
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19619571110055772,
+       -0.007359991194481004
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "table_xy": [
+     -0.15219092127234213,
+     -0.04415432095895774
+    ],
+    "cube_xy": [
+     -0.15457782853339738,
+     -0.04174084486179799
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1780338691184968,
+     0.1871147934641217
+    ],
+    "stick_yaw": -1.4531287530989956,
+    "bin_xy": [
+     0.03329407022651398,
+     -0.02465510126913395
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1880327580559888,
+      "under": false,
+      "cube_rel_bin": [
+       -0.0006679042201238258,
+       0.0005489531863911781
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "table_xy": [
+     -0.15219092127234213,
+     -0.04415432095895774
+    ],
+    "cube_xy": [
+     -0.15457782853339738,
+     -0.04174084486179799
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1780338691184968,
+     0.1871147934641217
+    ],
+    "stick_yaw": -1.4531287530989956,
+    "bin_xy": [
+     0.03329407022651398,
+     -0.02465510126913395
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "table_xy": [
+     -0.15219092127234213,
+     -0.04415432095895774
+    ],
+    "cube_xy": [
+     -0.15457782853339738,
+     -0.04174084486179799
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1780338691184968,
+     0.1871147934641217
+    ],
+    "stick_yaw": -1.4531287530989956,
+    "bin_xy": [
+     0.03329407022651398,
+     -0.02465510126913395
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1880327580559888,
+      "under": false,
+      "cube_rel_bin": [
+       -0.0006679042201238258,
+       0.0005489531863911781
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "table_xy": [
+     -0.15219092127234213,
+     -0.04415432095895774
+    ],
+    "cube_xy": [
+     -0.15457782853339738,
+     -0.04174084486179799
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1780338691184968,
+     0.1871147934641217
+    ],
+    "stick_yaw": -1.4531287530989956,
+    "bin_xy": [
+     0.03329407022651398,
+     -0.02465510126913395
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.00010912156182440132,
+       -0.0005017140708295849
+      ],
+      "dyaw": 0.03737362214109308
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0003966774423016924,
+       0.009461325938738304
+      ],
+      "dyaw": 0.21074015435057902
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       4.097413825841655e-05,
+       -0.0021958865342047483
+      ],
+      "dyaw": 0.06763617779253632
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.008489403254545435,
+       0.002161647620272881
+      ],
+      "dyaw": -0.1501087763147739
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18787189875991137,
+       -0.017085743592664043
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "table_xy": [
+     -0.10416627745668379,
+     0.04861852085103312
+    ],
+    "cube_xy": [
+     -0.10139511648427382,
+     0.05531437534191484
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08562332460459073,
+     -0.18043889741248284
+    ],
+    "stick_yaw": 1.737203698334083,
+    "bin_xy": [
+     0.09017026524334748,
+     0.03901874224502837
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19487801556826156,
+      "under": false,
+      "cube_rel_bin": [
+       0.00264443662920566,
+       0.00017150813979573826
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "table_xy": [
+     -0.10416627745668379,
+     0.04861852085103312
+    ],
+    "cube_xy": [
+     -0.10139511648427382,
+     0.05531437534191484
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08562332460459073,
+     -0.18043889741248284
+    ],
+    "stick_yaw": 1.737203698334083,
+    "bin_xy": [
+     0.09017026524334748,
+     0.03901874224502837
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "table_xy": [
+     -0.10416627745668379,
+     0.04861852085103312
+    ],
+    "cube_xy": [
+     -0.10139511648427382,
+     0.05531437534191484
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08562332460459073,
+     -0.18043889741248284
+    ],
+    "stick_yaw": 1.737203698334083,
+    "bin_xy": [
+     0.09017026524334748,
+     0.03901874224502837
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19487801556826156,
+      "under": false,
+      "cube_rel_bin": [
+       0.00264443662920566,
+       0.00017150813979573826
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "table_xy": [
+     -0.10416627745668379,
+     0.04861852085103312
+    ],
+    "cube_xy": [
+     -0.10139511648427382,
+     0.05531437534191484
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08562332460459073,
+     -0.18043889741248284
+    ],
+    "stick_yaw": 1.737203698334083,
+    "bin_xy": [
+     0.09017026524334748,
+     0.03901874224502837
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.005688853296486265,
+       -0.0014522198021348206
+      ],
+      "dyaw": -0.08664203124829203
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0012563557131531455,
+       0.008185152114104775
+      ],
+      "dyaw": -0.09419308080663032
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.004179760130141993,
+       0.015719104957721497
+      ],
+      "dyaw": -0.3011216008580774
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.005084112476823034,
+       0.006627880152246229
+      ],
+      "dyaw": -0.07737813749555603
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1915653817276213,
+       0.016295633096886475
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "table_xy": [
+     -0.12394858337202072,
+     -0.04893493898227527
+    ],
+    "cube_xy": [
+     -0.12919713447810927,
+     -0.042939541858960484
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12325509912334313,
+     0.17896838510094326
+    ],
+    "stick_yaw": -1.6283764299740566,
+    "bin_xy": [
+     0.06954849550240894,
+     -0.049598201229613906
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19997331930258258,
+      "under": false,
+      "cube_rel_bin": [
+       0.0011215825055584244,
+       0.0001451498759084749
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "table_xy": [
+     -0.12394858337202072,
+     -0.04893493898227527
+    ],
+    "cube_xy": [
+     -0.12919713447810927,
+     -0.042939541858960484
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12325509912334313,
+     0.17896838510094326
+    ],
+    "stick_yaw": -1.6283764299740566,
+    "bin_xy": [
+     0.06954849550240894,
+     -0.049598201229613906
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "table_xy": [
+     -0.12394858337202072,
+     -0.04893493898227527
+    ],
+    "cube_xy": [
+     -0.12919713447810927,
+     -0.042939541858960484
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12325509912334313,
+     0.17896838510094326
+    ],
+    "stick_yaw": -1.6283764299740566,
+    "bin_xy": [
+     0.06954849550240894,
+     -0.049598201229613906
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19997331930258258,
+      "under": false,
+      "cube_rel_bin": [
+       0.0011215825055584244,
+       0.0001451498759084749
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "table_xy": [
+     -0.12394858337202072,
+     -0.04893493898227527
+    ],
+    "cube_xy": [
+     -0.12919713447810927,
+     -0.042939541858960484
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12325509912334313,
+     0.17896838510094326
+    ],
+    "stick_yaw": -1.6283764299740566,
+    "bin_xy": [
+     0.06954849550240894,
+     -0.049598201229613906
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.009351804467604877,
+       -0.015983162579511604
+      ],
+      "dyaw": 0.13114198954252776
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.014395818056091178,
+       0.005152675182346826
+      ],
+      "dyaw": 0.21891476467744062
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.003543691343046835,
+       -0.014398190961861106
+      ],
+      "dyaw": -0.05602163475575075
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.011394967419196713,
+       0.011143929379649522
+      ],
+      "dyaw": -0.049710576395033575
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1987456299805182,
+       0.006658659370653422
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "table_xy": [
+     -0.11104117928932342,
+     0.05928785538755972
+    ],
+    "cube_xy": [
+     -0.11710927439277044,
+     0.06106423125789312
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.09937734538558413,
+     -0.1643716022717573
+    ],
+    "stick_yaw": 1.7087950258188132,
+    "bin_xy": [
+     0.07611862752791797,
+     0.03186539526352347
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19675181524847524,
+      "under": false,
+      "cube_rel_bin": [
+       0.0013141270311717579,
+       -0.00020653383604966186
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "table_xy": [
+     -0.11104117928932342,
+     0.05928785538755972
+    ],
+    "cube_xy": [
+     -0.11710927439277044,
+     0.06106423125789312
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.09937734538558413,
+     -0.1643716022717573
+    ],
+    "stick_yaw": 1.7087950258188132,
+    "bin_xy": [
+     0.07611862752791797,
+     0.03186539526352347
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "table_xy": [
+     -0.11104117928932342,
+     0.05928785538755972
+    ],
+    "cube_xy": [
+     -0.11710927439277044,
+     0.06106423125789312
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.09937734538558413,
+     -0.1643716022717573
+    ],
+    "stick_yaw": 1.7087950258188132,
+    "bin_xy": [
+     0.07611862752791797,
+     0.03186539526352347
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19675181524847524,
+      "under": false,
+      "cube_rel_bin": [
+       0.0013141270311717579,
+       -0.00020653383604966186
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "table_xy": [
+     -0.11104117928932342,
+     0.05928785538755972
+    ],
+    "cube_xy": [
+     -0.11710927439277044,
+     0.06106423125789312
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.09937734538558413,
+     -0.1643716022717573
+    ],
+    "stick_yaw": 1.7087950258188132,
+    "bin_xy": [
+     0.07611862752791797,
+     0.03186539526352347
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.008598693041112666,
+       -0.01018110893949269
+      ],
+      "dyaw": 0.019187562188646687
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.006481196949805203,
+       0.004257939775746968
+      ],
+      "dyaw": 0.03796703747951498
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.01035583501733793,
+       0.010997296630928806
+      ],
+      "dyaw": -0.2960837009857769
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.005595211810867219,
+       -0.004755431802673236
+      ],
+      "dyaw": 0.2963191177199574
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1932279019206884,
+       0.02919883599436965
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "table_xy": [
+     -0.11121695513627325,
+     0.046522984876427254
+    ],
+    "cube_xy": [
+     -0.10154156604529603,
+     0.0561867503592914
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08725962058114073,
+     -0.1739508726476968
+    ],
+    "stick_yaw": 1.6909712127151795,
+    "bin_xy": [
+     0.07417128279072821,
+     0.03888313292575297
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1777760932594033,
+      "under": false,
+      "cube_rel_bin": [
+       0.0011984633757961688,
+       -0.0002100042955003878
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "table_xy": [
+     -0.11121695513627325,
+     0.046522984876427254
+    ],
+    "cube_xy": [
+     -0.10154156604529603,
+     0.0561867503592914
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08725962058114073,
+     -0.1739508726476968
+    ],
+    "stick_yaw": 1.6909712127151795,
+    "bin_xy": [
+     0.07417128279072821,
+     0.03888313292575297
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "table_xy": [
+     -0.11121695513627325,
+     0.046522984876427254
+    ],
+    "cube_xy": [
+     -0.10154156604529603,
+     0.0561867503592914
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08725962058114073,
+     -0.1739508726476968
+    ],
+    "stick_yaw": 1.6909712127151795,
+    "bin_xy": [
+     0.07417128279072821,
+     0.03888313292575297
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1777760932594033,
+      "under": false,
+      "cube_rel_bin": [
+       0.0011984633757961688,
+       -0.0002100042955003878
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "table_xy": [
+     -0.11121695513627325,
+     0.046522984876427254
+    ],
+    "cube_xy": [
+     -0.10154156604529603,
+     0.0561867503592914
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.08725962058114073,
+     -0.1739508726476968
+    ],
+    "stick_yaw": 1.6909712127151795,
+    "bin_xy": [
+     0.07417128279072821,
+     0.03888313292575297
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.003331519269913858,
+       -0.007849027425803387
+      ],
+      "dyaw": 0.342022853204407
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.013131287794089373,
+       -0.01892124881736849
+      ],
+      "dyaw": 0.14480727805082944
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0034909714910808043,
+       -0.002404878372120317
+      ],
+      "dyaw": 0.040340847480300264
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.012267348881399302,
+       -0.01130359746190842
+      ],
+      "dyaw": -0.1189661026122649
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17571284883602423,
+       0.017303617433538435
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "table_xy": [
+     -0.1403850647396283,
+     -0.04149554386219595
+    ],
+    "cube_xy": [
+     -0.14475853637110178,
+     -0.03497862641264757
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1486842961288062,
+     0.1893653918689428
+    ],
+    "stick_yaw": -1.5327560090070065,
+    "bin_xy": [
+     0.04017810946861914,
+     -0.06235982326826092
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1866013220718716,
+      "under": false,
+      "cube_rel_bin": [
+       -0.00028097905162229736,
+       0.0005048481078194222
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "table_xy": [
+     -0.1403850647396283,
+     -0.04149554386219595
+    ],
+    "cube_xy": [
+     -0.14475853637110178,
+     -0.03497862641264757
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1486842961288062,
+     0.1893653918689428
+    ],
+    "stick_yaw": -1.5327560090070065,
+    "bin_xy": [
+     0.04017810946861914,
+     -0.06235982326826092
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "table_xy": [
+     -0.1403850647396283,
+     -0.04149554386219595
+    ],
+    "cube_xy": [
+     -0.14475853637110178,
+     -0.03497862641264757
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1486842961288062,
+     0.1893653918689428
+    ],
+    "stick_yaw": -1.5327560090070065,
+    "bin_xy": [
+     0.04017810946861914,
+     -0.06235982326826092
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1866013220718716,
+      "under": false,
+      "cube_rel_bin": [
+       -0.00028097905162229736,
+       0.0005048481078194222
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "table_xy": [
+     -0.1403850647396283,
+     -0.04149554386219595
+    ],
+    "cube_xy": [
+     -0.14475853637110178,
+     -0.03497862641264757
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1486842961288062,
+     0.1893653918689428
+    ],
+    "stick_yaw": -1.5327560090070065,
+    "bin_xy": [
+     0.04017810946861914,
+     -0.06235982326826092
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.005824380857519375,
+       0.009575026131538098
+      ],
+      "dyaw": 0.10717910722787125
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0005737488003495305,
+       0.005463914611688652
+      ],
+      "dyaw": 0.17358394397021185
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0062326003611133645,
+       0.018974324051414426
+      ],
+      "dyaw": -0.05777794522869827
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0011283343987874943,
+       0.0075591910218325235
+      ],
+      "dyaw": 0.10055954478070196
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18493664583972091,
+       0.027381196855613354
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "table_xy": [
+     -0.1278516561257894,
+     -0.06753030199340383
+    ],
+    "cube_xy": [
+     -0.11822233914801332,
+     -0.06055391121048994
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13170475786318106,
+     0.16426630372705098
+    ],
+    "stick_yaw": -1.4848755633270765,
+    "bin_xy": [
+     0.05382648202378033,
+     -0.058716512444992194
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.17103530482710044,
+      "under": false,
+      "cube_rel_bin": [
+       -0.0010333374108655521,
+       0.000766408315472332
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "table_xy": [
+     -0.1278516561257894,
+     -0.06753030199340383
+    ],
+    "cube_xy": [
+     -0.11822233914801332,
+     -0.06055391121048994
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13170475786318106,
+     0.16426630372705098
+    ],
+    "stick_yaw": -1.4848755633270765,
+    "bin_xy": [
+     0.05382648202378033,
+     -0.058716512444992194
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "table_xy": [
+     -0.1278516561257894,
+     -0.06753030199340383
+    ],
+    "cube_xy": [
+     -0.11822233914801332,
+     -0.06055391121048994
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13170475786318106,
+     0.16426630372705098
+    ],
+    "stick_yaw": -1.4848755633270765,
+    "bin_xy": [
+     0.05382648202378033,
+     -0.058716512444992194
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.17103530482710044,
+      "under": false,
+      "cube_rel_bin": [
+       -0.0010333374108655521,
+       0.000766408315472332
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "table_xy": [
+     -0.1278516561257894,
+     -0.06753030199340383
+    ],
+    "cube_xy": [
+     -0.11822233914801332,
+     -0.06055391121048994
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13170475786318106,
+     0.16426630372705098
+    ],
+    "stick_yaw": -1.4848755633270765,
+    "bin_xy": [
+     0.05382648202378033,
+     -0.058716512444992194
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.013589601380419387,
+       0.004303976045215448
+      ],
+      "dyaw": -0.033842098363655045
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.008721671545938857,
+       0.004431301135049556
+      ],
+      "dyaw": -0.22517316765157214
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.003563674617270038,
+       0.010758537561393836
+      ],
+      "dyaw": -0.16854648983069667
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0016972811808627017,
+       -0.002012682352561077
+      ],
+      "dyaw": -0.2398010773035991
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.17204882117179365,
+       -0.0018373987654977456
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "table_xy": [
+     -0.12620058786943628,
+     0.0463780040396197
+    ],
+    "cube_xy": [
+     -0.13455980825300293,
+     0.03843417064506385
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14103526296323335,
+     -0.1941835282825357
+    ],
+    "stick_yaw": 1.5350741651736373,
+    "bin_xy": [
+     0.07353503574930269,
+     0.047371824115716527
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.2092502329483127,
+      "under": false,
+      "cube_rel_bin": [
+       0.0009763323524377143,
+       -0.0002829896084948699
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "table_xy": [
+     -0.12620058786943628,
+     0.0463780040396197
+    ],
+    "cube_xy": [
+     -0.13455980825300293,
+     0.03843417064506385
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14103526296323335,
+     -0.1941835282825357
+    ],
+    "stick_yaw": 1.5350741651736373,
+    "bin_xy": [
+     0.07353503574930269,
+     0.047371824115716527
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "table_xy": [
+     -0.12620058786943628,
+     0.0463780040396197
+    ],
+    "cube_xy": [
+     -0.13455980825300293,
+     0.03843417064506385
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14103526296323335,
+     -0.1941835282825357
+    ],
+    "stick_yaw": 1.5350741651736373,
+    "bin_xy": [
+     0.07353503574930269,
+     0.047371824115716527
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.2092502329483127,
+      "under": false,
+      "cube_rel_bin": [
+       0.0009763323524377143,
+       -0.0002829896084948699
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "table_xy": [
+     -0.12620058786943628,
+     0.0463780040396197
+    ],
+    "cube_xy": [
+     -0.13455980825300293,
+     0.03843417064506385
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.14103526296323335,
+     -0.1941835282825357
+    ],
+    "stick_yaw": 1.5350741651736373,
+    "bin_xy": [
+     0.07353503574930269,
+     0.047371824115716527
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.005299824636417082,
+       0.0033415058002467793
+      ],
+      "dyaw": -0.2679745812855642
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0024343096617122292,
+       0.01219891116651609
+      ],
+      "dyaw": 0.06880856926282303
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0036307326851784806,
+       0.018101483332736472
+      ],
+      "dyaw": 0.28215457682165
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0018992733670330421,
+       -0.004979952434922183
+      ],
+      "dyaw": 0.2982684105465874
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.2080948440023056,
+       -0.008937653470652673
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "table_xy": [
+     -0.11316119893732046,
+     -0.047153092586610275
+    ],
+    "cube_xy": [
+     -0.10595318536797968,
+     -0.04727856431759256
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.11223696592159083,
+     0.1762609221650371
+    ],
+    "stick_yaw": -1.5131349989857148,
+    "bin_xy": [
+     0.08665255329608361,
+     -0.03515924265221051
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19492875896558776,
+      "under": false,
+      "cube_rel_bin": [
+       0.0019287925923010124,
+       0.0002716920433838074
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "table_xy": [
+     -0.11316119893732046,
+     -0.047153092586610275
+    ],
+    "cube_xy": [
+     -0.10595318536797968,
+     -0.04727856431759256
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.11223696592159083,
+     0.1762609221650371
+    ],
+    "stick_yaw": -1.5131349989857148,
+    "bin_xy": [
+     0.08665255329608361,
+     -0.03515924265221051
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "table_xy": [
+     -0.11316119893732046,
+     -0.047153092586610275
+    ],
+    "cube_xy": [
+     -0.10595318536797968,
+     -0.04727856431759256
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.11223696592159083,
+     0.1762609221650371
+    ],
+    "stick_yaw": -1.5131349989857148,
+    "bin_xy": [
+     0.08665255329608361,
+     -0.03515924265221051
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19492875896558776,
+      "under": false,
+      "cube_rel_bin": [
+       0.0019287925923010124,
+       0.0002716920433838074
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "table_xy": [
+     -0.11316119893732046,
+     -0.047153092586610275
+    ],
+    "cube_xy": [
+     -0.10595318536797968,
+     -0.04727856431759256
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.11223696592159083,
+     0.1762609221650371
+    ],
+    "stick_yaw": -1.5131349989857148,
+    "bin_xy": [
+     0.08665255329608361,
+     -0.03515924265221051
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.003247575043617824,
+       -0.0009991767038144816
+      ],
+      "dyaw": 0.2397732414641011
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.018939560656613046,
+       -0.02036786494719342
+      ],
+      "dyaw": 0.08038296349815406
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.012580062192874698,
+       0.0002832502173442151
+      ],
+      "dyaw": 0.2963204691889407
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.007955867933783311,
+       0.020208285797233258
+      ],
+      "dyaw": -0.20235043543149664
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19260573866406328,
+       -0.01211932166538205
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "table_xy": [
+     -0.15526123170554465,
+     0.06017978773890308
+    ],
+    "cube_xy": [
+     -0.15630986155787852,
+     0.06442205761365492
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.16817997619724098,
+     -0.1716555600598061
+    ],
+    "stick_yaw": 1.4798718518155458,
+    "bin_xy": [
+     0.04000898501774601,
+     0.06315492489956043
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19565979281716267,
+      "under": false,
+      "cube_rel_bin": [
+       -0.000664380984447363,
+       -0.00017668842645290894
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "table_xy": [
+     -0.15526123170554465,
+     0.06017978773890308
+    ],
+    "cube_xy": [
+     -0.15630986155787852,
+     0.06442205761365492
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.16817997619724098,
+     -0.1716555600598061
+    ],
+    "stick_yaw": 1.4798718518155458,
+    "bin_xy": [
+     0.04000898501774601,
+     0.06315492489956043
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "table_xy": [
+     -0.15526123170554465,
+     0.06017978773890308
+    ],
+    "cube_xy": [
+     -0.15630986155787852,
+     0.06442205761365492
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.16817997619724098,
+     -0.1716555600598061
+    ],
+    "stick_yaw": 1.4798718518155458,
+    "bin_xy": [
+     0.04000898501774601,
+     0.06315492489956043
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19565979281716267,
+      "under": false,
+      "cube_rel_bin": [
+       -0.000664380984447363,
+       -0.00017668842645290894
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "table_xy": [
+     -0.15526123170554465,
+     0.06017978773890308
+    ],
+    "cube_xy": [
+     -0.15630986155787852,
+     0.06442205761365492
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.16817997619724098,
+     -0.1716555600598061
+    ],
+    "stick_yaw": 1.4798718518155458,
+    "bin_xy": [
+     0.04000898501774601,
+     0.06315492489956043
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.00553881000736829,
+       -0.007932774771223165
+      ],
+      "dyaw": -0.07359395811717186
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.013441410883028939,
+       0.004111128078429564
+      ],
+      "dyaw": 0.1879486686174707
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.002563584218778366,
+       0.010710959580740715
+      ],
+      "dyaw": 0.03643669904449754
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.007056052166107011,
+       -0.013694983598971642
+      ],
+      "dyaw": -0.16389334798677574
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19631884657562454,
+       0.001267132714094496
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "table_xy": [
+     -0.12485786168197513,
+     -0.06693894420955121
+    ],
+    "cube_xy": [
+     -0.11500624887363133,
+     -0.06671106972855682
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.09548103323603767,
+     0.16642021612639246
+    ],
+    "stick_yaw": -1.6640096817607493,
+    "bin_xy": [
+     0.06683015003821331,
+     -0.0629469458824454
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.18259079837634568,
+      "under": false,
+      "cube_rel_bin": [
+       0.0007126640351254876,
+       0.00013962677277544466
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "table_xy": [
+     -0.12485786168197513,
+     -0.06693894420955121
+    ],
+    "cube_xy": [
+     -0.11500624887363133,
+     -0.06671106972855682
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.09548103323603767,
+     0.16642021612639246
+    ],
+    "stick_yaw": -1.6640096817607493,
+    "bin_xy": [
+     0.06683015003821331,
+     -0.0629469458824454
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "table_xy": [
+     -0.12485786168197513,
+     -0.06693894420955121
+    ],
+    "cube_xy": [
+     -0.11500624887363133,
+     -0.06671106972855682
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.09548103323603767,
+     0.16642021612639246
+    ],
+    "stick_yaw": -1.6640096817607493,
+    "bin_xy": [
+     0.06683015003821331,
+     -0.0629469458824454
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.18259079837634568,
+      "under": false,
+      "cube_rel_bin": [
+       0.0007126640351254876,
+       0.00013962677277544466
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "table_xy": [
+     -0.12485786168197513,
+     -0.06693894420955121
+    ],
+    "cube_xy": [
+     -0.11500624887363133,
+     -0.06671106972855682
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.09548103323603767,
+     0.16642021612639246
+    ],
+    "stick_yaw": -1.6640096817607493,
+    "bin_xy": [
+     0.06683015003821331,
+     -0.0629469458824454
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.004745332320829135,
+       -0.005971086067292305
+      ],
+      "dyaw": 0.04515633004012909
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0036680943171933864,
+       0.0017150505960154283
+      ],
+      "dyaw": -0.17284054037011226
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.012099503517314841,
+       0.001772356501057079
+      ],
+      "dyaw": 0.14732109613222477
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.00854709550687586,
+       0.0006883290241817325
+      ],
+      "dyaw": 0.15357727807260088
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18183639891184464,
+       -0.003764123846111425
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "table_xy": [
+     -0.1235759302835581,
+     -0.059239153594533384
+    ],
+    "cube_xy": [
+     -0.13171722419397944,
+     -0.06862936389498114
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1179545719398254,
+     0.17460472445187747
+    ],
+    "stick_yaw": -1.694153438364827,
+    "bin_xy": [
+     0.06267436694312976,
+     -0.06977041709208477
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19529564677508843,
+      "under": false,
+      "cube_rel_bin": [
+       0.0009015098220782614,
+       0.00014387365222329196
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "table_xy": [
+     -0.1235759302835581,
+     -0.059239153594533384
+    ],
+    "cube_xy": [
+     -0.13171722419397944,
+     -0.06862936389498114
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1179545719398254,
+     0.17460472445187747
+    ],
+    "stick_yaw": -1.694153438364827,
+    "bin_xy": [
+     0.06267436694312976,
+     -0.06977041709208477
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "table_xy": [
+     -0.1235759302835581,
+     -0.059239153594533384
+    ],
+    "cube_xy": [
+     -0.13171722419397944,
+     -0.06862936389498114
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1179545719398254,
+     0.17460472445187747
+    ],
+    "stick_yaw": -1.694153438364827,
+    "bin_xy": [
+     0.06267436694312976,
+     -0.06977041709208477
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19529564677508843,
+      "under": false,
+      "cube_rel_bin": [
+       0.0009015098220782614,
+       0.00014387365222329196
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "table_xy": [
+     -0.1235759302835581,
+     -0.059239153594533384
+    ],
+    "cube_xy": [
+     -0.13171722419397944,
+     -0.06862936389498114
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.1179545719398254,
+     0.17460472445187747
+    ],
+    "stick_yaw": -1.694153438364827,
+    "bin_xy": [
+     0.06267436694312976,
+     -0.06977041709208477
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.010847002275004467,
+       -0.006819155140758386
+      ],
+      "dyaw": 0.045215171773864124
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.008971165958173653,
+       -0.0019098713986626498
+      ],
+      "dyaw": 0.02084547042971861
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.004629833698174571,
+       -0.017236380918597697
+      ],
+      "dyaw": -0.19586485082380592
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.00518912728866863,
+       -0.000947789215326253
+      ],
+      "dyaw": 0.00683228524045103
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1943915911371092,
+       0.001141053197103628
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "table_xy": [
+     -0.13343836053434133,
+     -0.050608718616541835
+    ],
+    "cube_xy": [
+     -0.13184420714191752,
+     -0.052309491277098
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12233979949836189,
+     0.18194612230907983
+    ],
+    "stick_yaw": -1.5763646837075176,
+    "bin_xy": [
+     0.06055083319998246,
+     -0.03700633461261986
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19332442178978612,
+      "under": false,
+      "cube_rel_bin": [
+       0.00029119122392207847,
+       0.0003923275688140493
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "table_xy": [
+     -0.13343836053434133,
+     -0.050608718616541835
+    ],
+    "cube_xy": [
+     -0.13184420714191752,
+     -0.052309491277098
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12233979949836189,
+     0.18194612230907983
+    ],
+    "stick_yaw": -1.5763646837075176,
+    "bin_xy": [
+     0.06055083319998246,
+     -0.03700633461261986
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "table_xy": [
+     -0.13343836053434133,
+     -0.050608718616541835
+    ],
+    "cube_xy": [
+     -0.13184420714191752,
+     -0.052309491277098
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12233979949836189,
+     0.18194612230907983
+    ],
+    "stick_yaw": -1.5763646837075176,
+    "bin_xy": [
+     0.06055083319998246,
+     -0.03700633461261986
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.19332442178978612,
+      "under": false,
+      "cube_rel_bin": [
+       0.00029119122392207847,
+       0.0003923275688140493
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "table_xy": [
+     -0.13343836053434133,
+     -0.050608718616541835
+    ],
+    "cube_xy": [
+     -0.13184420714191752,
+     -0.052309491277098
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.12233979949836189,
+     0.18194612230907983
+    ],
+    "stick_yaw": -1.5763646837075176,
+    "bin_xy": [
+     0.06055083319998246,
+     -0.03700633461261986
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.008526627780710718,
+       0.007471083623875066
+      ],
+      "dyaw": 0.1574700632826239
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.008394834811650029,
+       0.0030617638455432495
+      ],
+      "dyaw": -0.12915504200744365
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.00577819168664827,
+       0.01406424698057812
+      ],
+      "dyaw": 0.08444252828869668
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.00637092245698522,
+       -0.011793518111416431
+      ],
+      "dyaw": -0.02417783989986817
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.19239504034189997,
+       -0.015303156664478137
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "table_xy": [
+     -0.11072008758197113,
+     -0.06917738176231304
+    ],
+    "cube_xy": [
+     -0.10872765292720407,
+     -0.07780505935279106
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.10252829614241091,
+     0.16117495352328987
+    ],
+    "stick_yaw": -1.5998638427759908,
+    "bin_xy": [
+     0.07558100207472948,
+     -0.09010703446801571
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.18592909622548034,
+      "under": false,
+      "cube_rel_bin": [
+       0.0012141808728162035,
+       1.7586965439020386e-05
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "table_xy": [
+     -0.11072008758197113,
+     -0.06917738176231304
+    ],
+    "cube_xy": [
+     -0.10872765292720407,
+     -0.07780505935279106
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.10252829614241091,
+     0.16117495352328987
+    ],
+    "stick_yaw": -1.5998638427759908,
+    "bin_xy": [
+     0.07558100207472948,
+     -0.09010703446801571
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "table_xy": [
+     -0.11072008758197113,
+     -0.06917738176231304
+    ],
+    "cube_xy": [
+     -0.10872765292720407,
+     -0.07780505935279106
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.10252829614241091,
+     0.16117495352328987
+    ],
+    "stick_yaw": -1.5998638427759908,
+    "bin_xy": [
+     0.07558100207472948,
+     -0.09010703446801571
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.18592909622548034,
+      "under": false,
+      "cube_rel_bin": [
+       0.0012141808728162035,
+       1.7586965439020386e-05
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "table_xy": [
+     -0.11072008758197113,
+     -0.06917738176231304
+    ],
+    "cube_xy": [
+     -0.10872765292720407,
+     -0.07780505935279106
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.10252829614241091,
+     0.16117495352328987
+    ],
+    "stick_yaw": -1.5998638427759908,
+    "bin_xy": [
+     0.07558100207472948,
+     -0.09010703446801571
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.008733857476808587,
+       -0.017853548325201037
+      ],
+      "dyaw": -0.16092914329339256
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.00820435920910182,
+       0.005470790712459689
+      ],
+      "dyaw": 0.12314053310852166
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.008707638258957227,
+       0.00868506060709559
+      ],
+      "dyaw": -0.15320276568874888
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.001106902337573674,
+       -0.004029359923992182
+      ],
+      "dyaw": -0.06457740913417878
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18430865500193355,
+       0.012301975115224656
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "table_xy": [
+     -0.13270245545829348,
+     -0.0661454166325908
+    ],
+    "cube_xy": [
+     -0.12641468770732048,
+     -0.0655805796286189
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13900539138410797,
+     0.1665814913433657
+    ],
+    "stick_yaw": -1.5091905845053146,
+    "bin_xy": [
+     0.05699190932743122,
+     -0.05707586950000366
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1829463870360153,
+      "under": false,
+      "cube_rel_bin": [
+       -0.0006868899419847987,
+       0.0005996388028001523
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "table_xy": [
+     -0.13270245545829348,
+     -0.0661454166325908
+    ],
+    "cube_xy": [
+     -0.12641468770732048,
+     -0.0655805796286189
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13900539138410797,
+     0.1665814913433657
+    ],
+    "stick_yaw": -1.5091905845053146,
+    "bin_xy": [
+     0.05699190932743122,
+     -0.05707586950000366
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "table_xy": [
+     -0.13270245545829348,
+     -0.0661454166325908
+    ],
+    "cube_xy": [
+     -0.12641468770732048,
+     -0.0655805796286189
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13900539138410797,
+     0.1665814913433657
+    ],
+    "stick_yaw": -1.5091905845053146,
+    "bin_xy": [
+     0.05699190932743122,
+     -0.05707586950000366
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.1829463870360153,
+      "under": false,
+      "cube_rel_bin": [
+       -0.0006868899419847987,
+       0.0005996388028001523
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "table_xy": [
+     -0.13270245545829348,
+     -0.0661454166325908
+    ],
+    "cube_xy": [
+     -0.12641468770732048,
+     -0.0655805796286189
+    ],
+    "side": 1,
+    "stick_xy": [
+     -0.13900539138410797,
+     0.1665814913433657
+    ],
+    "stick_yaw": -1.5091905845053146,
+    "bin_xy": [
+     0.05699190932743122,
+     -0.05707586950000366
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.006769964049328536,
+       0.009737517094308795
+      ],
+      "dyaw": 0.16413422176035175
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0049043368268051465,
+       -0.004330253971404429
+      ],
+      "dyaw": -0.1575035046577051
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.004913320124295874,
+       -0.008899325998142813
+      ],
+      "dyaw": 0.297508084209998
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0024576654724519534,
+       0.0012989895008579232
+      ],
+      "dyaw": 0.09957052285235589
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.1834065970347517,
+       -0.008504710128615249
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "table_xy": [
+     -0.1362402971263766,
+     0.054006524927526424
+    ],
+    "cube_xy": [
+     -0.12966525816904803,
+     0.04825182501743285
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.12457277925654534,
+     -0.16865621102495523
+    ],
+    "stick_yaw": 1.6423077449894408,
+    "bin_xy": [
+     0.05388397590420191,
+     0.05459841669272581
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.18377386535526014,
+      "under": false,
+      "cube_rel_bin": [
+       0.00011901833208884799,
+       -0.00011709362311906196
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "table_xy": [
+     -0.1362402971263766,
+     0.054006524927526424
+    ],
+    "cube_xy": [
+     -0.12966525816904803,
+     0.04825182501743285
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.12457277925654534,
+     -0.16865621102495523
+    ],
+    "stick_yaw": 1.6423077449894408,
+    "bin_xy": [
+     0.05388397590420191,
+     0.05459841669272581
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "table_xy": [
+     -0.1362402971263766,
+     0.054006524927526424
+    ],
+    "cube_xy": [
+     -0.12966525816904803,
+     0.04825182501743285
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.12457277925654534,
+     -0.16865621102495523
+    ],
+    "stick_yaw": 1.6423077449894408,
+    "bin_xy": [
+     0.05388397590420191,
+     0.05459841669272581
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "tool"
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "moved": 0.18377386535526014,
+      "under": false,
+      "cube_rel_bin": [
+       0.00011901833208884799,
+       -0.00011709362311906196
+      ],
+      "stick_used": true,
+      "terminal": false,
+      "detail": "The cube is in the bin."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "table_xy": [
+     -0.1362402971263766,
+     0.054006524927526424
+    ],
+    "cube_xy": [
+     -0.12966525816904803,
+     0.04825182501743285
+    ],
+    "side": -1,
+    "stick_xy": [
+     -0.12457277925654534,
+     -0.16865621102495523
+    ],
+    "stick_yaw": 1.6423077449894408,
+    "bin_xy": [
+     0.05388397590420191,
+     0.05459841669272581
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.006536002859300678,
+       0.0027994288868647835
+      ],
+      "dyaw": -0.1737976510329374
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.006960589628438278,
+       -0.00586753506517073
+      ],
+      "dyaw": 0.07704707686959354
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       0.0020013332240046864,
+       0.003135757175531688
+      ],
+      "dyaw": -0.00644078941476857
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dxy": [
+       -0.0007690611492049868,
+       -0.00463784093223513
+      ],
+      "dyaw": 0.13458067084354253
+     },
+     "outcome": {
+      "success": false,
+      "mode": "blocked",
+      "moved": 0.0,
+      "under": true,
+      "cube_rel_bin": [
+       -0.18354923407324994,
+       -0.006346591675292959
+      ],
+      "stick_used": false,
+      "terminal": false,
+      "detail": "The gripper came down on the glass top of the low table: its fingertips stopped 8.0 cm above the tabletop, while the cube is underneath the glass (the glass underside is 7.0 cm above the tabletop), so the gripper never got to the cube. The cube did not move; it is still under the low table."
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 249.12921738624573
+}

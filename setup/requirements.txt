@@ -1,0 +1,23 @@
+# LFF-Bench core environment, Python 3.10 (versions = the environment the benchmark was developed and validated in).
+# setup/install.sh installs this, then robosuite==1.4.1 with --no-deps (its metadata also pulls pynput/evdev for keyboard
+# teleop; evdev needs a C compiler and the benchmark never imports it). LIBERO is used from source via PYTHONPATH.
+numpy==1.24.4
+mujoco==3.2.3
+numba==0.67.0
+scipy==1.15.3
+pillow==12.3.0
+opencv-python-headless==4.11.0.86
+termcolor==3.3.0
+bddl==1.0.1
+future==1.0.0          # imported by bddl, not declared in its metadata
+h5py==3.16.0           # imported by robosuite.utils.camera_utils
+gym==0.25.2
+easydict==1.13
+matplotlib==3.10.9
+imageio==2.37.4
+imageio-ffmpeg==0.6.0
+PyYAML==6.0.3
+PyOpenGL==3.1.10
+openai==3.24.0
+socksio==1.0.0         # lets the openai client use a socks5 ALL_PROXY
+pytest==9.1.1

@@ -1,0 +1,1709 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 2e331bb..f3f98d4 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -14,11 +14,18 @@ arx = ["arx5-interface==0.1.3"]
+ yam = ["i2rt @ git+https://github.com/i2rt-robotics/i2rt.git@ac096928d6899ddf852a71c5e8fbaa6055cd9745"]
+ realsense = ["pyrealsense2"]
+ dev = ["pytest>=8", "ruff>=0.6"]
++# LFF-Bench simulated adapter + OpenAI Responses provider (no robot SDKs needed)
++lffbench = ["openai>=1.40", "socksio"]  # socksio: ALL_PROXY is socks5h
+ 
+ [project.scripts]
+ gpt-policy = "gpt_policy.main:main"
+ claude-policy = "gpt_policy.main:claude_main"
+ kimi-policy = "gpt_policy.main:kimi_main"
++gpt-policy-lffbench = "gpt_policy.lffbench_main:main"
++
++[tool.hatch.metadata]
++# newer hatchling refuses the pinned git URL of the optional `yam` extra without this
++allow-direct-references = true
+ 
+ [tool.hatch.build.targets.wheel]
+ packages = ["src/gpt_policy"]
+diff --git a/src/gpt_policy/harness/factory.py b/src/gpt_policy/harness/factory.py
+index 7a6c572..4c9e287 100644
+--- a/src/gpt_policy/harness/factory.py
++++ b/src/gpt_policy/harness/factory.py
+@@ -11,6 +11,7 @@ _PROVIDERS = {
+     "codex": (".providers.codex", "CodexSession"),
+     "claude_code": (".providers.claude_code.session", "ClaudeCodeSession"),
+     "gemini_cli": (".providers.gemini_cli.session", "GeminiCliSession"),
++    "openai_responses": (".providers.openai_responses", "OpenAIResponsesSession"),
+ }
+ 
+ 
+@@ -18,7 +19,7 @@ def preflight_agent(config: AgentConfig) -> None:
+     """Check new-provider dependencies before opening robot hardware."""
+     if config.type not in _PROVIDERS:
+         raise ValueError(f"不支持的 agent.type: {config.type}")
+-    if config.type != "codex":
++    if config.type not in ("codex", "openai_responses"):
+         if shutil.which(config.executable) is None:
+             raise ValueError(f"找不到 {config.type} 可执行文件: {config.executable}")
+         _provider(config.type)
+diff --git a/src/gpt_policy/harness/usage.py b/src/gpt_policy/harness/usage.py
+index f009a50..530537f 100644
+--- a/src/gpt_policy/harness/usage.py
++++ b/src/gpt_policy/harness/usage.py
+@@ -31,7 +31,7 @@ def _count(value):
+ def normalize_usage(raw, provider):
+     if not isinstance(raw, dict) or not raw:
+         return None
+-    if provider == "codex":
++    if provider in ("codex", "openai_responses"):  # the Responses provider reports Codex-style names
+         names = dict(zip(TOKEN_KEYS, ("inputTokens", "cachedInputTokens", "cacheWriteInputTokens",
+                                      "cacheWrite1hInputTokens", "outputTokens", "reasoningOutputTokens", "totalTokens")))
+         result = {key: _count(raw.get(name)) for key, name in names.items()}
+diff --git a/src/gpt_policy/runtime/runner.py b/src/gpt_policy/runtime/runner.py
+index 87ec355..5ba9930 100644
+--- a/src/gpt_policy/runtime/runner.py
++++ b/src/gpt_policy/runtime/runner.py
+@@ -124,6 +124,14 @@ def run_loop(
+         if not isinstance(arguments, dict):
+             raise RuntimeError("工具 arguments 必须是对象")
+         display.decision(step, action, arguments)
++        if isinstance(decision.get("_host_rejection"), str):
++            # Provider-detected protocol violation (e.g. several selections in one turn): nothing is
++            # executed; the model gets the rejection as previous_result, like any tool_rejected error.
++            error = {"tool": action, "error": f"tool_rejected: {decision['_host_rejection']}"}
++            recorder.write("tool_error", {"step": step, **error})
++            previous = json.dumps(error, ensure_ascii=False)
++            display.error(step, action, error)
++            continue
+         if tool_executor.is_terminal(action):
+             # Keep the model's conclusion even if homing fails. Final physical
+             # success/failure is assigned by a human after device shutdown.
+@@ -164,6 +172,12 @@ def run_loop(
+         display.returned(step, action)
+         model_result = compact_execution_result(result)
+         previous = json.dumps({"tool": action, "result": model_result}, ensure_ascii=False)
++        if getattr(robot, "episode_finished", False):
++            # Adapters whose server owns the attempt protocol (LFF-Bench robot server) report
++            # when the whole episode is over; no further decision is requested.
++            recorder.write("episode_finished", {"step": step, "name": action})
++            display.message("The robot server reports that the episode is over.")
++            return "completed"
+     recorder.write("budget_exhausted", {"decisions_used": runtime.max_decisions,
+                                         "max_decisions": runtime.max_decisions})
+     display.message(f"Decision budget exhausted ({runtime.max_decisions}). Returning home and saving recordings.", "yellow")
+diff --git a/src/gpt_policy/tools/runtime.py b/src/gpt_policy/tools/runtime.py
+index f3d3410..498329a 100644
+--- a/src/gpt_policy/tools/runtime.py
++++ b/src/gpt_policy/tools/runtime.py
+@@ -39,6 +39,20 @@ class ToolExecutor:
+             "vision.locate_point": lambda arguments, state, history: localizer.locate(
+                 arguments, state, history
+             ),
++            # Simulated LFF-Bench robot (hardware/lffbench_sim.py): the robot server owns the
++            # attempt protocol, so done/give_up are executed there instead of ending the run here.
++            "robot.move_eef": lambda arguments, _state, _history: robot.execute(
++                "move_eef", arguments
++            ),
++            "robot.observe": lambda arguments, _state, _history: robot.execute(
++                "observe", arguments
++            ),
++            "robot.done": lambda arguments, _state, _history: robot.execute(
++                "done", arguments
++            ),
++            "robot.give_up": lambda arguments, _state, _history: robot.execute(
++                "give_up", arguments
++            ),
+         }
+         terminal_handlers = {"terminal.done", "terminal.give_up"}
+         for tool in catalog.enabled_tools(arms):
+diff --git a/configs/lffbench/tools_v1.json b/configs/lffbench/tools_v1.json
+new file mode 100644
+index 0000000..ce30f6a
+--- /dev/null
++++ b/configs/lffbench/tools_v1.json
+@@ -0,0 +1,128 @@
++{
++  "version": 1,
++  "selection_description": "One GPT-Policy-shaped tool selection for the simulated robot arm described in the README. Movement is absolute grasp-point control in the README's world frame; the host translates every selection into robot commands and returns the robot's report.",
++  "schemas": {
++    "waypoint": {
++      "type": "object",
++      "properties": {
++        "x": {"type": "number", "description": "x of the grasp point, metres, README world frame."},
++        "y": {"type": "number", "description": "y of the grasp point, metres, README world frame."},
++        "z": {"type": "number", "description": "z of the grasp point, metres, README world frame."},
++        "yaw": {"type": "number", "description": "Gripper yaw in degrees, as defined in the README."},
++        "speed": {
++          "anyOf": [{"type": "number"}, {"type": "null"}],
++          "description": "Speed in m/s, as in the README; null = fastest (speed omitted)."
++        }
++      },
++      "required": ["x", "y", "z", "yaw", "speed"],
++      "additionalProperties": false
++    }
++  },
++  "tools": [
++    {
++      "name": "move_to",
++      "handler": "robot.move_to",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "Move the grasp point to one absolute target; the host sends exactly one `./robot move_to` command.",
++      "prompt": "One absolute target. arguments.target is {x, y, z, yaw, speed}: the arguments of `./robot move_to` in the README (metres, degrees, m/s; speed null = fastest). The host sends one move_to command and returns the robot's report as previous_result. Gripper opening remains unchanged throughout the move.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "target": {"$schema": "waypoint"},
++          "note": {"type": "string"}
++        },
++        "required": ["target", "note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "move_eef_chunk",
++      "handler": "robot.move_eef_chunk",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "Move through one or more absolute targets in order; the host sends one `./robot move_to` command per waypoint.",
++      "prompt": "An absolute waypoint path. arguments.poses contains one or more ordered waypoints, each with the same fields as move_to.target. The host preserves every waypoint and its order and sends each one as a separate `./robot move_to` command, without intermediate observations. Every waypoint counts as one robot command toward the README's per-attempt command limit. The host stops sending further waypoints after a waypoint that returns an error, is reported as not reached, or ends the attempt; previous_result lists the robot's report for every executed waypoint. Camera images are taken after the last executed waypoint. Gripper opening remains unchanged throughout the chunk.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "poses": {
++            "type": "array",
++            "items": {"$schema": "waypoint"},
++            "minItems": 1
++          },
++          "note": {"type": "string"}
++        },
++        "required": ["poses", "note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "set_gripper",
++      "handler": "robot.set_gripper",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "Open or close the gripper; the host sends `./robot open_gripper` or `./robot close_gripper`.",
++      "prompt": "gripper=\"open\" sends `./robot open_gripper`; gripper=\"close\" sends `./robot close_gripper`. The arm holds its position. The robot's report gives the measured gripper state; a command does not prove the intended grasp or release.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "gripper": {"type": "string", "enum": ["open", "close"]},
++          "note": {"type": "string"}
++        },
++        "required": ["gripper", "note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "observe",
++      "handler": "robot.observe",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "Take new camera images and proprioception without moving; the host sends `./robot observe`.",
++      "prompt": "Sends `./robot observe`: new agentview and wrist images and proprioception, without moving. Counts as one robot command toward the README's per-attempt command limit. Every motion and gripper tool already returns fresh images.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "note": {"type": "string"}
++        },
++        "required": ["note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "done",
++      "handler": "robot.done",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "End the current attempt; the host sends `./robot done reason=<summary>`.",
++      "prompt": "Ends the current attempt: the host sends `./robot done` with summary as its reason, and the robot's reply (outcome feedback, and the reset scene if another attempt follows) arrives as previous_result and the next observation. Request completion only when fresh observations establish the physical goal. In summary, give direct evidence distinguishing completion from an unfinished state, plus remaining uncertainty; hindsight records lessons from this attempt. While the outcome is uncertain, continue safe verification or recovery instead of stopping early.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "summary": {"type": "string", "description": "Direct current evidence of the requested physical outcome and any remaining uncertainty. Sent to the robot as the done reason."},
++          "hindsight": {"type": "string"}
++        },
++        "required": ["summary", "hindsight"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "give_up",
++      "handler": "robot.give_up",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "End the current attempt when it cannot be completed; the host sends `./robot done reason=\"give_up: <reason>\"`.",
++      "prompt": "Ends the current attempt as given up: the host sends `./robot done` with \"give_up: \" plus reason as its reason, and the robot's reply arrives as for done. Use only when evidence shows the task cannot be completed in this attempt within safety constraints. In reason, report attempted strategies and why no reasonable safe continuation remains; hindsight records lessons from this attempt.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "reason": {"type": "string"},
++          "hindsight": {"type": "string"}
++        },
++        "required": ["reason", "hindsight"],
++        "additionalProperties": false
++      }
++    }
++  ]
++}
+diff --git a/configs/lffbench/tools_v2.json b/configs/lffbench/tools_v2.json
+new file mode 100644
+index 0000000..b5b59f7
+--- /dev/null
++++ b/configs/lffbench/tools_v2.json
+@@ -0,0 +1,109 @@
++{
++  "version": 1,
++  "selection_description": "One GPT-Policy-shaped tool selection for the simulated robot arm described in the README. The host translates every selection into the README's robot commands and returns the robot's reply.",
++  "schemas": {
++    "eef_target": {
++      "type": "object",
++      "properties": {
++        "x": {"anyOf": [{"type": "number"}, {"type": "null"}], "description": "x of the grasp point in metres, same frame as eef_pos; null = keep the current value."},
++        "y": {"anyOf": [{"type": "number"}, {"type": "null"}], "description": "y of the grasp point in metres, same frame as eef_pos; null = keep the current value."},
++        "z": {"anyOf": [{"type": "number"}, {"type": "null"}], "description": "z of the grasp point in metres, same frame as eef_pos; null = keep the current value."},
++        "yaw": {"anyOf": [{"type": "number"}, {"type": "null"}], "description": "Gripper yaw in degrees, as eef_yaw_deg; null = keep the current value."},
++        "gripper": {"anyOf": [{"type": "string", "enum": ["open", "close"]}, {"type": "null"}], "description": "Executed after the motion; null = unchanged."},
++        "speed": {"anyOf": [{"type": "number"}, {"type": "null"}], "description": "Speed in m/s; null = fastest (speed omitted)."}
++      },
++      "required": ["x", "y", "z", "yaw", "gripper", "speed"],
++      "additionalProperties": false
++    }
++  },
++  "tools": [
++    {
++      "name": "move_eef",
++      "handler": "robot.move_eef",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "One absolute end-effector target; the host sends exactly one `./robot move_eef` command.",
++      "prompt": "One absolute target. arguments.target holds the arguments of `./robot move_eef` in the README: x, y, z (metres), yaw (degrees), gripper (open/close, executed after the motion) and speed (m/s); null leaves that argument out, so the README's rule for omitted arguments applies. The host sends one move_eef command and returns the robot's reply as previous_result.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "target": {"$schema": "eef_target"},
++          "note": {"type": "string"}
++        },
++        "required": ["target", "note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "move_eef_chunk",
++      "handler": "robot.move_eef_chunk",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "Several absolute end-effector targets in order; the host sends one `./robot move_eef` command per waypoint.",
++      "prompt": "An absolute waypoint path. arguments.poses contains one or more ordered waypoints, each with the same fields as move_eef.target. The host preserves every waypoint and its order and sends each one as a separate `./robot move_eef` command, without intermediate observations; every waypoint counts as one robot command toward the README's per-attempt command budget. The host stops sending further waypoints after a waypoint whose reply is an error (for example a rejected target) or ends the attempt; previous_result lists the robot's reply for every executed waypoint. Camera images are taken after the last executed waypoint.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "poses": {
++            "type": "array",
++            "items": {"$schema": "eef_target"},
++            "minItems": 1
++          },
++          "note": {"type": "string"}
++        },
++        "required": ["poses", "note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "observe",
++      "handler": "robot.observe",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "New camera images and state without moving; the host sends `./robot observe`.",
++      "prompt": "Sends `./robot observe`: new images and state without moving. Counts as one robot command toward the README's per-attempt command budget. Every move_eef already returns fresh images.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "note": {"type": "string"}
++        },
++        "required": ["note"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "done",
++      "handler": "robot.done",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "End the current attempt; the host sends `./robot finish reason=<summary>`.",
++      "prompt": "Ends the current attempt: the host sends `./robot finish` with summary as its reason, and the robot's reply (the environment's verdict and feedback, and the reset scene if another attempt follows) arrives as previous_result and the next observation. Request completion only when fresh observations establish the physical goal. In summary, give direct evidence distinguishing completion from an unfinished state, plus remaining uncertainty; hindsight records lessons from this attempt. While the outcome is uncertain, continue safe verification or recovery instead of stopping early.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "summary": {"type": "string", "description": "Direct current evidence of the requested physical outcome and any remaining uncertainty. Sent to the robot as the finish reason."},
++          "hindsight": {"type": "string"}
++        },
++        "required": ["summary", "hindsight"],
++        "additionalProperties": false
++      }
++    },
++    {
++      "name": "give_up",
++      "handler": "robot.give_up",
++      "enabled": true,
++      "modes": ["single"],
++      "description": "End the current attempt when it cannot be completed; the host sends `./robot finish reason=\"give_up: <reason>\"`.",
++      "prompt": "Ends the current attempt as given up: the host sends `./robot finish` with \"give_up: \" plus reason as its reason, and the robot's reply arrives as for done. Use only when evidence shows the task cannot be completed in this attempt within safety constraints. In reason, report attempted strategies and why no reasonable safe continuation remains; hindsight records lessons from this attempt.",
++      "parameters": {
++        "type": "object",
++        "properties": {
++          "reason": {"type": "string"},
++          "hindsight": {"type": "string"}
++        },
++        "required": ["reason", "hindsight"],
++        "additionalProperties": false
++      }
++    }
++  ]
++}
+diff --git a/scripts/lffbench_audit.py b/scripts/lffbench_audit.py
+new file mode 100644
+index 0000000..379d497
+--- /dev/null
++++ b/scripts/lffbench_audit.py
+@@ -0,0 +1,178 @@
++"""Audit one GPT-Policy LFF-Bench run against the unified information contract (docs/04, section 3).
++
++    python scripts/lffbench_audit.py <LOG dir>   (the directory with session.json and gptpolicy_transcript.jsonl)
++
++Checks every request recorded in gptpolicy_transcript.jsonl:
++  * system text = GPT-Policy harness text + the sandbox README verbatim + tool catalog, nothing else
++    that matches the forbidden-content patterns (depth, calibration, segmentation, object poses, paths
++    outside the sandbox, memory, e-mail, task/seed identifiers);
++  * every user text item is one of: the task text (== README TASK section), a GPT-Policy observation
++    JSON whose state / previous_result values all come from robot-server replies (or a host rejection),
++    a "Camera image: agentview|wrist" label, a context-compiler replay marker, or the final-report prompt;
++  * every image is a 512x512 JPEG whose bytes (sha256) equal a file the server wrote (<LOG>/images copy);
++  * every robot-server command belongs to the session's interface (v1: status/move_to/open_gripper/
++    close_gripper/observe/done; v2: status/observe/move_eef/finish/done);
++  * v2 only: no holding/touched/events fields anywhere in what the model sees, and the GPT-Policy part of
++    the system text adds no robot-geometry / axis / table / camera-orientation priors.
++Prints a summary and exits 1 on any violation.
++"""
++import glob
++import hashlib
++import json
++import os
++import re
++import sys
++
++FORBIDDEN = [r"depth", r"point ?cloud", r"pixel_to_world", r"back.?project", r"intrinsic", r"extrinsic",
++             r"segment\(", r"\bsam\b", r"bddl", r"/mnt/", r"/tmp/", r"robotlab", r"lffbench", r"libero",
++             r"MEMORY", r"recipe", r"PROVEN", r"@[a-z0-9-]+\.(com|cn)", r"seed", r"bias",
++             r"hidden", r"privileged", r"locate_point", r"check_path"]
++# extra private strings that must not appear (e.g. your user name): comma-separated regexes in LFF_AUDIT_PRIVATE
++FORBIDDEN += [p for p in os.environ.get("LFF_AUDIT_PRIVATE", "").split(",") if p]
++ALLOWED_CMDS = {"v1": {"status", "move_to", "open_gripper", "close_gripper", "observe", "done"},
++                "v2": {"status", "observe", "move_eef", "finish", "done"}}
++# v2: priors the GPT-Policy text must not add (the README is the only source of geometry)
++V2_PRIORS = [r"\+[xyz]\b", r"-[xyz] ", r"\btable\b", r"forearm", r"camera housing", r"another hand", r"\bbase\b",
++             r"image-(right|left|up|down)", r"looks? (at|down)", r"upward|downward|forward|backward", r"metres? above",
++             r"\b0\.9\d?\b", r"world frame"]
++V2_HIDDEN_KEYS = ("holding", "touched", "events")
++OBS_KEYS = {"instruction", "images", "state", "extra", "previous_result"}
++LABELS = {"Camera image: agentview", "Camera image: wrist"}
++
++
++def canon(value):
++    return json.dumps(value, sort_keys=True, ensure_ascii=False)
++
++
++def strip_images(reply):
++    """What the adapter shows the model: the reply without image paths (also inside attempt_ended)."""
++    reply = {k: v for k, v in reply.items() if k != "images"}
++    if isinstance(reply.get("attempt_ended"), dict):
++        reply["attempt_ended"] = {k: v for k, v in reply["attempt_ended"].items() if k != "images"}
++    return reply
++
++
++def keys_deep(value):
++    if isinstance(value, dict):
++        for k, v in value.items():
++            yield k
++            yield from keys_deep(v)
++    elif isinstance(value, list):
++        for v in value:
++            yield from keys_deep(v)
++
++
++def main(log_dir):
++    events = [json.loads(line) for line in open(os.path.join(log_dir, "gptpolicy_transcript.jsonl"))]
++    session = json.load(open(os.path.join(log_dir, "session.json")))
++    readme = open(os.path.join(session["sandbox"], "README.md")).read()
++    problems = []
++    first = next(e for e in events if e["ev"] == "server_call" and e["cmd"] == "status")
++    task = first["reply"]["task"]  # the README's task section, as the server reports it
++    if task not in readme:
++        problems.append("status.task is not part of the README")
++    style = "v2" if "budget_left" in first["reply"] else "v1"
++
++    replies, reply_pairs = set(), set()
++    for e in events:
++        if e["ev"] == "server_call":
++            if e["cmd"] not in ALLOWED_CMDS[style]:
++                problems.append(f"server command not allowed in {style}: {e['cmd']}")
++            reply = strip_images(e["reply"])
++            replies.add(canon(reply))
++            for part in (reply, reply.get("attempt_ended") or {}):
++                for k, v in part.items():
++                    reply_pairs.add((k, canon(v)))
++
++    server_images = {}
++    for path in glob.glob(os.path.join(log_dir, "images", "*.jpg")):
++        server_images[hashlib.sha256(open(path, "rb").read()).hexdigest()] = path
++
++    instructions = [e for e in events if e["ev"] == "thread_start"]
++    for e in instructions:
++        text = e["instructions"]
++        if readme.rstrip() not in text:
++            problems.append("README is not included verbatim in the instructions")
++        harness = text.replace(readme.rstrip(), "")
++        for pattern in FORBIDDEN + (V2_PRIORS if style == "v2" else []):
++            if re.search(pattern, harness.split("Robot tool catalog:")[0], re.I):
++                problems.append(f"instructions (outside README) match forbidden pattern {pattern!r}")
++
++    n_req = n_img = n_obs = 0
++    for e in events:
++        if e["ev"] != "request":
++            continue
++        n_req += 1
++        for item in e["request"]["input"]:
++            if item.get("role") != "user":
++                continue
++            for part in item["content"]:
++                if part["type"] == "input_image":
++                    n_img += 1
++                    if part.get("sha256") not in server_images:
++                        problems.append(f"request {e['turn']}: image not written by the server ({part.get('image_path')})")
++                    continue
++                text = part["text"]
++                if text in LABELS or text == task:
++                    continue
++                if text.startswith("{"):
++                    obs = json.loads(text)
++                    n_obs += 1
++                    if style == "v2":
++                        hidden = [k for k in keys_deep(obs) if k.startswith(V2_HIDDEN_KEYS)]
++                        if hidden:
++                            problems.append(f"request {e['turn']}: v2 observation contains {sorted(set(hidden))}")
++                    if set(obs) - OBS_KEYS:
++                        problems.append(f"request {e['turn']}: unexpected observation keys {set(obs) - OBS_KEYS}")
++                    if obs.get("instruction") != task:
++                        problems.append(f"request {e['turn']}: instruction differs from README TASK")
++                    for cam in obs.get("images", []):
++                        if set(cam) - {"name", "width", "height"}:
++                            problems.append(f"request {e['turn']}: camera entry has extra fields {cam}")
++                    for k, v in obs.get("state", {}).items():
++                        if (k, canon(v)) not in reply_pairs:
++                            problems.append(f"request {e['turn']}: state {k}={v} not from a server reply")
++                    prev = obs.get("previous_result")
++                    if prev is not None:
++                        result = prev.get("result")
++                        if isinstance(result, dict) and "reports" in result:
++                            for r in result["reports"]:
++                                if canon(r) not in replies:
++                                    problems.append(f"request {e['turn']}: chunk report not a server reply")
++                        elif isinstance(result, dict) and canon(result) in replies:
++                            pass
++                        elif isinstance(prev.get("error"), str) and prev["error"].startswith(("tool_rejected", "motion_not")):
++                            pass
++                        else:
++                            problems.append(f"request {e['turn']}: previous_result not a server reply: {str(prev)[:200]}")
++                    continue
++                if text.startswith(("HISTORICAL EXECUTION RECORD", "END HISTORICAL", "Historical model decision",
++                                    "Final host report", "The host's decision budget")):
++                    if text.startswith("Final host report"):
++                        prev = json.loads(text.split("\n", 2)[1])
++                        if canon(prev["result"]) not in replies and "reports" not in prev["result"]:
++                            problems.append("final report prompt carries a non-server result")
++                    continue
++                problems.append(f"request {e['turn']}: unexpected text item: {text[:120]!r}")
++                for pattern in FORBIDDEN:
++                    if re.search(pattern, text, re.I):
++                        problems.append(f"request {e['turn']}: text matches forbidden pattern {pattern!r}")
++
++    for e in events:  # v2: the model-visible JSON must not carry the hidden signals at all
++        if style == "v2" and e["ev"] == "request":
++            blob = json.dumps(e["request"]["input"], ensure_ascii=False)
++            for key in V2_HIDDEN_KEYS:
++                if re.search(rf'\\?"{key}', blob):
++                    problems.append(f"request {e['turn']}: '{key}' appears in the model input")
++    multi = [e for e in events if e["ev"] == "multi_selection"]
++    print(json.dumps({"style": style, "requests": n_req, "images_sent": n_img, "observations": n_obs,
++                      "multi_selection_turns": len(multi),
++                      "server_calls": sum(e["ev"] == "server_call" for e in events),
++                      "violations": len(problems)}, ensure_ascii=False))
++    for p in sorted(set(problems))[:50]:
++        print("VIOLATION:", p)
++    return 1 if problems else 0
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv[1]))
+diff --git a/scripts/lffbench_dryrun.py b/scripts/lffbench_dryrun.py
+new file mode 100644
+index 0000000..241b740
+--- /dev/null
++++ b/scripts/lffbench_dryrun.py
+@@ -0,0 +1,80 @@
++"""Dry run of gpt-policy-lffbench with a scripted fake Responses client (no API calls, no cost).
++
++    OPENAI_API_KEY=dummy python scripts/lffbench_dryrun.py <LOG>/session.json [v2|v1]
++
++Uses (and consumes) a real robot-server session. v2 script: a move_eef_chunk, an unreachable target
++(server rejection), an argument set the adapter rejects, a gripper-only move_eef, observe, a turn with
++two selections (commentary + final; host rejects it), one injected connection error (host retry),
++done / give_up across all k attempts and the final-report turn. Then run scripts/lffbench_audit.py <LOG>.
++"""
++import json
++import sys
++from types import SimpleNamespace as NS
++
++from gpt_policy import lffbench_main
++from gpt_policy.harness.providers import openai_responses as P
++import gpt_policy.runtime.runner as R
++
++W = dict(x=None, y=None, z=None, yaw=None, gripper=None, speed=None)
++SCRIPTS = {
++    "v2": [
++        [{"name": "move_eef_chunk", "arguments": {"poses": [dict(W, x=0.0, y=0.0, z=1.10, yaw=0.0),
++                                                           dict(W, z=1.05, speed=0.3)], "note": "先移动"}}],
++        [{"name": "move_eef", "arguments": {"target": dict(W, z=9.0), "note": "越界测试"}}],
++        [{"name": "move_eef", "arguments": {"poses": [], "note": "错参数测试"}}],
++        [{"name": "move_eef", "arguments": {"target": dict(W, gripper="close"), "note": "只闭合"}}],
++        [{"name": "observe", "arguments": {"note": "看看"}}],
++        [{"name": "move_eef", "arguments": {"target": dict(W, z=1.0), "note": "计划1"}},
++         {"name": "done", "arguments": {"summary": "imagined", "hindsight": "none"}}],
++        [{"name": "done", "arguments": {"summary": "dry run attempt", "hindsight": "none"}}],
++        [{"name": "give_up", "arguments": {"reason": "dry run give up", "hindsight": "none"}}],
++        [{"name": "done", "arguments": {"summary": "dry run last", "hindsight": "none"}}],
++    ],
++    "v1": [
++        [{"name": "move_eef_chunk", "arguments": {"poses": [{"x": 0.0, "y": 0.0, "z": 1.10, "yaw": 0, "speed": None},
++                                                           {"x": 0.05, "y": 0.0, "z": 1.05, "yaw": 0, "speed": 0.3}],
++                                                 "note": "先移动"}}],
++        [{"name": "set_gripper", "arguments": {"gripper": "close", "note": "闭合"}}],
++        [{"name": "done", "arguments": {"summary": "dry run attempt", "hindsight": "none"}}],
++        [{"name": "give_up", "arguments": {"reason": "dry run give up", "hindsight": "none"}}],
++        [{"name": "done", "arguments": {"summary": "dry run last", "hindsight": "none"}}],
++    ],
++}
++
++
++def main(session, style="v2"):
++    script = SCRIPTS[style]
++    calls = {"n": 0, "fail_once": True}
++
++    class FakeResponses:
++        def create(self, **req):
++            assert req["store"] is False and "tools" not in req
++            if calls["fail_once"] and calls["n"] == 2:
++                calls["fail_once"] = False
++                import httpx2
++                import openai
++                raise openai.APIConnectionError(request=httpx2.Request("POST", "http://x"))
++            if "text" not in req:
++                selections = None
++            else:
++                selections = script[min(calls["n"], len(script) - 1)]
++                calls["n"] += 1
++            out = [{"type": "reasoning", "id": f"rs_{calls['n']}", "summary": [{"type": "summary_text", "text": "t"}],
++                    "encrypted_content": "x" * 100}]
++            texts = [("final_answer", "FINAL REPORT (fake)")] if selections is None else (
++                [("commentary", json.dumps(s)) for s in selections[:-1]] + [("final_answer", json.dumps(selections[-1]))])
++            for i, (phase, text) in enumerate(texts):
++                out.append({"type": "message", "id": f"msg_{calls['n']}_{i}", "role": "assistant", "phase": phase,
++                            "status": "completed", "content": [{"type": "output_text", "text": text, "annotations": []}]})
++            return NS(id=f"resp_{calls['n']}", status="completed", output=out, incomplete_details=None,
++                      usage={"input_tokens": 1000, "input_tokens_details": {"cached_tokens": 10},
++                             "output_tokens": 50, "output_tokens_details": {"reasoning_tokens": 20}, "total_tokens": 1050})
++
++    fake = NS(responses=FakeResponses(), close=lambda: None)
++    P.ResponsesClient.client = lambda self: fake
++    R.MODEL_RETRY_DELAYS_S = tuple(0.1 for _ in range(20))
++    return lffbench_main.run(lffbench_main.parse_args(["--session", session, "--style", style]))
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else "v2"))
+diff --git a/src/gpt_policy/hardware/lffbench_sim.py b/src/gpt_policy/hardware/lffbench_sim.py
+new file mode 100644
+index 0000000..75173ed
+--- /dev/null
++++ b/src/gpt_policy/hardware/lffbench_sim.py
+@@ -0,0 +1,320 @@
++"""Simulated-robot adapter for the LFF-Bench robot server (same layer as the ARX/YAM adapters).
++
++The LFF-Bench robot server (lffbench/agent/robot_server.py) owns the MuJoCo simulation, the task
++instance, the attempt protocol (k attempts, per-attempt budgets, automatic reset and outcome feedback)
++and the rollout video. This adapter never touches the simulator: every executed tool becomes one or
++more HTTP calls `POST /call {"cmd", "args"}` (X-Token) to that server, i.e. exactly the
++`./robot <cmd> key=value ...` commands of the sandbox README. Two server interfaces exist:
++
++  v2 (`--style v2`, formal evaluation from 2026-10-07 evening; LIBERO-Agent / RoboDojo-aligned)
++    move_eef        -> one `move_eef [x y z yaw gripper speed]` (null fields are left out)
++    move_eef_chunk  -> one `move_eef` per waypoint, in order (each counts toward the server budget)
++    observe         -> `observe`
++    done / give_up  -> `finish reason="..."`
++  v1 (first smoke test / batch full1)
++    move_to -> `move_to`; move_eef_chunk -> one `move_to` per waypoint; set_gripper -> `open_gripper` |
++    `close_gripper`; observe -> `observe`; done / give_up -> `done reason="..."`
++
++plus a single `status` (free, not counted) at start for the first images and state.
++
++What the agent can see is only what the server returns: each reply (minus the sandbox-relative image
++paths, which are replaced by the attached images) and the two JPEG files (agentview, wrist) the server
++wrote into <sandbox>/obs/, passed through byte for byte. There is no depth, no camera calibration, no
++object pose and no IK/robot model on this side: GPT-Policy's own IK preview (`check_path`) and pixel
++localisation (`locate_point`) are not available for this backend.
++"""
++
++from __future__ import annotations
++
++import glob
++import json
++import math
++import os
++import time
++import urllib.request
++from copy import deepcopy
++from dataclasses import dataclass
++from typing import Any, Callable
++
++from .camera import CapturedImage
++
++# Server-reported state fields that form GPT-Policy's observation.state, per interface style.
++STATE_KEYS = {
++    "v1": ("eef_pos", "eef_yaw_deg", "gripper", "gripper_width_m", "holding_object"),
++    "v2": ("eef_pos", "eef_yaw_deg", "gripper_width_m", "budget_left"),
++}
++CAMERAS = ("agentview", "wrist")
++# Same end-of-episode detection as lffbench/scripts/gpt_player.py.
++FINISHED_MARKERS = ("episode is over", "No attempts left", "Stop now")
++V2_TARGET_KEYS = ("x", "y", "z", "yaw", "gripper", "speed")
++
++
++@dataclass(frozen=True)
++class SimImage(CapturedImage):
++    """A server-written observation JPEG; `source_path` is only for logs, never sent to the model."""
++
++    source_path: str | None = None
++    log_copy: str | None = None  # the server's persistent copy in <LOG>/images/ (same bytes)
++
++
++class RobotServerClient:
++    """Minimal client of the robot server's localhost HTTP interface (proxy disabled)."""
++
++    def __init__(self, port: int, token: str, timeout_s: float = 900.0) -> None:
++        self.url = f"http://127.0.0.1:{int(port)}/call"
++        self.token = token
++        self.timeout_s = timeout_s
++        self._opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
++
++    def call(self, cmd: str, args: dict[str, Any] | None = None) -> Any:
++        body = json.dumps({"cmd": cmd, "args": args or {}}).encode()
++        request = urllib.request.Request(self.url, data=body, headers={
++            "Content-Type": "application/json", "X-Token": self.token})
++        with self._opener.open(request, timeout=self.timeout_s) as response:
++            raw = response.read().decode()
++        try:
++            return json.loads(raw)
++        except ValueError:
++            return {"text": raw}
++
++
++def detect_style(status: dict[str, Any]) -> str:
++    """v2 status replies carry budget_left; v1 ones carry the protocol / holding fields."""
++    return "v2" if "budget_left" in status else "v1"
++
++
++class LffBenchSimRobot:
++    """GPT-Policy robot facade (state / execute / return_home / cancel / close) over the robot server."""
++
++    backend = "lffbench_sim"
++    dof = 7  # only used for GPT-Policy's "{dof}" templates, never shown to the model here.
++
++    def __init__(self, sandbox: str, port: int, token: str, *, style: str = "auto",
++                 log: Callable[[dict[str, Any]], None] | None = None, timeout_s: float = 900.0) -> None:
++        if style not in ("auto", "v1", "v2"):
++            raise ValueError(f"unknown robot_server style {style!r}")
++        self.sandbox = os.path.abspath(sandbox)
++        self.client = RobotServerClient(port, token, timeout_s)
++        self.style = style
++        self._log = log or (lambda event: None)
++        self._state: dict[str, Any] = {}
++        self.latest_images: list[str] = []
++        self.task: str | None = None
++        self.episode_finished = False
++        self.server_commands = 0  # commands sent other than status
++        self.last_tool: str | None = None
++        self.last_result: Any = None
++
++    # ------------------------------------------------------------------ server I/O
++    def _send(self, cmd: str, args: dict[str, Any] | None = None) -> dict[str, Any]:
++        started = time.time()
++        reply = self.client.call(cmd, args or {})
++        if not isinstance(reply, dict):
++            reply = {"ok": False, "error": f"unexpected reply type {type(reply).__name__}"}
++        if cmd != "status":
++            self.server_commands += 1
++        self._log({"ev": "server_call", "cmd": cmd, "args": args or {}, "reply": reply,
++                   "server_s": round(time.time() - started, 3)})
++        return self._absorb(reply)
++
++    def _absorb(self, reply: dict[str, Any]) -> dict[str, Any]:
++        """Replace image paths by attached images and keep the latest server-reported state.
++
++        v2 can end an attempt inside a move_eef reply (motion budget used up): the nested
++        `attempt_ended` reply then carries the reset scene's images and state, which are newer.
++        """
++        report = dict(reply)
++        parts = [report]
++        if isinstance(report.get("attempt_ended"), dict):
++            report["attempt_ended"] = dict(report["attempt_ended"])
++            parts.append(report["attempt_ended"])
++        for part in parts:
++            paths = part.pop("images", None) or []
++            if paths:
++                self.latest_images = [os.path.join(self.sandbox, path) for path in paths]
++            for key in STATE_KEYS[self.style if self.style != "auto" else "v2"]:
++                if key in part:
++                    self._state[key] = part[key]
++            message = f"{part.get('message', '')} {part.get('error', '')}"
++            if any(marker in message for marker in FINISHED_MARKERS):
++                self.episode_finished = True
++        return report
++
++    def start(self) -> dict[str, Any]:
++        """`./robot status` (not counted by the server): task text, first images and state."""
++        status = self.client.call("status")
++        if self.style == "auto":
++            self.style = detect_style(status if isinstance(status, dict) else {})
++        self._log({"ev": "server_call", "cmd": "status", "args": {}, "reply": status, "style": self.style})
++        status = self._absorb(status)
++        self.task = status.get("task")
++        return status
++
++    # ------------------------------------------------------------------ GPT-Policy robot facade
++    def state(self) -> dict[str, Any]:
++        return deepcopy(self._state)
++
++    def execute(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
++        if self.episode_finished:
++            raise ValueError("the episode is over; no further robot commands are executed")
++        result = self._execute_v2(name, arguments) if self.style == "v2" else self._execute_v1(name, arguments)
++        self.last_tool, self.last_result = name, result
++        return result
++
++    def _execute_v2(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
++        if name == "move_eef":
++            return self._send("move_eef", _eef_target(arguments.get("target"), "move_eef.target"))
++        if name == "move_eef_chunk":
++            return self._chunk("move_eef", arguments.get("poses"), _eef_target)
++        if name == "observe":
++            return self._send("observe")
++        if name == "done":
++            return self._send("finish", {"reason": _text(arguments.get("summary"), "done.summary")})
++        if name == "give_up":
++            return self._send("finish", {"reason": "give_up: " + _text(arguments.get("reason"), "give_up.reason")})
++        raise ValueError(f"tool not supported by the simulated robot: {name}")
++
++    def _execute_v1(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
++        if name == "move_to":
++            return self._send("move_to", _waypoint(arguments.get("target"), "move_to.target"))
++        if name == "move_eef_chunk":
++            return self._chunk("move_to", arguments.get("poses"), _waypoint)
++        if name == "set_gripper":
++            value = arguments.get("gripper")
++            if value not in ("open", "close"):
++                raise ValueError('set_gripper.gripper must be "open" or "close"')
++            return self._send("open_gripper" if value == "open" else "close_gripper")
++        if name == "observe":
++            return self._send("observe")
++        if name == "done":
++            return self._send("done", {"reason": _text(arguments.get("summary"), "done.summary")})
++        if name == "give_up":
++            return self._send("done", {"reason": "give_up: " + _text(arguments.get("reason"), "give_up.reason")})
++        raise ValueError(f"tool not supported by the simulated robot: {name}")
++
++    def _chunk(self, cmd: str, poses: Any, convert: Callable[[Any, str], dict[str, Any]]) -> dict[str, Any]:
++        if not isinstance(poses, list) or not poses:
++            raise ValueError("move_eef_chunk.poses must be a non-empty waypoint list")
++        # Validate the whole path before sending anything (GPT-Policy rejects a chunk before execution).
++        waypoints = [convert(pose, f"move_eef_chunk.poses[{i}]") for i, pose in enumerate(poses)]
++        reports, stopped = [], None
++        for index, waypoint in enumerate(waypoints):
++            report = self._send(cmd, waypoint)
++            reports.append(report)
++            if report.get("ended") or report.get("attempt_ended") or self.episode_finished:
++                stopped = f"waypoint {index + 1} ended the attempt"
++            elif report.get("ok") is False:
++                stopped = f"waypoint {index + 1} returned an error"
++            elif self.style == "v1" and report.get("reached") is False:
++                stopped = f"waypoint {index + 1} was not reached"
++            if stopped:
++                break
++        result: dict[str, Any] = {"waypoints_requested": len(waypoints), "waypoints_executed": len(reports),
++                                  "reports": reports}
++        if stopped and len(reports) < len(waypoints):
++            result["stopped_early"] = f"{stopped}; the remaining {len(waypoints) - len(reports)} waypoint(s) were not sent"
++        return result
++
++    def return_home(self) -> dict[str, Any]:
++        # The robot server resets the scene between attempts; there is no separate homing here.
++        return {"skipped": "simulated robot: the robot server owns resets"}
++
++    def cancel(self) -> None:
++        pass
++
++    def resume(self) -> None:
++        pass
++
++    def close(self) -> None:
++        pass
++
++
++class LffBenchCameras:
++    """CameraSet/RunVideo stand-in: the "fresh snapshot" is the image pair of the latest server reply."""
++
++    def __init__(self, robot: LffBenchSimRobot, width: int = 512, height: int = 512,
++                 log_dir: str | None = None) -> None:
++        self.robot = robot
++        self.width, self.height = width, height
++        self.log_images = os.path.join(log_dir, "images") if log_dir else None
++
++    def snapshot(self, after: float | None = None, timeout: float | None = None) -> dict[str, SimImage]:
++        images: dict[str, SimImage] = {}
++        for path in self.robot.latest_images:
++            base = os.path.basename(path)
++            name = next((camera for camera in CAMERAS if base.endswith(f"_{camera}.jpg")), base)
++            with open(path, "rb") as stream:
++                data = stream.read()
++            images[name] = SimImage(name=name, data=data, mime_type="image/jpeg", width=self.width,
++                                    height=self.height, captured_at=os.path.getmtime(path), source_path=path,
++                                    log_copy=self._log_copy(base, data))
++        if not images:
++            raise RuntimeError("the robot server has not returned any camera images yet")
++        return images
++
++    def _log_copy(self, base: str, data: bytes) -> str | None:
++        """robot_server copies obs/<name> to <LOG>/images/a<attempt>_<name>; find the identical copy."""
++        if not self.log_images or not os.path.isdir(self.log_images):
++            return None
++        for candidate in sorted(glob.glob(os.path.join(self.log_images, f"*_{base}")), reverse=True):
++            try:
++                with open(candidate, "rb") as stream:
++                    if stream.read() == data:
++                        return candidate
++            except OSError:
++                continue
++        return None
++
++    def describe(self, images: dict[str, Any] | None = None) -> list[dict[str, Any]]:
++        names = list(images) if images else list(CAMERAS)
++        return [{"name": name, "width": self.width, "height": self.height} for name in names]
++
++    def stop(self) -> dict[str, Any]:
++        return {}
++
++    def close(self) -> None:
++        pass
++
++
++def _finite(value: Any, where: str) -> float:
++    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
++        raise ValueError(f"{where} must be a finite number")
++    return float(value)
++
++
++def _eef_target(value: Any, where: str) -> dict[str, Any]:
++    """v2 move_eef arguments; null fields are left out (the server keeps their current value)."""
++    if not isinstance(value, dict):
++        raise ValueError(f"{where} must be an object with x, y, z, yaw, gripper, speed")
++    unknown = set(value) - set(V2_TARGET_KEYS)
++    if unknown:
++        raise ValueError(f"{where} has unknown fields: {sorted(unknown)}")
++    args: dict[str, Any] = {}
++    for key in ("x", "y", "z", "yaw", "speed"):
++        if value.get(key) is not None:
++            args[key] = _finite(value[key], f"{where}.{key}")
++    gripper = value.get("gripper")
++    if gripper is not None:
++        if gripper not in ("open", "close"):
++            raise ValueError(f'{where}.gripper must be "open", "close" or null')
++        args["gripper"] = gripper
++    return args
++
++
++def _waypoint(value: Any, where: str) -> dict[str, Any]:
++    """v1 move_to arguments."""
++    if not isinstance(value, dict):
++        raise ValueError(f"{where} must be an object with x, y, z, yaw, speed")
++    unknown = set(value) - {"x", "y", "z", "yaw", "speed"}
++    if unknown:
++        raise ValueError(f"{where} has unknown fields: {sorted(unknown)}")
++    args: dict[str, Any] = {key: _finite(value.get(key), f"{where}.{key}") for key in ("x", "y", "z", "yaw")}
++    if value.get("speed") is not None:
++        args["speed"] = _finite(value["speed"], f"{where}.speed")
++    return args
++
++
++def _text(value: Any, where: str) -> str:
++    if not isinstance(value, str):
++        raise ValueError(f"{where} must be a string")
++    return value
+diff --git a/src/gpt_policy/harness/lffbench_protocol.py b/src/gpt_policy/harness/lffbench_protocol.py
+new file mode 100644
+index 0000000..7e6546f
+--- /dev/null
++++ b/src/gpt_policy/harness/lffbench_protocol.py
+@@ -0,0 +1,148 @@
++"""GPT-Policy protocol text for the simulated LFF-Bench robot.
++
++`instructions()` keeps the structure of harness/protocol.py:instructions(): role line, robot
++description, output contract, tool prompts, state semantics and GPT-Policy's general control guidance
++(orientation retention, notes, efficient motion, grasp sequence, release verification, persistence).
++Under the LFF-Bench information contract the robot/task description is the sandbox README verbatim,
++so it replaces the ARX/YAM calibration notes and scene safety notes. Sentences that refer to things
++this backend does not have (IK and check_path, joint velocities/torques, settling reports, planned
++TCP points, a human labelling the outcome, insertion-specific completion rules) are removed or reworded
++to the robot server's equivalents; nothing task-specific is added.
++
++`observation()` keeps GPT-Policy's per-turn JSON observation (instruction, images, state, extra.env_step,
++previous_result), filled only with what the robot server returned.
++
++Two texts exist, one per robot_server interface. v1 is kept byte-identical to the text used for the
++first smoke test and batch full1. v2 (formal evaluation) uses the minimal v2 README and additionally
++drops every sentence of GPT-Policy's general guidance that implies robot geometry (forearms, camera
++housings, a second hand, table clearance) so that the README stays the only source of priors.
++"""
++
++from __future__ import annotations
++
++import json
++from typing import Any
++
++from ..tools.catalog import ToolCatalog
++from .protocol import _model_numbers
++
++STATE_KEYS = {
++    "v1": ("eef_pos", "eef_yaw_deg", "gripper", "gripper_width_m", "holding_object"),
++    "v2": ("eef_pos", "eef_yaw_deg", "gripper_width_m", "budget_left"),
++}
++
++HARNESS_MAPPING = HARNESS_MAPPING_V1 = """How this harness relates to the README: you do not run `./robot` yourself and you have no file, shell or network access. Each turn you return one tool selection and the host translates it into the README's robot commands: move_to -> `./robot move_to x=.. y=.. z=.. yaw=.. [speed=..]`; move_eef_chunk -> one `./robot move_to` per waypoint, in order; set_gripper -> `./robot open_gripper` or `./robot close_gripper`; observe -> `./robot observe`; done and give_up -> `./robot done reason="..."`. Each of these robot commands counts toward the README's per-attempt command limit. After every selection the host returns the robot's report as observation.previous_result and attaches the camera images taken after the action (agentview, wrist) to the observation, so there are no image files to read. Text that the README asks you to write before a command goes into the note (or the done/give_up text) of your next tool selection."""
++
++
++def instructions(readme: str, catalog: ToolCatalog, dof: int = 7, arms: tuple[str, ...] = ("left",),
++                 style: str = "v2") -> str:
++    if style == "v2":
++        return instructions_v2(readme, catalog, dof, arms)
++    return instructions_v1(readme, catalog, dof, arms)
++
++
++def instructions_v1(readme: str, catalog: ToolCatalog, dof: int = 7, arms: tuple[str, ...] = ("left",)) -> str:
++    tool_text = catalog.prompt_catalog(dof, arms)
++    return f"""You are a robot controller using the GPT-Policy harness. You control the simulated robot arm described in the README below; only one arm is controlled.
++
++README (robot and task description, verbatim):
++<<<README
++{readme.rstrip()}
++README>>>
++
++{HARNESS_MAPPING}
++
++Return exactly one tool selection per turn: {{"name": "...", "arguments": {{...}}}}. No Markdown or text outside this object. The host executes the full motion segment, then supplies a fresh observation.
++
++Tools:
++{tool_text}
++
++observation.state is the robot's latest proprioceptive report (end-effector position, yaw, gripper, whether an object is held), exactly as the robot reports it. previous_result is the robot's report for your previous tool selection, or the host's rejection if it was not executed.
++
++Orientation retention and reachability: For position-only adjustments, keep the last commanded yaw. The configured workspace is not a measured reachability boundary; an in-range point may be unreachable. The robot reports whether each target was reached.
++
++Every motion tool requires a note: 1-2 short Chinese sentences, usually 20-60 characters, stating current evidence and the next purpose. Keep failure causes when relevant; do not repeat coordinate arrays, history, tool mechanics or general rules. Use only the selected tool's arguments. Follow its schema for omitted and nullable fields. Camera images are supplied through observation.images and actual image inputs.
++
++Efficient motion: Prefer move_eef_chunk for clear, contact-free paths that need no intermediate observation. Do not split them into many decisions. Stop to observe at contact, gripper changes, occlusion or tracking anomalies; efficiency never justifies skipping verification.
++
++Grasp sequence: Approach and align, inspect fresh images and state, then call set_gripper separately. Before closure, consider wrist close-ups, the agentview overview and the reported state together. A submitted target does not prove arrival.
++Check fingertips, wrists, camera housings, forearms and table clearance in fresh views. Do not advance contact without verified stabilization and clearance.
++
++Release verification: Before releasing or regrasping, verify that the intended surface or another hand reliably supports the entire object. Observe after release and before withdrawing. A fully-open command does not prove that a wide object detached. If the object stays fixed relative to the fingers or the destination still appears empty, keep it reliably supported by the intended surface or container while disengaging the fingers. Do not lift a still-trapped object away and report completion.
++
++Persistence: One failed action, tool rejection, missed grasp, occluded target or uncertain result does not establish impossibility. Diagnose from fresh images, reported state and previous_result, then try safe alternatives in viewpoint, approach, grasp, orientation, path or step size and verify each result. Call done only when the physical goal is established. Do not call give_up while reasonable safe strategies remain. Consider meaningfully different recoveries; give_up requires evidence that the task cannot be completed or further attempts would violate safety constraints. In reason, list attempted strategies and the evidence preventing further progress.
++"""
++
++
++HARNESS_MAPPING_V2 = """How this harness relates to the README: you do not run `./robot` yourself and you have no file, shell or network access. Each turn you return one tool selection and the host translates it into the README's robot commands: move_eef -> one `./robot move_eef` with the non-null fields of target; move_eef_chunk -> one `./robot move_eef` per waypoint, in order; observe -> `./robot observe`; done and give_up -> `./robot finish reason="..."`. move_eef, every chunk waypoint and observe each count as one robot command toward the README's per-attempt command budget. After every selection the host returns the robot's reply as observation.previous_result (without the image paths) and attaches the camera images taken after it (agentview, wrist) to the observation, so there are no image files to read."""
++
++
++def instructions_v2(readme: str, catalog: ToolCatalog, dof: int = 7, arms: tuple[str, ...] = ("left",)) -> str:
++    tool_text = catalog.prompt_catalog(dof, arms)
++    return f"""You are a robot controller using the GPT-Policy harness. You control the simulated robot arm described in the README below; only one arm is controlled.
++
++README (robot and task description, verbatim):
++<<<README
++{readme.rstrip()}
++README>>>
++
++{HARNESS_MAPPING_V2}
++
++Return exactly one tool selection per turn: {{"name": "...", "arguments": {{...}}}}. No Markdown or text outside this object. The host executes the full motion segment, then supplies a fresh observation.
++
++Tools:
++{tool_text}
++
++observation.state holds the state fields of the robot's latest reply (eef_pos, eef_yaw_deg, gripper_width_m, budget_left), exactly as the robot reports them. previous_result is the robot's reply to your previous tool selection, or the host's rejection if it was not executed.
++
++Orientation retention and reachability: For position-only adjustments, keep the last commanded yaw. An accepted target is not proof of arrival; check how far the gripper stopped from it.
++
++Every motion tool requires a note: 1-2 short Chinese sentences, usually 20-60 characters, stating current evidence and the next purpose. Keep failure causes when relevant; do not repeat coordinate arrays, history, tool mechanics or general rules. Use only the selected tool's arguments. Follow its schema for omitted and nullable fields. Camera images are supplied through observation.images and actual image inputs.
++
++Efficient motion: Prefer move_eef_chunk for clear, contact-free paths that need no intermediate observation. Do not split them into many decisions. Stop to observe at contact, gripper changes, occlusion or tracking anomalies; efficiency never justifies skipping verification.
++
++Grasp sequence: Approach and align, inspect fresh images and state, then change the gripper in a separate selection. Before closure, consider the wrist image, the agentview image and the reported state together. A submitted target does not prove arrival. Do not advance contact without verified stabilization and clearance in fresh views.
++
++Release verification: Before releasing or regrasping, verify that the intended surface reliably supports the entire object. Observe after release and before withdrawing. A fully-open command does not prove that a wide object detached. If the object stays fixed relative to the fingers or the destination still appears empty, keep it reliably supported by the intended surface or container while disengaging the fingers. Do not lift a still-trapped object away and report completion.
++
++Persistence: One failed action, tool rejection, missed grasp, occluded target or uncertain result does not establish impossibility. Diagnose from fresh images, reported state and previous_result, then try safe alternatives in viewpoint, approach, grasp, orientation, path or step size and verify each result. Call done only when the physical goal is established. Do not call give_up while reasonable safe strategies remain. Consider meaningfully different recoveries; give_up requires evidence that the task cannot be completed or further attempts would violate safety constraints. In reason, list attempted strategies and the evidence preventing further progress.
++"""
++
++
++def observation_for(style: str):
++    """GPT-Policy's observation function with the state fields of the given server interface."""
++    keys = STATE_KEYS[style]
++
++    def _observation(instruction, state, cameras, previous=None, step=0):
++        return observation(instruction, state, cameras, previous, step, state_keys=keys)
++
++    return _observation
++
++
++def observation(
++    instruction: str,
++    state: dict[str, Any],
++    cameras: list[dict[str, Any]],
++    previous: str | None = None,
++    step: int = 0,
++    *,
++    state_keys: tuple[str, ...] = STATE_KEYS["v1"],
++) -> str:
++    """GPT-Policy's JSON observation; state holds only the server-reported state fields."""
++    payload: dict[str, Any] = {
++        "instruction": instruction,
++        "images": [{key: camera[key] for key in ("name", "width", "height") if key in camera}
++                   for camera in cameras],
++        "state": {key: state[key] for key in state_keys if key in state},
++        "extra": {"env_step": step},
++    }
++    if previous is not None:
++        payload["previous_result"] = json.loads(previous)
++    return json.dumps(_model_numbers(payload), ensure_ascii=False, separators=(",", ":"))
++
++
++FINAL_REPORT_REQUEST = (
++    "The robot server reports that the episode is over; no further robot commands will be executed. "
++    "Reply in plain text, not as a tool selection, with a short report: what you did (key commands and "
++    "parameter values), what you observed, any feedback you got, and how you changed your approach."
++)
+diff --git a/src/gpt_policy/harness/providers/openai_responses.py b/src/gpt_policy/harness/providers/openai_responses.py
+new file mode 100644
+index 0000000..b5a16ca
+--- /dev/null
++++ b/src/gpt_policy/harness/providers/openai_responses.py
+@@ -0,0 +1,386 @@
++"""OpenAI Responses API provider with the Codex provider's thread semantics.
++
++GPT-Policy's default provider runs `codex app-server`: one native thread per robot run, base
++instructions + the tool catalog as system text, and per turn one structured tool selection
++(`outputSchema`, strict JSON schema) at the configured reasoning effort. Older live images stay in the
++thread unless `live_image_window` triggers a refresh with a text-only replay (CodexSession).
++
++`ResponsesClient` reproduces that client interface (`start_thread`, `decide`, `refresh_thread`,
++`_input`, `close`) on the stateless Responses API: the "thread" is the accumulated input list
++(user turns plus the model's own output items, reasoning replayed via encrypted content, store=False),
++so `OpenAIResponsesSession` can reuse CodexSession's context compiler unchanged.
++
++Every request is written to the run transcript in full, with each image replaced by the path and
++sha256 of the file it came from and encrypted reasoning replaced by its length. Transient API failures
++raise AgentOverloadedError so that the host's run loop applies GPT-Policy's retry/backoff (20 retries,
++300 s recovery deadline). Key and endpoint come from OPENAI_API_KEY / OPENAI_BASE_URL and are never
++logged.
++"""
++
++from __future__ import annotations
++
++import copy
++import hashlib
++import json
++import os
++import time
++import uuid
++from typing import Any, Callable, Mapping
++
++from ...input.manifest import ContentPart
++from ..codex import CodexAppServer
++from ..config import AgentConfig
++from ..errors import AgentOverloadedError
++from ..models import AgentDecision, AgentTurn
++from ..usage import model_call
++from .codex import CodexSession
++
++_RETRYABLE_STATUS = {408, 409, 425, 429}
++
++
++class ResponsesClient:
++    """CodexAppServer-compatible client backed by `client.responses.create`."""
++
++    def __init__(
++        self,
++        model: str,
++        effort: str | None = "medium",
++        convert_camera_images_to_jpeg: bool = False,
++        camera_jpeg_quality: int = 85,
++        *,
++        image_detail: str = "auto",
++        reasoning_summary: str | None = "auto",
++        timeout_s: float = 300.0,
++        log: Callable[[dict[str, Any]], None] | None = None,
++        client: Any = None,
++        multi_selection: str = "reject",
++    ) -> None:
++        if multi_selection not in ("reject", "last"):
++            raise ValueError("multi_selection must be 'reject' or 'last' (Codex: execute the final message)")
++        self.model = model
++        self.effort = effort
++        self.convert_camera_images_to_jpeg = convert_camera_images_to_jpeg
++        self.camera_jpeg_quality = camera_jpeg_quality
++        self.image_detail = image_detail
++        self.reasoning_summary = reasoning_summary
++        self.timeout_s = timeout_s
++        self._log = log or (lambda event: None)
++        self._client = client
++        self.instructions: str | None = None
++        self.items: list[dict[str, Any]] = []
++        self.thread_id: str | None = None
++        self.threads = 0
++        self.turns = 0
++        self.last_request_timing: dict[str, float] = {}
++        self.usage_total = {"input_tokens": 0, "cached_tokens": 0, "output_tokens": 0, "reasoning_tokens": 0}
++        self.multi_selection = multi_selection
++        self._image_sources: dict[str, dict[str, Any]] = {}
++
++    # ------------------------------------------------------------------ thread
++    def client(self):
++        if self._client is None:
++            from openai import OpenAI
++
++            key = os.environ.get("OPENAI_API_KEY")
++            if not key:
++                raise RuntimeError("OPENAI_API_KEY is not set")
++            self._client = OpenAI(api_key=key, base_url=os.environ.get("OPENAI_BASE_URL") or None,
++                                  timeout=self.timeout_s, max_retries=0)
++        return self._client
++
++    def start_thread(self, instructions: str, tools: list[dict[str, Any]] | None = None) -> None:
++        """Same system text as CodexAppServer.start_thread: instructions + tool catalog JSON."""
++        if tools:
++            instructions = instructions + "\n\nRobot tool catalog:\n" + json.dumps(tools, ensure_ascii=False)
++        self.instructions = instructions
++        self.items = []
++        self.threads += 1
++        self.thread_id = f"thread-{self.threads}-{uuid.uuid4().hex[:8]}"
++        self._log({"ev": "thread_start", "thread_id": self.thread_id, "model": self.model,
++                   "reasoning_effort": self.effort, "instructions": instructions,
++                   "instructions_sha256": _sha(instructions)})
++
++    def refresh_thread(self, instructions, tools=None):
++        """Release completed visual history; the caller supplies an explicit replay."""
++        self.start_thread(instructions, tools)
++
++    def _input(self, observation, images, content=None, convert_camera_images_to_jpeg=False,
++               camera_jpeg_quality=85):
++        """CodexAppServer._input, remembering which file each image came from (for the logs only)."""
++        items = CodexAppServer._input(observation, images, content, convert_camera_images_to_jpeg,
++                                      camera_jpeg_quality)
++        urls = [item["url"] for item in items if item.get("type") == "image"]
++        for image, url in zip((images or {}).values(), urls[-len(images or {}):] if images else []):
++            data = getattr(image, "data", b"")
++            self._image_sources[url] = {"image_path": getattr(image, "source_path", None),
++                                        "log_copy": getattr(image, "log_copy", None),
++                                        "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
++        return items
++
++    # ------------------------------------------------------------------ requests
++    def _message(self, items: list[dict[str, Any]]) -> dict[str, Any]:
++        content = []
++        for item in items:
++            if item.get("type") == "text":
++                content.append({"type": "input_text", "text": item["text"]})
++            elif item.get("type") == "image":
++                part = {"type": "input_image", "image_url": item["url"], "detail": item.get("detail", self.image_detail)}
++                content.append(part)
++            else:
++                raise TypeError(f"unsupported input item: {item.get('type')}")
++        return {"role": "user", "content": content}
++
++    def _request(self, message: dict[str, Any], output_schema: dict[str, Any] | None) -> dict[str, Any]:
++        if self.instructions is None:
++            raise RuntimeError("Responses thread has not been started")
++        request: dict[str, Any] = {
++            "model": self.model,
++            "instructions": self.instructions,
++            "input": self.items + [message],
++            "store": False,
++            "include": ["reasoning.encrypted_content"],
++        }
++        reasoning: dict[str, Any] = {}
++        if self.effort:
++            reasoning["effort"] = self.effort
++        if self.reasoning_summary:
++            reasoning["summary"] = self.reasoning_summary
++        if reasoning:
++            request["reasoning"] = reasoning
++        if output_schema is not None:
++            request["text"] = {"format": {"type": "json_schema", "name": "robot_tool_selection",
++                                          "schema": output_schema, "strict": True}}
++        return request
++
++    def _call(self, request: dict[str, Any], kind: str, call: dict[str, Any]) -> tuple[Any, list[dict], str]:
++        self.turns += 1
++        turn = self.turns
++        self._log({"ev": "request", "kind": kind, "turn": turn, "thread_id": self.thread_id,
++                   "request": self._loggable(request)})
++        call["request_started"] = True
++        call["thread_id"] = self.thread_id
++        started = time.perf_counter()
++        try:
++            response = self.client().responses.create(**request)
++        except Exception as exc:  # classify: transient -> host retry with backoff; otherwise fatal
++            elapsed = time.perf_counter() - started
++            code = _retryable_code(exc)
++            self._log({"ev": "api_error", "kind": kind, "turn": turn, "retryable": code is not None,
++                       "error": f"{type(exc).__name__}: {str(exc)[:500]}", "elapsed_s": round(elapsed, 3)})
++            if code is not None:
++                raise AgentOverloadedError(f"OpenAI Responses request failed: {type(exc).__name__}",
++                                           provider="openai_responses", code=code) from exc
++            raise
++        elapsed = time.perf_counter() - started
++        self.last_request_timing["request_elapsed_s"] = elapsed
++        output = [_to_dict(item) for item in (getattr(response, "output", None) or [])]
++        # Like CodexAppServer (last agentMessage with phase None/final_answer): the model occasionally
++        # emits the same selection in two message items, so take the last final message, not a concat.
++        messages = ["".join(part.get("text", "") for part in item.get("content", [])
++                            if part.get("type") == "output_text")
++                    for item in output if item.get("type") == "message"
++                    and item.get("phase") in (None, "final_answer")]
++        text = next((m for m in reversed(messages) if m.strip()), "")
++        usage = _usage(getattr(response, "usage", None))
++        call["raw_usage"] = usage
++        call["usage_final"] = True
++        for key, name in (("input_tokens", "inputTokens"), ("cached_tokens", "cachedInputTokens"),
++                          ("output_tokens", "outputTokens"), ("reasoning_tokens", "reasoningOutputTokens")):
++            self.usage_total[key] += usage.get(name) or 0
++        status = getattr(response, "status", None) or "completed"
++        self._log({"ev": "response", "kind": kind, "turn": turn, "thread_id": self.thread_id,
++                   "response_id": getattr(response, "id", None), "status": status,
++                   "latency_s": round(elapsed, 3), "usage": usage, "output_text": text,
++                   "n_messages": len(messages),
++                   "reasoning_summary": [s.get("text") for item in output if item.get("type") == "reasoning"
++                                         for s in item.get("summary", []) or []],
++                   "output": self._loggable({"input": output})["input"]})
++        if status != "completed" or not text.strip():
++            detail = getattr(response, "incomplete_details", None)
++            raise AgentOverloadedError(f"Responses turn not completed: status={status} detail={detail}",
++                                       provider="openai_responses", code=f"response_{status}")
++        return response, output, text
++
++    def decide(
++        self,
++        observation: str,
++        output_schema: dict[str, Any],
++        images: Mapping[str, Any] | None = None,
++        content: tuple[ContentPart, ...] | None = None,
++        *, replay: list[dict[str, Any]] | None = None,
++    ) -> dict[str, Any]:
++        """Ask for one structured tool selection (same contract as CodexAppServer.decide)."""
++        self.last_request_timing = {}
++        with model_call("openai_responses", self.model) as call:
++            prepare_started = time.perf_counter()
++            items = list(replay or ()) + self._input(observation, images, content,
++                                                     self.convert_camera_images_to_jpeg, self.camera_jpeg_quality)
++            message = self._message(items)
++            request = self._request(message, output_schema)
++            self.last_request_timing["input_prepare_s"] = time.perf_counter() - prepare_started
++            _, output, answer = self._call(request, "decision", call)
++            try:
++                selection = json.loads(answer)
++            except ValueError as exc:
++                raise AgentOverloadedError("Responses output is not JSON", provider="openai_responses",
++                                           code="invalid_output") from exc
++            if not isinstance(selection, dict):
++                raise AgentOverloadedError("Responses tool selection is not a JSON object",
++                                           provider="openai_responses", code="invalid_output")
++            arguments = selection.get("arguments")
++            if isinstance(arguments, str):
++                arguments = json.loads(arguments)
++            if not isinstance(arguments, dict):
++                raise AgentOverloadedError("Responses arguments must be an object", provider="openai_responses",
++                                           code="invalid_output")
++            # Only a completed, parsed turn enters the thread (a failed request leaves no trace in it).
++            self.items += [message] + output
++            decision = {"name": selection.get("name"), "arguments": arguments, "_wire": selection}
++            # GPT-6 Astra sometimes writes a whole plan as several tool selections in intermediate
++            # ("commentary") messages of ONE turn and then imagines their results; Codex semantics execute
++            # only the final message, which turns e.g. a plan ending in `done` into an unexecuted done.
++            # GPT-Policy's contract is one selection per turn, so the host rejects such a turn.
++            names = _selections(output)
++            if len(names) > 1:
++                self._log({"ev": "multi_selection", "turn": self.turns, "selections": names,
++                           "policy": self.multi_selection})
++                if self.multi_selection == "reject":
++                    decision["_host_rejection"] = (
++                        f"this turn contained {len(names)} tool selections ({', '.join(names)}) in separate output "
++                        "messages; the host executes exactly one tool selection per turn and returns its result "
++                        "before your next decision, so none of them was executed and nothing changed since the "
++                        "previous observation")
++            return decision
++
++    def ask_text(self, text: str, *, retries: int = 4) -> str:
++        """One plain-text turn in the same thread (used once, for the final report)."""
++        message = {"role": "user", "content": [{"type": "input_text", "text": text}]}
++        for attempt in range(retries + 1):
++            try:
++                with model_call("openai_responses", self.model) as call:
++                    _, output, answer = self._call(self._request(message, None), "final_report", call)
++                self.items += [message] + output
++                return answer
++            except AgentOverloadedError:
++                if attempt == retries:
++                    raise
++                time.sleep(min(60.0, 5.0 * 2 ** attempt))
++        raise RuntimeError("unreachable")
++
++    def close(self) -> None:
++        client, self._client = self._client, None
++        if client is not None and hasattr(client, "close"):
++            try:
++                client.close()
++            except Exception:
++                pass
++
++    # ------------------------------------------------------------------ logging
++    def _loggable(self, request: dict[str, Any]) -> dict[str, Any]:
++        """Full request with image bytes replaced by their source file and encrypted reasoning elided."""
++        value = copy.deepcopy(request)
++        if "instructions" in value:
++            value["instructions_sha256"] = _sha(value.pop("instructions"))
++        for item in value.get("input", []):
++            if item.get("type") == "reasoning" and item.get("encrypted_content"):
++                item["encrypted_content"] = f"<encrypted reasoning, {len(item['encrypted_content'])} chars>"
++            for part in item.get("content", []) if isinstance(item.get("content"), list) else []:
++                if part.get("type") == "input_image":
++                    url = part.pop("image_url", "")
++                    part.update(self._image_sources.get(url) or {"sha256": _sha(url), "note": "unregistered image"})
++        if "text" in value:
++            value["text_format_sha256"] = _sha(json.dumps(value["text"], sort_keys=True))
++        return value
++
++
++class OpenAIResponsesSession(CodexSession):
++    """CodexSession (live-image window, text-only replay) on the Responses client.
++
++    A failed Responses request leaves nothing in the conversation, so unlike a Codex app-server thread
++    there is no partial turn to discard: by default an overload does not refresh the thread (all
++    earlier images stay). Set refresh_on_overload=True to reproduce the Codex recovery exactly.
++    """
++
++    def __init__(self, config: AgentConfig, model: str, convert_images: bool, jpeg_quality: int, *,
++                 log: Callable[[dict[str, Any]], None] | None = None, image_detail: str = "auto",
++                 timeout_s: float | None = None, refresh_on_overload: bool = False, client: Any = None,
++                 multi_selection: str = "reject") -> None:
++        self.client = ResponsesClient(model, config.effort, convert_images, jpeg_quality, image_detail=image_detail,
++                                      timeout_s=timeout_s or config.timeout_s or 300.0, log=log, client=client,
++                                      multi_selection=multi_selection)
++        self.context = None
++        self.live_image_window = config.live_image_window
++        self._history = []
++        self._live_groups = 0
++        self._recover_thread = False
++        self.refresh_on_overload = refresh_on_overload
++        self.last_context_refresh = None
++        self.last_decision_timing = None
++
++    def decide(self, turn: AgentTurn) -> AgentDecision:
++        try:
++            return super().decide(turn)
++        except AgentOverloadedError:
++            if not self.refresh_on_overload:
++                self._recover_thread = False
++            raise
++
++
++def _selections(output: list[dict[str, Any]]) -> list[str]:
++    """Names of all tool selections written as JSON messages in one turn (any phase)."""
++    names = []
++    for item in output:
++        if item.get("type") != "message":
++            continue
++        text = "".join(part.get("text", "") for part in item.get("content", []) if part.get("type") == "output_text")
++        try:
++            value = json.loads(text)
++        except ValueError:
++            continue  # a plain-text preamble is not a selection
++        if isinstance(value, dict) and isinstance(value.get("name"), str) and "arguments" in value:
++            names.append(value["name"])
++    return names
++
++
++def _retryable_code(exc: Exception) -> str | None:
++    try:
++        import openai
++    except ImportError:  # pragma: no cover
++        return None
++    if isinstance(exc, openai.APITimeoutError):
++        return "timeout"
++    if isinstance(exc, openai.APIConnectionError):
++        return "connection_error"
++    if isinstance(exc, openai.APIStatusError):
++        status = getattr(exc, "status_code", None) or 0
++        if status in _RETRYABLE_STATUS or status >= 500:
++            return f"http_{status}"
++        return None
++    if isinstance(exc, (json.JSONDecodeError, ValueError)) and "JSON" in str(exc):
++        return "invalid_json_body"  # proxy returned a broken body
++    return None
++
++
++def _usage(usage: Any) -> dict[str, Any]:
++    if usage is None:
++        return {}
++    value = _to_dict(usage)
++    inp = value.get("input_tokens_details") or {}
++    out = value.get("output_tokens_details") or {}
++    return {"inputTokens": value.get("input_tokens"), "cachedInputTokens": inp.get("cached_tokens"),
++            "outputTokens": value.get("output_tokens"), "reasoningOutputTokens": out.get("reasoning_tokens"),
++            "totalTokens": value.get("total_tokens")}
++
++
++def _to_dict(item: Any) -> dict[str, Any]:
++    if isinstance(item, dict):
++        return dict(item)
++    if hasattr(item, "model_dump"):
++        return item.model_dump(mode="json", exclude_none=True)
++    if hasattr(item, "to_dict"):
++        return item.to_dict(mode="json")
++    return dict(vars(item))
++
++
++def _sha(text: str) -> str:
++    return hashlib.sha256(text.encode()).hexdigest()
+diff --git a/src/gpt_policy/lffbench_main.py b/src/gpt_policy/lffbench_main.py
+new file mode 100644
+index 0000000..7a78c4b
+--- /dev/null
++++ b/src/gpt_policy/lffbench_main.py
+@@ -0,0 +1,198 @@
++"""Run GPT-Policy against one LFF-Bench robot-server session (simulated robot, OpenAI Responses).
++
++    gpt-policy-lffbench --session <LOG>/session.json [--model gpt-6-astra] [--effort medium]
++
++Pipeline (GPT-Policy's own pieces, see main.py): tool catalog -> output schema + function catalog ->
++base instructions -> provider session (context compiler / self history) -> runtime.runner.run_loop
++(observation JSON with previous_result, one structured tool selection per decision, host validation
++and execution, tool_rejected feedback, overload retry/backoff) -> RunRecorder. Hardware is replaced by
++hardware/lffbench_sim.py; the robot server owns resets, attempts, budget and feedback. The server
++interface (v1 or v2, configs/lffbench/tools_<style>.json) is detected from the first status reply.
++A turn that contains several tool selections (GPT-6 Astra sometimes writes a whole plan as
++"commentary" messages before the final answer) is rejected with a tool_rejected message instead of
++executing only the final selection (--multi-selection last restores the Codex behaviour).
++
++Outputs in the run's LOG directory (the directory of session.json):
++  gptpolicy_transcript.jsonl  every model request (images as file path + sha256) and response, every
++                              robot-server call, start/end records
++  final_report.md             the model's closing report (one extra plain-text turn after the episode)
++  gptpolicy_run_*/            GPT-Policy's own RunRecorder output (events, transcript.json, frames,
++                              usage.json)
++No demonstrations, human videos or target images are used: the first turn's content is the task text.
++"""
++
++from __future__ import annotations
++
++import argparse
++import json
++import os
++import sys
++import time
++import traceback
++from pathlib import Path
++
++from .harness.config import AgentConfig
++from .harness.lffbench_protocol import FINAL_REPORT_REQUEST, instructions, observation_for
++from .harness.models import AgentContext
++from .harness.protocol import output_schema, tool_schemas
++from .harness.providers.openai_responses import OpenAIResponsesSession
++from .harness.usage import collect_usage
++from .hardware.lffbench_sim import LffBenchCameras, LffBenchSimRobot
++from .input.manifest import TextPart
++from .input.request import RunInput
++from .recording.trace import RunRecorder
++from .runtime.console import RunConsole
++from .runtime import runner
++from .runtime.runner import compact_execution_result, run_loop
++from .settings import RuntimeConfig
++from .tools import ToolExecutor, load_tool_catalog
++
++PROJECT_ROOT = Path(__file__).resolve().parents[2]
++CATALOGS = {style: PROJECT_ROOT / "configs" / "lffbench" / f"tools_{style}.json" for style in ("v1", "v2")}
++ARMS = ("left",)
++
++
++class JsonlLog:
++    def __init__(self, path: Path) -> None:
++        self.path = path
++        self._stream = path.open("a", encoding="utf-8")
++
++    def __call__(self, event: dict) -> None:
++        event = {"t": round(time.time(), 3), **event}
++        self._stream.write(json.dumps(event, ensure_ascii=False, default=str) + "\n")
++        self._stream.flush()
++
++    def close(self) -> None:
++        self._stream.close()
++
++
++def parse_args(argv=None):
++    parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
++    parser.add_argument("--session", required=True, type=Path, help="session.json from start_robot_session.sh")
++    parser.add_argument("--model", default="gpt-6-astra")
++    parser.add_argument("--effort", default="medium")
++    parser.add_argument("--live-image-window", type=int, default=None,
++                        help="GPT-Policy context compiler window (live observation groups); default: off, as in "
++                             "configs/agents/codex.json (all images stay in the thread)")
++    parser.add_argument("--image-detail", default="auto", help="input_image detail (same as gpt_player.py)")
++    parser.add_argument("--max-decisions", type=int, default=240,
++                        help="GPT-Policy decision cap (safety net; the robot server's 40/attempt is the real budget)")
++    parser.add_argument("--request-timeout", type=float, default=300.0)
++    parser.add_argument("--style", default="auto", choices=["auto", "v1", "v2"],
++                        help="robot_server interface; auto = detect from the first status reply")
++    parser.add_argument("--multi-selection", default="reject", choices=["reject", "last"],
++                        help="a turn with several tool selections (commentary messages + final answer): reject it "
++                             "(nothing executed, the model is told) or execute only the final one (Codex behaviour)")
++    parser.add_argument("--model-recovery-timeout", type=float, default=900.0,
++                        help="seconds of consecutive provider failures before the run stops (GPT-Policy default 300; "
++                             "raised because the sub2api relay often drops connections for minutes)")
++    return parser.parse_args(argv)
++
++
++def run(args) -> int:
++    session_path = args.session.expanduser().resolve()
++    log_dir = session_path.parent
++    session = json.loads(session_path.read_text())
++    sandbox, port = session["sandbox"], int(session["port"])
++    token = (Path(sandbox) / "robot").read_text().split('TOKEN = "', 1)[1].split('"', 1)[0]
++    readme = (Path(sandbox) / "README.md").read_text()
++    if not os.environ.get("OPENAI_API_KEY"):
++        raise SystemExit("OPENAI_API_KEY is not set (e.g. set -a; source <lffbench>/.env; set +a)")
++    if args.live_image_window is not None and args.live_image_window < 3:
++        raise SystemExit("--live-image-window must be >= 3 (GPT-Policy's rule) or omitted")
++
++    log = JsonlLog(log_dir / "gptpolicy_transcript.jsonl")
++    display = RunConsole()
++    started = time.time()
++    status, failure, report = "failed", None, None
++    agent = recorder = robot = None
++    with collect_usage():
++        try:
++            robot = LffBenchSimRobot(sandbox, port, token, style=args.style, log=log)
++            first = robot.start()
++            task = robot.task
++            if not task or task not in readme:
++                raise RuntimeError("status.task is not part of the sandbox README")
++            cameras = LffBenchCameras(robot, log_dir=str(log_dir))
++            style = robot.style
++            catalog = load_tool_catalog({"tool_catalog": str(CATALOGS[style])})
++            executor = ToolExecutor(catalog, ARMS, robot, localizer=None)
++            schema = output_schema(robot.dof, ARMS, catalog)
++            functions = tool_schemas(robot.dof, ARMS, catalog)
++            base_instructions = instructions(readme, catalog, robot.dof, ARMS, style=style)
++            agent_config = AgentConfig(type="openai_responses", model=args.model, executable="", effort=args.effort,
++                                       timeout_s=args.request_timeout, live_image_window=args.live_image_window)
++            agent = OpenAIResponsesSession(agent_config, args.model, False, 90, log=log,
++                                           image_detail=args.image_detail, timeout_s=args.request_timeout,
++                                           multi_selection=args.multi_selection)
++            log({"ev": "start", "framework": "GPT-Policy 3a74ed4 + lffbench_sim adapter", "provider": "openai_responses",
++                 "model": args.model, "effort": args.effort, "image_detail": args.image_detail,
++                 "live_image_window": args.live_image_window, "max_decisions": args.max_decisions,
++                 "model_recovery_timeout_s": args.model_recovery_timeout, "style": style,
++                 "multi_selection": args.multi_selection,
++                 "base_url_set": bool(os.environ.get("OPENAI_BASE_URL")), "session": session,
++                 "first_status": first, "output_schema": schema, "function_catalog": functions})
++            runtime = RuntimeConfig(robot_model="lffbench-sim", interface="lffbench-robot-server", right_interface="",
++                                    gripper_open_readout=0.0, camera_width=512, camera_height=512,
++                                    convert_camera_images_to_jpeg=False, camera_jpeg_quality=90, trajectory_hz=20.0,
++                                    task_name="lffbench", record_dir=log_dir / "gptpolicy_run",
++                                    max_decisions=args.max_decisions)
++            run_input = RunInput(instruction=task, model=args.model, content=(TextPart(task),))
++            recorder = RunRecorder(log_dir / "gptpolicy_run", {
++                "instruction": task, "task_name": "lffbench", "max_decisions": args.max_decisions,
++                "model": args.model, "agent": {"type": "openai_responses", "model": args.model, "effort": args.effort,
++                                               "live_image_window": args.live_image_window},
++                "input": run_input.record(), "robot_model": runtime.robot_model, "session": session})
++            recorder.write("protocol", {"output_schema": schema, "tool_catalog": functions,
++                                        "base_instructions": base_instructions, "cameras": cameras.describe()})
++            display.header(task, args.model, "lffbench-sim", recorder.root, args.max_decisions)
++            agent.start(AgentContext(base_instructions, functions, schema))
++            runner.MODEL_RECOVERY_TIMEOUT_S = args.model_recovery_timeout
++            status = run_loop(runtime, run_input, robot, cameras, cameras, agent, executor, recorder,
++                              observation_for(style), display=display)
++            if robot.last_tool is not None and (robot.episode_finished or status == "budget_exhausted"):
++                previous = json.dumps({"tool": robot.last_tool,
++                                       "result": compact_execution_result(robot.last_result)}, ensure_ascii=False)
++                prompt = ("Final host report for your last tool selection:\n" + previous + "\n\n" + FINAL_REPORT_REQUEST
++                          if robot.episode_finished else
++                          "The host's decision budget is exhausted. " + FINAL_REPORT_REQUEST)
++                report = agent.client.ask_text(prompt)
++                (log_dir / "final_report.md").write_text(report.rstrip() + "\n", encoding="utf-8")
++                log({"ev": "final_report", "text": report})
++        except BaseException as exc:  # record and stop; the robot server keeps its own events.jsonl
++            failure = f"{type(exc).__name__}: {exc}"
++            status = "interrupted" if isinstance(exc, KeyboardInterrupt) else "failed"
++            log({"ev": "abort", "error": failure, "traceback": traceback.format_exc()[-4000:]})
++            display.message(f"Run stopped: {failure}", "red")
++        finally:
++            usage = agent.client.usage_total if agent is not None else None
++            if agent is not None:
++                agent.close()
++            final_dir = None
++            if recorder is not None:
++                recorder.write("execution_finished", {"status": status, "error": failure})
++                try:
++                    final_dir = recorder.close(status, failure)
++                except Exception as exc:
++                    log({"ev": "recorder_close_error", "error": repr(exc)})
++            summary = {
++                "ev": "end", "status": status, "error": failure,
++                "episode_finished": bool(robot and robot.episode_finished),
++                "server_commands": robot.server_commands if robot else None,
++                "model_turns": agent.client.turns if agent is not None else None,
++                "usage_total": usage, "wall_s": round(time.time() - started, 1),
++                "gptpolicy_run_dir": str(final_dir) if final_dir else None,
++                "final_report": bool(report),
++            }
++            log(summary)
++            log.close()
++            print(json.dumps(summary, ensure_ascii=False), flush=True)
++    return 0 if status == "completed" and report else 1
++
++
++def main(argv=None) -> None:
++    sys.exit(run(parse_args(argv)))
++
++
++if __name__ == "__main__":
++    main()

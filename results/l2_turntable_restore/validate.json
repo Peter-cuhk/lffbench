@@ -1,0 +1,5725 @@
+{
+ "task": "l2_turntable_restore",
+ "level": "L2",
+ "capabilities": [
+  "Perceive",
+  "Save",
+  "Retrieve",
+  "Utilize"
+ ],
+ "n": 20,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "adaptive": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "center": [
+     -0.0487,
+     -0.0958
+    ],
+    "q0": -1.9940547645891136,
+    "theta": {
+     "butter_1": -0.008136296749768901
+    },
+    "rad": {
+     "butter_1": 0.0670324794254468
+    },
+    "tilt": {
+     "butter_1": 0.009778068710817878
+    },
+    "basket_xy": [
+     -0.1031072640814889,
+     0.27261044656574784
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -114.3
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.8,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "center": [
+     -0.0487,
+     -0.0958
+    ],
+    "q0": -1.9940547645891136,
+    "theta": {
+     "butter_1": -0.008136296749768901
+    },
+    "rad": {
+     "butter_1": 0.0670324794254468
+    },
+    "tilt": {
+     "butter_1": 0.009778068710817878
+    },
+    "basket_xy": [
+     -0.1031072640814889,
+     0.27261044656574784
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "center": [
+     -0.0487,
+     -0.0958
+    ],
+    "q0": -1.9940547645891136,
+    "theta": {
+     "butter_1": -0.008136296749768901
+    },
+    "rad": {
+     "butter_1": 0.0670324794254468
+    },
+    "tilt": {
+     "butter_1": 0.009778068710817878
+    },
+    "basket_xy": [
+     -0.1031072640814889,
+     0.27261044656574784
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -114.3
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.8,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "center": [
+     -0.0487,
+     -0.0958
+    ],
+    "q0": -1.9940547645891136,
+    "theta": {
+     "butter_1": -0.008136296749768901
+    },
+    "rad": {
+     "butter_1": 0.0670324794254468
+    },
+    "tilt": {
+     "butter_1": 0.009778068710817878
+    },
+    "basket_xy": [
+     -0.1031072640814889,
+     0.27261044656574784
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -156.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 156 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "center": [
+     -0.0432,
+     -0.1194
+    ],
+    "q0": -1.9007061603825375,
+    "theta": {
+     "butter_1": -0.0874469184730597
+    },
+    "rad": {
+     "butter_1": 0.07357890064541125
+    },
+    "tilt": {
+     "butter_1": -0.14409246434894316
+    },
+    "basket_xy": [
+     -0.08219394003761599,
+     0.2529568640056292
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -108.9
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.5,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "center": [
+     -0.0432,
+     -0.1194
+    ],
+    "q0": -1.9007061603825375,
+    "theta": {
+     "butter_1": -0.0874469184730597
+    },
+    "rad": {
+     "butter_1": 0.07357890064541125
+    },
+    "tilt": {
+     "butter_1": -0.14409246434894316
+    },
+    "basket_xy": [
+     -0.08219394003761599,
+     0.2529568640056292
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "center": [
+     -0.0432,
+     -0.1194
+    ],
+    "q0": -1.9007061603825375,
+    "theta": {
+     "butter_1": -0.0874469184730597
+    },
+    "rad": {
+     "butter_1": 0.07357890064541125
+    },
+    "tilt": {
+     "butter_1": -0.14409246434894316
+    },
+    "basket_xy": [
+     -0.08219394003761599,
+     0.2529568640056292
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -108.9
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.5,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "center": [
+     -0.0432,
+     -0.1194
+    ],
+    "q0": -1.9007061603825375,
+    "theta": {
+     "butter_1": -0.0874469184730597
+    },
+    "rad": {
+     "butter_1": 0.07357890064541125
+    },
+    "tilt": {
+     "butter_1": -0.14409246434894316
+    },
+    "basket_xy": [
+     -0.08219394003761599,
+     0.2529568640056292
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -148.5,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 148 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "center": [
+     -0.0572,
+     -0.1057
+    ],
+    "q0": -1.5634805530439746,
+    "theta": {
+     "butter_1": 0.0693314487790935
+    },
+    "rad": {
+     "butter_1": 0.06889491919104912
+    },
+    "tilt": {
+     "butter_1": -0.055375396488157536
+    },
+    "basket_xy": [
+     -0.10876689590012514,
+     0.2535895713711064
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -89.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.5,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "center": [
+     -0.0572,
+     -0.1057
+    ],
+    "q0": -1.5634805530439746,
+    "theta": {
+     "butter_1": 0.0693314487790935
+    },
+    "rad": {
+     "butter_1": 0.06889491919104912
+    },
+    "tilt": {
+     "butter_1": -0.055375396488157536
+    },
+    "basket_xy": [
+     -0.10876689590012514,
+     0.2535895713711064
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "center": [
+     -0.0572,
+     -0.1057
+    ],
+    "q0": -1.5634805530439746,
+    "theta": {
+     "butter_1": 0.0693314487790935
+    },
+    "rad": {
+     "butter_1": 0.06889491919104912
+    },
+    "tilt": {
+     "butter_1": -0.055375396488157536
+    },
+    "basket_xy": [
+     -0.10876689590012514,
+     0.2535895713711064
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -89.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.5,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "center": [
+     -0.0572,
+     -0.1057
+    ],
+    "q0": -1.5634805530439746,
+    "theta": {
+     "butter_1": 0.0693314487790935
+    },
+    "rad": {
+     "butter_1": 0.06889491919104912
+    },
+    "tilt": {
+     "butter_1": -0.055375396488157536
+    },
+    "basket_xy": [
+     -0.10876689590012514,
+     0.2535895713711064
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 179.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 179 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "center": [
+     -0.0687,
+     -0.1097
+    ],
+    "q0": -1.2578031501503735,
+    "theta": {
+     "butter_1": -0.0014897883871216322
+    },
+    "rad": {
+     "butter_1": 0.07160791557484186
+    },
+    "tilt": {
+     "butter_1": 0.08571837296986615
+    },
+    "basket_xy": [
+     -0.09957376802975519,
+     0.2679262176549447
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -72.1
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "center": [
+     -0.0687,
+     -0.1097
+    ],
+    "q0": -1.2578031501503735,
+    "theta": {
+     "butter_1": -0.0014897883871216322
+    },
+    "rad": {
+     "butter_1": 0.07160791557484186
+    },
+    "tilt": {
+     "butter_1": 0.08571837296986615
+    },
+    "basket_xy": [
+     -0.09957376802975519,
+     0.2679262176549447
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "center": [
+     -0.0687,
+     -0.1097
+    ],
+    "q0": -1.2578031501503735,
+    "theta": {
+     "butter_1": -0.0014897883871216322
+    },
+    "rad": {
+     "butter_1": 0.07160791557484186
+    },
+    "tilt": {
+     "butter_1": 0.08571837296986615
+    },
+    "basket_xy": [
+     -0.09957376802975519,
+     0.2679262176549447
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -72.1
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "center": [
+     -0.0687,
+     -0.1097
+    ],
+    "q0": -1.2578031501503735,
+    "theta": {
+     "butter_1": -0.0014897883871216322
+    },
+    "rad": {
+     "butter_1": 0.07160791557484186
+    },
+    "tilt": {
+     "butter_1": 0.08571837296986615
+    },
+    "basket_xy": [
+     -0.09957376802975519,
+     0.2679262176549447
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 157.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 158 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "center": [
+     -0.0799,
+     -0.1148
+    ],
+    "q0": -0.9988996942948987,
+    "theta": {
+     "butter_1": -0.10122633771639444
+    },
+    "rad": {
+     "butter_1": 0.06880654636947238
+    },
+    "tilt": {
+     "butter_1": 0.04102909365171578
+    },
+    "basket_xy": [
+     -0.11247045959642561,
+     0.26681430002315326
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -57.2
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "center": [
+     -0.0799,
+     -0.1148
+    ],
+    "q0": -0.9988996942948987,
+    "theta": {
+     "butter_1": -0.10122633771639444
+    },
+    "rad": {
+     "butter_1": 0.06880654636947238
+    },
+    "tilt": {
+     "butter_1": 0.04102909365171578
+    },
+    "basket_xy": [
+     -0.11247045959642561,
+     0.26681430002315326
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "center": [
+     -0.0799,
+     -0.1148
+    ],
+    "q0": -0.9988996942948987,
+    "theta": {
+     "butter_1": -0.10122633771639444
+    },
+    "rad": {
+     "butter_1": 0.06880654636947238
+    },
+    "tilt": {
+     "butter_1": 0.04102909365171578
+    },
+    "basket_xy": [
+     -0.11247045959642561,
+     0.26681430002315326
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -57.2
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "center": [
+     -0.0799,
+     -0.1148
+    ],
+    "q0": -0.9988996942948987,
+    "theta": {
+     "butter_1": -0.10122633771639444
+    },
+    "rad": {
+     "butter_1": 0.06880654636947238
+    },
+    "tilt": {
+     "butter_1": 0.04102909365171578
+    },
+    "basket_xy": [
+     -0.11247045959642561,
+     0.26681430002315326
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 151.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 152 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "center": [
+     -0.0751,
+     -0.0828
+    ],
+    "q0": -0.8456063685811261,
+    "theta": {
+     "butter_1": -0.05956047205702428
+    },
+    "rad": {
+     "butter_1": 0.071385580486205
+    },
+    "tilt": {
+     "butter_1": 0.11382952634498936
+    },
+    "basket_xy": [
+     -0.11026591775459052,
+     0.26490413964336135
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -48.4
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "center": [
+     -0.0751,
+     -0.0828
+    ],
+    "q0": -0.8456063685811261,
+    "theta": {
+     "butter_1": -0.05956047205702428
+    },
+    "rad": {
+     "butter_1": 0.071385580486205
+    },
+    "tilt": {
+     "butter_1": 0.11382952634498936
+    },
+    "basket_xy": [
+     -0.11026591775459052,
+     0.26490413964336135
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "center": [
+     -0.0751,
+     -0.0828
+    ],
+    "q0": -0.8456063685811261,
+    "theta": {
+     "butter_1": -0.05956047205702428
+    },
+    "rad": {
+     "butter_1": 0.071385580486205
+    },
+    "tilt": {
+     "butter_1": 0.11382952634498936
+    },
+    "basket_xy": [
+     -0.11026591775459052,
+     0.26490413964336135
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -48.4
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "center": [
+     -0.0751,
+     -0.0828
+    ],
+    "q0": -0.8456063685811261,
+    "theta": {
+     "butter_1": -0.05956047205702428
+    },
+    "rad": {
+     "butter_1": 0.071385580486205
+    },
+    "tilt": {
+     "butter_1": 0.11382952634498936
+    },
+    "basket_xy": [
+     -0.11026591775459052,
+     0.26490413964336135
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 135.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 136 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "center": [
+     -0.0598,
+     -0.096
+    ],
+    "q0": -1.7445095033461064,
+    "theta": {
+     "butter_1": -0.056607236165430855
+    },
+    "rad": {
+     "butter_1": 0.06737572444695573
+    },
+    "tilt": {
+     "butter_1": 0.1019217510963514
+    },
+    "basket_xy": [
+     -0.09565359664423083,
+     0.2606930704651253
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -100.0
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.5,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "center": [
+     -0.0598,
+     -0.096
+    ],
+    "q0": -1.7445095033461064,
+    "theta": {
+     "butter_1": -0.056607236165430855
+    },
+    "rad": {
+     "butter_1": 0.06737572444695573
+    },
+    "tilt": {
+     "butter_1": 0.1019217510963514
+    },
+    "basket_xy": [
+     -0.09565359664423083,
+     0.2606930704651253
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "center": [
+     -0.0598,
+     -0.096
+    ],
+    "q0": -1.7445095033461064,
+    "theta": {
+     "butter_1": -0.056607236165430855
+    },
+    "rad": {
+     "butter_1": 0.06737572444695573
+    },
+    "tilt": {
+     "butter_1": 0.1019217510963514
+    },
+    "basket_xy": [
+     -0.09565359664423083,
+     0.2606930704651253
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -100.0
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.6,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "center": [
+     -0.0598,
+     -0.096
+    ],
+    "q0": -1.7445095033461064,
+    "theta": {
+     "butter_1": -0.056607236165430855
+    },
+    "rad": {
+     "butter_1": 0.06737572444695573
+    },
+    "tilt": {
+     "butter_1": 0.1019217510963514
+    },
+    "basket_xy": [
+     -0.09565359664423083,
+     0.2606930704651253
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -173.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 173 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "center": [
+     -0.0757,
+     -0.0874
+    ],
+    "q0": -1.0588215143164548,
+    "theta": {
+     "butter_1": 0.04001998361722403
+    },
+    "rad": {
+     "butter_1": 0.0669659524482765
+    },
+    "tilt": {
+     "butter_1": 0.0301983897956678
+    },
+    "basket_xy": [
+     -0.0929291484198691,
+     0.2559285572079999
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -60.7
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "center": [
+     -0.0757,
+     -0.0874
+    ],
+    "q0": -1.0588215143164548,
+    "theta": {
+     "butter_1": 0.04001998361722403
+    },
+    "rad": {
+     "butter_1": 0.0669659524482765
+    },
+    "tilt": {
+     "butter_1": 0.0301983897956678
+    },
+    "basket_xy": [
+     -0.0929291484198691,
+     0.2559285572079999
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "center": [
+     -0.0757,
+     -0.0874
+    ],
+    "q0": -1.0588215143164548,
+    "theta": {
+     "butter_1": 0.04001998361722403
+    },
+    "rad": {
+     "butter_1": 0.0669659524482765
+    },
+    "tilt": {
+     "butter_1": 0.0301983897956678
+    },
+    "basket_xy": [
+     -0.0929291484198691,
+     0.2559285572079999
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -60.7
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "center": [
+     -0.0757,
+     -0.0874
+    ],
+    "q0": -1.0588215143164548,
+    "theta": {
+     "butter_1": 0.04001998361722403
+    },
+    "rad": {
+     "butter_1": 0.0669659524482765
+    },
+    "tilt": {
+     "butter_1": 0.0301983897956678
+    },
+    "basket_xy": [
+     -0.0929291484198691,
+     0.2559285572079999
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 147.2,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 147 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "center": [
+     -0.07,
+     -0.0875
+    ],
+    "q0": -1.0109779752937524,
+    "theta": {
+     "butter_1": -0.07911880782001231
+    },
+    "rad": {
+     "butter_1": 0.07483769454548861
+    },
+    "tilt": {
+     "butter_1": 0.1642840132086905
+    },
+    "basket_xy": [
+     -0.09606758376091884,
+     0.25068209860904583
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -57.9
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "center": [
+     -0.07,
+     -0.0875
+    ],
+    "q0": -1.0109779752937524,
+    "theta": {
+     "butter_1": -0.07911880782001231
+    },
+    "rad": {
+     "butter_1": 0.07483769454548861
+    },
+    "tilt": {
+     "butter_1": 0.1642840132086905
+    },
+    "basket_xy": [
+     -0.09606758376091884,
+     0.25068209860904583
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 143.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 144 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "center": [
+     -0.07,
+     -0.0875
+    ],
+    "q0": -1.0109779752937524,
+    "theta": {
+     "butter_1": -0.07911880782001231
+    },
+    "rad": {
+     "butter_1": 0.07483769454548861
+    },
+    "tilt": {
+     "butter_1": 0.1642840132086905
+    },
+    "basket_xy": [
+     -0.09606758376091884,
+     0.25068209860904583
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 143.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 144 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -57.9
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "center": [
+     -0.07,
+     -0.0875
+    ],
+    "q0": -1.0109779752937524,
+    "theta": {
+     "butter_1": -0.07911880782001231
+    },
+    "rad": {
+     "butter_1": 0.07483769454548861
+    },
+    "tilt": {
+     "butter_1": 0.1642840132086905
+    },
+    "basket_xy": [
+     -0.09606758376091884,
+     0.25068209860904583
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 143.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 144 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 143.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 144 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 143.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 144 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": 158.5,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 159 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "table",
+      "angle_err_deg": 158.5,
+      "turned_ok": false,
+      "detail": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start. It is turned 159 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "center": [
+     -0.0766,
+     -0.1069
+    ],
+    "q0": -1.292593465023832,
+    "theta": {
+     "butter_1": -0.1260415906195045
+    },
+    "rad": {
+     "butter_1": 0.06781326418426327
+    },
+    "tilt": {
+     "butter_1": 0.11078759664232249
+    },
+    "basket_xy": [
+     -0.08626057253008992,
+     0.2649389865078672
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -74.1
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "center": [
+     -0.0766,
+     -0.1069
+    ],
+    "q0": -1.292593465023832,
+    "theta": {
+     "butter_1": -0.1260415906195045
+    },
+    "rad": {
+     "butter_1": 0.06781326418426327
+    },
+    "tilt": {
+     "butter_1": 0.11078759664232249
+    },
+    "basket_xy": [
+     -0.08626057253008992,
+     0.2649389865078672
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "center": [
+     -0.0766,
+     -0.1069
+    ],
+    "q0": -1.292593465023832,
+    "theta": {
+     "butter_1": -0.1260415906195045
+    },
+    "rad": {
+     "butter_1": 0.06781326418426327
+    },
+    "tilt": {
+     "butter_1": 0.11078759664232249
+    },
+    "basket_xy": [
+     -0.08626057253008992,
+     0.2649389865078672
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -74.1
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "center": [
+     -0.0766,
+     -0.1069
+    ],
+    "q0": -1.292593465023832,
+    "theta": {
+     "butter_1": -0.1260415906195045
+    },
+    "rad": {
+     "butter_1": 0.06781326418426327
+    },
+    "tilt": {
+     "butter_1": 0.11078759664232249
+    },
+    "basket_xy": [
+     -0.08626057253008992,
+     0.2649389865078672
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "center": [
+     -0.0743,
+     -0.0986
+    ],
+    "q0": -1.3440627581953857,
+    "theta": {
+     "butter_1": 0.11694948527176902
+    },
+    "rad": {
+     "butter_1": 0.07481465848888803
+    },
+    "tilt": {
+     "butter_1": 0.1185986433095362
+    },
+    "basket_xy": [
+     -0.09543470109976257,
+     0.26694744796360037
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -77.0
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.8,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "center": [
+     -0.0743,
+     -0.0986
+    ],
+    "q0": -1.3440627581953857,
+    "theta": {
+     "butter_1": 0.11694948527176902
+    },
+    "rad": {
+     "butter_1": 0.07481465848888803
+    },
+    "tilt": {
+     "butter_1": 0.1185986433095362
+    },
+    "basket_xy": [
+     -0.09543470109976257,
+     0.26694744796360037
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "center": [
+     -0.0743,
+     -0.0986
+    ],
+    "q0": -1.3440627581953857,
+    "theta": {
+     "butter_1": 0.11694948527176902
+    },
+    "rad": {
+     "butter_1": 0.07481465848888803
+    },
+    "tilt": {
+     "butter_1": 0.1185986433095362
+    },
+    "basket_xy": [
+     -0.09543470109976257,
+     0.26694744796360037
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -77.0
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.8,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "center": [
+     -0.0743,
+     -0.0986
+    ],
+    "q0": -1.3440627581953857,
+    "theta": {
+     "butter_1": 0.11694948527176902
+    },
+    "rad": {
+     "butter_1": 0.07481465848888803
+    },
+    "tilt": {
+     "butter_1": 0.1185986433095362
+    },
+    "basket_xy": [
+     -0.09543470109976257,
+     0.26694744796360037
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 153.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 154 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "center": [
+     -0.063,
+     -0.0975
+    ],
+    "q0": -1.6332130109830514,
+    "theta": {
+     "butter_1": -0.08047196229688289
+    },
+    "rad": {
+     "butter_1": 0.06582038980821668
+    },
+    "tilt": {
+     "butter_1": -0.1350451677074493
+    },
+    "basket_xy": [
+     -0.09485482170888382,
+     0.27947244407149724
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -93.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.6,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "center": [
+     -0.063,
+     -0.0975
+    ],
+    "q0": -1.6332130109830514,
+    "theta": {
+     "butter_1": -0.08047196229688289
+    },
+    "rad": {
+     "butter_1": 0.06582038980821668
+    },
+    "tilt": {
+     "butter_1": -0.1350451677074493
+    },
+    "basket_xy": [
+     -0.09485482170888382,
+     0.27947244407149724
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "center": [
+     -0.063,
+     -0.0975
+    ],
+    "q0": -1.6332130109830514,
+    "theta": {
+     "butter_1": -0.08047196229688289
+    },
+    "rad": {
+     "butter_1": 0.06582038980821668
+    },
+    "tilt": {
+     "butter_1": -0.1350451677074493
+    },
+    "basket_xy": [
+     -0.09485482170888382,
+     0.27947244407149724
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -93.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.5,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "center": [
+     -0.063,
+     -0.0975
+    ],
+    "q0": -1.6332130109830514,
+    "theta": {
+     "butter_1": -0.08047196229688289
+    },
+    "rad": {
+     "butter_1": 0.06582038980821668
+    },
+    "tilt": {
+     "butter_1": -0.1350451677074493
+    },
+    "basket_xy": [
+     -0.09485482170888382,
+     0.27947244407149724
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 165 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "center": [
+     -0.0616,
+     -0.0888
+    ],
+    "q0": -1.2669132130331988,
+    "theta": {
+     "butter_1": -0.07323780252497082
+    },
+    "rad": {
+     "butter_1": 0.0736040067846704
+    },
+    "tilt": {
+     "butter_1": -0.002133019426698801
+    },
+    "basket_xy": [
+     -0.08533855430229559,
+     0.253960060704674
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -72.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "center": [
+     -0.0616,
+     -0.0888
+    ],
+    "q0": -1.2669132130331988,
+    "theta": {
+     "butter_1": -0.07323780252497082
+    },
+    "rad": {
+     "butter_1": 0.0736040067846704
+    },
+    "tilt": {
+     "butter_1": -0.002133019426698801
+    },
+    "basket_xy": [
+     -0.08533855430229559,
+     0.253960060704674
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "center": [
+     -0.0616,
+     -0.0888
+    ],
+    "q0": -1.2669132130331988,
+    "theta": {
+     "butter_1": -0.07323780252497082
+    },
+    "rad": {
+     "butter_1": 0.0736040067846704
+    },
+    "tilt": {
+     "butter_1": -0.002133019426698801
+    },
+    "basket_xy": [
+     -0.08533855430229559,
+     0.253960060704674
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -72.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "center": [
+     -0.0616,
+     -0.0888
+    ],
+    "q0": -1.2669132130331988,
+    "theta": {
+     "butter_1": -0.07323780252497082
+    },
+    "rad": {
+     "butter_1": 0.0736040067846704
+    },
+    "tilt": {
+     "butter_1": -0.002133019426698801
+    },
+    "basket_xy": [
+     -0.08533855430229559,
+     0.253960060704674
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 167.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 168 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "center": [
+     -0.0323,
+     -0.1168
+    ],
+    "q0": -1.9828389122753949,
+    "theta": {
+     "butter_1": 0.048344685563095374
+    },
+    "rad": {
+     "butter_1": 0.06947568507383307
+    },
+    "tilt": {
+     "butter_1": 0.07211858787078129
+    },
+    "basket_xy": [
+     -0.08856425234910728,
+     0.2670957014389461
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -113.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.4,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "center": [
+     -0.0323,
+     -0.1168
+    ],
+    "q0": -1.9828389122753949,
+    "theta": {
+     "butter_1": 0.048344685563095374
+    },
+    "rad": {
+     "butter_1": 0.06947568507383307
+    },
+    "tilt": {
+     "butter_1": 0.07211858787078129
+    },
+    "basket_xy": [
+     -0.08856425234910728,
+     0.2670957014389461
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "center": [
+     -0.0323,
+     -0.1168
+    ],
+    "q0": -1.9828389122753949,
+    "theta": {
+     "butter_1": 0.048344685563095374
+    },
+    "rad": {
+     "butter_1": 0.06947568507383307
+    },
+    "tilt": {
+     "butter_1": 0.07211858787078129
+    },
+    "basket_xy": [
+     -0.08856425234910728,
+     0.2670957014389461
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -113.6
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.6,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "center": [
+     -0.0323,
+     -0.1168
+    ],
+    "q0": -1.9828389122753949,
+    "theta": {
+     "butter_1": 0.048344685563095374
+    },
+    "rad": {
+     "butter_1": 0.06947568507383307
+    },
+    "tilt": {
+     "butter_1": 0.07211858787078129
+    },
+    "basket_xy": [
+     -0.08856425234910728,
+     0.2670957014389461
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -164.0,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 164 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "center": [
+     -0.0539,
+     -0.0966
+    ],
+    "q0": -2.0550798926141187,
+    "theta": {
+     "butter_1": 0.11143014595581119
+    },
+    "rad": {
+     "butter_1": 0.07492580640417192
+    },
+    "tilt": {
+     "butter_1": 0.0038738661769045224
+    },
+    "basket_xy": [
+     -0.06940035225139052,
+     0.26942434940404614
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -117.7
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.1,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "center": [
+     -0.0539,
+     -0.0966
+    ],
+    "q0": -2.0550798926141187,
+    "theta": {
+     "butter_1": 0.11143014595581119
+    },
+    "rad": {
+     "butter_1": 0.07492580640417192
+    },
+    "tilt": {
+     "butter_1": 0.0038738661769045224
+    },
+    "basket_xy": [
+     -0.06940035225139052,
+     0.26942434940404614
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -159.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 159 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "center": [
+     -0.0539,
+     -0.0966
+    ],
+    "q0": -2.0550798926141187,
+    "theta": {
+     "butter_1": 0.11143014595581119
+    },
+    "rad": {
+     "butter_1": 0.07492580640417192
+    },
+    "tilt": {
+     "butter_1": 0.0038738661769045224
+    },
+    "basket_xy": [
+     -0.06940035225139052,
+     0.26942434940404614
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -159.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 159 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -117.7
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.2,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "center": [
+     -0.0539,
+     -0.0966
+    ],
+    "q0": -2.0550798926141187,
+    "theta": {
+     "butter_1": 0.11143014595581119
+    },
+    "rad": {
+     "butter_1": 0.07492580640417192
+    },
+    "tilt": {
+     "butter_1": 0.0038738661769045224
+    },
+    "basket_xy": [
+     -0.06940035225139052,
+     0.26942434940404614
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -159.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 159 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -159.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 159 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -159.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 159 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -159.4,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 159 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": 155.8,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 156 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "center": [
+     -0.0584,
+     -0.0957
+    ],
+    "q0": -2.103790206623596,
+    "theta": {
+     "butter_1": 0.03956543354897818
+    },
+    "rad": {
+     "butter_1": 0.06592935304478934
+    },
+    "tilt": {
+     "butter_1": -0.15963357510761184
+    },
+    "basket_xy": [
+     -0.09891419752272436,
+     0.27081598148983227
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -120.5
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.1,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "center": [
+     -0.0584,
+     -0.0957
+    ],
+    "q0": -2.103790206623596,
+    "theta": {
+     "butter_1": 0.03956543354897818
+    },
+    "rad": {
+     "butter_1": 0.06592935304478934
+    },
+    "tilt": {
+     "butter_1": -0.15963357510761184
+    },
+    "basket_xy": [
+     -0.09891419752272436,
+     0.27081598148983227
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "center": [
+     -0.0584,
+     -0.0957
+    ],
+    "q0": -2.103790206623596,
+    "theta": {
+     "butter_1": 0.03956543354897818
+    },
+    "rad": {
+     "butter_1": 0.06592935304478934
+    },
+    "tilt": {
+     "butter_1": -0.15963357510761184
+    },
+    "basket_xy": [
+     -0.09891419752272436,
+     0.27081598148983227
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -120.5
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.1,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "center": [
+     -0.0584,
+     -0.0957
+    ],
+    "q0": -2.103790206623596,
+    "theta": {
+     "butter_1": 0.03956543354897818
+    },
+    "rad": {
+     "butter_1": 0.06592935304478934
+    },
+    "tilt": {
+     "butter_1": -0.15963357510761184
+    },
+    "basket_xy": [
+     -0.09891419752272436,
+     0.27081598148983227
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -143.3,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 143 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "center": [
+     -0.0663,
+     -0.1023
+    ],
+    "q0": -1.552084461533104,
+    "theta": {
+     "butter_1": -0.04098529291227622
+    },
+    "rad": {
+     "butter_1": 0.07079707669621191
+    },
+    "tilt": {
+     "butter_1": -0.02891313522945471
+    },
+    "basket_xy": [
+     -0.06375865494910571,
+     0.26733542405332855
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -88.9
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.7,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "center": [
+     -0.0663,
+     -0.1023
+    ],
+    "q0": -1.552084461533104,
+    "theta": {
+     "butter_1": -0.04098529291227622
+    },
+    "rad": {
+     "butter_1": 0.07079707669621191
+    },
+    "tilt": {
+     "butter_1": -0.02891313522945471
+    },
+    "basket_xy": [
+     -0.06375865494910571,
+     0.26733542405332855
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "center": [
+     -0.0663,
+     -0.1023
+    ],
+    "q0": -1.552084461533104,
+    "theta": {
+     "butter_1": -0.04098529291227622
+    },
+    "rad": {
+     "butter_1": 0.07079707669621191
+    },
+    "tilt": {
+     "butter_1": -0.02891313522945471
+    },
+    "basket_xy": [
+     -0.06375865494910571,
+     0.26733542405332855
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -88.9
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.6,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "center": [
+     -0.0663,
+     -0.1023
+    ],
+    "q0": -1.552084461533104,
+    "theta": {
+     "butter_1": -0.04098529291227622
+    },
+    "rad": {
+     "butter_1": 0.07079707669621191
+    },
+    "tilt": {
+     "butter_1": -0.02891313522945471
+    },
+    "basket_xy": [
+     -0.06375865494910571,
+     0.26733542405332855
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -177.8,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 178 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "center": [
+     -0.0249,
+     -0.0871
+    ],
+    "q0": -1.8193886205008616,
+    "theta": {
+     "butter_1": 0.13232222978158836
+    },
+    "rad": {
+     "butter_1": 0.07099621732738354
+    },
+    "tilt": {
+     "butter_1": -0.14667051903812622
+    },
+    "basket_xy": [
+     -0.08325980617415875,
+     0.2641146787500066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -104.2
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "center": [
+     -0.0249,
+     -0.0871
+    ],
+    "q0": -1.8193886205008616,
+    "theta": {
+     "butter_1": 0.13232222978158836
+    },
+    "rad": {
+     "butter_1": 0.07099621732738354
+    },
+    "tilt": {
+     "butter_1": -0.14667051903812622
+    },
+    "basket_xy": [
+     -0.08325980617415875,
+     0.2641146787500066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "center": [
+     -0.0249,
+     -0.0871
+    ],
+    "q0": -1.8193886205008616,
+    "theta": {
+     "butter_1": 0.13232222978158836
+    },
+    "rad": {
+     "butter_1": 0.07099621732738354
+    },
+    "tilt": {
+     "butter_1": -0.14667051903812622
+    },
+    "basket_xy": [
+     -0.08325980617415875,
+     0.2641146787500066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -104.2
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": 0.8,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "center": [
+     -0.0249,
+     -0.0871
+    ],
+    "q0": -1.8193886205008616,
+    "theta": {
+     "butter_1": 0.13232222978158836
+    },
+    "rad": {
+     "butter_1": 0.07099621732738354
+    },
+    "tilt": {
+     "butter_1": -0.14667051903812622
+    },
+    "basket_xy": [
+     -0.08325980617415875,
+     0.2641146787500066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "table",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "table",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "table",
+      "angle_err_deg": -165.6,
+      "turned_ok": false,
+      "detail": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start. It is turned 166 deg clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "center": [
+     -0.0444,
+     -0.1018
+    ],
+    "q0": -1.4283972462074157,
+    "theta": {
+     "butter_1": 0.10402388857084743
+    },
+    "rad": {
+     "butter_1": 0.07314388387548651
+    },
+    "tilt": {
+     "butter_1": 0.009602229067522061
+    },
+    "basket_xy": [
+     -0.1026528642578118,
+     0.2679773568282241
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -81.8
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.7,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "center": [
+     -0.0444,
+     -0.1018
+    ],
+    "q0": -1.4283972462074157,
+    "theta": {
+     "butter_1": 0.10402388857084743
+    },
+    "rad": {
+     "butter_1": 0.07314388387548651
+    },
+    "tilt": {
+     "butter_1": 0.009602229067522061
+    },
+    "basket_xy": [
+     -0.1026528642578118,
+     0.2679773568282241
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "center": [
+     -0.0444,
+     -0.1018
+    ],
+    "q0": -1.4283972462074157,
+    "theta": {
+     "butter_1": 0.10402388857084743
+    },
+    "rad": {
+     "butter_1": 0.07314388387548651
+    },
+    "tilt": {
+     "butter_1": 0.009602229067522061
+    },
+    "basket_xy": [
+     -0.1026528642578118,
+     0.2679773568282241
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -81.8
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.7,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "center": [
+     -0.0444,
+     -0.1018
+    ],
+    "q0": -1.4283972462074157,
+    "theta": {
+     "butter_1": 0.10402388857084743
+    },
+    "rad": {
+     "butter_1": 0.07314388387548651
+    },
+    "tilt": {
+     "butter_1": 0.009602229067522061
+    },
+    "basket_xy": [
+     -0.1026528642578118,
+     0.2679773568282241
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "table",
+      "angle_err_deg": 165.9,
+      "turned_ok": false,
+      "detail": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is on the table, not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is on the table, not in the basket. The turntable is not turned the way it was at the start. It is turned 166 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "center": [
+     -0.067,
+     -0.1042
+    ],
+    "q0": -1.2754782200069665,
+    "theta": {
+     "butter_1": -0.009272434009753389
+    },
+    "rad": {
+     "butter_1": 0.0732875194786643
+    },
+    "tilt": {
+     "butter_1": -0.09782989847159074
+    },
+    "basket_xy": [
+     -0.10387436057418384,
+     0.2530154977354066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ],
+       [
+        "turn_to",
+        -73.1
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "center": [
+     -0.067,
+     -0.1042
+    ],
+    "q0": -1.2754782200069665,
+    "theta": {
+     "butter_1": -0.009272434009753389
+    },
+    "rad": {
+     "butter_1": 0.0732875194786643
+    },
+    "tilt": {
+     "butter_1": -0.09782989847159074
+    },
+    "basket_xy": [
+     -0.10387436057418384,
+     0.2530154977354066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "center": [
+     -0.067,
+     -0.1042
+    ],
+    "q0": -1.2754782200069665,
+    "theta": {
+     "butter_1": -0.009272434009753389
+    },
+    "rad": {
+     "butter_1": 0.0732875194786643
+    },
+    "tilt": {
+     "butter_1": -0.09782989847159074
+    },
+    "basket_xy": [
+     -0.10387436057418384,
+     0.2530154977354066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "turn_to",
+        -73.1
+       ]
+      ]
+     },
+     "outcome": {
+      "success": true,
+      "target_loc": "basket",
+      "angle_err_deg": -0.9,
+      "turned_ok": true,
+      "detail": "The butter is in the basket and the turntable is turned the way it was at the start.",
+      "detail_indirect": "The small orange box is in the basket and the turntable is turned the way it was at the start.",
+      "detail_offset": "The butter is in the basket and the turntable is turned the way it was at the start."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "center": [
+     -0.067,
+     -0.1042
+    ],
+    "q0": -1.2754782200069665,
+    "theta": {
+     "butter_1": -0.009272434009753389
+    },
+    "rad": {
+     "butter_1": 0.0732875194786643
+    },
+    "tilt": {
+     "butter_1": -0.09782989847159074
+    },
+    "basket_xy": [
+     -0.10387436057418384,
+     0.2530154977354066
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "basket",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The turntable is not turned the way it was at the start.",
+      "detail_offset": "The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "actions": [
+       [
+        "butter_to_basket"
+       ]
+      ]
+     },
+     "outcome": {
+      "success": false,
+      "target_loc": "other",
+      "angle_err_deg": 169.7,
+      "turned_ok": false,
+      "detail": "The butter is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_indirect": "The small orange box is not in the basket. The turntable is not turned the way it was at the start.",
+      "detail_offset": "The butter is not in the basket. The turntable is not turned the way it was at the start. It is turned 170 deg counter-clockwise (seen from above) from its starting angle."
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 1887.3964412212372
+}

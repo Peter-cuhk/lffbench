@@ -1,0 +1,7807 @@
+{
+ "task": "l6_count_into_box",
+ "level": "L6",
+ "capabilities": [
+  "Perceive",
+  "Save",
+  "Retrieve",
+  "Utilize"
+ ],
+ "n": 20,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.3,
+   0.3,
+   0.3,
+   0.3,
+   0.3
+  ],
+  "adaptive": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "n_target": 4,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0517,
+     0.2261
+    ],
+    "cubes": [
+     [
+      -0.1044,
+      -0.1342
+     ],
+     [
+      -0.2293,
+      -0.0667
+     ],
+     [
+      -0.1958,
+      -0.1958
+     ],
+     [
+      -0.002,
+      -0.1922
+     ],
+     [
+      -0.0687,
+      -0.0424
+     ],
+     [
+      0.0326,
+      -0.0651
+     ],
+     [
+      -0.2935,
+      0.0334
+     ]
+    ],
+    "yaws": [
+     0.29640199215137275,
+     -0.6817553485838708,
+     -0.25924017891231377,
+     0.2084523592011932,
+     0.6473437123669519,
+     0.49052839169592577,
+     -0.6435233151676053
+    ],
+    "trigger_dist": 0.0872618848573082,
+    "slip_r": 0.006109028240512986,
+    "slip_ang": 5.9325588813648125,
+    "slip_yaw": -0.7425671324448191
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.21827714906706552,
+        -0.07237556495345279
+       ],
+       "from_xy": [
+        -0.22401449015285185,
+        -0.07027719813405889
+       ],
+       "step": 312,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "n_target": 4,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0517,
+     0.2261
+    ],
+    "cubes": [
+     [
+      -0.1044,
+      -0.1342
+     ],
+     [
+      -0.2293,
+      -0.0667
+     ],
+     [
+      -0.1958,
+      -0.1958
+     ],
+     [
+      -0.002,
+      -0.1922
+     ],
+     [
+      -0.0687,
+      -0.0424
+     ],
+     [
+      0.0326,
+      -0.0651
+     ],
+     [
+      -0.2935,
+      0.0334
+     ]
+    ],
+    "yaws": [
+     0.29640199215137275,
+     -0.6817553485838708,
+     -0.25924017891231377,
+     0.2084523592011932,
+     0.6473437123669519,
+     0.49052839169592577,
+     -0.6435233151676053
+    ],
+    "trigger_dist": 0.0872618848573082,
+    "slip_r": 0.006109028240512986,
+    "slip_ang": 5.9325588813648125,
+    "slip_yaw": -0.7425671324448191
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 2 already inside, adds 2"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.21827714906706552,
+        -0.07237556495345279
+       ],
+       "from_xy": [
+        -0.22401449015285185,
+        -0.07027719813405889
+       ],
+       "step": 312,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "n_target": 4,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0517,
+     0.2261
+    ],
+    "cubes": [
+     [
+      -0.1044,
+      -0.1342
+     ],
+     [
+      -0.2293,
+      -0.0667
+     ],
+     [
+      -0.1958,
+      -0.1958
+     ],
+     [
+      -0.002,
+      -0.1922
+     ],
+     [
+      -0.0687,
+      -0.0424
+     ],
+     [
+      0.0326,
+      -0.0651
+     ],
+     [
+      -0.2935,
+      0.0334
+     ]
+    ],
+    "yaws": [
+     0.29640199215137275,
+     -0.6817553485838708,
+     -0.25924017891231377,
+     0.2084523592011932,
+     0.6473437123669519,
+     0.49052839169592577,
+     -0.6435233151676053
+    ],
+    "trigger_dist": 0.0872618848573082,
+    "slip_r": 0.006109028240512986,
+    "slip_ang": 5.9325588813648125,
+    "slip_yaw": -0.7425671324448191
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.21827714906706552,
+        -0.07237556495345279
+       ],
+       "from_xy": [
+        -0.22401449015285185,
+        -0.07027719813405889
+       ],
+       "step": 312,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "n_target": 4,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0517,
+     0.2261
+    ],
+    "cubes": [
+     [
+      -0.1044,
+      -0.1342
+     ],
+     [
+      -0.2293,
+      -0.0667
+     ],
+     [
+      -0.1958,
+      -0.1958
+     ],
+     [
+      -0.002,
+      -0.1922
+     ],
+     [
+      -0.0687,
+      -0.0424
+     ],
+     [
+      0.0326,
+      -0.0651
+     ],
+     [
+      -0.2935,
+      0.0334
+     ]
+    ],
+    "yaws": [
+     0.29640199215137275,
+     -0.6817553485838708,
+     -0.25924017891231377,
+     0.2084523592011932,
+     0.6473437123669519,
+     0.49052839169592577,
+     -0.6435233151676053
+    ],
+    "trigger_dist": 0.0872618848573082,
+    "slip_r": 0.006109028240512986,
+    "slip_ang": 5.9325588813648125,
+    "slip_yaw": -0.7425671324448191
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.21827714906706552,
+        -0.07237556495345279
+       ],
+       "from_xy": [
+        -0.22401449015285185,
+        -0.07027719813405889
+       ],
+       "step": 312,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "n_target": 5,
+    "p": 3,
+    "e": 1,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0244,
+     -0.2408
+    ],
+    "cubes": [
+     [
+      -0.077,
+      0.0211
+     ],
+     [
+      -0.2629,
+      0.2124
+     ],
+     [
+      -0.2943,
+      -0.116
+     ],
+     [
+      -0.0473,
+      0.2384
+     ],
+     [
+      -0.2054,
+      0.047
+     ],
+     [
+      -0.2966,
+      0.0955
+     ],
+     [
+      -0.0731,
+      0.1244
+     ],
+     [
+      -0.1736,
+      0.1587
+     ],
+     [
+      -0.2658,
+      -0.2169
+     ]
+    ],
+    "yaws": [
+     -0.6749945270949437,
+     0.4041867713249827,
+     -0.7590179534350017,
+     0.6277201964291801,
+     0.29587924966452106,
+     0.44050851577851313,
+     0.6317454371600735,
+     0.3319946416866115,
+     -0.3913695046903174
+    ],
+    "trigger_dist": 0.06795912008401099,
+    "slip_r": 0.019614631870631317,
+    "slip_ang": 3.2793588282798267,
+    "slip_yaw": -0.2896102276814856
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.212107489337153,
+        0.04695411669968924
+       ],
+       "from_xy": [
+        -0.20239309536344052,
+        0.04830096323088528
+       ],
+       "step": 445,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "n_target": 5,
+    "p": 3,
+    "e": 1,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0244,
+     -0.2408
+    ],
+    "cubes": [
+     [
+      -0.077,
+      0.0211
+     ],
+     [
+      -0.2629,
+      0.2124
+     ],
+     [
+      -0.2943,
+      -0.116
+     ],
+     [
+      -0.0473,
+      0.2384
+     ],
+     [
+      -0.2054,
+      0.047
+     ],
+     [
+      -0.2966,
+      0.0955
+     ],
+     [
+      -0.0731,
+      0.1244
+     ],
+     [
+      -0.1736,
+      0.1587
+     ],
+     [
+      -0.2658,
+      -0.2169
+     ]
+    ],
+    "yaws": [
+     -0.6749945270949437,
+     0.4041867713249827,
+     -0.7590179534350017,
+     0.6277201964291801,
+     0.29587924966452106,
+     0.44050851577851313,
+     0.6317454371600735,
+     0.3319946416866115,
+     -0.3913695046903174
+    ],
+    "trigger_dist": 0.06795912008401099,
+    "slip_r": 0.019614631870631317,
+    "slip_ang": 3.2793588282798267,
+    "slip_yaw": -0.2896102276814856
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 0 already inside, adds 5"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 8,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.212107489337153,
+        0.04695411669968924
+       ],
+       "from_xy": [
+        -0.20239309536344052,
+        0.04830096323088528
+       ],
+       "step": 445,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "n_target": 5,
+    "p": 3,
+    "e": 1,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0244,
+     -0.2408
+    ],
+    "cubes": [
+     [
+      -0.077,
+      0.0211
+     ],
+     [
+      -0.2629,
+      0.2124
+     ],
+     [
+      -0.2943,
+      -0.116
+     ],
+     [
+      -0.0473,
+      0.2384
+     ],
+     [
+      -0.2054,
+      0.047
+     ],
+     [
+      -0.2966,
+      0.0955
+     ],
+     [
+      -0.0731,
+      0.1244
+     ],
+     [
+      -0.1736,
+      0.1587
+     ],
+     [
+      -0.2658,
+      -0.2169
+     ]
+    ],
+    "yaws": [
+     -0.6749945270949437,
+     0.4041867713249827,
+     -0.7590179534350017,
+     0.6277201964291801,
+     0.29587924966452106,
+     0.44050851577851313,
+     0.6317454371600735,
+     0.3319946416866115,
+     -0.3913695046903174
+    ],
+    "trigger_dist": 0.06795912008401099,
+    "slip_r": 0.019614631870631317,
+    "slip_ang": 3.2793588282798267,
+    "slip_yaw": -0.2896102276814856
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.212107489337153,
+        0.04695411669968924
+       ],
+       "from_xy": [
+        -0.20239309536344052,
+        0.04830096323088528
+       ],
+       "step": 445,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "n_target": 5,
+    "p": 3,
+    "e": 1,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0244,
+     -0.2408
+    ],
+    "cubes": [
+     [
+      -0.077,
+      0.0211
+     ],
+     [
+      -0.2629,
+      0.2124
+     ],
+     [
+      -0.2943,
+      -0.116
+     ],
+     [
+      -0.0473,
+      0.2384
+     ],
+     [
+      -0.2054,
+      0.047
+     ],
+     [
+      -0.2966,
+      0.0955
+     ],
+     [
+      -0.0731,
+      0.1244
+     ],
+     [
+      -0.1736,
+      0.1587
+     ],
+     [
+      -0.2658,
+      -0.2169
+     ]
+    ],
+    "yaws": [
+     -0.6749945270949437,
+     0.4041867713249827,
+     -0.7590179534350017,
+     0.6277201964291801,
+     0.29587924966452106,
+     0.44050851577851313,
+     0.6317454371600735,
+     0.3319946416866115,
+     -0.3913695046903174
+    ],
+    "trigger_dist": 0.06795912008401099,
+    "slip_r": 0.019614631870631317,
+    "slip_ang": 3.2793588282798267,
+    "slip_yaw": -0.2896102276814856
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 8,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.212107489337153,
+        0.04695411669968924
+       ],
+       "from_xy": [
+        -0.20239309536344052,
+        0.04830096323088528
+       ],
+       "step": 445,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "n_target": 5,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0636,
+     -0.246
+    ],
+    "cubes": [
+     [
+      -0.0324,
+      -0.0032
+     ],
+     [
+      -0.2557,
+      0.2282
+     ],
+     [
+      -0.2998,
+      0.0635
+     ],
+     [
+      -0.2039,
+      0.1453
+     ],
+     [
+      -0.1042,
+      0.2667
+     ],
+     [
+      -0.0323,
+      0.1269
+     ],
+     [
+      -0.1215,
+      0.0897
+     ],
+     [
+      -0.1779,
+      -0.0016
+     ]
+    ],
+    "yaws": [
+     -0.7686136751235465,
+     -0.760487061840982,
+     0.21716528444106298,
+     -0.23355490869107842,
+     -0.28314256279425654,
+     -0.49446037495729733,
+     0.170901602758334,
+     0.6262551707428874
+    ],
+    "trigger_dist": 0.08708093086187424,
+    "slip_r": 0.01474049251212084,
+    "slip_ang": 2.2549781377917277,
+    "slip_yaw": 0.11343419983791125
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.12990451817263757,
+        0.10158068810413731
+       ],
+       "from_xy": [
+        -0.120587949392045,
+        0.09015774340251251
+       ],
+       "step": 281,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "n_target": 5,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0636,
+     -0.246
+    ],
+    "cubes": [
+     [
+      -0.0324,
+      -0.0032
+     ],
+     [
+      -0.2557,
+      0.2282
+     ],
+     [
+      -0.2998,
+      0.0635
+     ],
+     [
+      -0.2039,
+      0.1453
+     ],
+     [
+      -0.1042,
+      0.2667
+     ],
+     [
+      -0.0323,
+      0.1269
+     ],
+     [
+      -0.1215,
+      0.0897
+     ],
+     [
+      -0.1779,
+      -0.0016
+     ]
+    ],
+    "yaws": [
+     -0.7686136751235465,
+     -0.760487061840982,
+     0.21716528444106298,
+     -0.23355490869107842,
+     -0.28314256279425654,
+     -0.49446037495729733,
+     0.170901602758334,
+     0.6262551707428874
+    ],
+    "trigger_dist": 0.08708093086187424,
+    "slip_r": 0.01474049251212084,
+    "slip_ang": 2.2549781377917277,
+    "slip_yaw": 0.11343419983791125
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 2 already inside, adds 3"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.12990451817263757,
+        0.10158068810413731
+       ],
+       "from_xy": [
+        -0.120587949392045,
+        0.09015774340251251
+       ],
+       "step": 281,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "n_target": 5,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0636,
+     -0.246
+    ],
+    "cubes": [
+     [
+      -0.0324,
+      -0.0032
+     ],
+     [
+      -0.2557,
+      0.2282
+     ],
+     [
+      -0.2998,
+      0.0635
+     ],
+     [
+      -0.2039,
+      0.1453
+     ],
+     [
+      -0.1042,
+      0.2667
+     ],
+     [
+      -0.0323,
+      0.1269
+     ],
+     [
+      -0.1215,
+      0.0897
+     ],
+     [
+      -0.1779,
+      -0.0016
+     ]
+    ],
+    "yaws": [
+     -0.7686136751235465,
+     -0.760487061840982,
+     0.21716528444106298,
+     -0.23355490869107842,
+     -0.28314256279425654,
+     -0.49446037495729733,
+     0.170901602758334,
+     0.6262551707428874
+    ],
+    "trigger_dist": 0.08708093086187424,
+    "slip_r": 0.01474049251212084,
+    "slip_ang": 2.2549781377917277,
+    "slip_yaw": 0.11343419983791125
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.12990451817263757,
+        0.10158068810413731
+       ],
+       "from_xy": [
+        -0.120587949392045,
+        0.09015774340251251
+       ],
+       "step": 281,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "n_target": 5,
+    "p": 2,
+    "e": 1,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0636,
+     -0.246
+    ],
+    "cubes": [
+     [
+      -0.0324,
+      -0.0032
+     ],
+     [
+      -0.2557,
+      0.2282
+     ],
+     [
+      -0.2998,
+      0.0635
+     ],
+     [
+      -0.2039,
+      0.1453
+     ],
+     [
+      -0.1042,
+      0.2667
+     ],
+     [
+      -0.0323,
+      0.1269
+     ],
+     [
+      -0.1215,
+      0.0897
+     ],
+     [
+      -0.1779,
+      -0.0016
+     ]
+    ],
+    "yaws": [
+     -0.7686136751235465,
+     -0.760487061840982,
+     0.21716528444106298,
+     -0.23355490869107842,
+     -0.28314256279425654,
+     -0.49446037495729733,
+     0.170901602758334,
+     0.6262551707428874
+    ],
+    "trigger_dist": 0.08708093086187424,
+    "slip_r": 0.01474049251212084,
+    "slip_ang": 2.2549781377917277,
+    "slip_yaw": 0.11343419983791125
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.12990451817263757,
+        0.10158068810413731
+       ],
+       "from_xy": [
+        -0.120587949392045,
+        0.09015774340251251
+       ],
+       "step": 281,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0503,
+     -0.2398
+    ],
+    "cubes": [
+     [
+      -0.0217,
+      0.2115
+     ],
+     [
+      -0.174,
+      0.1428
+     ],
+     [
+      -0.2479,
+      0.0917
+     ],
+     [
+      -0.0383,
+      0.0499
+     ],
+     [
+      -0.2595,
+      0.2006
+     ],
+     [
+      -0.2686,
+      -0.0295
+     ]
+    ],
+    "yaws": [
+     0.6157354834376203,
+     -0.14954153487580435,
+     0.7796804741329244,
+     0.43730233163456855,
+     -0.6289470668511151,
+     0.5504888335963529
+    ],
+    "trigger_dist": 0.08473941960049564,
+    "slip_r": 0.019549266623028423,
+    "slip_ang": 6.257215032628473,
+    "slip_yaw": -0.6746087694639572
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.01874632908686394,
+        0.04998915656232391
+       ],
+       "from_xy": [
+        -0.03828900352853915,
+        0.050496799315594004
+       ],
+       "step": 159,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0503,
+     -0.2398
+    ],
+    "cubes": [
+     [
+      -0.0217,
+      0.2115
+     ],
+     [
+      -0.174,
+      0.1428
+     ],
+     [
+      -0.2479,
+      0.0917
+     ],
+     [
+      -0.0383,
+      0.0499
+     ],
+     [
+      -0.2595,
+      0.2006
+     ],
+     [
+      -0.2686,
+      -0.0295
+     ]
+    ],
+    "yaws": [
+     0.6157354834376203,
+     -0.14954153487580435,
+     0.7796804741329244,
+     0.43730233163456855,
+     -0.6289470668511151,
+     0.5504888335963529
+    ],
+    "trigger_dist": 0.08473941960049564,
+    "slip_r": 0.019549266623028423,
+    "slip_ang": 6.257215032628473,
+    "slip_yaw": -0.6746087694639572
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 0 already inside, adds 4"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.01874632908686394,
+        0.04998915656232391
+       ],
+       "from_xy": [
+        -0.03828900352853915,
+        0.050496799315594004
+       ],
+       "step": 159,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0503,
+     -0.2398
+    ],
+    "cubes": [
+     [
+      -0.0217,
+      0.2115
+     ],
+     [
+      -0.174,
+      0.1428
+     ],
+     [
+      -0.2479,
+      0.0917
+     ],
+     [
+      -0.0383,
+      0.0499
+     ],
+     [
+      -0.2595,
+      0.2006
+     ],
+     [
+      -0.2686,
+      -0.0295
+     ]
+    ],
+    "yaws": [
+     0.6157354834376203,
+     -0.14954153487580435,
+     0.7796804741329244,
+     0.43730233163456855,
+     -0.6289470668511151,
+     0.5504888335963529
+    ],
+    "trigger_dist": 0.08473941960049564,
+    "slip_r": 0.019549266623028423,
+    "slip_ang": 6.257215032628473,
+    "slip_yaw": -0.6746087694639572
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.01874632908686394,
+        0.04998915656232391
+       ],
+       "from_xy": [
+        -0.03828900352853915,
+        0.050496799315594004
+       ],
+       "step": 159,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0503,
+     -0.2398
+    ],
+    "cubes": [
+     [
+      -0.0217,
+      0.2115
+     ],
+     [
+      -0.174,
+      0.1428
+     ],
+     [
+      -0.2479,
+      0.0917
+     ],
+     [
+      -0.0383,
+      0.0499
+     ],
+     [
+      -0.2595,
+      0.2006
+     ],
+     [
+      -0.2686,
+      -0.0295
+     ]
+    ],
+    "yaws": [
+     0.6157354834376203,
+     -0.14954153487580435,
+     0.7796804741329244,
+     0.43730233163456855,
+     -0.6289470668511151,
+     0.5504888335963529
+    ],
+    "trigger_dist": 0.08473941960049564,
+    "slip_r": 0.019549266623028423,
+    "slip_ang": 6.257215032628473,
+    "slip_yaw": -0.6746087694639572
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.01874632908686394,
+        0.04998915656232391
+       ],
+       "from_xy": [
+        -0.03828900352853915,
+        0.050496799315594004
+       ],
+       "step": 159,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "n_target": 5,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0748,
+     0.2318
+    ],
+    "cubes": [
+     [
+      -0.1023,
+      -0.2524
+     ],
+     [
+      -0.0498,
+      -0.0764
+     ],
+     [
+      -0.2824,
+      -0.0171
+     ],
+     [
+      -0.252,
+      -0.2472
+     ],
+     [
+      -0.1467,
+      -0.0647
+     ],
+     [
+      -0.2955,
+      -0.1575
+     ]
+    ],
+    "yaws": [
+     0.21044143855207886,
+     -0.42139329885037874,
+     0.549924615739485,
+     -0.2046031007576602,
+     0.6712227250553935,
+     -0.5669071492493511
+    ],
+    "trigger_dist": 0.0565842980110139,
+    "slip_r": 0.013066279834514222,
+    "slip_ang": 3.2216575808395973,
+    "slip_yaw": -0.11431183581670912
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.16028954998261663,
+        -0.06549434142713094
+       ],
+       "from_xy": [
+        -0.14726512777223713,
+        -0.06444930803072366
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "n_target": 5,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0748,
+     0.2318
+    ],
+    "cubes": [
+     [
+      -0.1023,
+      -0.2524
+     ],
+     [
+      -0.0498,
+      -0.0764
+     ],
+     [
+      -0.2824,
+      -0.0171
+     ],
+     [
+      -0.252,
+      -0.2472
+     ],
+     [
+      -0.1467,
+      -0.0647
+     ],
+     [
+      -0.2955,
+      -0.1575
+     ]
+    ],
+    "yaws": [
+     0.21044143855207886,
+     -0.42139329885037874,
+     0.549924615739485,
+     -0.2046031007576602,
+     0.6712227250553935,
+     -0.5669071492493511
+    ],
+    "trigger_dist": 0.0565842980110139,
+    "slip_r": 0.013066279834514222,
+    "slip_ang": 3.2216575808395973,
+    "slip_yaw": -0.11431183581670912
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 3 already inside, adds 2"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 3,
+      "n_target": 5,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.16028954998261663,
+        -0.06549434142713094
+       ],
+       "from_xy": [
+        -0.14726512777223713,
+        -0.06444930803072366
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 5 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "n_target": 5,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0748,
+     0.2318
+    ],
+    "cubes": [
+     [
+      -0.1023,
+      -0.2524
+     ],
+     [
+      -0.0498,
+      -0.0764
+     ],
+     [
+      -0.2824,
+      -0.0171
+     ],
+     [
+      -0.252,
+      -0.2472
+     ],
+     [
+      -0.1467,
+      -0.0647
+     ],
+     [
+      -0.2955,
+      -0.1575
+     ]
+    ],
+    "yaws": [
+     0.21044143855207886,
+     -0.42139329885037874,
+     0.549924615739485,
+     -0.2046031007576602,
+     0.6712227250553935,
+     -0.5669071492493511
+    ],
+    "trigger_dist": 0.0565842980110139,
+    "slip_r": 0.013066279834514222,
+    "slip_ang": 3.2216575808395973,
+    "slip_yaw": -0.11431183581670912
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.16028954998261663,
+        -0.06549434142713094
+       ],
+       "from_xy": [
+        -0.14726512777223713,
+        -0.06444930803072366
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "n_target": 5,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0748,
+     0.2318
+    ],
+    "cubes": [
+     [
+      -0.1023,
+      -0.2524
+     ],
+     [
+      -0.0498,
+      -0.0764
+     ],
+     [
+      -0.2824,
+      -0.0171
+     ],
+     [
+      -0.252,
+      -0.2472
+     ],
+     [
+      -0.1467,
+      -0.0647
+     ],
+     [
+      -0.2955,
+      -0.1575
+     ]
+    ],
+    "yaws": [
+     0.21044143855207886,
+     -0.42139329885037874,
+     0.549924615739485,
+     -0.2046031007576602,
+     0.6712227250553935,
+     -0.5669071492493511
+    ],
+    "trigger_dist": 0.0565842980110139,
+    "slip_r": 0.013066279834514222,
+    "slip_ang": 3.2216575808395973,
+    "slip_yaw": -0.11431183581670912
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_5",
+       "xy": [
+        -0.16028954998261663,
+        -0.06549434142713094
+       ],
+       "from_xy": [
+        -0.14726512777223713,
+        -0.06444930803072366
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0433,
+     0.2215
+    ],
+    "cubes": [
+     [
+      -0.0142,
+      -0.1393
+     ],
+     [
+      -0.299,
+      0.0423
+     ],
+     [
+      -0.1895,
+      -0.1536
+     ],
+     [
+      -0.2925,
+      -0.2514
+     ],
+     [
+      -0.0607,
+      -0.2384
+     ],
+     [
+      -0.2878,
+      -0.1022
+     ]
+    ],
+    "yaws": [
+     0.5699252217786077,
+     0.629765419307279,
+     0.47349583166804576,
+     0.397024325965202,
+     0.4069923802659925,
+     -0.41466532195267175
+    ],
+    "trigger_dist": 0.07907955910582853,
+    "slip_r": 0.0053889825742876405,
+    "slip_ang": 3.6892452975280974,
+    "slip_yaw": -0.0023151426227461247
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.018381184104378608,
+        -0.14223939312559658
+       ],
+       "from_xy": [
+        -0.01378034505348224,
+        -0.1394334328240736
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0433,
+     0.2215
+    ],
+    "cubes": [
+     [
+      -0.0142,
+      -0.1393
+     ],
+     [
+      -0.299,
+      0.0423
+     ],
+     [
+      -0.1895,
+      -0.1536
+     ],
+     [
+      -0.2925,
+      -0.2514
+     ],
+     [
+      -0.0607,
+      -0.2384
+     ],
+     [
+      -0.2878,
+      -0.1022
+     ]
+    ],
+    "yaws": [
+     0.5699252217786077,
+     0.629765419307279,
+     0.47349583166804576,
+     0.397024325965202,
+     0.4069923802659925,
+     -0.41466532195267175
+    ],
+    "trigger_dist": 0.07907955910582853,
+    "slip_r": 0.0053889825742876405,
+    "slip_ang": 3.6892452975280974,
+    "slip_yaw": -0.0023151426227461247
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 3 already inside, adds 1"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 2,
+      "n_target": 4,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.018381184104378608,
+        -0.14223939312559658
+       ],
+       "from_xy": [
+        -0.01378034505348224,
+        -0.1394334328240736
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 4 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0433,
+     0.2215
+    ],
+    "cubes": [
+     [
+      -0.0142,
+      -0.1393
+     ],
+     [
+      -0.299,
+      0.0423
+     ],
+     [
+      -0.1895,
+      -0.1536
+     ],
+     [
+      -0.2925,
+      -0.2514
+     ],
+     [
+      -0.0607,
+      -0.2384
+     ],
+     [
+      -0.2878,
+      -0.1022
+     ]
+    ],
+    "yaws": [
+     0.5699252217786077,
+     0.629765419307279,
+     0.47349583166804576,
+     0.397024325965202,
+     0.4069923802659925,
+     -0.41466532195267175
+    ],
+    "trigger_dist": 0.07907955910582853,
+    "slip_r": 0.0053889825742876405,
+    "slip_ang": 3.6892452975280974,
+    "slip_yaw": -0.0023151426227461247
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.018381184104378608,
+        -0.14223939312559658
+       ],
+       "from_xy": [
+        -0.01378034505348224,
+        -0.1394334328240736
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0433,
+     0.2215
+    ],
+    "cubes": [
+     [
+      -0.0142,
+      -0.1393
+     ],
+     [
+      -0.299,
+      0.0423
+     ],
+     [
+      -0.1895,
+      -0.1536
+     ],
+     [
+      -0.2925,
+      -0.2514
+     ],
+     [
+      -0.0607,
+      -0.2384
+     ],
+     [
+      -0.2878,
+      -0.1022
+     ]
+    ],
+    "yaws": [
+     0.5699252217786077,
+     0.629765419307279,
+     0.47349583166804576,
+     0.397024325965202,
+     0.4069923802659925,
+     -0.41466532195267175
+    ],
+    "trigger_dist": 0.07907955910582853,
+    "slip_r": 0.0053889825742876405,
+    "slip_ang": 3.6892452975280974,
+    "slip_yaw": -0.0023151426227461247
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.018381184104378608,
+        -0.14223939312559658
+       ],
+       "from_xy": [
+        -0.01378034505348224,
+        -0.1394334328240736
+       ],
+       "step": 190,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.054,
+     -0.2416
+    ],
+    "cubes": [
+     [
+      -0.21,
+      0.0447
+     ],
+     [
+      -0.0511,
+      0.1462
+     ],
+     [
+      -0.1418,
+      0.1093
+     ],
+     [
+      -0.2904,
+      0.1763
+     ],
+     [
+      -0.0609,
+      0.0092
+     ],
+     [
+      -0.0328,
+      0.2365
+     ],
+     [
+      -0.2916,
+      -0.0002
+     ]
+    ],
+    "yaws": [
+     0.11727686541892968,
+     0.5889941322802987,
+     0.13101576352855127,
+     -0.7079108987735302,
+     -0.5982653438619713,
+     0.5269733767274709,
+     -0.10239310887645414
+    ],
+    "trigger_dist": 0.05703727961256176,
+    "slip_r": 0.005281985638170838,
+    "slip_ang": 2.047287290764271,
+    "slip_yaw": -0.017465485393752034
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.209508886491294,
+        0.05014038045552254
+       ],
+       "from_xy": [
+        -0.2070862306663254,
+        0.04544675594608545
+       ],
+       "step": 289,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.054,
+     -0.2416
+    ],
+    "cubes": [
+     [
+      -0.21,
+      0.0447
+     ],
+     [
+      -0.0511,
+      0.1462
+     ],
+     [
+      -0.1418,
+      0.1093
+     ],
+     [
+      -0.2904,
+      0.1763
+     ],
+     [
+      -0.0609,
+      0.0092
+     ],
+     [
+      -0.0328,
+      0.2365
+     ],
+     [
+      -0.2916,
+      -0.0002
+     ]
+    ],
+    "yaws": [
+     0.11727686541892968,
+     0.5889941322802987,
+     0.13101576352855127,
+     -0.7079108987735302,
+     -0.5982653438619713,
+     0.5269733767274709,
+     -0.10239310887645414
+    ],
+    "trigger_dist": 0.05703727961256176,
+    "slip_r": 0.005281985638170838,
+    "slip_ang": 2.047287290764271,
+    "slip_yaw": -0.017465485393752034
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 2 already inside, adds 3"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.209508886491294,
+        0.05014038045552254
+       ],
+       "from_xy": [
+        -0.2070862306663254,
+        0.04544675594608545
+       ],
+       "step": 289,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.054,
+     -0.2416
+    ],
+    "cubes": [
+     [
+      -0.21,
+      0.0447
+     ],
+     [
+      -0.0511,
+      0.1462
+     ],
+     [
+      -0.1418,
+      0.1093
+     ],
+     [
+      -0.2904,
+      0.1763
+     ],
+     [
+      -0.0609,
+      0.0092
+     ],
+     [
+      -0.0328,
+      0.2365
+     ],
+     [
+      -0.2916,
+      -0.0002
+     ]
+    ],
+    "yaws": [
+     0.11727686541892968,
+     0.5889941322802987,
+     0.13101576352855127,
+     -0.7079108987735302,
+     -0.5982653438619713,
+     0.5269733767274709,
+     -0.10239310887645414
+    ],
+    "trigger_dist": 0.05703727961256176,
+    "slip_r": 0.005281985638170838,
+    "slip_ang": 2.047287290764271,
+    "slip_yaw": -0.017465485393752034
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.209508886491294,
+        0.05014038045552254
+       ],
+       "from_xy": [
+        -0.2070862306663254,
+        0.04544675594608545
+       ],
+       "step": 289,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.054,
+     -0.2416
+    ],
+    "cubes": [
+     [
+      -0.21,
+      0.0447
+     ],
+     [
+      -0.0511,
+      0.1462
+     ],
+     [
+      -0.1418,
+      0.1093
+     ],
+     [
+      -0.2904,
+      0.1763
+     ],
+     [
+      -0.0609,
+      0.0092
+     ],
+     [
+      -0.0328,
+      0.2365
+     ],
+     [
+      -0.2916,
+      -0.0002
+     ]
+    ],
+    "yaws": [
+     0.11727686541892968,
+     0.5889941322802987,
+     0.13101576352855127,
+     -0.7079108987735302,
+     -0.5982653438619713,
+     0.5269733767274709,
+     -0.10239310887645414
+    ],
+    "trigger_dist": 0.05703727961256176,
+    "slip_r": 0.005281985638170838,
+    "slip_ang": 2.047287290764271,
+    "slip_yaw": -0.017465485393752034
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.209508886491294,
+        0.05014038045552254
+       ],
+       "from_xy": [
+        -0.2070862306663254,
+        0.04544675594608545
+       ],
+       "step": 289,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0303,
+     0.2359
+    ],
+    "cubes": [
+     [
+      -0.0213,
+      -0.1076
+     ],
+     [
+      -0.2899,
+      -0.2619
+     ],
+     [
+      -0.2626,
+      0.0152
+     ],
+     [
+      -0.1939,
+      -0.043
+     ],
+     [
+      -0.0585,
+      -0.2524
+     ],
+     [
+      -0.1241,
+      -0.1205
+     ]
+    ],
+    "yaws": [
+     0.19400366766181776,
+     0.7733998275735336,
+     -0.10400374585863847,
+     -0.3572153804695123,
+     -0.7061915437824604,
+     -0.7233076983102168
+    ],
+    "trigger_dist": 0.06842710356562486,
+    "slip_r": 0.012171182100518894,
+    "slip_ang": 5.2977656896522785,
+    "slip_yaw": -0.34936477109061687
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.18470476543778272,
+        -0.054582203167141054
+       ],
+       "from_xy": [
+        -0.19142950676643686,
+        -0.0444374741029086
+       ],
+       "step": 171,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0303,
+     0.2359
+    ],
+    "cubes": [
+     [
+      -0.0213,
+      -0.1076
+     ],
+     [
+      -0.2899,
+      -0.2619
+     ],
+     [
+      -0.2626,
+      0.0152
+     ],
+     [
+      -0.1939,
+      -0.043
+     ],
+     [
+      -0.0585,
+      -0.2524
+     ],
+     [
+      -0.1241,
+      -0.1205
+     ]
+    ],
+    "yaws": [
+     0.19400366766181776,
+     0.7733998275735336,
+     -0.10400374585863847,
+     -0.3572153804695123,
+     -0.7061915437824604,
+     -0.7233076983102168
+    ],
+    "trigger_dist": 0.06842710356562486,
+    "slip_r": 0.012171182100518894,
+    "slip_ang": 5.2977656896522785,
+    "slip_yaw": -0.34936477109061687
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 1 already inside, adds 3"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.18470476543778272,
+        -0.054582203167141054
+       ],
+       "from_xy": [
+        -0.19142950676643686,
+        -0.0444374741029086
+       ],
+       "step": 171,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0303,
+     0.2359
+    ],
+    "cubes": [
+     [
+      -0.0213,
+      -0.1076
+     ],
+     [
+      -0.2899,
+      -0.2619
+     ],
+     [
+      -0.2626,
+      0.0152
+     ],
+     [
+      -0.1939,
+      -0.043
+     ],
+     [
+      -0.0585,
+      -0.2524
+     ],
+     [
+      -0.1241,
+      -0.1205
+     ]
+    ],
+    "yaws": [
+     0.19400366766181776,
+     0.7733998275735336,
+     -0.10400374585863847,
+     -0.3572153804695123,
+     -0.7061915437824604,
+     -0.7233076983102168
+    ],
+    "trigger_dist": 0.06842710356562486,
+    "slip_r": 0.012171182100518894,
+    "slip_ang": 5.2977656896522785,
+    "slip_yaw": -0.34936477109061687
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.18470476543778272,
+        -0.054582203167141054
+       ],
+       "from_xy": [
+        -0.19142950676643686,
+        -0.0444374741029086
+       ],
+       "step": 171,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "n_target": 4,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 6,
+    "box_xy": [
+     -0.0303,
+     0.2359
+    ],
+    "cubes": [
+     [
+      -0.0213,
+      -0.1076
+     ],
+     [
+      -0.2899,
+      -0.2619
+     ],
+     [
+      -0.2626,
+      0.0152
+     ],
+     [
+      -0.1939,
+      -0.043
+     ],
+     [
+      -0.0585,
+      -0.2524
+     ],
+     [
+      -0.1241,
+      -0.1205
+     ]
+    ],
+    "yaws": [
+     0.19400366766181776,
+     0.7733998275735336,
+     -0.10400374585863847,
+     -0.3572153804695123,
+     -0.7061915437824604,
+     -0.7233076983102168
+    ],
+    "trigger_dist": 0.06842710356562486,
+    "slip_r": 0.012171182100518894,
+    "slip_ang": 5.2977656896522785,
+    "slip_yaw": -0.34936477109061687
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.18470476543778272,
+        -0.054582203167141054
+       ],
+       "from_xy": [
+        -0.19142950676643686,
+        -0.0444374741029086
+       ],
+       "step": 171,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.067,
+     0.2495
+    ],
+    "cubes": [
+     [
+      -0.1524,
+      -0.1275
+     ],
+     [
+      -0.2916,
+      -0.1539
+     ],
+     [
+      0.0129,
+      -0.1406
+     ],
+     [
+      -0.0021,
+      0.011
+     ],
+     [
+      -0.1667,
+      -0.2481
+     ]
+    ],
+    "yaws": [
+     0.5724060345460182,
+     0.27019989789461163,
+     -0.24481352940626266,
+     -0.7167483679689021,
+     -0.7033536275266219
+    ],
+    "trigger_dist": 0.06068019695954555,
+    "slip_r": 0.007257912085423592,
+    "slip_ang": 1.7597767629874725,
+    "slip_yaw": -0.6662030245687449
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.1539349453215156,
+        -0.12058550982701369
+       ],
+       "from_xy": [
+        -0.15257149151394495,
+        -0.12771420406609835
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.067,
+     0.2495
+    ],
+    "cubes": [
+     [
+      -0.1524,
+      -0.1275
+     ],
+     [
+      -0.2916,
+      -0.1539
+     ],
+     [
+      0.0129,
+      -0.1406
+     ],
+     [
+      -0.0021,
+      0.011
+     ],
+     [
+      -0.1667,
+      -0.2481
+     ]
+    ],
+    "yaws": [
+     0.5724060345460182,
+     0.27019989789461163,
+     -0.24481352940626266,
+     -0.7167483679689021,
+     -0.7033536275266219
+    ],
+    "trigger_dist": 0.06068019695954555,
+    "slip_r": 0.007257912085423592,
+    "slip_ang": 1.7597767629874725,
+    "slip_yaw": -0.6662030245687449
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 2 already inside, adds 2"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 3,
+      "n_target": 4,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.1539349453215156,
+        -0.12058550982701369
+       ],
+       "from_xy": [
+        -0.15257149151394495,
+        -0.12771420406609835
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 4 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.067,
+     0.2495
+    ],
+    "cubes": [
+     [
+      -0.1524,
+      -0.1275
+     ],
+     [
+      -0.2916,
+      -0.1539
+     ],
+     [
+      0.0129,
+      -0.1406
+     ],
+     [
+      -0.0021,
+      0.011
+     ],
+     [
+      -0.1667,
+      -0.2481
+     ]
+    ],
+    "yaws": [
+     0.5724060345460182,
+     0.27019989789461163,
+     -0.24481352940626266,
+     -0.7167483679689021,
+     -0.7033536275266219
+    ],
+    "trigger_dist": 0.06068019695954555,
+    "slip_r": 0.007257912085423592,
+    "slip_ang": 1.7597767629874725,
+    "slip_yaw": -0.6662030245687449
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.1539349453215156,
+        -0.12058550982701369
+       ],
+       "from_xy": [
+        -0.15257149151394495,
+        -0.12771420406609835
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.067,
+     0.2495
+    ],
+    "cubes": [
+     [
+      -0.1524,
+      -0.1275
+     ],
+     [
+      -0.2916,
+      -0.1539
+     ],
+     [
+      0.0129,
+      -0.1406
+     ],
+     [
+      -0.0021,
+      0.011
+     ],
+     [
+      -0.1667,
+      -0.2481
+     ]
+    ],
+    "yaws": [
+     0.5724060345460182,
+     0.27019989789461163,
+     -0.24481352940626266,
+     -0.7167483679689021,
+     -0.7033536275266219
+    ],
+    "trigger_dist": 0.06068019695954555,
+    "slip_r": 0.007257912085423592,
+    "slip_ang": 1.7597767629874725,
+    "slip_yaw": -0.6662030245687449
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.1539349453215156,
+        -0.12058550982701369
+       ],
+       "from_xy": [
+        -0.15257149151394495,
+        -0.12771420406609835
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0371,
+     0.2237
+    ],
+    "cubes": [
+     [
+      0.0111,
+      -0.0835
+     ],
+     [
+      -0.0283,
+      -0.2704
+     ],
+     [
+      -0.1072,
+      -0.034
+     ],
+     [
+      -0.117,
+      -0.1668
+     ],
+     [
+      -0.2175,
+      -0.0143
+     ],
+     [
+      -0.2711,
+      0.0581
+     ],
+     [
+      -0.2328,
+      -0.1186
+     ]
+    ],
+    "yaws": [
+     -0.06894020599920991,
+     0.04787545487890521,
+     0.41781089093724866,
+     -0.5721804924986132,
+     -0.7830829692688824,
+     -0.7460525884285929,
+     0.5078135445779797
+    ],
+    "trigger_dist": 0.08305348002502802,
+    "slip_r": 0.013483546023649099,
+    "slip_ang": 4.063829105009068,
+    "slip_yaw": 0.7422888059044273
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.1107495990202352,
+        -0.0387356044851711
+       ],
+       "from_xy": [
+        -0.10667730304344246,
+        -0.03336271803370356
+       ],
+       "step": 176,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0371,
+     0.2237
+    ],
+    "cubes": [
+     [
+      0.0111,
+      -0.0835
+     ],
+     [
+      -0.0283,
+      -0.2704
+     ],
+     [
+      -0.1072,
+      -0.034
+     ],
+     [
+      -0.117,
+      -0.1668
+     ],
+     [
+      -0.2175,
+      -0.0143
+     ],
+     [
+      -0.2711,
+      0.0581
+     ],
+     [
+      -0.2328,
+      -0.1186
+     ]
+    ],
+    "yaws": [
+     -0.06894020599920991,
+     0.04787545487890521,
+     0.41781089093724866,
+     -0.5721804924986132,
+     -0.7830829692688824,
+     -0.7460525884285929,
+     0.5078135445779797
+    ],
+    "trigger_dist": 0.08305348002502802,
+    "slip_r": 0.013483546023649099,
+    "slip_ang": 4.063829105009068,
+    "slip_yaw": 0.7422888059044273
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 0 already inside, adds 5"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.1107495990202352,
+        -0.0387356044851711
+       ],
+       "from_xy": [
+        -0.10667730304344246,
+        -0.03336271803370356
+       ],
+       "step": 176,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0371,
+     0.2237
+    ],
+    "cubes": [
+     [
+      0.0111,
+      -0.0835
+     ],
+     [
+      -0.0283,
+      -0.2704
+     ],
+     [
+      -0.1072,
+      -0.034
+     ],
+     [
+      -0.117,
+      -0.1668
+     ],
+     [
+      -0.2175,
+      -0.0143
+     ],
+     [
+      -0.2711,
+      0.0581
+     ],
+     [
+      -0.2328,
+      -0.1186
+     ]
+    ],
+    "yaws": [
+     -0.06894020599920991,
+     0.04787545487890521,
+     0.41781089093724866,
+     -0.5721804924986132,
+     -0.7830829692688824,
+     -0.7460525884285929,
+     0.5078135445779797
+    ],
+    "trigger_dist": 0.08305348002502802,
+    "slip_r": 0.013483546023649099,
+    "slip_ang": 4.063829105009068,
+    "slip_yaw": 0.7422888059044273
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.1107495990202352,
+        -0.0387356044851711
+       ],
+       "from_xy": [
+        -0.10667730304344246,
+        -0.03336271803370356
+       ],
+       "step": 176,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0371,
+     0.2237
+    ],
+    "cubes": [
+     [
+      0.0111,
+      -0.0835
+     ],
+     [
+      -0.0283,
+      -0.2704
+     ],
+     [
+      -0.1072,
+      -0.034
+     ],
+     [
+      -0.117,
+      -0.1668
+     ],
+     [
+      -0.2175,
+      -0.0143
+     ],
+     [
+      -0.2711,
+      0.0581
+     ],
+     [
+      -0.2328,
+      -0.1186
+     ]
+    ],
+    "yaws": [
+     -0.06894020599920991,
+     0.04787545487890521,
+     0.41781089093724866,
+     -0.5721804924986132,
+     -0.7830829692688824,
+     -0.7460525884285929,
+     0.5078135445779797
+    ],
+    "trigger_dist": 0.08305348002502802,
+    "slip_r": 0.013483546023649099,
+    "slip_ang": 4.063829105009068,
+    "slip_yaw": 0.7422888059044273
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.1107495990202352,
+        -0.0387356044851711
+       ],
+       "from_xy": [
+        -0.10667730304344246,
+        -0.03336271803370356
+       ],
+       "step": 176,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0249,
+     0.2494
+    ],
+    "cubes": [
+     [
+      0.0141,
+      0.0097
+     ],
+     [
+      -0.091,
+      -0.2109
+     ],
+     [
+      -0.269,
+      -0.2439
+     ],
+     [
+      -0.2851,
+      0.2481
+     ],
+     [
+      -0.0435,
+      -0.0703
+     ],
+     [
+      -0.2576,
+      0.0689
+     ],
+     [
+      -0.2373,
+      -0.0949
+     ]
+    ],
+    "yaws": [
+     0.6828151678525907,
+     0.2403551809218436,
+     0.4311338710984953,
+     0.781978595200967,
+     0.3941941144136265,
+     0.6404270233017166,
+     -0.5637982573621632
+    ],
+    "trigger_dist": 0.07720514489037275,
+    "slip_r": 0.008875209787035715,
+    "slip_ang": 0.7470623582767865,
+    "slip_yaw": -0.05333340166421063
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_6",
+       "xy": [
+        -0.2523123984005912,
+        0.07502389629500396
+       ],
+       "from_xy": [
+        -0.2588240343777738,
+        0.06899331210567734
+       ],
+       "step": 192,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0249,
+     0.2494
+    ],
+    "cubes": [
+     [
+      0.0141,
+      0.0097
+     ],
+     [
+      -0.091,
+      -0.2109
+     ],
+     [
+      -0.269,
+      -0.2439
+     ],
+     [
+      -0.2851,
+      0.2481
+     ],
+     [
+      -0.0435,
+      -0.0703
+     ],
+     [
+      -0.2576,
+      0.0689
+     ],
+     [
+      -0.2373,
+      -0.0949
+     ]
+    ],
+    "yaws": [
+     0.6828151678525907,
+     0.2403551809218436,
+     0.4311338710984953,
+     0.781978595200967,
+     0.3941941144136265,
+     0.6404270233017166,
+     -0.5637982573621632
+    ],
+    "trigger_dist": 0.07720514489037275,
+    "slip_r": 0.008875209787035715,
+    "slip_ang": 0.7470623582767865,
+    "slip_yaw": -0.05333340166421063
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 1 already inside, adds 4"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_6",
+       "xy": [
+        -0.2523123984005912,
+        0.07502389629500396
+       ],
+       "from_xy": [
+        -0.2588240343777738,
+        0.06899331210567734
+       ],
+       "step": 192,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0249,
+     0.2494
+    ],
+    "cubes": [
+     [
+      0.0141,
+      0.0097
+     ],
+     [
+      -0.091,
+      -0.2109
+     ],
+     [
+      -0.269,
+      -0.2439
+     ],
+     [
+      -0.2851,
+      0.2481
+     ],
+     [
+      -0.0435,
+      -0.0703
+     ],
+     [
+      -0.2576,
+      0.0689
+     ],
+     [
+      -0.2373,
+      -0.0949
+     ]
+    ],
+    "yaws": [
+     0.6828151678525907,
+     0.2403551809218436,
+     0.4311338710984953,
+     0.781978595200967,
+     0.3941941144136265,
+     0.6404270233017166,
+     -0.5637982573621632
+    ],
+    "trigger_dist": 0.07720514489037275,
+    "slip_r": 0.008875209787035715,
+    "slip_ang": 0.7470623582767865,
+    "slip_yaw": -0.05333340166421063
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_6",
+       "xy": [
+        -0.2523123984005912,
+        0.07502389629500396
+       ],
+       "from_xy": [
+        -0.2588240343777738,
+        0.06899331210567734
+       ],
+       "step": 192,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0249,
+     0.2494
+    ],
+    "cubes": [
+     [
+      0.0141,
+      0.0097
+     ],
+     [
+      -0.091,
+      -0.2109
+     ],
+     [
+      -0.269,
+      -0.2439
+     ],
+     [
+      -0.2851,
+      0.2481
+     ],
+     [
+      -0.0435,
+      -0.0703
+     ],
+     [
+      -0.2576,
+      0.0689
+     ],
+     [
+      -0.2373,
+      -0.0949
+     ]
+    ],
+    "yaws": [
+     0.6828151678525907,
+     0.2403551809218436,
+     0.4311338710984953,
+     0.781978595200967,
+     0.3941941144136265,
+     0.6404270233017166,
+     -0.5637982573621632
+    ],
+    "trigger_dist": 0.07720514489037275,
+    "slip_r": 0.008875209787035715,
+    "slip_ang": 0.7470623582767865,
+    "slip_yaw": -0.05333340166421063
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_6",
+       "xy": [
+        -0.2523123984005912,
+        0.07502389629500396
+       ],
+       "from_xy": [
+        -0.2588240343777738,
+        0.06899331210567734
+       ],
+       "step": 192,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.0672,
+     0.2225
+    ],
+    "cubes": [
+     [
+      -0.1449,
+      -0.0616
+     ],
+     [
+      -0.1089,
+      -0.1423
+     ],
+     [
+      -0.2885,
+      -0.1269
+     ],
+     [
+      -0.2992,
+      0.1562
+     ],
+     [
+      0.0132,
+      -0.1844
+     ]
+    ],
+    "yaws": [
+     -0.7204063721219546,
+     -0.4342040112021342,
+     -0.6537057064468783,
+     0.22687747142870318,
+     -0.003293219036908712
+    ],
+    "trigger_dist": 0.06707744431046928,
+    "slip_r": 0.017133107376153763,
+    "slip_ang": 4.006431166374185,
+    "slip_yaw": 0.0802588309726715
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.15565975663517836,
+        -0.076624224443238
+       ],
+       "from_xy": [
+        -0.14454443024807165,
+        -0.0635860923810558
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.0672,
+     0.2225
+    ],
+    "cubes": [
+     [
+      -0.1449,
+      -0.0616
+     ],
+     [
+      -0.1089,
+      -0.1423
+     ],
+     [
+      -0.2885,
+      -0.1269
+     ],
+     [
+      -0.2992,
+      0.1562
+     ],
+     [
+      0.0132,
+      -0.1844
+     ]
+    ],
+    "yaws": [
+     -0.7204063721219546,
+     -0.4342040112021342,
+     -0.6537057064468783,
+     0.22687747142870318,
+     -0.003293219036908712
+    ],
+    "trigger_dist": 0.06707744431046928,
+    "slip_r": 0.017133107376153763,
+    "slip_ang": 4.006431166374185,
+    "slip_yaw": 0.0802588309726715
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 3 already inside, adds 1"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 2,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.15565975663517836,
+        -0.076624224443238
+       ],
+       "from_xy": [
+        -0.14454443024807165,
+        -0.0635860923810558
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.0672,
+     0.2225
+    ],
+    "cubes": [
+     [
+      -0.1449,
+      -0.0616
+     ],
+     [
+      -0.1089,
+      -0.1423
+     ],
+     [
+      -0.2885,
+      -0.1269
+     ],
+     [
+      -0.2992,
+      0.1562
+     ],
+     [
+      0.0132,
+      -0.1844
+     ]
+    ],
+    "yaws": [
+     -0.7204063721219546,
+     -0.4342040112021342,
+     -0.6537057064468783,
+     0.22687747142870318,
+     -0.003293219036908712
+    ],
+    "trigger_dist": 0.06707744431046928,
+    "slip_r": 0.017133107376153763,
+    "slip_ang": 4.006431166374185,
+    "slip_yaw": 0.0802588309726715
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.15565975663517836,
+        -0.076624224443238
+       ],
+       "from_xy": [
+        -0.14454443024807165,
+        -0.0635860923810558
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.0672,
+     0.2225
+    ],
+    "cubes": [
+     [
+      -0.1449,
+      -0.0616
+     ],
+     [
+      -0.1089,
+      -0.1423
+     ],
+     [
+      -0.2885,
+      -0.1269
+     ],
+     [
+      -0.2992,
+      0.1562
+     ],
+     [
+      0.0132,
+      -0.1844
+     ]
+    ],
+    "yaws": [
+     -0.7204063721219546,
+     -0.4342040112021342,
+     -0.6537057064468783,
+     0.22687747142870318,
+     -0.003293219036908712
+    ],
+    "trigger_dist": 0.06707744431046928,
+    "slip_r": 0.017133107376153763,
+    "slip_ang": 4.006431166374185,
+    "slip_yaw": 0.0802588309726715
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        -0.15565975663517836,
+        -0.076624224443238
+       ],
+       "from_xy": [
+        -0.14454443024807165,
+        -0.0635860923810558
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0432,
+     0.2491
+    ],
+    "cubes": [
+     [
+      -0.2842,
+      0.1959
+     ],
+     [
+      -0.2967,
+      -0.1275
+     ],
+     [
+      -0.1575,
+      -0.001
+     ],
+     [
+      -0.1609,
+      -0.2471
+     ],
+     [
+      -0.0616,
+      -0.0841
+     ],
+     [
+      -0.2562,
+      -0.2725
+     ],
+     [
+      -0.2636,
+      -0.0258
+     ]
+    ],
+    "yaws": [
+     0.5953329780301171,
+     0.6467168734514741,
+     -0.7561381588736968,
+     0.565254947090954,
+     0.038224908115505385,
+     -0.23966160352245414,
+     0.5680983333319989
+    ],
+    "trigger_dist": 0.08826239605254438,
+    "slip_r": 0.01641938977281022,
+    "slip_ang": 6.275723358104635,
+    "slip_yaw": 0.4594574111355285
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.24372439778631036,
+        -0.023475262276517278
+       ],
+       "from_xy": [
+        -0.26014333043981497,
+        -0.023352742763193227
+       ],
+       "step": 302,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0432,
+     0.2491
+    ],
+    "cubes": [
+     [
+      -0.2842,
+      0.1959
+     ],
+     [
+      -0.2967,
+      -0.1275
+     ],
+     [
+      -0.1575,
+      -0.001
+     ],
+     [
+      -0.1609,
+      -0.2471
+     ],
+     [
+      -0.0616,
+      -0.0841
+     ],
+     [
+      -0.2562,
+      -0.2725
+     ],
+     [
+      -0.2636,
+      -0.0258
+     ]
+    ],
+    "yaws": [
+     0.5953329780301171,
+     0.6467168734514741,
+     -0.7561381588736968,
+     0.565254947090954,
+     0.038224908115505385,
+     -0.23966160352245414,
+     0.5680983333319989
+    ],
+    "trigger_dist": 0.08826239605254438,
+    "slip_r": 0.01641938977281022,
+    "slip_ang": 6.275723358104635,
+    "slip_yaw": 0.4594574111355285
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 1 already inside, adds 4"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.24372439778631036,
+        -0.023475262276517278
+       ],
+       "from_xy": [
+        -0.26014333043981497,
+        -0.023352742763193227
+       ],
+       "step": 302,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0432,
+     0.2491
+    ],
+    "cubes": [
+     [
+      -0.2842,
+      0.1959
+     ],
+     [
+      -0.2967,
+      -0.1275
+     ],
+     [
+      -0.1575,
+      -0.001
+     ],
+     [
+      -0.1609,
+      -0.2471
+     ],
+     [
+      -0.0616,
+      -0.0841
+     ],
+     [
+      -0.2562,
+      -0.2725
+     ],
+     [
+      -0.2636,
+      -0.0258
+     ]
+    ],
+    "yaws": [
+     0.5953329780301171,
+     0.6467168734514741,
+     -0.7561381588736968,
+     0.565254947090954,
+     0.038224908115505385,
+     -0.23966160352245414,
+     0.5680983333319989
+    ],
+    "trigger_dist": 0.08826239605254438,
+    "slip_r": 0.01641938977281022,
+    "slip_ang": 6.275723358104635,
+    "slip_yaw": 0.4594574111355285
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.24372439778631036,
+        -0.023475262276517278
+       ],
+       "from_xy": [
+        -0.26014333043981497,
+        -0.023352742763193227
+       ],
+       "step": 302,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0432,
+     0.2491
+    ],
+    "cubes": [
+     [
+      -0.2842,
+      0.1959
+     ],
+     [
+      -0.2967,
+      -0.1275
+     ],
+     [
+      -0.1575,
+      -0.001
+     ],
+     [
+      -0.1609,
+      -0.2471
+     ],
+     [
+      -0.0616,
+      -0.0841
+     ],
+     [
+      -0.2562,
+      -0.2725
+     ],
+     [
+      -0.2636,
+      -0.0258
+     ]
+    ],
+    "yaws": [
+     0.5953329780301171,
+     0.6467168734514741,
+     -0.7561381588736968,
+     0.565254947090954,
+     0.038224908115505385,
+     -0.23966160352245414,
+     0.5680983333319989
+    ],
+    "trigger_dist": 0.08826239605254438,
+    "slip_r": 0.01641938977281022,
+    "slip_ang": 6.275723358104635,
+    "slip_yaw": 0.4594574111355285
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.24372439778631036,
+        -0.023475262276517278
+       ],
+       "from_xy": [
+        -0.26014333043981497,
+        -0.023352742763193227
+       ],
+       "step": 302,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "n_target": 4,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0349,
+     0.2451
+    ],
+    "cubes": [
+     [
+      -0.1618,
+      -0.1477
+     ],
+     [
+      -0.297,
+      0.084
+     ],
+     [
+      -0.2578,
+      -0.0907
+     ],
+     [
+      -0.0188,
+      -0.1004
+     ],
+     [
+      -0.2977,
+      -0.1853
+     ],
+     [
+      -0.0248,
+      -0.2386
+     ],
+     [
+      -0.2904,
+      0.2493
+     ]
+    ],
+    "yaws": [
+     -0.7017125378755734,
+     -0.7230882586795349,
+     0.4173641594121704,
+     0.6666417903265156,
+     0.6662464049481207,
+     -0.6874611160477369,
+     0.7333107763089004
+    ],
+    "trigger_dist": 0.0702591194970744,
+    "slip_r": 0.01730084179613036,
+    "slip_ang": 0.8908553146150417,
+    "slip_yaw": -0.4706142202961593
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.24215490314288252,
+        -0.07588353070905828
+       ],
+       "from_xy": [
+        -0.25303275821176896,
+        -0.08933683498551885
+       ],
+       "step": 412,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "n_target": 4,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0349,
+     0.2451
+    ],
+    "cubes": [
+     [
+      -0.1618,
+      -0.1477
+     ],
+     [
+      -0.297,
+      0.084
+     ],
+     [
+      -0.2578,
+      -0.0907
+     ],
+     [
+      -0.0188,
+      -0.1004
+     ],
+     [
+      -0.2977,
+      -0.1853
+     ],
+     [
+      -0.0248,
+      -0.2386
+     ],
+     [
+      -0.2904,
+      0.2493
+     ]
+    ],
+    "yaws": [
+     -0.7017125378755734,
+     -0.7230882586795349,
+     0.4173641594121704,
+     0.6666417903265156,
+     0.6662464049481207,
+     -0.6874611160477369,
+     0.7333107763089004
+    ],
+    "trigger_dist": 0.0702591194970744,
+    "slip_r": 0.01730084179613036,
+    "slip_ang": 0.8908553146150417,
+    "slip_yaw": -0.4706142202961593
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 0 already inside, adds 4"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 4,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.24215490314288252,
+        -0.07588353070905828
+       ],
+       "from_xy": [
+        -0.25303275821176896,
+        -0.08933683498551885
+       ],
+       "step": 412,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "n_target": 4,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0349,
+     0.2451
+    ],
+    "cubes": [
+     [
+      -0.1618,
+      -0.1477
+     ],
+     [
+      -0.297,
+      0.084
+     ],
+     [
+      -0.2578,
+      -0.0907
+     ],
+     [
+      -0.0188,
+      -0.1004
+     ],
+     [
+      -0.2977,
+      -0.1853
+     ],
+     [
+      -0.0248,
+      -0.2386
+     ],
+     [
+      -0.2904,
+      0.2493
+     ]
+    ],
+    "yaws": [
+     -0.7017125378755734,
+     -0.7230882586795349,
+     0.4173641594121704,
+     0.6666417903265156,
+     0.6662464049481207,
+     -0.6874611160477369,
+     0.7333107763089004
+    ],
+    "trigger_dist": 0.0702591194970744,
+    "slip_r": 0.01730084179613036,
+    "slip_ang": 0.8908553146150417,
+    "slip_yaw": -0.4706142202961593
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.24215490314288252,
+        -0.07588353070905828
+       ],
+       "from_xy": [
+        -0.25303275821176896,
+        -0.08933683498551885
+       ],
+       "step": 412,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "n_target": 4,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0349,
+     0.2451
+    ],
+    "cubes": [
+     [
+      -0.1618,
+      -0.1477
+     ],
+     [
+      -0.297,
+      0.084
+     ],
+     [
+      -0.2578,
+      -0.0907
+     ],
+     [
+      -0.0188,
+      -0.1004
+     ],
+     [
+      -0.2977,
+      -0.1853
+     ],
+     [
+      -0.0248,
+      -0.2386
+     ],
+     [
+      -0.2904,
+      0.2493
+     ]
+    ],
+    "yaws": [
+     -0.7017125378755734,
+     -0.7230882586795349,
+     0.4173641594121704,
+     0.6666417903265156,
+     0.6662464049481207,
+     -0.6874611160477369,
+     0.7333107763089004
+    ],
+    "trigger_dist": 0.0702591194970744,
+    "slip_r": 0.01730084179613036,
+    "slip_ang": 0.8908553146150417,
+    "slip_yaw": -0.4706142202961593
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 4,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.24215490314288252,
+        -0.07588353070905828
+       ],
+       "from_xy": [
+        -0.25303275821176896,
+        -0.08933683498551885
+       ],
+       "step": 412,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0445,
+     -0.2386
+    ],
+    "cubes": [
+     [
+      -0.0707,
+      0.1276
+     ],
+     [
+      -0.2798,
+      0.042
+     ],
+     [
+      -0.1507,
+      0.1769
+     ],
+     [
+      -0.1311,
+      0.0269
+     ],
+     [
+      0.0024,
+      0.1872
+     ],
+     [
+      -0.2979,
+      -0.2558
+     ],
+     [
+      -0.1574,
+      0.2691
+     ]
+    ],
+    "yaws": [
+     0.04490734528726037,
+     -0.16432377689448763,
+     -0.7728374814916913,
+     0.578698064508943,
+     0.6645109025578899,
+     -0.30924295954771325,
+     -0.680798157675814
+    ],
+    "trigger_dist": 0.05814308377256261,
+    "slip_r": 0.0056911783325806885,
+    "slip_ang": 1.9819852232212334,
+    "slip_yaw": -0.5655261675920621
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.2832269858724817,
+        0.04745028846616046
+       ],
+       "from_xy": [
+        -0.2809522252639237,
+        0.04223349107820404
+       ],
+       "step": 284,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0445,
+     -0.2386
+    ],
+    "cubes": [
+     [
+      -0.0707,
+      0.1276
+     ],
+     [
+      -0.2798,
+      0.042
+     ],
+     [
+      -0.1507,
+      0.1769
+     ],
+     [
+      -0.1311,
+      0.0269
+     ],
+     [
+      0.0024,
+      0.1872
+     ],
+     [
+      -0.2979,
+      -0.2558
+     ],
+     [
+      -0.1574,
+      0.2691
+     ]
+    ],
+    "yaws": [
+     0.04490734528726037,
+     -0.16432377689448763,
+     -0.7728374814916913,
+     0.578698064508943,
+     0.6645109025578899,
+     -0.30924295954771325,
+     -0.680798157675814
+    ],
+    "trigger_dist": 0.05814308377256261,
+    "slip_r": 0.0056911783325806885,
+    "slip_ang": 1.9819852232212334,
+    "slip_yaw": -0.5655261675920621
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 2 already inside, adds 3"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.2832269858724817,
+        0.04745028846616046
+       ],
+       "from_xy": [
+        -0.2809522252639237,
+        0.04223349107820404
+       ],
+       "step": 284,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0445,
+     -0.2386
+    ],
+    "cubes": [
+     [
+      -0.0707,
+      0.1276
+     ],
+     [
+      -0.2798,
+      0.042
+     ],
+     [
+      -0.1507,
+      0.1769
+     ],
+     [
+      -0.1311,
+      0.0269
+     ],
+     [
+      0.0024,
+      0.1872
+     ],
+     [
+      -0.2979,
+      -0.2558
+     ],
+     [
+      -0.1574,
+      0.2691
+     ]
+    ],
+    "yaws": [
+     0.04490734528726037,
+     -0.16432377689448763,
+     -0.7728374814916913,
+     0.578698064508943,
+     0.6645109025578899,
+     -0.30924295954771325,
+     -0.680798157675814
+    ],
+    "trigger_dist": 0.05814308377256261,
+    "slip_r": 0.0056911783325806885,
+    "slip_ang": 1.9819852232212334,
+    "slip_yaw": -0.5655261675920621
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.2832269858724817,
+        0.04745028846616046
+       ],
+       "from_xy": [
+        -0.2809522252639237,
+        0.04223349107820404
+       ],
+       "step": 284,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0445,
+     -0.2386
+    ],
+    "cubes": [
+     [
+      -0.0707,
+      0.1276
+     ],
+     [
+      -0.2798,
+      0.042
+     ],
+     [
+      -0.1507,
+      0.1769
+     ],
+     [
+      -0.1311,
+      0.0269
+     ],
+     [
+      0.0024,
+      0.1872
+     ],
+     [
+      -0.2979,
+      -0.2558
+     ],
+     [
+      -0.1574,
+      0.2691
+     ]
+    ],
+    "yaws": [
+     0.04490734528726037,
+     -0.16432377689448763,
+     -0.7728374814916913,
+     0.578698064508943,
+     0.6645109025578899,
+     -0.30924295954771325,
+     -0.680798157675814
+    ],
+    "trigger_dist": 0.05814308377256261,
+    "slip_r": 0.0056911783325806885,
+    "slip_ang": 1.9819852232212334,
+    "slip_yaw": -0.5655261675920621
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.2832269858724817,
+        0.04745028846616046
+       ],
+       "from_xy": [
+        -0.2809522252639237,
+        0.04223349107820404
+       ],
+       "step": 284,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0262,
+     0.2365
+    ],
+    "cubes": [
+     [
+      0.0097,
+      -0.1496
+     ],
+     [
+      -0.2704,
+      0.204
+     ],
+     [
+      -0.2844,
+      -0.1308
+     ],
+     [
+      -0.1815,
+      -0.052
+     ],
+     [
+      -0.2434,
+      -0.2443
+     ],
+     [
+      -0.1489,
+      -0.1631
+     ],
+     [
+      -0.0522,
+      -0.2738
+     ]
+    ],
+    "yaws": [
+     0.24924082886246324,
+     -0.394190087471049,
+     -0.33357224054383433,
+     -0.2681316247829755,
+     -0.17593954107023957,
+     -0.3506715245033861,
+     0.2578736159894319
+    ],
+    "trigger_dist": 0.056737344060600395,
+    "slip_r": 0.019029533636975005,
+    "slip_ang": 0.2079523097086619,
+    "slip_yaw": -0.10924805878411836
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        0.028168881937443196,
+        -0.14628342433868735
+       ],
+       "from_xy": [
+        0.0095493258009287,
+        -0.15021220019382958
+       ],
+       "step": 286,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0262,
+     0.2365
+    ],
+    "cubes": [
+     [
+      0.0097,
+      -0.1496
+     ],
+     [
+      -0.2704,
+      0.204
+     ],
+     [
+      -0.2844,
+      -0.1308
+     ],
+     [
+      -0.1815,
+      -0.052
+     ],
+     [
+      -0.2434,
+      -0.2443
+     ],
+     [
+      -0.1489,
+      -0.1631
+     ],
+     [
+      -0.0522,
+      -0.2738
+     ]
+    ],
+    "yaws": [
+     0.24924082886246324,
+     -0.394190087471049,
+     -0.33357224054383433,
+     -0.2681316247829755,
+     -0.17593954107023957,
+     -0.3506715245033861,
+     0.2578736159894319
+    ],
+    "trigger_dist": 0.056737344060600395,
+    "slip_r": 0.019029533636975005,
+    "slip_ang": 0.2079523097086619,
+    "slip_yaw": -0.10924805878411836
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 4 already inside, adds 1"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 3,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        0.028168881937443196,
+        -0.14628342433868735
+       ],
+       "from_xy": [
+        0.0095493258009287,
+        -0.15021220019382958
+       ],
+       "step": 286,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0262,
+     0.2365
+    ],
+    "cubes": [
+     [
+      0.0097,
+      -0.1496
+     ],
+     [
+      -0.2704,
+      0.204
+     ],
+     [
+      -0.2844,
+      -0.1308
+     ],
+     [
+      -0.1815,
+      -0.052
+     ],
+     [
+      -0.2434,
+      -0.2443
+     ],
+     [
+      -0.1489,
+      -0.1631
+     ],
+     [
+      -0.0522,
+      -0.2738
+     ]
+    ],
+    "yaws": [
+     0.24924082886246324,
+     -0.394190087471049,
+     -0.33357224054383433,
+     -0.2681316247829755,
+     -0.17593954107023957,
+     -0.3506715245033861,
+     0.2578736159894319
+    ],
+    "trigger_dist": 0.056737344060600395,
+    "slip_r": 0.019029533636975005,
+    "slip_ang": 0.2079523097086619,
+    "slip_yaw": -0.10924805878411836
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        0.028168881937443196,
+        -0.14628342433868735
+       ],
+       "from_xy": [
+        0.0095493258009287,
+        -0.15021220019382958
+       ],
+       "step": 286,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "n_target": 5,
+    "p": 2,
+    "e": 0,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0262,
+     0.2365
+    ],
+    "cubes": [
+     [
+      0.0097,
+      -0.1496
+     ],
+     [
+      -0.2704,
+      0.204
+     ],
+     [
+      -0.2844,
+      -0.1308
+     ],
+     [
+      -0.1815,
+      -0.052
+     ],
+     [
+      -0.2434,
+      -0.2443
+     ],
+     [
+      -0.1489,
+      -0.1631
+     ],
+     [
+      -0.0522,
+      -0.2738
+     ]
+    ],
+    "yaws": [
+     0.24924082886246324,
+     -0.394190087471049,
+     -0.33357224054383433,
+     -0.2681316247829755,
+     -0.17593954107023957,
+     -0.3506715245033861,
+     0.2578736159894319
+    ],
+    "trigger_dist": 0.056737344060600395,
+    "slip_r": 0.019029533636975005,
+    "slip_ang": 0.2079523097086619,
+    "slip_yaw": -0.10924805878411836
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 7,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_1",
+       "xy": [
+        0.028168881937443196,
+        -0.14628342433868735
+       ],
+       "from_xy": [
+        0.0095493258009287,
+        -0.15021220019382958
+       ],
+       "step": 286,
+       "in_box": 2
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0588,
+     -0.2374
+    ],
+    "cubes": [
+     [
+      -0.1209,
+      0.2154
+     ],
+     [
+      -0.1688,
+      0.1046
+     ],
+     [
+      -0.2956,
+      -0.0687
+     ],
+     [
+      -0.0273,
+      0.1785
+     ],
+     [
+      -0.2731,
+      0.2659
+     ],
+     [
+      -0.2883,
+      0.1355
+     ],
+     [
+      -0.0328,
+      0.0244
+     ]
+    ],
+    "yaws": [
+     0.4160067728627437,
+     0.7311942154307352,
+     0.42445543443483813,
+     0.5417327333050026,
+     0.7212380331503934,
+     -0.6858987181667064,
+     -0.636865068681154
+    ],
+    "trigger_dist": 0.08732287449713193,
+    "slip_r": 0.009078707487490803,
+    "slip_ang": 3.106403885903805,
+    "slip_yaw": 0.18249841084015128
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.04212731994561307,
+        0.02377222785023097
+       ],
+       "from_xy": [
+        -0.03305423273006396,
+        0.02345282524776695
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0588,
+     -0.2374
+    ],
+    "cubes": [
+     [
+      -0.1209,
+      0.2154
+     ],
+     [
+      -0.1688,
+      0.1046
+     ],
+     [
+      -0.2956,
+      -0.0687
+     ],
+     [
+      -0.0273,
+      0.1785
+     ],
+     [
+      -0.2731,
+      0.2659
+     ],
+     [
+      -0.2883,
+      0.1355
+     ],
+     [
+      -0.0328,
+      0.0244
+     ]
+    ],
+    "yaws": [
+     0.4160067728627437,
+     0.7311942154307352,
+     0.42445543443483813,
+     0.5417327333050026,
+     0.7212380331503934,
+     -0.6858987181667064,
+     -0.636865068681154
+    ],
+    "trigger_dist": 0.08732287449713193,
+    "slip_r": 0.009078707487490803,
+    "slip_ang": 3.106403885903805,
+    "slip_yaw": 0.18249841084015128
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 3 already inside, adds 2"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 3,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.04212731994561307,
+        0.02377222785023097
+       ],
+       "from_xy": [
+        -0.03305423273006396,
+        0.02345282524776695
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0588,
+     -0.2374
+    ],
+    "cubes": [
+     [
+      -0.1209,
+      0.2154
+     ],
+     [
+      -0.1688,
+      0.1046
+     ],
+     [
+      -0.2956,
+      -0.0687
+     ],
+     [
+      -0.0273,
+      0.1785
+     ],
+     [
+      -0.2731,
+      0.2659
+     ],
+     [
+      -0.2883,
+      0.1355
+     ],
+     [
+      -0.0328,
+      0.0244
+     ]
+    ],
+    "yaws": [
+     0.4160067728627437,
+     0.7311942154307352,
+     0.42445543443483813,
+     0.5417327333050026,
+     0.7212380331503934,
+     -0.6858987181667064,
+     -0.636865068681154
+    ],
+    "trigger_dist": 0.08732287449713193,
+    "slip_r": 0.009078707487490803,
+    "slip_ang": 3.106403885903805,
+    "slip_yaw": 0.18249841084015128
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 2,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.04212731994561307,
+        0.02377222785023097
+       ],
+       "from_xy": [
+        -0.03305423273006396,
+        0.02345282524776695
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 2 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "n_target": 5,
+    "p": 1,
+    "e": 1,
+    "n_cubes": 7,
+    "box_xy": [
+     -0.0588,
+     -0.2374
+    ],
+    "cubes": [
+     [
+      -0.1209,
+      0.2154
+     ],
+     [
+      -0.1688,
+      0.1046
+     ],
+     [
+      -0.2956,
+      -0.0687
+     ],
+     [
+      -0.0273,
+      0.1785
+     ],
+     [
+      -0.2731,
+      0.2659
+     ],
+     [
+      -0.2883,
+      0.1355
+     ],
+     [
+      -0.0328,
+      0.0244
+     ]
+    ],
+    "yaws": [
+     0.4160067728627437,
+     0.7311942154307352,
+     0.42445543443483813,
+     0.5417327333050026,
+     0.7212380331503934,
+     -0.6858987181667064,
+     -0.636865068681154
+    ],
+    "trigger_dist": 0.08732287449713193,
+    "slip_r": 0.009078707487490803,
+    "slip_ang": 3.106403885903805,
+    "slip_yaw": 0.18249841084015128
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 6,
+      "n_target": 5,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_7",
+       "xy": [
+        -0.04212731994561307,
+        0.02377222785023097
+       ],
+       "from_xy": [
+        -0.03305423273006396,
+        0.02345282524776695
+       ],
+       "step": 180,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "n_target": 5,
+    "p": 4,
+    "e": 0,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0222,
+     0.2258
+    ],
+    "cubes": [
+     [
+      -0.1176,
+      -0.2188
+     ],
+     [
+      -0.0558,
+      -0.0207
+     ],
+     [
+      -0.2723,
+      0.1249
+     ],
+     [
+      -0.2357,
+      0.0056
+     ],
+     [
+      -0.184,
+      -0.0672
+     ],
+     [
+      -0.2263,
+      -0.2563
+     ],
+     [
+      0.0316,
+      -0.0173
+     ],
+     [
+      -0.274,
+      0.2728
+     ],
+     [
+      -0.02,
+      -0.1526
+     ]
+    ],
+    "yaws": [
+     -0.07744523176169138,
+     -0.6395941388562641,
+     -0.6364989983834664,
+     -0.6603884819028613,
+     -0.6846677649429362,
+     0.4756810494249559,
+     -0.7588761791048932,
+     -0.6617845301189589,
+     0.7173764041434398
+    ],
+    "trigger_dist": 0.08507764459093775,
+    "slip_r": 0.013979933130959538,
+    "slip_ang": 1.105107591292349,
+    "slip_yaw": -0.5057814565553208
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.2278292777878068,
+        0.01521477200457987
+       ],
+       "from_xy": [
+        -0.23410680321861654,
+        0.0027235268780267594
+       ],
+       "step": 506,
+       "in_box": 4
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "n_target": 5,
+    "p": 4,
+    "e": 0,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0222,
+     0.2258
+    ],
+    "cubes": [
+     [
+      -0.1176,
+      -0.2188
+     ],
+     [
+      -0.0558,
+      -0.0207
+     ],
+     [
+      -0.2723,
+      0.1249
+     ],
+     [
+      -0.2357,
+      0.0056
+     ],
+     [
+      -0.184,
+      -0.0672
+     ],
+     [
+      -0.2263,
+      -0.2563
+     ],
+     [
+      0.0316,
+      -0.0173
+     ],
+     [
+      -0.274,
+      0.2728
+     ],
+     [
+      -0.02,
+      -0.1526
+     ]
+    ],
+    "yaws": [
+     -0.07744523176169138,
+     -0.6395941388562641,
+     -0.6364989983834664,
+     -0.6603884819028613,
+     -0.6846677649429362,
+     0.4756810494249559,
+     -0.7588761791048932,
+     -0.6617845301189589,
+     0.7173764041434398
+    ],
+    "trigger_dist": 0.08507764459093775,
+    "slip_r": 0.013979933130959538,
+    "slip_ang": 1.105107591292349,
+    "slip_yaw": -0.5057814565553208
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 0 already inside, adds 5"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 9,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.2278292777878068,
+        0.01521477200457987
+       ],
+       "from_xy": [
+        -0.23410680321861654,
+        0.0027235268780267594
+       ],
+       "step": 506,
+       "in_box": 4
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "n_target": 5,
+    "p": 4,
+    "e": 0,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0222,
+     0.2258
+    ],
+    "cubes": [
+     [
+      -0.1176,
+      -0.2188
+     ],
+     [
+      -0.0558,
+      -0.0207
+     ],
+     [
+      -0.2723,
+      0.1249
+     ],
+     [
+      -0.2357,
+      0.0056
+     ],
+     [
+      -0.184,
+      -0.0672
+     ],
+     [
+      -0.2263,
+      -0.2563
+     ],
+     [
+      0.0316,
+      -0.0173
+     ],
+     [
+      -0.274,
+      0.2728
+     ],
+     [
+      -0.02,
+      -0.1526
+     ]
+    ],
+    "yaws": [
+     -0.07744523176169138,
+     -0.6395941388562641,
+     -0.6364989983834664,
+     -0.6603884819028613,
+     -0.6846677649429362,
+     0.4756810494249559,
+     -0.7588761791048932,
+     -0.6617845301189589,
+     0.7173764041434398
+    ],
+    "trigger_dist": 0.08507764459093775,
+    "slip_r": 0.013979933130959538,
+    "slip_ang": 1.105107591292349,
+    "slip_yaw": -0.5057814565553208
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.2278292777878068,
+        0.01521477200457987
+       ],
+       "from_xy": [
+        -0.23410680321861654,
+        0.0027235268780267594
+       ],
+       "step": 506,
+       "in_box": 4
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "n_target": 5,
+    "p": 4,
+    "e": 0,
+    "n_cubes": 9,
+    "box_xy": [
+     -0.0222,
+     0.2258
+    ],
+    "cubes": [
+     [
+      -0.1176,
+      -0.2188
+     ],
+     [
+      -0.0558,
+      -0.0207
+     ],
+     [
+      -0.2723,
+      0.1249
+     ],
+     [
+      -0.2357,
+      0.0056
+     ],
+     [
+      -0.184,
+      -0.0672
+     ],
+     [
+      -0.2263,
+      -0.2563
+     ],
+     [
+      0.0316,
+      -0.0173
+     ],
+     [
+      -0.274,
+      0.2728
+     ],
+     [
+      -0.02,
+      -0.1526
+     ]
+    ],
+    "yaws": [
+     -0.07744523176169138,
+     -0.6395941388562641,
+     -0.6364989983834664,
+     -0.6603884819028613,
+     -0.6846677649429362,
+     0.4756810494249559,
+     -0.7588761791048932,
+     -0.6617845301189589,
+     0.7173764041434398
+    ],
+    "trigger_dist": 0.08507764459093775,
+    "slip_r": 0.013979933130959538,
+    "slip_ang": 1.105107591292349,
+    "slip_yaw": -0.5057814565553208
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 9,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_4",
+       "xy": [
+        -0.2278292777878068,
+        0.01521477200457987
+       ],
+       "from_xy": [
+        -0.23410680321861654,
+        0.0027235268780267594
+       ],
+       "step": 506,
+       "in_box": 4
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "n_target": 5,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0609,
+     -0.2453
+    ],
+    "cubes": [
+     [
+      -0.0701,
+      0.0109
+     ],
+     [
+      -0.253,
+      0.0355
+     ],
+     [
+      -0.006,
+      0.1958
+     ],
+     [
+      -0.0886,
+      0.1214
+     ],
+     [
+      -0.254,
+      0.1804
+     ],
+     [
+      -0.2849,
+      0.262
+     ],
+     [
+      -0.1614,
+      0.0584
+     ],
+     [
+      -0.2966,
+      -0.0939
+     ]
+    ],
+    "yaws": [
+     -0.7568562210728912,
+     0.7364873403685082,
+     -0.030166521535000212,
+     0.7326650295872266,
+     -0.4956322266272186,
+     -0.42229065734493204,
+     0.16272659431976622,
+     0.528818869447176
+    ],
+    "trigger_dist": 0.08940926780908592,
+    "slip_r": 0.013482434821546964,
+    "slip_ang": 6.118795146361589,
+    "slip_yaw": 0.38844375435441036
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.24079433759793495,
+        0.03351837949748525
+       ],
+       "from_xy": [
+        -0.2540950068094385,
+        0.03572478998590855
+       ],
+       "step": 413,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "n_target": 5,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0609,
+     -0.2453
+    ],
+    "cubes": [
+     [
+      -0.0701,
+      0.0109
+     ],
+     [
+      -0.253,
+      0.0355
+     ],
+     [
+      -0.006,
+      0.1958
+     ],
+     [
+      -0.0886,
+      0.1214
+     ],
+     [
+      -0.254,
+      0.1804
+     ],
+     [
+      -0.2849,
+      0.262
+     ],
+     [
+      -0.1614,
+      0.0584
+     ],
+     [
+      -0.2966,
+      -0.0939
+     ]
+    ],
+    "yaws": [
+     -0.7568562210728912,
+     0.7364873403685082,
+     -0.030166521535000212,
+     0.7326650295872266,
+     -0.4956322266272186,
+     -0.42229065734493204,
+     0.16272659431976622,
+     0.528818869447176
+    ],
+    "trigger_dist": 0.08940926780908592,
+    "slip_r": 0.013482434821546964,
+    "slip_ang": 6.118795146361589,
+    "slip_yaw": 0.38844375435441036
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 4 already inside, adds 1"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 5,
+      "n_table": 4,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.24079433759793495,
+        0.03351837949748525
+       ],
+       "from_xy": [
+        -0.2540950068094385,
+        0.03572478998590855
+       ],
+       "step": 413,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 5 cubes. Now 4 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "n_target": 5,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0609,
+     -0.2453
+    ],
+    "cubes": [
+     [
+      -0.0701,
+      0.0109
+     ],
+     [
+      -0.253,
+      0.0355
+     ],
+     [
+      -0.006,
+      0.1958
+     ],
+     [
+      -0.0886,
+      0.1214
+     ],
+     [
+      -0.254,
+      0.1804
+     ],
+     [
+      -0.2849,
+      0.262
+     ],
+     [
+      -0.1614,
+      0.0584
+     ],
+     [
+      -0.2966,
+      -0.0939
+     ]
+    ],
+    "yaws": [
+     -0.7568562210728912,
+     0.7364873403685082,
+     -0.030166521535000212,
+     0.7326650295872266,
+     -0.4956322266272186,
+     -0.42229065734493204,
+     0.16272659431976622,
+     0.528818869447176
+    ],
+    "trigger_dist": 0.08940926780908592,
+    "slip_r": 0.013482434821546964,
+    "slip_ang": 6.118795146361589,
+    "slip_yaw": 0.38844375435441036
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 5,
+      "n_target": 5,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.24079433759793495,
+        0.03351837949748525
+       ],
+       "from_xy": [
+        -0.2540950068094385,
+        0.03572478998590855
+       ],
+       "step": 413,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 5 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "n_target": 5,
+    "p": 3,
+    "e": 0,
+    "n_cubes": 8,
+    "box_xy": [
+     -0.0609,
+     -0.2453
+    ],
+    "cubes": [
+     [
+      -0.0701,
+      0.0109
+     ],
+     [
+      -0.253,
+      0.0355
+     ],
+     [
+      -0.006,
+      0.1958
+     ],
+     [
+      -0.0886,
+      0.1214
+     ],
+     [
+      -0.254,
+      0.1804
+     ],
+     [
+      -0.2849,
+      0.262
+     ],
+     [
+      -0.1614,
+      0.0584
+     ],
+     [
+      -0.2966,
+      -0.0939
+     ]
+    ],
+    "yaws": [
+     -0.7568562210728912,
+     0.7364873403685082,
+     -0.030166521535000212,
+     0.7326650295872266,
+     -0.4956322266272186,
+     -0.42229065734493204,
+     0.16272659431976622,
+     0.528818869447176
+    ],
+    "trigger_dist": 0.08940926780908592,
+    "slip_r": 0.013482434821546964,
+    "slip_ang": 6.118795146361589,
+    "slip_yaw": 0.38844375435441036
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "in",
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 5 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 8,
+      "n_target": 5,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_2",
+       "xy": [
+        -0.24079433759793495,
+        0.03351837949748525
+       ],
+       "from_xy": [
+        -0.2540950068094385,
+        0.03572478998590855
+       ],
+       "step": 413,
+       "in_box": 3
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 5 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.052,
+     -0.2449
+    ],
+    "cubes": [
+     [
+      -0.2215,
+      0.1704
+     ],
+     [
+      -0.1114,
+      0.2497
+     ],
+     [
+      -0.2586,
+      0.0594
+     ],
+     [
+      0.0089,
+      0.1477
+     ],
+     [
+      -0.2756,
+      -0.0642
+     ]
+    ],
+    "yaws": [
+     0.7179635205168635,
+     -0.3905529001995148,
+     0.7806704161526747,
+     -0.433911223980305,
+     -0.7400311351758374
+    ],
+    "trigger_dist": 0.05923583035013952,
+    "slip_r": 0.017439968777149834,
+    "slip_ang": 2.982275605863039,
+    "slip_yaw": 0.21216138091880443
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "oracle",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "oracle: privileged box count"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.2769492584835994,
+        0.06216519235148931
+       ],
+       "from_xy": [
+        -0.25973015191498644,
+        0.059398446984327544
+       ],
+       "step": 195,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.052,
+     -0.2449
+    ],
+    "cubes": [
+     [
+      -0.2215,
+      0.1704
+     ],
+     [
+      -0.1114,
+      0.2497
+     ],
+     [
+      -0.2586,
+      0.0594
+     ],
+     [
+      0.0089,
+      0.1477
+     ],
+     [
+      -0.2756,
+      -0.0642
+     ]
+    ],
+    "yaws": [
+     0.7179635205168635,
+     -0.3905529001995148,
+     0.7806704161526747,
+     -0.433911223980305,
+     -0.7400311351758374
+    ],
+    "trigger_dist": 0.05923583035013952,
+    "slip_r": 0.017439968777149834,
+    "slip_ang": 2.982275605863039,
+    "slip_yaw": 0.21216138091880443
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "naive",
+      "carries": [
+       "in",
+       "slipped",
+       "in"
+      ],
+      "recovery": "memoryless: guesses 3 already inside, adds 1"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": false,
+      "n_in_box": 2,
+      "n_target": 4,
+      "n_table": 3,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.2769492584835994,
+        0.06216519235148931
+       ],
+       "from_xy": [
+        -0.25973015191498644,
+        0.059398446984327544
+       ],
+       "step": 195,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds fewer than 4 cubes. Now 3 cubes are on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.052,
+     -0.2449
+    ],
+    "cubes": [
+     [
+      -0.2215,
+      0.1704
+     ],
+     [
+      -0.1114,
+      0.2497
+     ],
+     [
+      -0.2586,
+      0.0594
+     ],
+     [
+      0.0089,
+      0.1477
+     ],
+     [
+      -0.2756,
+      -0.0642
+     ]
+    ],
+    "yaws": [
+     0.7179635205168635,
+     -0.3905529001995148,
+     0.7806704161526747,
+     -0.433911223980305,
+     -0.7400311351758374
+    ],
+    "trigger_dist": 0.05923583035013952,
+    "slip_r": 0.017439968777149834,
+    "slip_ang": 2.982275605863039,
+    "slip_yaw": 0.21216138091880443
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "adaptive",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "own drop count; the slipped carry is not counted"
+     },
+     "outcome": {
+      "success": true,
+      "terminal": false,
+      "n_in_box": 4,
+      "n_target": 4,
+      "n_table": 1,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.2769492584835994,
+        0.06216519235148931
+       ],
+       "from_xy": [
+        -0.25973015191498644,
+        0.059398446984327544
+       ],
+       "step": 195,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds exactly 4 cubes. Now 1 cube is on the table."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "n_target": 4,
+    "p": 1,
+    "e": 0,
+    "n_cubes": 5,
+    "box_xy": [
+     -0.052,
+     -0.2449
+    ],
+    "cubes": [
+     [
+      -0.2215,
+      0.1704
+     ],
+     [
+      -0.1114,
+      0.2497
+     ],
+     [
+      -0.2586,
+      0.0594
+     ],
+     [
+      0.0089,
+      0.1477
+     ],
+     [
+      -0.2756,
+      -0.0642
+     ]
+    ],
+    "yaws": [
+     0.7179635205168635,
+     -0.3905529001995148,
+     0.7806704161526747,
+     -0.433911223980305,
+     -0.7400311351758374
+    ],
+    "trigger_dist": 0.05923583035013952,
+    "slip_r": 0.017439968777149834,
+    "slip_ang": 2.982275605863039,
+    "slip_yaw": 0.21216138091880443
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "kind": "blind",
+      "carries": [
+       "in",
+       "slipped",
+       "in",
+       "in",
+       "in",
+       "in"
+      ],
+      "recovery": "memoryless restart: puts 4 cubes in"
+     },
+     "outcome": {
+      "success": false,
+      "terminal": true,
+      "n_in_box": 5,
+      "n_target": 4,
+      "n_table": 0,
+      "n_lid": 0,
+      "held": 0,
+      "slip": {
+       "obj": "cube_3",
+       "xy": [
+        -0.2769492584835994,
+        0.06216519235148931
+       ],
+       "from_xy": [
+        -0.25973015191498644,
+        0.059398446984327544
+       ],
+       "step": 195,
+       "in_box": 1
+      },
+      "detail": "During this attempt: A cube slipped out of the gripper and fell back onto the table. The box holds more than 4 cubes. Cubes cannot be taken out of the box, so the task can no longer be completed. Now 0 cubes are on the table."
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 701.0911650657654
+}

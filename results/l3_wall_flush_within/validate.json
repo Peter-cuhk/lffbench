@@ -1,0 +1,6064 @@
+{
+ "task": "l3_wall_flush_within",
+ "level": "L3",
+ "capabilities": [
+  "Perceive",
+  "Reason",
+  "Plan"
+ ],
+ "n": 20,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "adaptive": [
+   0.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "side": -1,
+    "wall_hl": 0.13811525541018987,
+    "wall_xy": [
+     -0.23130337467039708,
+     -0.003486984321329524
+    ],
+    "gap": 0.0015862770768601579,
+    "box_xy": [
+     -0.1847170975935369,
+     -0.026108545248147333
+    ],
+    "plate_xy": [
+     -0.019086185620699886,
+     0.004333241014843947
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.005366619101413235,
+      "box_xy": [
+       -0.022915714853341162,
+       -0.001788467600621338
+      ],
+      "lifted": true,
+      "pushed_y": 0.024320077647525994,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "side": -1,
+    "wall_hl": 0.13811525541018987,
+    "wall_xy": [
+     -0.23130337467039708,
+     -0.003486984321329524
+    ],
+    "gap": 0.0015862770768601579,
+    "box_xy": [
+     -0.1847170975935369,
+     -0.026108545248147333
+    ],
+    "plate_xy": [
+     -0.019086185620699886,
+     0.004333241014843947
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "side": -1,
+    "wall_hl": 0.13811525541018987,
+    "wall_xy": [
+     -0.23130337467039708,
+     -0.003486984321329524
+    ],
+    "gap": 0.0015862770768601579,
+    "box_xy": [
+     -0.1847170975935369,
+     -0.026108545248147333
+    ],
+    "plate_xy": [
+     -0.019086185620699886,
+     0.004333241014843947
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.006129938286332016,
+      "box_xy": [
+       -0.02205343929517534,
+       -0.0036679907323250646
+      ],
+      "lifted": true,
+      "pushed_y": 0.02244055451582227,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "side": -1,
+    "wall_hl": 0.13811525541018987,
+    "wall_xy": [
+     -0.23130337467039708,
+     -0.003486984321329524
+    ],
+    "gap": 0.0015862770768601579,
+    "box_xy": [
+     -0.1847170975935369,
+     -0.026108545248147333
+    ],
+    "plate_xy": [
+     -0.019086185620699886,
+     0.004333241014843947
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0025706416479832316,
+      "dy": -0.0038852918261346415,
+      "dyaw": 0.20160697543055647
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.015764215056845724,
+      "dy": 0.001241469291884718,
+      "dyaw": -0.15093185368772188
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0016017473219231977,
+      "dy": 0.00033642393779178485,
+      "dyaw": -0.10536197619859416
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.012235263179178713,
+      "dy": 0.007964297394100237,
+      "dyaw": -0.16910876857770457
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1684051790844645,
+      "box_xy": [
+       -0.1847170975935369,
+       -0.026108545248147333
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "side": 1,
+    "wall_hl": 0.12047101403460994,
+    "wall_xy": [
+     -0.05868418454156263,
+     -0.03747725077416844
+    ],
+    "gap": 0.0002285959028034428,
+    "box_xy": [
+     -0.10391278044436607,
+     -0.022824505706030788
+    ],
+    "plate_xy": [
+     -0.2765148004318274,
+     -0.07099704968351386
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.013312902013665213,
+      "box_xy": [
+       -0.28952293110934174,
+       -0.0713780183661112
+      ],
+      "lifted": true,
+      "pushed_y": -0.048553512660080414,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "side": 1,
+    "wall_hl": 0.12047101403460994,
+    "wall_xy": [
+     -0.05868418454156263,
+     -0.03747725077416844
+    ],
+    "gap": 0.0002285959028034428,
+    "box_xy": [
+     -0.10391278044436607,
+     -0.022824505706030788
+    ],
+    "plate_xy": [
+     -0.2765148004318274,
+     -0.07099704968351386
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "side": 1,
+    "wall_hl": 0.12047101403460994,
+    "wall_xy": [
+     -0.05868418454156263,
+     -0.03747725077416844
+    ],
+    "gap": 0.0002285959028034428,
+    "box_xy": [
+     -0.10391278044436607,
+     -0.022824505706030788
+    ],
+    "plate_xy": [
+     -0.2765148004318274,
+     -0.07099704968351386
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.01313779368980312,
+      "box_xy": [
+       -0.2894783209972331,
+       -0.07118350253039374
+      ],
+      "lifted": true,
+      "pushed_y": -0.048358996824362954,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "side": 1,
+    "wall_hl": 0.12047101403460994,
+    "wall_xy": [
+     -0.05868418454156263,
+     -0.03747725077416844
+    ],
+    "gap": 0.0002285959028034428,
+    "box_xy": [
+     -0.10391278044436607,
+     -0.022824505706030788
+    ],
+    "plate_xy": [
+     -0.2765148004318274,
+     -0.07099704968351386
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.007458579480963633,
+      "dy": -0.001078739268055055,
+      "dyaw": -0.13173253304538204
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.00967450908682154,
+      "dy": -0.012160487819407149,
+      "dyaw": -0.043908669410233594
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0007002924974370674,
+      "dy": -0.005388205256004927,
+      "dyaw": -0.037464076258425114
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.005214009853819404,
+      "dy": 0.0008150669119580759,
+      "dyaw": 0.254199368022494
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1791983374267449,
+      "box_xy": [
+       -0.10391278044436607,
+       -0.022824505706030788
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "side": 1,
+    "wall_hl": 0.1307156801301284,
+    "wall_xy": [
+     -0.02959704407723148,
+     0.02971347804818293
+    ],
+    "gap": 0.00101139356039861,
+    "box_xy": [
+     -0.07560843763763009,
+     0.02292481631904715
+    ],
+    "plate_xy": [
+     -0.2393528056709217,
+     -0.02271689819652741
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.009776615572240433,
+      "box_xy": [
+       -0.24904308440139983,
+       -0.023736203822869895
+      ],
+      "lifted": true,
+      "pushed_y": -0.046661020141917045,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "side": 1,
+    "wall_hl": 0.1307156801301284,
+    "wall_xy": [
+     -0.02959704407723148,
+     0.02971347804818293
+    ],
+    "gap": 0.00101139356039861,
+    "box_xy": [
+     -0.07560843763763009,
+     0.02292481631904715
+    ],
+    "plate_xy": [
+     -0.2393528056709217,
+     -0.02271689819652741
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "side": 1,
+    "wall_hl": 0.1307156801301284,
+    "wall_xy": [
+     -0.02959704407723148,
+     0.02971347804818293
+    ],
+    "gap": 0.00101139356039861,
+    "box_xy": [
+     -0.07560843763763009,
+     0.02292481631904715
+    ],
+    "plate_xy": [
+     -0.2393528056709217,
+     -0.02271689819652741
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.009765254337905304,
+      "box_xy": [
+       -0.24903189222785682,
+       -0.023735713024139793
+      ],
+      "lifted": true,
+      "pushed_y": -0.04666052934318694,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "side": 1,
+    "wall_hl": 0.1307156801301284,
+    "wall_xy": [
+     -0.02959704407723148,
+     0.02971347804818293
+    ],
+    "gap": 0.00101139356039861,
+    "box_xy": [
+     -0.07560843763763009,
+     0.02292481631904715
+    ],
+    "plate_xy": [
+     -0.2393528056709217,
+     -0.02271689819652741
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0008560264999707429,
+      "dy": -0.01305365274454182,
+      "dyaw": 0.1586155156780371
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0006614921434634735,
+      "dy": -0.009414312604449384,
+      "dyaw": 0.13876193820014038
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.007849627648312643,
+      "dy": -0.011601861039547192,
+      "dyaw": 0.13316921472731955
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.004894611686703367,
+      "dy": -0.007830807711629605,
+      "dyaw": 0.08802124308438265
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16998640353844188,
+      "box_xy": [
+       -0.07560843763763009,
+       0.02292481631904715
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "side": -1,
+    "wall_hl": 0.12770117430656466,
+    "wall_xy": [
+     -0.18940850913385407,
+     -0.0006384807373378404
+    ],
+    "gap": 0.0022563385850282304,
+    "box_xy": [
+     -0.14215217054882584,
+     0.008269749184449015
+    ],
+    "plate_xy": [
+     0.02465657344125577,
+     0.01997461980422775
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0030466948591427014,
+      "box_xy": [
+       0.021669623490095193,
+       0.019362251251650267
+      ],
+      "lifted": true,
+      "pushed_y": 0.011092502067201252,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "side": -1,
+    "wall_hl": 0.12770117430656466,
+    "wall_xy": [
+     -0.18940850913385407,
+     -0.0006384807373378404
+    ],
+    "gap": 0.0022563385850282304,
+    "box_xy": [
+     -0.14215217054882584,
+     0.008269749184449015
+    ],
+    "plate_xy": [
+     0.02465657344125577,
+     0.01997461980422775
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "side": -1,
+    "wall_hl": 0.12770117430656466,
+    "wall_xy": [
+     -0.18940850913385407,
+     -0.0006384807373378404
+    ],
+    "gap": 0.0022563385850282304,
+    "box_xy": [
+     -0.14215217054882584,
+     0.008269749184449015
+    ],
+    "plate_xy": [
+     0.02465657344125577,
+     0.01997461980422775
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.003075854010592179,
+      "box_xy": [
+       0.021643348871823457,
+       0.019357496751929895
+      ],
+      "lifted": true,
+      "pushed_y": 0.01108774756748088,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "side": -1,
+    "wall_hl": 0.12770117430656466,
+    "wall_xy": [
+     -0.18940850913385407,
+     -0.0006384807373378404
+    ],
+    "gap": 0.0022563385850282304,
+    "box_xy": [
+     -0.14215217054882584,
+     0.008269749184449015
+    ],
+    "plate_xy": [
+     0.02465657344125577,
+     0.01997461980422775
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.008173858447663588,
+      "dy": -0.0009645101095337212,
+      "dyaw": -0.17097222054768232
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0031788030359853987,
+      "dy": -0.0004094337556228628,
+      "dyaw": 0.17841806633677967
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.011889137204326621,
+      "dy": 0.004528668384516967,
+      "dyaw": 0.06656260553395564
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0024243740786145038,
+      "dy": 0.0034435231627134386,
+      "dyaw": -0.03387310401033199
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16721889671948265,
+      "box_xy": [
+       -0.14215217054882584,
+       0.008269749184449015
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "side": 1,
+    "wall_hl": 0.12390453936382893,
+    "wall_xy": [
+     -0.0061705571521472324,
+     -0.04338271616416904
+    ],
+    "gap": 0.001862021414573963,
+    "box_xy": [
+     -0.053032578566721195,
+     -0.049088508022139474
+    ],
+    "plate_xy": [
+     -0.21554242536791265,
+     -0.04183130792952641
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.006188370232030106,
+      "box_xy": [
+       -0.213611021224943,
+       -0.03876671731266766
+      ],
+      "lifted": true,
+      "pushed_y": 0.010321790709471812,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "side": 1,
+    "wall_hl": 0.12390453936382893,
+    "wall_xy": [
+     -0.0061705571521472324,
+     -0.04338271616416904
+    ],
+    "gap": 0.001862021414573963,
+    "box_xy": [
+     -0.053032578566721195,
+     -0.049088508022139474
+    ],
+    "plate_xy": [
+     -0.21554242536791265,
+     -0.04183130792952641
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "side": 1,
+    "wall_hl": 0.12390453936382893,
+    "wall_xy": [
+     -0.0061705571521472324,
+     -0.04338271616416904
+    ],
+    "gap": 0.001862021414573963,
+    "box_xy": [
+     -0.053032578566721195,
+     -0.049088508022139474
+    ],
+    "plate_xy": [
+     -0.21554242536791265,
+     -0.04183130792952641
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.005138319566292522,
+      "box_xy": [
+       -0.21331831436769824,
+       -0.03950830194386464
+      ],
+      "lifted": true,
+      "pushed_y": 0.009580206078274832,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "side": 1,
+    "wall_hl": 0.12390453936382893,
+    "wall_xy": [
+     -0.0061705571521472324,
+     -0.04338271616416904
+    ],
+    "gap": 0.001862021414573963,
+    "box_xy": [
+     -0.053032578566721195,
+     -0.049088508022139474
+    ],
+    "plate_xy": [
+     -0.21554242536791265,
+     -0.04183130792952641
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.00010912156182440132,
+      "dy": -0.0005017140708295849,
+      "dyaw": 0.02989889771287446
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0003966774423016924,
+      "dy": 0.009461325938738304,
+      "dyaw": 0.1685921234804632
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 4.097413825841655e-05,
+      "dy": -0.0021958865342047483,
+      "dyaw": 0.05410894223402905
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.008489403254545435,
+      "dy": 0.002161647620272881,
+      "dyaw": -0.12008702105181912
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16267182747286174,
+      "box_xy": [
+       -0.053032578566721195,
+       -0.049088508022139474
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "side": -1,
+    "wall_hl": 0.1479168612716581,
+    "wall_xy": [
+     -0.16936661789738902,
+     -0.025525916595867545
+    ],
+    "gap": 0.002504378173632259,
+    "box_xy": [
+     -0.12186223972375677,
+     -0.01224738300822737
+    ],
+    "plate_xy": [
+     0.0413824543580464,
+     -0.01263082443478198
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0033398203322126457,
+      "box_xy": [
+       0.038725067665716185,
+       -0.013144592169529542
+      ],
+      "lifted": true,
+      "pushed_y": -0.0008972091613021708,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "side": -1,
+    "wall_hl": 0.1479168612716581,
+    "wall_xy": [
+     -0.16936661789738902,
+     -0.025525916595867545
+    ],
+    "gap": 0.002504378173632259,
+    "box_xy": [
+     -0.12186223972375677,
+     -0.01224738300822737
+    ],
+    "plate_xy": [
+     0.0413824543580464,
+     -0.01263082443478198
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "side": -1,
+    "wall_hl": 0.1479168612716581,
+    "wall_xy": [
+     -0.16936661789738902,
+     -0.025525916595867545
+    ],
+    "gap": 0.002504378173632259,
+    "box_xy": [
+     -0.12186223972375677,
+     -0.01224738300822737
+    ],
+    "plate_xy": [
+     0.0413824543580464,
+     -0.01263082443478198
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.003463218061646964,
+      "box_xy": [
+       0.038658811174476254,
+       -0.01320479437860441
+      ],
+      "lifted": true,
+      "pushed_y": -0.0009574113703770398,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "side": -1,
+    "wall_hl": 0.1479168612716581,
+    "wall_xy": [
+     -0.16936661789738902,
+     -0.025525916595867545
+    ],
+    "gap": 0.002504378173632259,
+    "box_xy": [
+     -0.12186223972375677,
+     -0.01224738300822737
+    ],
+    "plate_xy": [
+     0.0413824543580464,
+     -0.01263082443478198
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.005688853296486265,
+      "dy": -0.0014522198021348206,
+      "dyaw": -0.06931362499863362
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0012563557131531455,
+      "dy": 0.008185152114104775,
+      "dyaw": -0.07535446464530425
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.004179760130141993,
+      "dy": 0.015719104957721497,
+      "dyaw": -0.24089728068646188
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.005084112476823034,
+      "dy": 0.006627880152246229,
+      "dyaw": -0.061902509996444824
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16324513055626913,
+      "box_xy": [
+       -0.12186223972375677,
+       -0.01224738300822737
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "side": 1,
+    "wall_hl": 0.13802570831398964,
+    "wall_xy": [
+     -0.04579707801587755,
+     -0.02426024407089894
+    ],
+    "gap": 0.002399309568497218,
+    "box_xy": [
+     -0.09319638758437476,
+     -0.044218231414017976
+    ],
+    "plate_xy": [
+     -0.26131185536963114,
+     -0.061445949553516795
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.012912951411467024,
+      "box_xy": [
+       -0.27385186796962463,
+       -0.0611350035491881
+      ],
+      "lifted": true,
+      "pushed_y": -0.01691677213517012,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "side": 1,
+    "wall_hl": 0.13802570831398964,
+    "wall_xy": [
+     -0.04579707801587755,
+     -0.02426024407089894
+    ],
+    "gap": 0.002399309568497218,
+    "box_xy": [
+     -0.09319638758437476,
+     -0.044218231414017976
+    ],
+    "plate_xy": [
+     -0.26131185536963114,
+     -0.061445949553516795
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "side": 1,
+    "wall_hl": 0.13802570831398964,
+    "wall_xy": [
+     -0.04579707801587755,
+     -0.02426024407089894
+    ],
+    "gap": 0.002399309568497218,
+    "box_xy": [
+     -0.09319638758437476,
+     -0.044218231414017976
+    ],
+    "plate_xy": [
+     -0.26131185536963114,
+     -0.061445949553516795
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.012606872317641057,
+      "box_xy": [
+       -0.273574899565891,
+       -0.061058078808213255
+      ],
+      "lifted": true,
+      "pushed_y": -0.01683984739419528,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "side": 1,
+    "wall_hl": 0.13802570831398964,
+    "wall_xy": [
+     -0.04579707801587755,
+     -0.02426024407089894
+    ],
+    "gap": 0.002399309568497218,
+    "box_xy": [
+     -0.09319638758437476,
+     -0.044218231414017976
+    ],
+    "plate_xy": [
+     -0.26131185536963114,
+     -0.061445949553516795
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.009351804467604877,
+      "dy": -0.015983162579511604,
+      "dyaw": 0.10491359163402221
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.014395818056091178,
+      "dy": 0.005152675182346826,
+      "dyaw": 0.1751318117419525
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.003543691343046835,
+      "dy": -0.014398190961861106,
+      "dyaw": -0.0448173078046006
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.011394967419196713,
+      "dy": 0.011143929379649522,
+      "dyaw": -0.03976846111602686
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16899587304534675,
+      "box_xy": [
+       -0.09319638758437476,
+       -0.044218231414017976
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "side": -1,
+    "wall_hl": 0.1444794103553383,
+    "wall_xy": [
+     -0.1751394842510839,
+     0.01715142155023887
+    ],
+    "gap": 0.00176645638055001,
+    "box_xy": [
+     -0.1283730278705339,
+     -0.009839107667905071
+    ],
+    "plate_xy": [
+     0.04065058932284307,
+     -0.04612487883590555
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0029220519627444074,
+      "box_xy": [
+       0.03774864575849034,
+       -0.045863060979515854
+      ],
+      "lifted": true,
+      "pushed_y": -0.03602395331161078,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "side": -1,
+    "wall_hl": 0.1444794103553383,
+    "wall_xy": [
+     -0.1751394842510839,
+     0.01715142155023887
+    ],
+    "gap": 0.00176645638055001,
+    "box_xy": [
+     -0.1283730278705339,
+     -0.009839107667905071
+    ],
+    "plate_xy": [
+     0.04065058932284307,
+     -0.04612487883590555
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "side": -1,
+    "wall_hl": 0.1444794103553383,
+    "wall_xy": [
+     -0.1751394842510839,
+     0.01715142155023887
+    ],
+    "gap": 0.00176645638055001,
+    "box_xy": [
+     -0.1283730278705339,
+     -0.009839107667905071
+    ],
+    "plate_xy": [
+     0.04065058932284307,
+     -0.04612487883590555
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.002899624964031311,
+      "box_xy": [
+       0.037771512231662016,
+       -0.04586037739583309
+      ],
+      "lifted": true,
+      "pushed_y": -0.03602126972792802,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "side": -1,
+    "wall_hl": 0.1444794103553383,
+    "wall_xy": [
+     -0.1751394842510839,
+     0.01715142155023887
+    ],
+    "gap": 0.00176645638055001,
+    "box_xy": [
+     -0.1283730278705339,
+     -0.009839107667905071
+    ],
+    "plate_xy": [
+     0.04065058932284307,
+     -0.04612487883590555
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.008598693041112666,
+      "dy": -0.01018110893949269,
+      "dyaw": 0.01535004975091735
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.006481196949805203,
+      "dy": 0.004257939775746968,
+      "dyaw": 0.030373629983611983
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.01035583501733793,
+      "dy": 0.010997296630928806,
+      "dyaw": -0.23686696078862152
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.005595211810867219,
+      "dy": -0.004755431802673236,
+      "dyaw": 0.23705529417596594
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17287459863251806,
+      "box_xy": [
+       -0.1283730278705339,
+       -0.009839107667905071
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "side": -1,
+    "wall_hl": 0.14439152243186337,
+    "wall_xy": [
+     -0.1804075097556362,
+     -0.03390806049429099
+    ],
+    "gap": 0.002949564822429622,
+    "box_xy": [
+     -0.13245794493320656,
+     0.009042464692621127
+    ],
+    "plate_xy": [
+     0.03551952714648715,
+     -0.04822914087119545
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0033818661652963754,
+      "box_xy": [
+       0.0328868089633099,
+       -0.04864630371950823
+      ],
+      "lifted": true,
+      "pushed_y": -0.05768876841212936,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "side": -1,
+    "wall_hl": 0.14439152243186337,
+    "wall_xy": [
+     -0.1804075097556362,
+     -0.03390806049429099
+    ],
+    "gap": 0.002949564822429622,
+    "box_xy": [
+     -0.13245794493320656,
+     0.009042464692621127
+    ],
+    "plate_xy": [
+     0.03551952714648715,
+     -0.04822914087119545
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "side": -1,
+    "wall_hl": 0.14439152243186337,
+    "wall_xy": [
+     -0.1804075097556362,
+     -0.03390806049429099
+    ],
+    "gap": 0.002949564822429622,
+    "box_xy": [
+     -0.13245794493320656,
+     0.009042464692621127
+    ],
+    "plate_xy": [
+     0.03551952714648715,
+     -0.04822914087119545
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0034237360414123763,
+      "box_xy": [
+       0.03286293550562626,
+       -0.04863506735104986
+      ],
+      "lifted": true,
+      "pushed_y": -0.05767753204367099,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "side": -1,
+    "wall_hl": 0.14439152243186337,
+    "wall_xy": [
+     -0.1804075097556362,
+     -0.03390806049429099
+    ],
+    "gap": 0.002949564822429622,
+    "box_xy": [
+     -0.13245794493320656,
+     0.009042464692621127
+    ],
+    "plate_xy": [
+     0.03551952714648715,
+     -0.04822914087119545
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.003331519269913858,
+      "dy": -0.007849027425803387,
+      "dyaw": 0.2736182825635256
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.013131287794089373,
+      "dy": -0.01892124881736849,
+      "dyaw": 0.11584582244066355
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0034909714910808043,
+      "dy": -0.002404878372120317,
+      "dyaw": 0.03227267798424021
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.012267348881399302,
+      "dy": -0.01130359746190842,
+      "dyaw": -0.09517288208981191
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17747239022796127,
+      "box_xy": [
+       -0.13245794493320656,
+       0.009042464692621127
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "side": 1,
+    "wall_hl": 0.12980746763018586,
+    "wall_xy": [
+     -0.023804263740237613,
+     -0.05401782455121621
+    ],
+    "gap": 0.002477537617432257,
+    "box_xy": [
+     -0.07128180135766987,
+     -0.0670540359598844
+    ],
+    "plate_xy": [
+     -0.24252827718097322,
+     -0.06729808992841577
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.008023521391277775,
+      "box_xy": [
+       -0.23318982973032223,
+       -0.06900403970365714
+      ],
+      "lifted": true,
+      "pushed_y": -0.0019500037437727297,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "side": 1,
+    "wall_hl": 0.12980746763018586,
+    "wall_xy": [
+     -0.023804263740237613,
+     -0.05401782455121621
+    ],
+    "gap": 0.002477537617432257,
+    "box_xy": [
+     -0.07128180135766987,
+     -0.0670540359598844
+    ],
+    "plate_xy": [
+     -0.24252827718097322,
+     -0.06729808992841577
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "side": 1,
+    "wall_hl": 0.12980746763018586,
+    "wall_xy": [
+     -0.023804263740237613,
+     -0.05401782455121621
+    ],
+    "gap": 0.002477537617432257,
+    "box_xy": [
+     -0.07128180135766987,
+     -0.0670540359598844
+    ],
+    "plate_xy": [
+     -0.24252827718097322,
+     -0.06729808992841577
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.00905488291205817,
+      "box_xy": [
+       -0.23362545843058496,
+       -0.06863173268978598
+      ],
+      "lifted": true,
+      "pushed_y": -0.0015776967299015732,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "side": 1,
+    "wall_hl": 0.12980746763018586,
+    "wall_xy": [
+     -0.023804263740237613,
+     -0.05401782455121621
+    ],
+    "gap": 0.002477537617432257,
+    "box_xy": [
+     -0.07128180135766987,
+     -0.0670540359598844
+    ],
+    "plate_xy": [
+     -0.24252827718097322,
+     -0.06729808992841577
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.005824380857519375,
+      "dy": 0.009575026131538098,
+      "dyaw": 0.085743285782297
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0005737488003495305,
+      "dy": 0.005463914611688652,
+      "dyaw": 0.1388671551761695
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0062326003611133645,
+      "dy": 0.018974324051414426,
+      "dyaw": -0.04622235618295862
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0011283343987874943,
+      "dy": 0.0075591910218325235,
+      "dyaw": 0.08044763582456156
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17124666312059283,
+      "box_xy": [
+       -0.07128180135766987,
+       -0.0670540359598844
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "side": 1,
+    "wall_hl": 0.1360741719371053,
+    "wall_xy": [
+     -0.01276195290557127,
+     0.05012120797361529
+    ],
+    "gap": 0.002546458617437084,
+    "box_xy": [
+     -0.06030841152300835,
+     0.08485817160293337
+    ],
+    "plate_xy": [
+     -0.22849684448975416,
+     0.09264796345733467
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.00439634480626715,
+      "box_xy": [
+       -0.22873901829852472,
+       0.09896099016777585
+      ],
+      "lifted": true,
+      "pushed_y": 0.014102818564842481,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "side": 1,
+    "wall_hl": 0.1360741719371053,
+    "wall_xy": [
+     -0.01276195290557127,
+     0.05012120797361529
+    ],
+    "gap": 0.002546458617437084,
+    "box_xy": [
+     -0.06030841152300835,
+     0.08485817160293337
+    ],
+    "plate_xy": [
+     -0.22849684448975416,
+     0.09264796345733467
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "side": 1,
+    "wall_hl": 0.1360741719371053,
+    "wall_xy": [
+     -0.01276195290557127,
+     0.05012120797361529
+    ],
+    "gap": 0.002546458617437084,
+    "box_xy": [
+     -0.06030841152300835,
+     0.08485817160293337
+    ],
+    "plate_xy": [
+     -0.22849684448975416,
+     0.09264796345733467
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.004420290935855196,
+      "box_xy": [
+       -0.2329162673215925,
+       0.09264201736767476
+      ],
+      "lifted": true,
+      "pushed_y": 0.007783845764741393,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "side": 1,
+    "wall_hl": 0.1360741719371053,
+    "wall_xy": [
+     -0.01276195290557127,
+     0.05012120797361529
+    ],
+    "gap": 0.002546458617437084,
+    "box_xy": [
+     -0.06030841152300835,
+     0.08485817160293337
+    ],
+    "plate_xy": [
+     -0.22849684448975416,
+     0.09264796345733467
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.013589601380419387,
+      "dy": 0.004303976045215448,
+      "dyaw": -0.027073678690924037
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.008721671545938857,
+      "dy": 0.004431301135049556,
+      "dyaw": -0.18013853412125772
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.003563674617270038,
+      "dy": 0.010758537561393836,
+      "dyaw": -0.13483719186455734
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0016972811808627017,
+      "dy": -0.002012682352561077,
+      "dyaw": -0.19184086184287927
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.16836875101621798,
+      "box_xy": [
+       -0.06030841152300835,
+       0.08485817160293337
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 3 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "side": -1,
+    "wall_hl": 0.13689970606528185,
+    "wall_xy": [
+     -0.21349534137474613,
+     -0.03448798384152123
+    ],
+    "gap": 0.00030842499081662413,
+    "box_xy": [
+     -0.1681869163839295,
+     -0.06533326135037343
+    ],
+    "plate_xy": [
+     0.00019480971310922857,
+     -0.007443485064384567
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0019661245272316716,
+      "box_xy": [
+       -0.002192050327293709,
+       -0.008905510785950322
+      ],
+      "lifted": true,
+      "pushed_y": 0.056427750564423104,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "side": -1,
+    "wall_hl": 0.13689970606528185,
+    "wall_xy": [
+     -0.21349534137474613,
+     -0.03448798384152123
+    ],
+    "gap": 0.00030842499081662413,
+    "box_xy": [
+     -0.1681869163839295,
+     -0.06533326135037343
+    ],
+    "plate_xy": [
+     0.00019480971310922857,
+     -0.007443485064384567
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "side": -1,
+    "wall_hl": 0.13689970606528185,
+    "wall_xy": [
+     -0.21349534137474613,
+     -0.03448798384152123
+    ],
+    "gap": 0.00030842499081662413,
+    "box_xy": [
+     -0.1681869163839295,
+     -0.06533326135037343
+    ],
+    "plate_xy": [
+     0.00019480971310922857,
+     -0.007443485064384567
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.002721598418241566,
+      "box_xy": [
+       -0.002205218435223605,
+       -0.009289507389831133
+      ],
+      "lifted": true,
+      "pushed_y": 0.05604375396054229,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "side": -1,
+    "wall_hl": 0.13689970606528185,
+    "wall_xy": [
+     -0.21349534137474613,
+     -0.03448798384152123
+    ],
+    "gap": 0.00030842499081662413,
+    "box_xy": [
+     -0.1681869163839295,
+     -0.06533326135037343
+    ],
+    "plate_xy": [
+     0.00019480971310922857,
+     -0.007443485064384567
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.005299824636417082,
+      "dy": 0.0033415058002467793,
+      "dyaw": -0.21437966502845132
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0024343096617122292,
+      "dy": 0.01219891116651609,
+      "dyaw": 0.055046855410258416
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0036307326851784806,
+      "dy": 0.018101483332736472,
+      "dyaw": 0.22572366145732
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0018992733670330421,
+      "dy": -0.004979952434922183,
+      "dyaw": 0.23861472843726994
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17805516433346846,
+      "box_xy": [
+       -0.1681869163839295,
+       -0.06533326135037343
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "side": 1,
+    "wall_hl": 0.14341940053133978,
+    "wall_xy": [
+     -0.020303817861301594,
+     -0.031387629653558916
+    ],
+    "gap": 0.0014811792403526577,
+    "box_xy": [
+     -0.06678499710165425,
+     -9.086683330498946e-05
+    ],
+    "plate_xy": [
+     -0.23833881233422238,
+     -0.044250624014609156
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.007716800755247329,
+      "box_xy": [
+       -0.2458058059756696,
+       -0.04508202382103778
+      ],
+      "lifted": true,
+      "pushed_y": -0.044991156987732796,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "side": 1,
+    "wall_hl": 0.14341940053133978,
+    "wall_xy": [
+     -0.020303817861301594,
+     -0.031387629653558916
+    ],
+    "gap": 0.0014811792403526577,
+    "box_xy": [
+     -0.06678499710165425,
+     -9.086683330498946e-05
+    ],
+    "plate_xy": [
+     -0.23833881233422238,
+     -0.044250624014609156
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17714623753482284,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330486766e-05
+      ],
+      "lifted": false,
+      "pushed_y": 1.1561660916842298e-16,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "side": 1,
+    "wall_hl": 0.14341940053133978,
+    "wall_xy": [
+     -0.020303817861301594,
+     -0.031387629653558916
+    ],
+    "gap": 0.0014811792403526577,
+    "box_xy": [
+     -0.06678499710165425,
+     -9.086683330498946e-05
+    ],
+    "plate_xy": [
+     -0.23833881233422238,
+     -0.044250624014609156
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17714623753482284,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330486766e-05
+      ],
+      "lifted": false,
+      "pushed_y": 1.1561660916842298e-16,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.009243259458966391,
+      "box_xy": [
+       -0.24745079524815586,
+       -0.04601189946142314
+      ],
+      "lifted": true,
+      "pushed_y": -0.04592103262811827,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "side": 1,
+    "wall_hl": 0.14341940053133978,
+    "wall_xy": [
+     -0.020303817861301594,
+     -0.031387629653558916
+    ],
+    "gap": 0.0014811792403526577,
+    "box_xy": [
+     -0.06678499710165425,
+     -9.086683330498946e-05
+    ],
+    "plate_xy": [
+     -0.23833881233422238,
+     -0.044250624014609156
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17714623753482284,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330486766e-05
+      ],
+      "lifted": false,
+      "pushed_y": 1.1561660916842298e-16,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.003247575043617824,
+      "dy": -0.0009991767038144816,
+      "dyaw": 0.1918185931712809
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17714623753482284,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330477916e-05
+      ],
+      "lifted": false,
+      "pushed_y": 8.84980023291293e-17,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.018939560656613046,
+      "dy": -0.02036786494719342,
+      "dyaw": 0.06430637079852325
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1771462375348229,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330469308e-05
+      ],
+      "lifted": false,
+      "pushed_y": 8.608565249534905e-17,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.012580062192874698,
+      "dy": 0.0002832502173442151,
+      "dyaw": 0.2370563753511526
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1771462375348229,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330460695e-05
+      ],
+      "lifted": false,
+      "pushed_y": 8.612631007681726e-17,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.007955867933783311,
+      "dy": 0.020208285797233258,
+      "dyaw": -0.16188034834519732
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17714623753482292,
+      "box_xy": [
+       -0.06678499710165425,
+       -9.086683330451901e-05
+      ],
+      "lifted": false,
+      "pushed_y": 8.794234871573048e-17,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "side": -1,
+    "wall_hl": 0.12236938414722767,
+    "wall_xy": [
+     -0.2279746951642514,
+     0.020719150955612303
+    ],
+    "gap": 0.0021363404812127763,
+    "box_xy": [
+     -0.1808383546830386,
+     0.018373430556101595
+    ],
+    "plate_xy": [
+     -0.01035977213274103,
+     0.02675623631188601
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.005647421565092507,
+      "box_xy": [
+       -0.013388437817649056,
+       0.022587360424536823
+      ],
+      "lifted": true,
+      "pushed_y": 0.004213929868435228,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "side": -1,
+    "wall_hl": 0.12236938414722767,
+    "wall_xy": [
+     -0.2279746951642514,
+     0.020719150955612303
+    ],
+    "gap": 0.0021363404812127763,
+    "box_xy": [
+     -0.1808383546830386,
+     0.018373430556101595
+    ],
+    "plate_xy": [
+     -0.01035977213274103,
+     0.02675623631188601
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "side": -1,
+    "wall_hl": 0.12236938414722767,
+    "wall_xy": [
+     -0.2279746951642514,
+     0.020719150955612303
+    ],
+    "gap": 0.0021363404812127763,
+    "box_xy": [
+     -0.1808383546830386,
+     0.018373430556101595
+    ],
+    "plate_xy": [
+     -0.01035977213274103,
+     0.02675623631188601
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0008887907358968492,
+      "box_xy": [
+       -0.01295278612248713,
+       0.02551028387560753
+      ],
+      "lifted": true,
+      "pushed_y": 0.007136853319505934,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "side": -1,
+    "wall_hl": 0.12236938414722767,
+    "wall_xy": [
+     -0.2279746951642514,
+     0.020719150955612303
+    ],
+    "gap": 0.0021363404812127763,
+    "box_xy": [
+     -0.1808383546830386,
+     0.018373430556101595
+    ],
+    "plate_xy": [
+     -0.01035977213274103,
+     0.02675623631188601
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.00553881000736829,
+      "dy": -0.007932774771223165,
+      "dyaw": -0.05887516649373749
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.013441410883028939,
+      "dy": 0.004111128078429564,
+      "dyaw": 0.15035893489397656
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.002563584218778366,
+      "dy": 0.010710959580740715,
+      "dyaw": 0.029149359235598034
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.007056052166107011,
+      "dy": -0.013694983598971642,
+      "dyaw": -0.1311146783894206
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17068455107810443,
+      "box_xy": [
+       -0.1808383546830386,
+       0.018373430556101595
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "side": 1,
+    "wall_hl": 0.13757106915901243,
+    "wall_xy": [
+     -0.054828746163043555,
+     0.0477557768382048
+    ],
+    "gap": 0.0015341811721491575,
+    "box_xy": [
+     -0.10136292733519271,
+     0.08476933945321459
+    ],
+    "plate_xy": [
+     -0.2782294765847292,
+     0.1024667370693991
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.005971786968429042,
+      "box_xy": [
+       -0.28420140137688904,
+       0.10251232862958627
+      ],
+      "lifted": true,
+      "pushed_y": 0.017742989176371682,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "side": 1,
+    "wall_hl": 0.13757106915901243,
+    "wall_xy": [
+     -0.054828746163043555,
+     0.0477557768382048
+    ],
+    "gap": 0.0015341811721491575,
+    "box_xy": [
+     -0.10136292733519271,
+     0.08476933945321459
+    ],
+    "plate_xy": [
+     -0.2782294765847292,
+     0.1024667370693991
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "side": 1,
+    "wall_hl": 0.13757106915901243,
+    "wall_xy": [
+     -0.054828746163043555,
+     0.0477557768382048
+    ],
+    "gap": 0.0015341811721491575,
+    "box_xy": [
+     -0.10136292733519271,
+     0.08476933945321459
+    ],
+    "plate_xy": [
+     -0.2782294765847292,
+     0.1024667370693991
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.005965762988167666,
+      "box_xy": [
+       -0.2841953893425779,
+       0.10250890283648066
+      ],
+      "lifted": true,
+      "pushed_y": 0.01773956338326607,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "side": 1,
+    "wall_hl": 0.13757106915901243,
+    "wall_xy": [
+     -0.054828746163043555,
+     0.0477557768382048
+    ],
+    "gap": 0.0015341811721491575,
+    "box_xy": [
+     -0.10136292733519271,
+     0.08476933945321459
+    ],
+    "plate_xy": [
+     -0.2782294765847292,
+     0.1024667370693991
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.004745332320829135,
+      "dy": -0.005971086067292305,
+      "dyaw": 0.03612506403210327
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0036680943171933864,
+      "dy": 0.0017150505960154283,
+      "dyaw": -0.13827243229608982
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.012099503517314841,
+      "dy": 0.001772356501057079,
+      "dyaw": 0.11785687690577981
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.00854709550687586,
+      "dy": 0.0006883290241817325,
+      "dyaw": 0.12286182245808071
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1777497771441659,
+      "box_xy": [
+       -0.10136292733519271,
+       0.08476933945321459
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "side": 1,
+    "wall_hl": 0.13821203485822095,
+    "wall_xy": [
+     -0.06317989900859287,
+     0.01695661437813349
+    ],
+    "gap": 9.146845493283684e-05,
+    "box_xy": [
+     -0.10827136746352571,
+     -0.014152926291470778
+    ],
+    "plate_xy": [
+     -0.27529996828928427,
+     0.009110999667858274
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.011192278056930127,
+      "box_xy": [
+       -0.2865017535616821,
+       0.008757175975917837
+      ],
+      "lifted": true,
+      "pushed_y": 0.022910102267388613,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "side": 1,
+    "wall_hl": 0.13821203485822095,
+    "wall_xy": [
+     -0.06317989900859287,
+     0.01695661437813349
+    ],
+    "gap": 9.146845493283684e-05,
+    "box_xy": [
+     -0.10827136746352571,
+     -0.014152926291470778
+    ],
+    "plate_xy": [
+     -0.27529996828928427,
+     0.009110999667858274
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "side": 1,
+    "wall_hl": 0.13821203485822095,
+    "wall_xy": [
+     -0.06317989900859287,
+     0.01695661437813349
+    ],
+    "gap": 9.146845493283684e-05,
+    "box_xy": [
+     -0.10827136746352571,
+     -0.014152926291470778
+    ],
+    "plate_xy": [
+     -0.27529996828928427,
+     0.009110999667858274
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": -1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.011185253474974151,
+      "box_xy": [
+       -0.28649459977805486,
+       0.008753364261182926
+      ],
+      "lifted": true,
+      "pushed_y": 0.022906290552653703,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "side": 1,
+    "wall_hl": 0.13821203485822095,
+    "wall_xy": [
+     -0.06317989900859287,
+     0.01695661437813349
+    ],
+    "gap": 9.146845493283684e-05,
+    "box_xy": [
+     -0.10827136746352571,
+     -0.014152926291470778
+    ],
+    "plate_xy": [
+     -0.27529996828928427,
+     0.009110999667858274
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.010847002275004467,
+      "dy": -0.006819155140758386,
+      "dyaw": 0.036172137419091296
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.008971165958173653,
+      "dy": -0.0019098713986626498,
+      "dyaw": 0.01667637634377489
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.004629833698174571,
+      "dy": -0.017236380918597697,
+      "dyaw": -0.1566918806590447
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.00518912728866863,
+      "dy": -0.000947789215326253,
+      "dyaw": 0.005465828192360824
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1686409617958848,
+      "box_xy": [
+       -0.10827136746352571,
+       -0.014152926291470778
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "side": 1,
+    "wall_hl": 0.13328081973282935,
+    "wall_xy": [
+     -0.03503128929874614,
+     -0.017565125533832666
+    ],
+    "gap": 0.001244884100916576,
+    "box_xy": [
+     -0.08127617339966271,
+     -0.01225965236585922
+    ],
+    "plate_xy": [
+     -0.2600232884166275,
+     -0.002917956152544983
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.011167997457612686,
+      "box_xy": [
+       -0.270888530285465,
+       -0.005564760976332465
+      ],
+      "lifted": true,
+      "pushed_y": 0.006694891389526756,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "side": 1,
+    "wall_hl": 0.13328081973282935,
+    "wall_xy": [
+     -0.03503128929874614,
+     -0.017565125533832666
+    ],
+    "gap": 0.001244884100916576,
+    "box_xy": [
+     -0.08127617339966271,
+     -0.01225965236585922
+    ],
+    "plate_xy": [
+     -0.2600232884166275,
+     -0.002917956152544983
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "side": 1,
+    "wall_hl": 0.13328081973282935,
+    "wall_xy": [
+     -0.03503128929874614,
+     -0.017565125533832666
+    ],
+    "gap": 0.001244884100916576,
+    "box_xy": [
+     -0.08127617339966271,
+     -0.01225965236585922
+    ],
+    "plate_xy": [
+     -0.2600232884166275,
+     -0.002917956152544983
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.011166423680989501,
+      "box_xy": [
+       -0.27088680367414997,
+       -0.0055651901217692685
+      ],
+      "lifted": true,
+      "pushed_y": 0.006694462244089952,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "side": 1,
+    "wall_hl": 0.13328081973282935,
+    "wall_xy": [
+     -0.03503128929874614,
+     -0.017565125533832666
+    ],
+    "gap": 0.001244884100916576,
+    "box_xy": [
+     -0.08127617339966271,
+     -0.01225965236585922
+    ],
+    "plate_xy": [
+     -0.2600232884166275,
+     -0.002917956152544983
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.008526627780710718,
+      "dy": 0.007471083623875066,
+      "dyaw": 0.1259760506260991
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.008394834811650029,
+      "dy": 0.0030617638455432495,
+      "dyaw": -0.10332403360595493
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.00577819168664827,
+      "dy": 0.01406424698057812,
+      "dyaw": 0.06755402263095733
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.00637092245698522,
+      "dy": -0.011793518111416431,
+      "dyaw": -0.019342271919894537
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1789910767631081,
+      "box_xy": [
+       -0.08127617339966271,
+       -0.01225965236585922
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "side": 1,
+    "wall_hl": 0.14463995620901443,
+    "wall_xy": [
+     -0.041455935585154785,
+     0.056709527049252154
+    ],
+    "gap": 0.000205848361428298,
+    "box_xy": [
+     -0.08666178394658308,
+     0.06560374662306462
+    ],
+    "plate_xy": [
+     -0.25890851522186353,
+     0.062062461623090995
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.005846038727561246,
+      "box_xy": [
+       -0.26446126873538167,
+       0.0602348478933865
+      ],
+      "lifted": true,
+      "pushed_y": -0.00536889872967812,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "side": 1,
+    "wall_hl": 0.14463995620901443,
+    "wall_xy": [
+     -0.041455935585154785,
+     0.056709527049252154
+    ],
+    "gap": 0.000205848361428298,
+    "box_xy": [
+     -0.08666178394658308,
+     0.06560374662306462
+    ],
+    "plate_xy": [
+     -0.25890851522186353,
+     0.062062461623090995
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "side": 1,
+    "wall_hl": 0.14463995620901443,
+    "wall_xy": [
+     -0.041455935585154785,
+     0.056709527049252154
+    ],
+    "gap": 0.000205848361428298,
+    "box_xy": [
+     -0.08666178394658308,
+     0.06560374662306462
+    ],
+    "plate_xy": [
+     -0.25890851522186353,
+     0.062062461623090995
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.006645189392257645,
+      "box_xy": [
+       -0.2649555672950653,
+       0.061264319951937055
+      ],
+      "lifted": true,
+      "pushed_y": -0.004339426671127564,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "side": 1,
+    "wall_hl": 0.14463995620901443,
+    "wall_xy": [
+     -0.041455935585154785,
+     0.056709527049252154
+    ],
+    "gap": 0.000205848361428298,
+    "box_xy": [
+     -0.08666178394658308,
+     0.06560374662306462
+    ],
+    "plate_xy": [
+     -0.25890851522186353,
+     0.062062461623090995
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.008733857476808587,
+      "dy": -0.017853548325201037,
+      "dyaw": -0.12874331463471406
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.00820435920910182,
+      "dy": 0.005470790712459689,
+      "dyaw": 0.09851242648681734
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.008707638258957227,
+      "dy": 0.00868506060709559,
+      "dyaw": -0.12256221255099911
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.001106902337573674,
+      "dy": -0.004029359923992182,
+      "dyaw": -0.05166192730734302
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.17228314176579984,
+      "box_xy": [
+       -0.08666178394658308,
+       0.06560374662306462
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 0 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "side": 1,
+    "wall_hl": 0.13364877227085326,
+    "wall_xy": [
+     -0.019296278341549566,
+     0.044581666530363176
+    ],
+    "gap": 0.0015847255505957829,
+    "box_xy": [
+     -0.06588100389214535,
+     0.06573923304481372
+    ],
+    "plate_xy": [
+     -0.23166338247287474,
+     0.07764866035771009
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0060833593020622285,
+      "box_xy": [
+       -0.23724752498371107,
+       0.07736625213901077
+      ],
+      "lifted": true,
+      "pushed_y": 0.011627019094197055,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "side": 1,
+    "wall_hl": 0.13364877227085326,
+    "wall_xy": [
+     -0.019296278341549566,
+     0.044581666530363176
+    ],
+    "gap": 0.0015847255505957829,
+    "box_xy": [
+     -0.06588100389214535,
+     0.06573923304481372
+    ],
+    "plate_xy": [
+     -0.23166338247287474,
+     0.07764866035771009
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "side": 1,
+    "wall_hl": 0.13364877227085326,
+    "wall_xy": [
+     -0.019296278341549566,
+     0.044581666530363176
+    ],
+    "gap": 0.0015847255505957829,
+    "box_xy": [
+     -0.06588100389214535,
+     0.06573923304481372
+    ],
+    "plate_xy": [
+     -0.23166338247287474,
+     0.07764866035771009
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.004449270046208811,
+      "box_xy": [
+       -0.23587710059924735,
+       0.07666582395095767
+      ],
+      "lifted": true,
+      "pushed_y": 0.010926590906143951,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "side": 1,
+    "wall_hl": 0.13364877227085326,
+    "wall_xy": [
+     -0.019296278341549566,
+     0.044581666530363176
+    ],
+    "gap": 0.0015847255505957829,
+    "box_xy": [
+     -0.06588100389214535,
+     0.06573923304481372
+    ],
+    "plate_xy": [
+     -0.23166338247287474,
+     0.07764866035771009
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.006769964049328536,
+      "dy": 0.009737517094308795,
+      "dyaw": 0.13130737740828138
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0049043368268051465,
+      "dy": -0.004330253971404429,
+      "dyaw": -0.1260028037261641
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.004913320124295874,
+      "dy": -0.008899325998142813,
+      "dyaw": 0.2380064673679984
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0024576654724519534,
+      "dy": 0.0012989895008579232,
+      "dyaw": 0.0796564182818847
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.166209623464289,
+      "box_xy": [
+       -0.06588100389214535,
+       0.06573923304481372
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (far (+x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 2 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "side": -1,
+    "wall_hl": 0.1318798514368117,
+    "wall_xy": [
+     -0.1892475852153163,
+     -0.003973900289894312
+    ],
+    "gap": 0.0006367950134859641,
+    "box_xy": [
+     -0.14361079020183032,
+     0.0169872262251941
+    ],
+    "plate_xy": [
+     0.021764422940108413,
+     -0.03095078283317948
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0030855992562432476,
+      "box_xy": [
+       0.01874912757727053,
+       -0.03150642950819965
+      ],
+      "lifted": true,
+      "pushed_y": -0.04849365573339375,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "side": -1,
+    "wall_hl": 0.1318798514368117,
+    "wall_xy": [
+     -0.1892475852153163,
+     -0.003973900289894312
+    ],
+    "gap": 0.0006367950134859641,
+    "box_xy": [
+     -0.14361079020183032,
+     0.0169872262251941
+    ],
+    "plate_xy": [
+     0.021764422940108413,
+     -0.03095078283317948
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "side": -1,
+    "wall_hl": 0.1318798514368117,
+    "wall_xy": [
+     -0.1892475852153163,
+     -0.003973900289894312
+    ],
+    "gap": 0.0006367950134859641,
+    "box_xy": [
+     -0.14361079020183032,
+     0.0169872262251941
+    ],
+    "plate_xy": [
+     0.021764422940108413,
+     -0.03095078283317948
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "push_grasp",
+      "end": 1,
+      "margin": 0.045
+     },
+     "outcome": {
+      "success": true,
+      "mode": "success",
+      "plate_dist": 0.0030852379207296976,
+      "box_xy": [
+       0.018749328676976422,
+       -0.031505667473597496
+      ],
+      "lifted": true,
+      "pushed_y": -0.048492893698791596,
+      "alongside_wall": false,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The box is resting on the plate."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "side": -1,
+    "wall_hl": 0.1318798514368117,
+    "wall_xy": [
+     -0.1892475852153163,
+     -0.003973900289894312
+    ],
+    "gap": 0.0006367950134859641,
+    "box_xy": [
+     -0.14361079020183032,
+     0.0169872262251941
+    ],
+    "plate_xy": [
+     0.021764422940108413,
+     -0.03095078283317948
+    ]
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "mode": "grasp"
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.006536002859300678,
+      "dy": 0.0027994288868647835,
+      "dyaw": -0.13903812082634992
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.006960589628438278,
+      "dy": -0.00586753506517073,
+      "dyaw": 0.06163766149567483
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "mode": "grasp",
+      "dx": 0.0020013332240046864,
+      "dy": 0.003135757175531688,
+      "dyaw": -0.005152631531814856
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "mode": "grasp",
+      "dx": -0.0007690611492049868,
+      "dy": -0.00463784093223513,
+      "dyaw": 0.10766453667483403
+     },
+     "outcome": {
+      "success": false,
+      "mode": "wall_blocked",
+      "plate_dist": 0.1721830350601345,
+      "box_xy": [
+       -0.14361079020183032,
+       0.0169872262251941
+      ],
+      "lifted": false,
+      "pushed_y": 0.0,
+      "alongside_wall": true,
+      "wall_left": null,
+      "terminal": false,
+      "detail": "The gripper could not get around the box: the finger on the wall side (near (-x) side) came down on top of the wall, 4.5 cm above the table, which is higher than the top of the box (3.5 cm), so the box was not grasped or lifted. Where the gripper came down, the box is flush against the wall (gap 1 mm)."
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 305.49884510040283
+}

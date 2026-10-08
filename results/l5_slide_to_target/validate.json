@@ -1,0 +1,5324 @@
+{
+ "task": "l5_slide_to_target",
+ "level": "L5",
+ "capabilities": [
+  "Reason",
+  "Utilize"
+ ],
+ "n": 30,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.26666666666666666,
+   0.26666666666666666,
+   0.26666666666666666,
+   0.26666666666666666,
+   0.26666666666666666
+  ],
+  "adaptive": [
+   0.26666666666666666,
+   0.6666666666666666,
+   0.8333333333333334,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.26666666666666666,
+   0.43333333333333335,
+   0.5,
+   0.6,
+   0.6333333333333333
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "cube_xy": [
+     -0.19871685572149625,
+     0.020768369401265918
+    ],
+    "target_dist": 0.08296592581255777,
+    "mu": 0.043324671282773584
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.23249999999999998
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.00374276641566082,
+      "across_err": 0.0016994314228637765,
+      "detail": "The cube stopped 0.4 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0177
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "cube_xy": [
+     -0.19871685572149625,
+     0.020768369401265918
+    ],
+    "target_dist": 0.08296592581255777,
+    "mu": 0.043324671282773584
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04806249445864194,
+      "across_err": -0.0008233071573674269,
+      "detail": "The cube stopped 4.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "cube_xy": [
+     -0.19871685572149625,
+     0.020768369401265918
+    ],
+    "target_dist": 0.08296592581255777,
+    "mu": 0.043324671282773584
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04806249445864194,
+      "across_err": -0.0008233071573674269,
+      "detail": "The cube stopped 4.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.015564868101635626,
+      "across_err": 0.0006473052612084827,
+      "detail": "The cube stopped 1.6 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0247,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.23201628470487234
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0036343176359127233,
+      "across_err": 0.0006653192477105614,
+      "detail": "The cube stopped 0.4 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0179
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "cube_xy": [
+     -0.19871685572149625,
+     0.020768369401265918
+    ],
+    "target_dist": 0.08296592581255777,
+    "mu": 0.043324671282773584
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04806249445864194,
+      "across_err": -0.0008233071573674269,
+      "detail": "The cube stopped 4.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2839334897001048
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.028026880599034548,
+      "across_err": -0.00040157839803437595,
+      "detail": "The cube stopped 2.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0233,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2757169260866585
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.036728015143367876,
+      "across_err": -0.0003106097495928391,
+      "detail": "The cube stopped 3.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0265,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.38400290642939855
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.08809789567869636,
+      "across_err": -0.0023600724967919456,
+      "detail": "The cube stopped 8.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0278,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.39852634410528576
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.09052113505644913,
+      "across_err": -0.004257002691506757,
+      "detail": "The cube stopped 9.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0248,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "cube_xy": [
+     -0.19324430428580297,
+     -0.0968599064359337
+    ],
+    "target_dist": 0.06313827038173508,
+    "mu": 0.08614052993545455
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.36
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -1.5451037949643087e-05,
+      "across_err": -0.0003636458707133444,
+      "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.031
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "cube_xy": [
+     -0.19324430428580297,
+     -0.0968599064359337
+    ],
+    "target_dist": 0.06313827038173508,
+    "mu": 0.08614052993545455
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014070023983656588,
+      "across_err": -9.923641364328883e-05,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0291,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "cube_xy": [
+     -0.19324430428580297,
+     -0.0968599064359337
+    ],
+    "target_dist": 0.06313827038173508,
+    "mu": 0.08614052993545455
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014070023983656588,
+      "across_err": -9.923641364328883e-05,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0291,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.007000936368910388,
+      "across_err": -0.0009628221530297576,
+      "detail": "The cube stopped 0.7 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0311
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "cube_xy": [
+     -0.19324430428580297,
+     -0.0968599064359337
+    ],
+    "target_dist": 0.06313827038173508,
+    "mu": 0.08614052993545455
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014070023983656588,
+      "across_err": -9.923641364328883e-05,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0291,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3466161217560227
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0006537452922341092,
+      "across_err": -0.000267231631101289,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0209
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "cube_xy": [
+     -0.20715073043101306,
+     -0.028562132465810616
+    ],
+    "target_dist": 0.10233286219477337,
+    "mu": 0.05268049617440161
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.345
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0028751058995725443,
+      "across_err": -0.0004305628763709157,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0315
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "cube_xy": [
+     -0.20715073043101306,
+     -0.028562132465810616
+    ],
+    "target_dist": 0.10233286219477337,
+    "mu": 0.05268049617440161
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014328483342217327,
+      "across_err": -0.0001333211221197679,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0236,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "cube_xy": [
+     -0.20715073043101306,
+     -0.028562132465810616
+    ],
+    "target_dist": 0.10233286219477337,
+    "mu": 0.05268049617440161
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014328483342217327,
+      "across_err": -0.0001333211221197679,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0236,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.005905815235917031,
+      "across_err": -0.0004203426142073523,
+      "detail": "The cube stopped 0.6 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0256
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "cube_xy": [
+     -0.20715073043101306,
+     -0.028562132465810616
+    ],
+    "target_dist": 0.10233286219477337,
+    "mu": 0.05268049617440161
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014328483342217327,
+      "across_err": -0.0001333211221197679,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0236,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.30535016562481715
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.025008003896836814,
+      "across_err": -0.00010861280105415455,
+      "detail": "The cube stopped 2.5 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0192,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2184146703466136
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.03768744353320215,
+      "across_err": 0.00026988637359670956,
+      "detail": "The cube stopped 3.8 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0178,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.36608979819918214
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.003678870000733872,
+      "across_err": -0.0003112521327586111,
+      "detail": "The cube stopped 0.4 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0226
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "cube_xy": [
+     -0.218734557903882,
+     -0.04865883795623558
+    ],
+    "target_dist": 0.08462755290321959,
+    "mu": 0.07003966036289754
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.37124999999999997
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0009966056556950514,
+      "across_err": -0.0008606694143168878,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0191
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "cube_xy": [
+     -0.218734557903882,
+     -0.04865883795623558
+    ],
+    "target_dist": 0.08462755290321959,
+    "mu": 0.07003966036289754
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0073038730836873095,
+      "across_err": -0.00040805030756514704,
+      "detail": "The cube stopped 0.7 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0176
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "cube_xy": [
+     -0.218734557903882,
+     -0.04865883795623558
+    ],
+    "target_dist": 0.08462755290321959,
+    "mu": 0.07003966036289754
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0073038730836873095,
+      "across_err": -0.00040805030756514704,
+      "detail": "The cube stopped 0.7 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0176
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "cube_xy": [
+     -0.218734557903882,
+     -0.04865883795623558
+    ],
+    "target_dist": 0.08462755290321959,
+    "mu": 0.07003966036289754
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0073038730836873095,
+      "across_err": -0.00040805030756514704,
+      "detail": "The cube stopped 0.7 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0176
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "cube_xy": [
+     -0.2299471728355571,
+     -0.07396973757447373
+    ],
+    "target_dist": 0.059693415570901395,
+    "mu": 0.052194009154628844
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.19875
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0027065181422208234,
+      "across_err": 0.00038310014418614646,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0239
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "cube_xy": [
+     -0.2299471728355571,
+     -0.07396973757447373
+    ],
+    "target_dist": 0.059693415570901395,
+    "mu": 0.052194009154628844
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04388818403569188,
+      "across_err": -0.0017068458277746112,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0175,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "cube_xy": [
+     -0.2299471728355571,
+     -0.07396973757447373
+    ],
+    "target_dist": 0.059693415570901395,
+    "mu": 0.052194009154628844
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04388818403569188,
+      "across_err": -0.0017068458277746112,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0175,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.004030059833068381,
+      "across_err": 0.0002512647806771351,
+      "detail": "The cube stopped 0.4 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0251
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "cube_xy": [
+     -0.2299471728355571,
+     -0.07396973757447373
+    ],
+    "target_dist": 0.059693415570901395,
+    "mu": 0.052194009154628844
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04388818403569188,
+      "across_err": -0.0017068458277746112,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0175,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3006820097614025
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.043366690157626245,
+      "across_err": -0.0007012692966941597,
+      "detail": "The cube stopped 4.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0173,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2968642870573151
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039758897161003046,
+      "across_err": -0.0011346412513699722,
+      "detail": "The cube stopped 4.0 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0184,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.312457874047031
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04153301778567893,
+      "across_err": -0.0018561705105821086,
+      "detail": "The cube stopped 4.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0234,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.3024792340143856
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.03286946837820738,
+      "across_err": -0.0005732069937956497,
+      "detail": "The cube stopped 3.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0301,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "cube_xy": [
+     -0.22506684961592638,
+     0.08611240847772073
+    ],
+    "target_dist": 0.07010988198574393,
+    "mu": 0.06842378025184853
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.27
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0016804903803282895,
+      "across_err": 0.000962429605708276,
+      "detail": "The cube stopped 0.2 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0269
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "cube_xy": [
+     -0.22506684961592638,
+     0.08611240847772073
+    ],
+    "target_dist": 0.07010988198574393,
+    "mu": 0.06842378025184853
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.019037017488105504,
+      "across_err": 0.0009909059691824151,
+      "detail": "The cube stopped 1.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0228,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "cube_xy": [
+     -0.22506684961592638,
+     0.08611240847772073
+    ],
+    "target_dist": 0.07010988198574393,
+    "mu": 0.06842378025184853
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.019037017488105504,
+      "across_err": 0.0009909059691824151,
+      "detail": "The cube stopped 1.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0228,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.020000946406564787,
+      "across_err": -0.0005234731849038943,
+      "detail": "The cube stopped 2.0 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0203,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2561111440506401
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006850582294323462,
+      "across_err": -0.007466250043101308,
+      "detail": "The cube stopped 0.7 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.023
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "cube_xy": [
+     -0.22506684961592638,
+     0.08611240847772073
+    ],
+    "target_dist": 0.07010988198574393,
+    "mu": 0.06842378025184853
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.019037017488105504,
+      "across_err": 0.0009909059691824151,
+      "detail": "The cube stopped 1.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0228,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.26444466689696083
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0018582775075244168,
+      "across_err": 0.0005149846843980344,
+      "detail": "The cube stopped 0.2 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0169
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "cube_xy": [
+     -0.20978471398563053,
+     0.020171388759930964
+    ],
+    "target_dist": 0.07084819095864228,
+    "mu": 0.04491432876924515
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.22124999999999997
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0015695311000988588,
+      "across_err": -0.00033969110134116076,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.022
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "cube_xy": [
+     -0.20978471398563053,
+     0.020171388759930964
+    ],
+    "target_dist": 0.07084819095864228,
+    "mu": 0.04491432876924515
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.035570031854294526,
+      "across_err": 0.00013918798719474504,
+      "detail": "The cube stopped 3.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0189,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "cube_xy": [
+     -0.20978471398563053,
+     0.020171388759930964
+    ],
+    "target_dist": 0.07084819095864228,
+    "mu": 0.04491432876924515
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.035570031854294526,
+      "across_err": 0.00013918798719474504,
+      "detail": "The cube stopped 3.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0189,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0015811923279494822,
+      "across_err": -0.00016685807715964215,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0212
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "cube_xy": [
+     -0.20978471398563053,
+     0.020171388759930964
+    ],
+    "target_dist": 0.07084819095864228,
+    "mu": 0.04491432876924515
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.035570031854294526,
+      "across_err": 0.00013918798719474504,
+      "detail": "The cube stopped 3.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0189,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3584487779225305
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04138985316214654,
+      "across_err": 0.0001727394103843878,
+      "detail": "The cube stopped 4.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0225,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.20010523387805246
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.009533893075260397,
+      "across_err": -0.00011324171059735183,
+      "detail": "The cube stopped 1.0 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0202
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "cube_xy": [
+     -0.22572650375234687,
+     0.06319606903558866
+    ],
+    "target_dist": 0.095004995904306,
+    "mu": 0.043023139509425226
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.23812499999999998
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.00024834723320898977,
+      "across_err": -0.00011099406032950843,
+      "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.025
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "cube_xy": [
+     -0.22572650375234687,
+     0.06319606903558866
+    ],
+    "target_dist": 0.095004995904306,
+    "mu": 0.043023139509425226
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006670117906851375,
+      "across_err": 0.0003912403048786095,
+      "detail": "The cube stopped 0.7 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.017
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "cube_xy": [
+     -0.22572650375234687,
+     0.06319606903558866
+    ],
+    "target_dist": 0.095004995904306,
+    "mu": 0.043023139509425226
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006670117906851375,
+      "across_err": 0.0003912403048786095,
+      "detail": "The cube stopped 0.7 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.017
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "cube_xy": [
+     -0.22572650375234687,
+     0.06319606903558866
+    ],
+    "target_dist": 0.095004995904306,
+    "mu": 0.043023139509425226
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006670117906851375,
+      "across_err": 0.0003912403048786095,
+      "detail": "The cube stopped 0.7 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.017
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "cube_xy": [
+     -0.21996483505672287,
+     0.06261014954575583
+    ],
+    "target_dist": 0.06522029804499693,
+    "mu": 0.09831051602090707
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.48
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0010705058688541547,
+      "across_err": 0.0026996478462373574,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0242
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "cube_xy": [
+     -0.21996483505672287,
+     0.06261014954575583
+    ],
+    "target_dist": 0.06522029804499693,
+    "mu": 0.09831051602090707
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.012055159198426701,
+      "across_err": 0.0005491760524446998,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0196,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "cube_xy": [
+     -0.21996483505672287,
+     0.06261014954575583
+    ],
+    "target_dist": 0.06522029804499693,
+    "mu": 0.09831051602090707
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.012055159198426701,
+      "across_err": 0.0005491760524446998,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0196,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0009785968945653645,
+      "across_err": 0.0009686584117492153,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0249
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "cube_xy": [
+     -0.21996483505672287,
+     0.06261014954575583
+    ],
+    "target_dist": 0.06522029804499693,
+    "mu": 0.09831051602090707
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.012055159198426701,
+      "across_err": 0.0005491760524446998,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0196,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2791780045630384
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.010395000633495521,
+      "across_err": 0.0005120095864065283,
+      "detail": "The cube stopped 1.0 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0174,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.25094357858872884
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.02100121715658093,
+      "across_err": -0.0006249494304416889,
+      "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0222,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.4140076177348023
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0030559682443075664,
+      "across_err": 0.0007918343074767714,
+      "detail": "The cube stopped 0.3 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0233
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "cube_xy": [
+     -0.22660997227679366,
+     -0.03461688246542764
+    ],
+    "target_dist": 0.05348960234512388,
+    "mu": 0.047025535362557436
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.17812499999999998
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0018457028550054946,
+      "across_err": 0.00025311802816615353,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0186
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "cube_xy": [
+     -0.22660997227679366,
+     -0.03461688246542764
+    ],
+    "target_dist": 0.05348960234512388,
+    "mu": 0.047025535362557436
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039721279060075436,
+      "across_err": -0.0001436715902031968,
+      "detail": "The cube stopped 4.0 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0208,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "cube_xy": [
+     -0.22660997227679366,
+     -0.03461688246542764
+    ],
+    "target_dist": 0.05348960234512388,
+    "mu": 0.047025535362557436
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039721279060075436,
+      "across_err": -0.0001436715902031968,
+      "detail": "The cube stopped 4.0 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0208,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.014510234910143575,
+      "across_err": 0.00039184002146105956,
+      "detail": "The cube stopped 1.5 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0181,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.147
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.0166002751526177,
+      "across_err": 0.00015275481559674786,
+      "detail": "The cube stopped 1.7 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0204,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.1806162066293712
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0014483203889594856,
+      "across_err": 0.0002839756812033009,
+      "detail": "The cube stopped 0.1 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0248
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "cube_xy": [
+     -0.22660997227679366,
+     -0.03461688246542764
+    ],
+    "target_dist": 0.05348960234512388,
+    "mu": 0.047025535362557436
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039721279060075436,
+      "across_err": -0.0001436715902031968,
+      "detail": "The cube stopped 4.0 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0208,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3364023803594961
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.06727661673421173,
+      "across_err": -0.00018705153288900433,
+      "detail": "The cube stopped 6.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0208,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.35984391332211313
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.06155799171418707,
+      "across_err": -0.00042365837819532265,
+      "detail": "The cube stopped 6.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0295,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.3357263690759571
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04834811992712033,
+      "across_err": -0.00022876356760175715,
+      "detail": "The cube stopped 4.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0209,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.29641406999781544
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.03372833569076602,
+      "across_err": -0.00013018486635372334,
+      "detail": "The cube stopped 3.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0253,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "cube_xy": [
+     -0.17907082765125834,
+     0.049228971192479126
+    ],
+    "target_dist": 0.07865951538361032,
+    "mu": 0.06333310990615935
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.32249999999999995
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0017556702425890747,
+      "across_err": 0.00037193314659000887,
+      "detail": "The cube stopped 0.2 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0182
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "cube_xy": [
+     -0.17907082765125834,
+     0.049228971192479126
+    ],
+    "target_dist": 0.07865951538361032,
+    "mu": 0.06333310990615935
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01311088364538035,
+      "across_err": 0.00012887924999696598,
+      "detail": "The cube stopped 1.3 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0284,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "cube_xy": [
+     -0.17907082765125834,
+     0.049228971192479126
+    ],
+    "target_dist": 0.07865951538361032,
+    "mu": 0.06333310990615935
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01311088364538035,
+      "across_err": 0.00012887924999696598,
+      "detail": "The cube stopped 1.3 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0284,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.01771959796889136,
+      "across_err": 0.00018641574632660696,
+      "detail": "The cube stopped 1.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0284,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3446520038184443
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.00450791042246125,
+      "across_err": 0.00022635812889518908,
+      "detail": "The cube stopped 0.5 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0211
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "cube_xy": [
+     -0.17907082765125834,
+     0.049228971192479126
+    ],
+    "target_dist": 0.07865951538361032,
+    "mu": 0.06333310990615935
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01311088364538035,
+      "across_err": 0.00012887924999696598,
+      "detail": "The cube stopped 1.3 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0284,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21506499137237883
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.0261790848629401,
+      "across_err": -4.4833770596094946e-05,
+      "detail": "The cube stopped 2.6 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0187,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.32689985028259655
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006110120026624949,
+      "across_err": 0.00022065944137744653,
+      "detail": "The cube stopped 0.6 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0293
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "cube_xy": [
+     -0.21295250957897383,
+     0.0126647071018791
+    ],
+    "target_dist": 0.06488200942577929,
+    "mu": 0.03814804070052944
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.17812499999999998
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.001194084097303566,
+      "across_err": -0.00045005515088706455,
+      "detail": "The cube stopped 0.1 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.02
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "cube_xy": [
+     -0.21295250957897383,
+     0.0126647071018791
+    ],
+    "target_dist": 0.06488200942577929,
+    "mu": 0.03814804070052944
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04202466911788093,
+      "across_err": 2.740750641244856e-05,
+      "detail": "The cube stopped 4.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0169,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "cube_xy": [
+     -0.21295250957897383,
+     0.0126647071018791
+    ],
+    "target_dist": 0.06488200942577929,
+    "mu": 0.03814804070052944
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04202466911788093,
+      "across_err": 2.740750641244856e-05,
+      "detail": "The cube stopped 4.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0169,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.01202030015535177,
+      "across_err": -0.00011167683463872945,
+      "detail": "The cube stopped 1.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.018,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.147
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.02093803070804362,
+      "across_err": -3.4406842404452465e-05,
+      "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0227,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.18702314134396228
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.005840962777321962,
+      "across_err": -0.00012252533387448368,
+      "detail": "The cube stopped 0.6 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.02
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "cube_xy": [
+     -0.21295250957897383,
+     0.0126647071018791
+    ],
+    "target_dist": 0.06488200942577929,
+    "mu": 0.03814804070052944
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04202466911788093,
+      "across_err": 2.740750641244856e-05,
+      "detail": "The cube stopped 4.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0169,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2668760960223932
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04446333797285698,
+      "across_err": 1.3163890716457252e-05,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0223,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3208844112515424
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.05115034754567746,
+      "across_err": 4.796906057976183e-05,
+      "detail": "The cube stopped 5.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.02,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.2106751395714786
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.017523888975586016,
+      "across_err": -0.0001364588607280278,
+      "detail": "The cube stopped 1.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0176,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.31521443538570143
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04986120359212086,
+      "across_err": 2.3063671824110482e-05,
+      "detail": "The cube stopped 5.0 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0216,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "cube_xy": [
+     -0.21162077100376167,
+     0.056129336875598485
+    ],
+    "target_dist": 0.06669054936875729,
+    "mu": 0.08636786982989236
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.384375
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.00038583052995730394,
+      "across_err": 0.0009195580580932394,
+      "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0207
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "cube_xy": [
+     -0.21162077100376167,
+     0.056129336875598485
+    ],
+    "target_dist": 0.06669054936875729,
+    "mu": 0.08636786982989236
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0026391686231329037,
+      "across_err": 0.000406333202074359,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0252
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "cube_xy": [
+     -0.21162077100376167,
+     0.056129336875598485
+    ],
+    "target_dist": 0.06669054936875729,
+    "mu": 0.08636786982989236
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0026391686231329037,
+      "across_err": 0.000406333202074359,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0252
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "cube_xy": [
+     -0.21162077100376167,
+     0.056129336875598485
+    ],
+    "target_dist": 0.06669054936875729,
+    "mu": 0.08636786982989236
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0026391686231329037,
+      "across_err": 0.000406333202074359,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0252
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "cube_xy": [
+     -0.18233042508162875,
+     -0.08420410568514879
+    ],
+    "target_dist": 0.09708617139077384,
+    "mu": 0.05599236727412261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.36
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0016468177675395546,
+      "across_err": -0.0003714014769483909,
+      "detail": "The cube stopped 0.2 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0309
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "cube_xy": [
+     -0.18233042508162875,
+     -0.08420410568514879
+    ],
+    "target_dist": 0.09708617139077384,
+    "mu": 0.05599236727412261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.011780223187990602,
+      "across_err": -0.00011580013857716287,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0175,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "cube_xy": [
+     -0.18233042508162875,
+     -0.08420410568514879
+    ],
+    "target_dist": 0.09708617139077384,
+    "mu": 0.05599236727412261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.011780223187990602,
+      "across_err": -0.00011580013857716287,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0175,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.004105643096766559,
+      "across_err": -0.0003135462032473474,
+      "detail": "The cube stopped 0.4 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.031
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "cube_xy": [
+     -0.18233042508162875,
+     -0.08420410568514879
+    ],
+    "target_dist": 0.09708617139077384,
+    "mu": 0.05599236727412261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.011780223187990602,
+      "across_err": -0.00011580013857716287,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0175,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3346175625460518
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.020685678168453472,
+      "across_err": -0.00019261147999484474,
+      "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0273,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2504201576798552
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.030053929631503593,
+      "across_err": -4.6333087395072914e-05,
+      "detail": "The cube stopped 3.0 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0236,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.2754686806276094
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01903656850037358,
+      "across_err": -3.6995621865584805e-05,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0184,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.38400881801893083
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.012867814606288344,
+      "across_err": -0.0003042998383004508,
+      "detail": "The cube stopped 1.3 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0219,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "cube_xy": [
+     -0.19931637655701687,
+     -0.053407318337981784
+    ],
+    "target_dist": 0.10903292237337772,
+    "mu": 0.06906755752081448
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.52125
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0016603413927020055,
+      "across_err": 0.00042666313384573384,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0219
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "cube_xy": [
+     -0.19931637655701687,
+     -0.053407318337981784
+    ],
+    "target_dist": 0.10903292237337772,
+    "mu": 0.06906755752081448
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.04423940603170595,
+      "across_err": -0.0008994406870907815,
+      "detail": "The cube stopped 4.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0275,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "cube_xy": [
+     -0.19931637655701687,
+     -0.053407318337981784
+    ],
+    "target_dist": 0.10903292237337772,
+    "mu": 0.06906755752081448
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.04423940603170595,
+      "across_err": -0.0008994406870907815,
+      "detail": "The cube stopped 4.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0275,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.012914678567188628,
+      "across_err": -0.00032778705302969474,
+      "detail": "The cube stopped 1.3 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0281,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.5467500000000001
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.005272452193802429,
+      "across_err": 0.00041986854351576397,
+      "detail": "The cube stopped 0.5 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0323
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "cube_xy": [
+     -0.19931637655701687,
+     -0.053407318337981784
+    ],
+    "target_dist": 0.10903292237337772,
+    "mu": 0.06906755752081448
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.04423940603170595,
+      "across_err": -0.0008994406870907815,
+      "detail": "The cube stopped 4.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0275,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2703416729948179
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.05366958922246992,
+      "across_err": -0.0001352074688835761,
+      "detail": "The cube stopped 5.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0208,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.26268071207942306
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.0494352852534555,
+      "across_err": -0.00010911734338110712,
+      "detail": "The cube stopped 4.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0244,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.31505211001337635
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.04744241187070064,
+      "across_err": -0.00016106539413322102,
+      "detail": "The cube stopped 4.7 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0195,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.27707441051754134
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.047747868925388154,
+      "across_err": -0.00031961242097700016,
+      "detail": "The cube stopped 4.8 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0271,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "cube_xy": [
+     -0.20840582388595652,
+     0.021413565721473057
+    ],
+    "target_dist": 0.09489135838724454,
+    "mu": 0.03858692931246489
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.24937499999999999
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0014392267631412187,
+      "across_err": -8.677819706738935e-05,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0242
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "cube_xy": [
+     -0.20840582388595652,
+     0.021413565721473057
+    ],
+    "target_dist": 0.09489135838724454,
+    "mu": 0.03858692931246489
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.027405785337101488,
+      "across_err": 0.00019943983825802813,
+      "detail": "The cube stopped 2.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0197,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "cube_xy": [
+     -0.20840582388595652,
+     0.021413565721473057
+    ],
+    "target_dist": 0.09489135838724454,
+    "mu": 0.03858692931246489
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.027405785337101488,
+      "across_err": 0.00019943983825802813,
+      "detail": "The cube stopped 2.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0197,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.016451512606929522,
+      "across_err": -0.00015518721158416446,
+      "detail": "The cube stopped 1.6 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0226,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2437603136543703
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006747082066885582,
+      "across_err": -0.00010792322846728611,
+      "detail": "The cube stopped 0.7 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0187
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "cube_xy": [
+     -0.20840582388595652,
+     0.021413565721473057
+    ],
+    "target_dist": 0.09489135838724454,
+    "mu": 0.03858692931246489
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.027405785337101488,
+      "across_err": 0.00019943983825802813,
+      "detail": "The cube stopped 2.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0197,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.23220623578122207
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.006790263025684765,
+      "across_err": -0.00028907794917170174,
+      "detail": "The cube stopped 0.7 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0255
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "cube_xy": [
+     -0.2163205041972689,
+     -0.011461201781137714
+    ],
+    "target_dist": 0.07475367677193094,
+    "mu": 0.06432433363707284
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.345
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -6.0442503089300215e-05,
+      "across_err": -7.76883837596571e-05,
+      "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0219
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "cube_xy": [
+     -0.2163205041972689,
+     -0.011461201781137714
+    ],
+    "target_dist": 0.07475367677193094,
+    "mu": 0.06432433363707284
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019405635001055604,
+      "across_err": 5.984504523964991e-05,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0276
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "cube_xy": [
+     -0.2163205041972689,
+     -0.011461201781137714
+    ],
+    "target_dist": 0.07475367677193094,
+    "mu": 0.06432433363707284
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019405635001055604,
+      "across_err": 5.984504523964991e-05,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0276
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "cube_xy": [
+     -0.2163205041972689,
+     -0.011461201781137714
+    ],
+    "target_dist": 0.07475367677193094,
+    "mu": 0.06432433363707284
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019405635001055604,
+      "across_err": 5.984504523964991e-05,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0276
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "cube_xy": [
+     -0.22588303277143404,
+     -0.016654459866457708
+    ],
+    "target_dist": 0.09286355946348146,
+    "mu": 0.057356038449653084
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.346875
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 5.6302999787954944e-05,
+      "across_err": 2.8592353995181286e-05,
+      "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0174
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "cube_xy": [
+     -0.22588303277143404,
+     -0.016654459866457708
+    ],
+    "target_dist": 0.09286355946348146,
+    "mu": 0.057356038449653084
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.018665099062642937,
+      "across_err": -1.1414129627424635e-05,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0195,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "cube_xy": [
+     -0.22588303277143404,
+     -0.016654459866457708
+    ],
+    "target_dist": 0.09286355946348146,
+    "mu": 0.057356038449653084
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.018665099062642937,
+      "across_err": -1.1414129627424635e-05,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0195,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.00967365142608484,
+      "across_err": -9.889920396733906e-05,
+      "detail": "The cube stopped 1.0 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0302
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "cube_xy": [
+     -0.22588303277143404,
+     -0.016654459866457708
+    ],
+    "target_dist": 0.09286355946348146,
+    "mu": 0.057356038449653084
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.018665099062642937,
+      "across_err": -1.1414129627424635e-05,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0195,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.35458660923005364
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.005187849097783109,
+      "across_err": -8.871926893334534e-05,
+      "detail": "The cube stopped 0.5 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0292
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "cube_xy": [
+     -0.19830548898808437,
+     0.03529749026963663
+    ],
+    "target_dist": 0.0702383250325529,
+    "mu": 0.06565731110462045
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.2925
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0005581121416401991,
+      "across_err": 0.000373822669845314,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0178
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "cube_xy": [
+     -0.19830548898808437,
+     0.03529749026963663
+    ],
+    "target_dist": 0.0702383250325529,
+    "mu": 0.06565731110462045
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0032735053445962226,
+      "across_err": 4.314227553821326e-06,
+      "detail": "The cube stopped 0.3 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0271
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "cube_xy": [
+     -0.19830548898808437,
+     0.03529749026963663
+    ],
+    "target_dist": 0.0702383250325529,
+    "mu": 0.06565731110462045
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0032735053445962226,
+      "across_err": 4.314227553821326e-06,
+      "detail": "The cube stopped 0.3 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0271
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "cube_xy": [
+     -0.19830548898808437,
+     0.03529749026963663
+    ],
+    "target_dist": 0.0702383250325529,
+    "mu": 0.06565731110462045
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0032735053445962226,
+      "across_err": 4.314227553821326e-06,
+      "detail": "The cube stopped 0.3 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0271
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "cube_xy": [
+     -0.21698438848360452,
+     -0.02080099042125541
+    ],
+    "target_dist": 0.08268189149756165,
+    "mu": 0.083545399616312
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.45749999999999996
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0001394349844914683,
+      "across_err": -0.0015848918833946922,
+      "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0232
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "cube_xy": [
+     -0.21698438848360452,
+     -0.02080099042125541
+    ],
+    "target_dist": 0.08268189149756165,
+    "mu": 0.083545399616312
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.02091629187589529,
+      "across_err": -0.0003116263562773537,
+      "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0154,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "cube_xy": [
+     -0.21698438848360452,
+     -0.02080099042125541
+    ],
+    "target_dist": 0.08268189149756165,
+    "mu": 0.083545399616312
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.02091629187589529,
+      "across_err": -0.0003116263562773537,
+      "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0154,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.007931031436837724,
+      "across_err": -0.0004914716258335172,
+      "detail": "The cube stopped 0.8 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0205
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "cube_xy": [
+     -0.21698438848360452,
+     -0.02080099042125541
+    ],
+    "target_dist": 0.08268189149756165,
+    "mu": 0.083545399616312
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.02091629187589529,
+      "across_err": -0.0003116263562773537,
+      "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0154,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.25914998212937074
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.0381363760734499,
+      "across_err": 8.566106011371338e-06,
+      "detail": "The cube stopped 3.8 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0235,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.3174964305429049
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.022124881687820466,
+      "across_err": 4.396529145592534e-05,
+      "detail": "The cube stopped 2.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0194,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.24206744965568752
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.03549648257714931,
+      "across_err": 0.0004719818946355078,
+      "detail": "The cube stopped 3.5 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0223,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.3435036851777392
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01569861402658572,
+      "across_err": -0.0002481786178089272,
+      "detail": "The cube stopped 1.6 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0225,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1020,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1020,
+    "cube_xy": [
+     -0.19527798542024835,
+     -0.0432649437423597
+    ],
+    "target_dist": 0.05529849448137221,
+    "mu": 0.07351854514610949
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.286875
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0029078980655178194,
+      "across_err": -0.00017194423992832747,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0232
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1020,
+   "kind": "naive",
+   "inst": {
+    "seed": 1020,
+    "cube_xy": [
+     -0.19527798542024835,
+     -0.0432649437423597
+    ],
+    "target_dist": 0.05529849448137221,
+    "mu": 0.07351854514610949
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.008067214140684939,
+      "across_err": -0.00014633927313503076,
+      "detail": "The cube stopped 0.8 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.028
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1020,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1020,
+    "cube_xy": [
+     -0.19527798542024835,
+     -0.0432649437423597
+    ],
+    "target_dist": 0.05529849448137221,
+    "mu": 0.07351854514610949
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.008067214140684939,
+      "across_err": -0.00014633927313503076,
+      "detail": "The cube stopped 0.8 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.028
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1020,
+   "kind": "blind",
+   "inst": {
+    "seed": 1020,
+    "cube_xy": [
+     -0.19527798542024835,
+     -0.0432649437423597
+    ],
+    "target_dist": 0.05529849448137221,
+    "mu": 0.07351854514610949
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.008067214140684939,
+      "across_err": -0.00014633927313503076,
+      "detail": "The cube stopped 0.8 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.028
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1021,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1021,
+    "cube_xy": [
+     -0.20753671144825264,
+     -0.08382971745553165
+    ],
+    "target_dist": 0.11940243629492173,
+    "mu": 0.03940410110603141
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019296709684446661,
+      "across_err": -0.0002109659932791469,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0164
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1021,
+   "kind": "naive",
+   "inst": {
+    "seed": 1021,
+    "cube_xy": [
+     -0.20753671144825264,
+     -0.08382971745553165
+    ],
+    "target_dist": 0.11940243629492173,
+    "mu": 0.03940410110603141
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019296709684446661,
+      "across_err": -0.0002109659932791469,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0164
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1021,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1021,
+    "cube_xy": [
+     -0.20753671144825264,
+     -0.08382971745553165
+    ],
+    "target_dist": 0.11940243629492173,
+    "mu": 0.03940410110603141
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019296709684446661,
+      "across_err": -0.0002109659932791469,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0164
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1021,
+   "kind": "blind",
+   "inst": {
+    "seed": 1021,
+    "cube_xy": [
+     -0.20753671144825264,
+     -0.08382971745553165
+    ],
+    "target_dist": 0.11940243629492173,
+    "mu": 0.03940410110603141
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0019296709684446661,
+      "across_err": -0.0002109659932791469,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0164
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1022,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1022,
+    "cube_xy": [
+     -0.22996840127454105,
+     0.08368335121124956
+    ],
+    "target_dist": 0.09128701078456558,
+    "mu": 0.0689652998648419
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.47624999999999995
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.00016152226510635082,
+      "across_err": 0.004357090002930511,
+      "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0247
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1022,
+   "kind": "naive",
+   "inst": {
+    "seed": 1022,
+    "cube_xy": [
+     -0.22996840127454105,
+     0.08368335121124956
+    ],
+    "target_dist": 0.09128701078456558,
+    "mu": 0.0689652998648419
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014717194520231652,
+      "across_err": 0.0010420842639624478,
+      "detail": "The cube stopped 1.5 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.02,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1022,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1022,
+    "cube_xy": [
+     -0.22996840127454105,
+     0.08368335121124956
+    ],
+    "target_dist": 0.09128701078456558,
+    "mu": 0.0689652998648419
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014717194520231652,
+      "across_err": 0.0010420842639624478,
+      "detail": "The cube stopped 1.5 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.02,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0015302109226423555,
+      "across_err": 0.002067895527729721,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0252
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1022,
+   "kind": "blind",
+   "inst": {
+    "seed": 1022,
+    "cube_xy": [
+     -0.22996840127454105,
+     0.08368335121124956
+    ],
+    "target_dist": 0.09128701078456558,
+    "mu": 0.0689652998648419
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.014717194520231652,
+      "across_err": 0.0010420842639624478,
+      "detail": "The cube stopped 1.5 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.02,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2999209776265905
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01629540407619265,
+      "across_err": 0.0011004458937321493,
+      "detail": "The cube stopped 1.6 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.02,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.2538691229364726
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.02216272759281407,
+      "across_err": 0.0003112663706381913,
+      "detail": "The cube stopped 2.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0211,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.37050408607965923
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.012031904812724314,
+      "across_err": 0.0011258796242977903,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0216,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.29196418844705335
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.004423265887089023,
+      "across_err": 0.0008643998996822888,
+      "detail": "The cube stopped 0.4 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0258
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1023,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1023,
+    "cube_xy": [
+     -0.18061386069626875,
+     -0.04647268860052565
+    ],
+    "target_dist": 0.056139059947821236,
+    "mu": 0.04633910034669694
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.1884375
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0018657306571026114,
+      "across_err": 3.452972128316356e-06,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0218
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1023,
+   "kind": "naive",
+   "inst": {
+    "seed": 1023,
+    "cube_xy": [
+     -0.18061386069626875,
+     -0.04647268860052565
+    ],
+    "target_dist": 0.056139059947821236,
+    "mu": 0.04633910034669694
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04142194090979275,
+      "across_err": -0.0002686954213705142,
+      "detail": "The cube stopped 4.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0282,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1023,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1023,
+    "cube_xy": [
+     -0.18061386069626875,
+     -0.04647268860052565
+    ],
+    "target_dist": 0.056139059947821236,
+    "mu": 0.04633910034669694
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04142194090979275,
+      "across_err": -0.0002686954213705142,
+      "detail": "The cube stopped 4.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0282,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.012081169550881128,
+      "across_err": 1.7822776721146405e-05,
+      "detail": "The cube stopped 1.2 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0215,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.147
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.013806646438732424,
+      "across_err": -3.0571545047958226e-05,
+      "detail": "The cube stopped 1.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0207,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.1805995406483545
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.002819833006923879,
+      "across_err": -1.4913593827936555e-07,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0208
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1023,
+   "kind": "blind",
+   "inst": {
+    "seed": 1023,
+    "cube_xy": [
+     -0.18061386069626875,
+     -0.04647268860052565
+    ],
+    "target_dist": 0.056139059947821236,
+    "mu": 0.04633910034669694
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04142194090979275,
+      "across_err": -0.0002686954213705142,
+      "detail": "The cube stopped 4.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0282,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3798888606448663
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.0631019418977116,
+      "across_err": -0.00161760482872942,
+      "detail": "The cube stopped 6.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0225,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.32214377608269634
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04410927075069999,
+      "across_err": -0.00020821435097891777,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0182,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.3204107713543975
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04695086155166487,
+      "across_err": -6.825752357079301e-05,
+      "detail": "The cube stopped 4.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0186,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.251746661072081
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.023055513819967684,
+      "across_err": -0.00024835264637311505,
+      "detail": "The cube stopped 2.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0218,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1024,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1024,
+    "cube_xy": [
+     -0.21065228185300583,
+     -0.048329437995409764
+    ],
+    "target_dist": 0.07592182699038032,
+    "mu": 0.08863198281665487
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.4228125
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0014339615710310255,
+      "across_err": -0.0009600106764904859,
+      "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0233
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1024,
+   "kind": "naive",
+   "inst": {
+    "seed": 1024,
+    "cube_xy": [
+     -0.21065228185300583,
+     -0.048329437995409764
+    ],
+    "target_dist": 0.07592182699038032,
+    "mu": 0.08863198281665487
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01879321667510782,
+      "across_err": -0.00034645370343450166,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0243,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1024,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1024,
+    "cube_xy": [
+     -0.21065228185300583,
+     -0.048329437995409764
+    ],
+    "target_dist": 0.07592182699038032,
+    "mu": 0.08863198281665487
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01879321667510782,
+      "across_err": -0.00034645370343450166,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0243,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.405
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.006001299289023057,
+      "across_err": -0.0010949012848250617,
+      "detail": "The cube stopped 0.6 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0264
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1024,
+   "kind": "blind",
+   "inst": {
+    "seed": 1024,
+    "cube_xy": [
+     -0.21065228185300583,
+     -0.048329437995409764
+    ],
+    "target_dist": 0.07592182699038032,
+    "mu": 0.08863198281665487
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.01879321667510782,
+      "across_err": -0.00034645370343450166,
+      "detail": "The cube stopped 1.9 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0243,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.27731606974037903
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.023971293307039218,
+      "across_err": 0.0005584391835575103,
+      "detail": "The cube stopped 2.4 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0229,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.293039103261663
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.018403625677962512,
+      "across_err": -0.00029000686379362234,
+      "detail": "The cube stopped 1.8 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0268,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.42086738723446504
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0028479380654809067,
+      "across_err": -0.001972794503896126,
+      "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0237
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1025,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1025,
+    "cube_xy": [
+     -0.1807329580038371,
+     0.025801498985044108
+    ],
+    "target_dist": 0.0613501464000813,
+    "mu": 0.04587485791351467
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.1921875
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0002206310167291517,
+      "across_err": -5.013848845288396e-05,
+      "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.02
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1025,
+   "kind": "naive",
+   "inst": {
+    "seed": 1025,
+    "cube_xy": [
+     -0.1807329580038371,
+     0.025801498985044108
+    ],
+    "target_dist": 0.0613501464000813,
+    "mu": 0.04587485791351467
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039456683611410366,
+      "across_err": 0.00019041165893861345,
+      "detail": "The cube stopped 3.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1025,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1025,
+    "cube_xy": [
+     -0.1807329580038371,
+     0.025801498985044108
+    ],
+    "target_dist": 0.0613501464000813,
+    "mu": 0.04587485791351467
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039456683611410366,
+      "across_err": 0.00019041165893861345,
+      "detail": "The cube stopped 3.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.004479135952995809,
+      "across_err": -2.4522765796383683e-05,
+      "detail": "The cube stopped 0.4 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0224
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1025,
+   "kind": "blind",
+   "inst": {
+    "seed": 1025,
+    "cube_xy": [
+     -0.1807329580038371,
+     0.025801498985044108
+    ],
+    "target_dist": 0.0613501464000813,
+    "mu": 0.04587485791351467
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.039456683611410366,
+      "across_err": 0.00019041165893861345,
+      "detail": "The cube stopped 3.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.20554917522111116
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.0015752966225605416,
+      "across_err": -5.012402127487631e-05,
+      "detail": "The cube stopped 0.2 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0276
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1026,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1026,
+    "cube_xy": [
+     -0.2197557682457367,
+     0.01902345291346419
+    ],
+    "target_dist": 0.06361990952986546,
+    "mu": 0.0363311519690985
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.17812499999999998
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0007534110729663923,
+      "across_err": -0.00012029188044374722,
+      "detail": "The cube stopped 0.1 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0228
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1026,
+   "kind": "naive",
+   "inst": {
+    "seed": 1026,
+    "cube_xy": [
+     -0.2197557682457367,
+     0.01902345291346419
+    ],
+    "target_dist": 0.06361990952986546,
+    "mu": 0.0363311519690985
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.06504630788633481,
+      "across_err": 7.578086225204159e-05,
+      "detail": "The cube stopped 6.5 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0262,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1026,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1026,
+    "cube_xy": [
+     -0.2197557682457367,
+     0.01902345291346419
+    ],
+    "target_dist": 0.06361990952986546,
+    "mu": 0.0363311519690985
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.06504630788633481,
+      "across_err": 7.578086225204159e-05,
+      "detail": "The cube stopped 6.5 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0262,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.023140072720314042,
+      "across_err": -0.00017969924852109104,
+      "detail": "The cube stopped 2.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0225,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.147
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.015446611556220236,
+      "across_err": -7.019132476415724e-05,
+      "detail": "The cube stopped 1.5 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0246,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.1722194907722006
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0037356381966425767,
+      "across_err": -0.00016500170757213772,
+      "detail": "The cube stopped 0.4 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0204
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1026,
+   "kind": "blind",
+   "inst": {
+    "seed": 1026,
+    "cube_xy": [
+     -0.2197557682457367,
+     0.01902345291346419
+    ],
+    "target_dist": 0.06361990952986546,
+    "mu": 0.0363311519690985
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.06504630788633481,
+      "across_err": 7.578086225204159e-05,
+      "detail": "The cube stopped 6.5 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0262,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.25223370965081915
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04989952480494196,
+      "across_err": -3.0586167621582394e-05,
+      "detail": "The cube stopped 5.0 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0247,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.32805530179142195
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.07708865679534294,
+      "across_err": -9.389097440246769e-05,
+      "detail": "The cube stopped 7.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0283,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.34178559599910685
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.0728470290665324,
+      "across_err": 0.00013972715987754444,
+      "detail": "The cube stopped 7.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0214,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.3179133612447575
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.07747862269464445,
+      "across_err": 0.0002546606403175111,
+      "detail": "The cube stopped 7.7 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0178,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1027,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1027,
+    "cube_xy": [
+     -0.22832152663333283,
+     0.012429128682080931
+    ],
+    "target_dist": 0.08956134427765751,
+    "mu": 0.03542570531612252
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.21375
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.00042341962548562984,
+      "across_err": -0.0001183068425727983,
+      "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0219
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1027,
+   "kind": "naive",
+   "inst": {
+    "seed": 1027,
+    "cube_xy": [
+     -0.22832152663333283,
+     0.012429128682080931
+    ],
+    "target_dist": 0.08956134427765751,
+    "mu": 0.03542570531612252
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.044486669398645165,
+      "across_err": 2.4900074236437753e-05,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.018,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1027,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1027,
+    "cube_xy": [
+     -0.22832152663333283,
+     0.012429128682080931
+    ],
+    "target_dist": 0.08956134427765751,
+    "mu": 0.03542570531612252
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.044486669398645165,
+      "across_err": 2.4900074236437753e-05,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.018,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.004169813162671274,
+      "across_err": -0.00019224302394436378,
+      "detail": "The cube stopped 0.4 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0253
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1027,
+   "kind": "blind",
+   "inst": {
+    "seed": 1027,
+    "cube_xy": [
+     -0.22832152663333283,
+     0.012429128682080931
+    ],
+    "target_dist": 0.08956134427765751,
+    "mu": 0.03542570531612252
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.044486669398645165,
+      "across_err": 2.4900074236437753e-05,
+      "detail": "The cube stopped 4.4 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.018,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.3153786615976533
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04862888140963288,
+      "across_err": 1.4552776120582006e-05,
+      "detail": "The cube stopped 4.9 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0269,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.335161042772883
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.05842040044704443,
+      "across_err": -1.5845076369700936e-05,
+      "detail": "The cube stopped 5.8 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0184,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.24670921621976394
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.030535087305907982,
+      "across_err": -2.7239632212105666e-05,
+      "detail": "The cube stopped 3.1 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0218,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.30548214085977077
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.053151243323253175,
+      "across_err": 3.306205915392518e-05,
+      "detail": "The cube stopped 5.3 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0165,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1028,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1028,
+    "cube_xy": [
+     -0.18102973528323868,
+     -0.022796711283407017
+    ],
+    "target_dist": 0.09727185136540765,
+    "mu": 0.042341315673217486
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.2803125
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.00014070920731749925,
+      "across_err": -0.00020464263095448104,
+      "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0269
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1028,
+   "kind": "naive",
+   "inst": {
+    "seed": 1028,
+    "cube_xy": [
+     -0.18102973528323868,
+     -0.022796711283407017
+    ],
+    "target_dist": 0.09727185136540765,
+    "mu": 0.042341315673217486
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.008697737530428837,
+      "across_err": -0.0010775628598619809,
+      "detail": "The cube stopped 0.9 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0288
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1028,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1028,
+    "cube_xy": [
+     -0.18102973528323868,
+     -0.022796711283407017
+    ],
+    "target_dist": 0.09727185136540765,
+    "mu": 0.042341315673217486
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.008697737530428837,
+      "across_err": -0.0010775628598619809,
+      "detail": "The cube stopped 0.9 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0288
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1028,
+   "kind": "blind",
+   "inst": {
+    "seed": 1028,
+    "cube_xy": [
+     -0.18102973528323868,
+     -0.022796711283407017
+    ],
+    "target_dist": 0.09727185136540765,
+    "mu": 0.042341315673217486
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.008697737530428837,
+      "across_err": -0.0010775628598619809,
+      "detail": "The cube stopped 0.9 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0288
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1029,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1029,
+    "cube_xy": [
+     -0.179793359820411,
+     0.06458722446683593
+    ],
+    "target_dist": 0.053443757531651655,
+    "mu": 0.04245870743716575
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.17062499999999997
+     },
+     "outcome": {
+      "success": true,
+      "along_err": -0.0021119094409110042,
+      "across_err": -2.3425242443170236e-06,
+      "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0248
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1029,
+   "kind": "naive",
+   "inst": {
+    "seed": 1029,
+    "cube_xy": [
+     -0.179793359820411,
+     0.06458722446683593
+    ],
+    "target_dist": 0.053443757531651655,
+    "mu": 0.04245870743716575
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.05617760362290188,
+      "across_err": 0.00023133185196173855,
+      "detail": "The cube stopped 5.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1029,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1029,
+    "cube_xy": [
+     -0.179793359820411,
+     0.06458722446683593
+    ],
+    "target_dist": 0.053443757531651655,
+    "mu": 0.04245870743716575
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.05617760362290188,
+      "across_err": 0.00023133185196173855,
+      "detail": "The cube stopped 5.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.21
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.015515840778280478,
+      "across_err": -6.742996562909831e-05,
+      "detail": "The cube stopped 1.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0224,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.147
+     },
+     "outcome": {
+      "success": false,
+      "along_err": -0.011839981410567614,
+      "across_err": 6.1745590799328065e-06,
+      "detail": "The cube stopped 1.2 cm short of the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0214,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.17426727874294495
+     },
+     "outcome": {
+      "success": true,
+      "along_err": 0.007535303817146864,
+      "across_err": -2.738930313958554e-05,
+      "detail": "The cube stopped 0.8 cm past the centre of the green square (completely inside the square).",
+      "inside": true,
+      "n_pushes": 1,
+      "max_advance": 0.0197
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1029,
+   "kind": "blind",
+   "inst": {
+    "seed": 1029,
+    "cube_xy": [
+     -0.179793359820411,
+     0.06458722446683593
+    ],
+    "target_dist": 0.053443757531651655,
+    "mu": 0.04245870743716575
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "speed": 0.3
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.05617760362290188,
+      "across_err": 0.00023133185196173855,
+      "detail": "The cube stopped 5.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.029,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "speed": 0.2622125870710607
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04472900326008326,
+      "across_err": 3.7777409058803446e-05,
+      "detail": "The cube stopped 4.5 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0263,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "speed": 0.32706544358196615
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.055574397627209234,
+      "across_err": 0.0004470949419385084,
+      "detail": "The cube stopped 5.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0297,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "speed": 0.3303469453854539
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.06479893251984131,
+      "across_err": 0.0004083497735552638,
+      "detail": "The cube stopped 6.5 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.0167,
+      "failure": "position"
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "speed": 0.34612138396661385
+     },
+     "outcome": {
+      "success": false,
+      "along_err": 0.04591880657813421,
+      "across_err": 0.0001995420185432334,
+      "detail": "The cube stopped 4.6 cm past the centre of the green square (not completely inside the square).",
+      "inside": false,
+      "n_pushes": 1,
+      "max_advance": 0.021,
+      "failure": "position"
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 1775.9970631599426
+}

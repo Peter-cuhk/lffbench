@@ -1,0 +1,464 @@
+[
+ {
+  "seed": 1000,
+  "case": "best",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "dx4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "dy4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "dx7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "dy7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "ang+4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "ang-4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "ang+8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "ang-8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1000,
+  "case": "dx4_ang4_drop3",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.17
+ },
+ {
+  "seed": 1001,
+  "case": "best",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "dx4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "dy4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "dx7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "dy7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "ang+4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "ang-4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "ang+8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "ang-8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1001,
+  "case": "dx4_ang4_drop3",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.22
+ },
+ {
+  "seed": 1002,
+  "case": "best",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "dx4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "dy4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "dx7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "dy7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "ang+4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "ang-4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "ang+8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "ang-8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1002,
+  "case": "dx4_ang4_drop3",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.47
+ },
+ {
+  "seed": 1003,
+  "case": "best",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "dx4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "dy4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "dx7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "dy7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "ang+4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "ang-4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "ang+8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "ang-8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1003,
+  "case": "dx4_ang4_drop3",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.27
+ },
+ {
+  "seed": 1004,
+  "case": "best",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "dx4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "dy4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "dx7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "dy7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "ang+4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "ang-4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "ang+8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "ang-8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1004,
+  "case": "dx4_ang4_drop3",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.42
+ },
+ {
+  "seed": 1005,
+  "case": "best",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "dx4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "dy4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "dx7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "dy7",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "ang+4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "ang-4",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "ang+8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "ang-8",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "drop3cm",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ },
+ {
+  "seed": 1005,
+  "case": "dx4_ang4_drop3",
+  "success": true,
+  "detail": "The bar is lying flat on the bottom of the box.",
+  "fit_margin_cm": 1.79
+ }
+]

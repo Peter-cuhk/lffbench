@@ -1,0 +1,7274 @@
+{
+ "task": "l7_key_turn",
+ "level": "L7",
+ "capabilities": [
+  "Perceive",
+  "Reason",
+  "Plan"
+ ],
+ "n": 20,
+ "k": 5,
+ "succ_at_k": {
+  "oracle": [
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "naive": [
+   0.5,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ],
+  "adaptive": [
+   0.5,
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "blind": [
+   0.5,
+   0.5,
+   0.5,
+   0.5,
+   0.5
+  ]
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1000,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.08221985406324184,
+     0.031152554101898877
+    ],
+    "lock_yaw": -0.01521483934315504
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0019,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive",
+   "inst": {
+    "seed": 1000,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.08221985406324184,
+     0.031152554101898877
+    ],
+    "lock_yaw": -0.01521483934315504
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0019,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1000,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.08221985406324184,
+     0.031152554101898877
+    ],
+    "lock_yaw": -0.01521483934315504
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0019,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "blind",
+   "inst": {
+    "seed": 1000,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.08221985406324184,
+     0.031152554101898877
+    ],
+    "lock_yaw": -0.01521483934315504
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0019,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1001,
+    "direction": "CW",
+    "lock_xy": [
+     -0.07036265928590638,
+     -0.14528985965390054
+    ],
+    "lock_yaw": -0.16352535515120825
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 250,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.001,
+         -0.0003,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive",
+   "inst": {
+    "seed": 1001,
+    "direction": "CW",
+    "lock_xy": [
+     -0.07036265928590638,
+     -0.14528985965390054
+    ],
+    "lock_yaw": -0.16352535515120825
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 13.4,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.001,
+         -0.0003,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.1,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 13.4,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 13 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1001,
+    "direction": "CW",
+    "lock_xy": [
+     -0.07036265928590638,
+     -0.14528985965390054
+    ],
+    "lock_yaw": -0.16352535515120825
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 13.4,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.001,
+         -0.0003,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.1,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 13.4,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 13 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 250,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.001,
+         -0.0003,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "blind",
+   "inst": {
+    "seed": 1001,
+    "direction": "CW",
+    "lock_xy": [
+     -0.07036265928590638,
+     -0.14528985965390054
+    ],
+    "lock_yaw": -0.16352535515120825
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 13.4,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.001,
+         -0.0003,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.1,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 13.4,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 13 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 97.45857948096364,
+      "dxy": [
+       -0.00026968481701376373,
+       -0.0021955422174230344
+      ],
+      "dyaw": 4.83725454341077
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 2.5,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 97.5,
+        "wrist_turn_deg": 6.2,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.0014,
+         -0.0015,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.0177
+       }
+      ],
+      "first_turn": {
+       "step": 75,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 2.5,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 97.5,
+       "wrist_turn_deg": 6.2,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 6 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.1 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 77.83951218059285,
+      "dxy": [
+       -0.0007318111568372267,
+       0.00017507312435926684
+      ],
+      "dyaw": -2.694102628002464
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.2,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 77.8,
+        "wrist_turn_deg": 13.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.0016,
+         -0.0002,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.0177
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": -0.2,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 77.8,
+       "wrist_turn_deg": 13.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 87.50239491610499,
+      "dxy": [
+       0.001303502463454851,
+       0.00020376672798951898
+      ],
+      "dyaw": 8.473312267416466
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.5,
+      "open_deg": -2.5,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.6,
+        "key_end_deg": 2.4,
+        "wrist_cmd_deg": 87.5,
+        "wrist_turn_deg": 9.2,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         0.0003,
+         -0.0002,
+         -0.0004
+        ],
+        "held": true,
+        "width": 0.0195
+       }
+      ],
+      "first_turn": {
+       "step": 76,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.6,
+       "key_end_deg": 2.4,
+       "wrist_cmd_deg": 87.5,
+       "wrist_turn_deg": 9.2,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 9 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.0 cm forward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 88.60231607288638,
+      "dxy": [
+       -0.00010604409219702813,
+       0.002355310820104097
+      ],
+      "dyaw": 4.136278674657316
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.2,
+        "key_end_deg": 2.9,
+        "wrist_cmd_deg": 88.6,
+        "wrist_turn_deg": 9.6,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.0011,
+         0.0012,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.0182
+       }
+      ],
+      "first_turn": {
+       "step": 76,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.2,
+       "key_end_deg": 2.9,
+       "wrist_cmd_deg": 88.6,
+       "wrist_turn_deg": 9.6,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.1 cm to the left of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1002,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10049324926719493,
+     -0.042843198698715904
+    ],
+    "lock_yaw": 0.12964950603996261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0011,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive",
+   "inst": {
+    "seed": 1002,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10049324926719493,
+     -0.042843198698715904
+    ],
+    "lock_yaw": 0.12964950603996261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0011,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1002,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10049324926719493,
+     -0.042843198698715904
+    ],
+    "lock_yaw": 0.12964950603996261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0011,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "blind",
+   "inst": {
+    "seed": 1002,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10049324926719493,
+     -0.042843198698715904
+    ],
+    "lock_yaw": 0.12964950603996261
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0011,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1003,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12559154212507764,
+     -0.07298825693435336
+    ],
+    "lock_yaw": -0.002785897769276624
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": -89.9,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0022,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive",
+   "inst": {
+    "seed": 1003,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12559154212507764,
+     -0.07298825693435336
+    ],
+    "lock_yaw": -0.002785897769276624
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 13.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0022,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 13.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1003,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12559154212507764,
+     -0.07298825693435336
+    ],
+    "lock_yaw": -0.002785897769276624
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 13.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0022,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 13.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": -89.9,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0022,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "blind",
+   "inst": {
+    "seed": 1003,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12559154212507764,
+     -0.07298825693435336
+    ],
+    "lock_yaw": -0.002785897769276624
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 13.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0022,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 13.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 81.82614155233641,
+      "dxy": [
+       -0.0002411275273834303,
+       -0.002849537009128039
+      ],
+      "dyaw": -1.5894015179926992
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -1.2,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 81.8,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0022,
+         -0.002,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0171
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -1.2,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 81.8,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.2 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 89.59056624437714,
+      "dxy": [
+       0.002973634438946328,
+       0.0029722843010816552
+      ],
+      "dyaw": 2.2643341922584836
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 89.6,
+        "wrist_turn_deg": 9.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         0.0009,
+         0.0017,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0174
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 89.6,
+       "wrist_turn_deg": 9.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm forward and 0.2 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 94.43750703559704,
+      "dxy": [
+       0.0006060935196536259,
+       0.0008608807906783597
+      ],
+      "dyaw": -1.1291034670110665
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.5,
+      "open_deg": -1.5,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -0.5,
+        "key_end_deg": 1.4,
+        "wrist_cmd_deg": 94.4,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0017,
+         0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0172
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -0.5,
+       "key_end_deg": 1.4,
+       "wrist_cmd_deg": 94.4,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 80.96663508457691,
+      "dxy": [
+       0.0034220507678371873,
+       0.000588018570160726
+      ],
+      "dyaw": -8.535645825004526
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.2,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 81.0,
+        "wrist_turn_deg": 13.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         0.0019,
+         0.0001,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.0196
+       }
+      ],
+      "first_turn": {
+       "step": 74,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": -0.2,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 81.0,
+       "wrist_turn_deg": 13.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.2 cm forward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1004,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.14988554114370703,
+     -0.11095460636171056
+    ],
+    "lock_yaw": -0.18929280888072864
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0019,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive",
+   "inst": {
+    "seed": 1004,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.14988554114370703,
+     -0.11095460636171056
+    ],
+    "lock_yaw": -0.18929280888072864
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0019,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1004,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.14988554114370703,
+     -0.11095460636171056
+    ],
+    "lock_yaw": -0.18929280888072864
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0019,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "blind",
+   "inst": {
+    "seed": 1004,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.14988554114370703,
+     -0.11095460636171056
+    ],
+    "lock_yaw": -0.18929280888072864
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0019,
+         -0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1005,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1393115075011738,
+     0.12916861271658106
+    ],
+    "lock_yaw": -0.11137782229683785
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -89.8,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0024,
+         0.0005,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive",
+   "inst": {
+    "seed": 1005,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1393115075011738,
+     0.12916861271658106
+    ],
+    "lock_yaw": -0.11137782229683785
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 14.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0024,
+         0.0005,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 14.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1005,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1393115075011738,
+     0.12916861271658106
+    ],
+    "lock_yaw": -0.11137782229683785
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 14.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0024,
+         0.0005,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 14.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -89.8,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0024,
+         0.0005,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "blind",
+   "inst": {
+    "seed": 1005,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1393115075011738,
+     0.12916861271658106
+    ],
+    "lock_yaw": -0.11137782229683785
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 14.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0024,
+         0.0005,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 14.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 84.31114670351374,
+      "dxy": [
+       -0.00036305495053370516,
+       -0.0011552270833105605
+      ],
+      "dyaw": -0.6281778565765728
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.7,
+      "open_deg": -2.7,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -0.1,
+        "key_end_deg": 2.2,
+        "wrist_cmd_deg": 84.3,
+        "wrist_turn_deg": 14.1,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0027,
+         -0.0002,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.0171
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -0.1,
+       "key_end_deg": 2.2,
+       "wrist_cmd_deg": 84.3,
+       "wrist_turn_deg": 14.1,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 14 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.3 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 98.18515211410478,
+      "dxy": [
+       -0.0012559077440884043,
+       -0.0010449400325354982
+      ],
+      "dyaw": 7.859552478860748
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.9,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 98.2,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0031,
+         -0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.0192
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 0.9,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 98.2,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.3 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 73.9401812875692,
+      "dxy": [
+       -0.0012710281192057585,
+       0.0016569700380615572
+      ],
+      "dyaw": -2.063416999881494
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -1.7,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 73.9,
+        "wrist_turn_deg": 17.8,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.004,
+         0.0018,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.0171
+       }
+      ],
+      "first_turn": {
+       "step": 74,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -1.7,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 73.9,
+       "wrist_turn_deg": 17.8,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 18 deg counterclockwise (seen from above) and the key rotated 5 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.4 cm backward and 0.2 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 86.07161817450529,
+      "dxy": [
+       -0.0035038065622478736,
+       -0.0038282546982325817
+      ],
+      "dyaw": 4.577381367672867
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 3.0,
+        "key_end_deg": 2.4,
+        "wrist_cmd_deg": 86.1,
+        "wrist_turn_deg": 17.7,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0063,
+         -0.0018,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.0175
+       }
+      ],
+      "first_turn": {
+       "step": 74,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 3.0,
+       "key_end_deg": 2.4,
+       "wrist_cmd_deg": 86.1,
+       "wrist_turn_deg": 17.7,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 18 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.6 cm backward and 0.2 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1006,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10620021363553281,
+     0.030257083139896446
+    ],
+    "lock_yaw": -0.10585528409365477
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0002,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive",
+   "inst": {
+    "seed": 1006,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10620021363553281,
+     0.030257083139896446
+    ],
+    "lock_yaw": -0.10585528409365477
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0002,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1006,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10620021363553281,
+     0.030257083139896446
+    ],
+    "lock_yaw": -0.10585528409365477
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0002,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "blind",
+   "inst": {
+    "seed": 1006,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.10620021363553281,
+     0.030257083139896446
+    ],
+    "lock_yaw": -0.10585528409365477
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0002,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1007,
+    "direction": "CW",
+    "lock_xy": [
+     -0.14074075813008485,
+     0.09479410355338297
+    ],
+    "lock_yaw": 0.07483719436229458
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0018,
+         0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive",
+   "inst": {
+    "seed": 1007,
+    "direction": "CW",
+    "lock_xy": [
+     -0.14074075813008485,
+     0.09479410355338297
+    ],
+    "lock_yaw": 0.07483719436229458
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.9,
+      "open_deg": -1.9,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0018,
+         0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1007,
+    "direction": "CW",
+    "lock_xy": [
+     -0.14074075813008485,
+     0.09479410355338297
+    ],
+    "lock_yaw": 0.07483719436229458
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.9,
+      "open_deg": -1.9,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0018,
+         0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 246,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0018,
+         0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "blind",
+   "inst": {
+    "seed": 1007,
+    "direction": "CW",
+    "lock_xy": [
+     -0.14074075813008485,
+     0.09479410355338297
+    ],
+    "lock_yaw": 0.07483719436229458
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.9,
+      "open_deg": -1.9,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0018,
+         0.0003,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 81.40130695888733,
+      "dxy": [
+       -0.0025452772348731724,
+       0.0002558341625152892
+      ],
+      "dyaw": 3.2405984749026016
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.6,
+      "open_deg": -2.6,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.4,
+        "key_end_deg": 2.6,
+        "wrist_cmd_deg": 81.4,
+        "wrist_turn_deg": 9.8,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.005,
+         0.0004,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.0179
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.4,
+       "key_end_deg": 2.6,
+       "wrist_cmd_deg": 81.4,
+       "wrist_turn_deg": 9.8,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.5 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 94.25793977574696,
+      "dxy": [
+       0.000506227166393533,
+       -0.0025889587543344826
+      ],
+      "dyaw": 5.498648315464403
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.7,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 94.3,
+        "wrist_turn_deg": 6.4,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0017,
+         -0.0014,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0182
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.7,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 94.3,
+       "wrist_turn_deg": 6.4,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 6 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 74.20886928075856,
+      "dxy": [
+       -0.0013988029527168047,
+       -0.001188857950668309
+      ],
+      "dyaw": 7.901843139198864
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.1,
+      "open_deg": -2.1,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.5,
+        "key_end_deg": 2.0,
+        "wrist_cmd_deg": 74.2,
+        "wrist_turn_deg": 9.7,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0033,
+         -0.0005,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0193
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.5,
+       "key_end_deg": 2.0,
+       "wrist_cmd_deg": 74.2,
+       "wrist_turn_deg": 9.7,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.3 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 94.75388482863617,
+      "dxy": [
+       0.0009185452028353835,
+       0.003840012866755595
+      ],
+      "dyaw": 5.850675809790015
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 2.1,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 94.8,
+        "wrist_turn_deg": 9.6,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0003,
+         0.0027,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0181
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 2.1,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 94.8,
+       "wrist_turn_deg": 9.6,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.3 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1008,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.12825714262289956,
+     0.09391522431863375
+    ],
+    "lock_yaw": -0.1479518246476984
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.2,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0023,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive",
+   "inst": {
+    "seed": 1008,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.12825714262289956,
+     0.09391522431863375
+    ],
+    "lock_yaw": -0.1479518246476984
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.2,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0023,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1008,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.12825714262289956,
+     0.09391522431863375
+    ],
+    "lock_yaw": -0.1479518246476984
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.2,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0023,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "blind",
+   "inst": {
+    "seed": 1008,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.12825714262289956,
+     0.09391522431863375
+    ],
+    "lock_yaw": -0.1479518246476984
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.0,
+        "key_end_deg": 89.2,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0023,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1009,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1426549399330529,
+     -0.05192532369814147
+    ],
+    "lock_yaw": -0.23569722329583778
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -89.9,
+      "open_deg": 89.9,
+      "turns": [
+       {
+        "step": 245,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -89.9,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive",
+   "inst": {
+    "seed": 1009,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1426549399330529,
+     -0.05192532369814147
+    ],
+    "lock_yaw": -0.23569722329583778
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1009,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1426549399330529,
+     -0.05192532369814147
+    ],
+    "lock_yaw": -0.23569722329583778
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -89.9,
+      "open_deg": 89.9,
+      "turns": [
+       {
+        "step": 245,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -89.9,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "blind",
+   "inst": {
+    "seed": 1009,
+    "direction": "CW",
+    "lock_xy": [
+     -0.1426549399330529,
+     -0.05192532369814147
+    ],
+    "lock_yaw": -0.23569722329583778
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 95.82438085751937,
+      "dxy": [
+       0.0023937565328845246,
+       0.0014290547630382833
+      ],
+      "dyaw": -0.28687440017476523
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -0.2,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 95.8,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0001,
+         0.0007,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -0.2,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 95.8,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 95.46391461168865,
+      "dxy": [
+       0.0023144525862694915,
+       0.0015581500902783411
+      ],
+      "dyaw": 9.487162025707212
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.9,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 95.5,
+        "wrist_turn_deg": 9.3,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         0.0001,
+         0.0007,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0197
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.9,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 95.5,
+       "wrist_turn_deg": 9.3,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 9 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm forward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 86.91850958780276,
+      "dxy": [
+       -0.00028208359969687357,
+       0.0018897977554581309
+      ],
+      "dyaw": 2.681587860818719
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 70,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.4,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 86.9,
+        "wrist_turn_deg": 9.7,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 44,
+        "offset": [
+         -0.0028,
+         0.0012,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.0177
+       }
+      ],
+      "first_turn": {
+       "step": 70,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.4,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 86.9,
+       "wrist_turn_deg": 9.7,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.3 cm backward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 89.20568486471818,
+      "dxy": [
+       -0.0008033690977417206,
+       0.00020983839782808274
+      ],
+      "dyaw": -0.31972067932986353
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 70,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -0.2,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 89.2,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 44,
+        "offset": [
+         -0.0032,
+         0.0001,
+         -0.001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 70,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -0.2,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 89.2,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.3 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1010,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1376510032149956,
+     0.010741719371053088
+    ],
+    "lock_yaw": 0.2186950260541055
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 245,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive",
+   "inst": {
+    "seed": 1010,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1376510032149956,
+     0.010741719371053088
+    ],
+    "lock_yaw": 0.2186950260541055
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 245,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1010,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1376510032149956,
+     0.010741719371053088
+    ],
+    "lock_yaw": 0.2186950260541055
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 245,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "blind",
+   "inst": {
+    "seed": 1010,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1376510032149956,
+     0.010741719371053088
+    ],
+    "lock_yaw": 0.2186950260541055
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 245,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 45,
+        "offset": [
+         -0.0022,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1011,
+    "direction": "CW",
+    "lock_xy": [
+     -0.11306377075444324,
+     0.018997060652818643
+    ],
+    "lock_yaw": -0.15048221760228692
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 247,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0015,
+         0.0002,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive",
+   "inst": {
+    "seed": 1011,
+    "direction": "CW",
+    "lock_xy": [
+     -0.11306377075444324,
+     0.018997060652818643
+    ],
+    "lock_yaw": -0.15048221760228692
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.9,
+      "open_deg": -1.9,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0015,
+         0.0002,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1011,
+    "direction": "CW",
+    "lock_xy": [
+     -0.11306377075444324,
+     0.018997060652818643
+    ],
+    "lock_yaw": -0.15048221760228692
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.9,
+      "open_deg": -1.9,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0015,
+         0.0002,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 247,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0015,
+         0.0002,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "blind",
+   "inst": {
+    "seed": 1011,
+    "direction": "CW",
+    "lock_xy": [
+     -0.11306377075444324,
+     0.018997060652818643
+    ],
+    "lock_yaw": -0.15048221760228692
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.9,
+      "open_deg": -1.9,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.8,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0015,
+         0.0002,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.8,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 84.70017536358291,
+      "dxy": [
+       0.0008353764500616948,
+       -0.0035729944171408556
+      ],
+      "dyaw": 1.2171548308561146
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.5,
+      "open_deg": -1.5,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.3,
+        "key_end_deg": 1.3,
+        "wrist_cmd_deg": 84.7,
+        "wrist_turn_deg": 6.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0005,
+         -0.0021,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.3,
+       "key_end_deg": 1.3,
+       "wrist_cmd_deg": 84.7,
+       "wrist_turn_deg": 6.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 6 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.2 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 102.1989111665161,
+      "dxy": [
+       0.0009174475901709737,
+       -0.0009076831712946201
+      ],
+      "dyaw": 9.050741666368236
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 102.2,
+        "wrist_turn_deg": 9.6,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0006,
+         -0.0005,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.0196
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 102.2,
+       "wrist_turn_deg": 9.6,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 105.0,
+      "dxy": [
+       0.00047481834175826053,
+       -0.0012449881087305457
+      ],
+      "dyaw": 7.953824281242332
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 1.2,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 105.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.001,
+         -0.0007,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.0191
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 1.2,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 105.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 70.01415889195731,
+      "dxy": [
+       0.0015187017554808503,
+       -9.151697581732604e-05
+      ],
+      "dyaw": -5.263050257736795
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -0.3,
+        "key_end_deg": 1.4,
+        "wrist_cmd_deg": 70.0,
+        "wrist_turn_deg": 10.2,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         0.0,
+         0.0001,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.0185
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -0.3,
+       "key_end_deg": 1.4,
+       "wrist_cmd_deg": 70.0,
+       "wrist_turn_deg": 10.2,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1012,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.11017833717481693,
+     0.08419400531339769
+    ],
+    "lock_yaw": -0.13695437046280257
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.0,
+        "key_end_deg": 89.1,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0021,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive",
+   "inst": {
+    "seed": 1012,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.11017833717481693,
+     0.08419400531339769
+    ],
+    "lock_yaw": -0.13695437046280257
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.0,
+        "key_end_deg": 89.1,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0021,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1012,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.11017833717481693,
+     0.08419400531339769
+    ],
+    "lock_yaw": -0.13695437046280257
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.0,
+        "key_end_deg": 89.1,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0021,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "blind",
+   "inst": {
+    "seed": 1012,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.11017833717481693,
+     0.08419400531339769
+    ],
+    "lock_yaw": -0.13695437046280257
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 75,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.0,
+        "key_end_deg": 89.1,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0021,
+         0.0004,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1013,
+    "direction": "CW",
+    "lock_xy": [
+     -0.046715921010195574,
+     -0.12630615852772317
+    ],
+    "lock_yaw": 0.09040435059829105
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -89.9,
+      "open_deg": 89.9,
+      "turns": [
+       {
+        "step": 80,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": -89.6,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0009,
+         -0.0002,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive",
+   "inst": {
+    "seed": 1013,
+    "direction": "CW",
+    "lock_xy": [
+     -0.046715921010195574,
+     -0.12630615852772317
+    ],
+    "lock_yaw": 0.09040435059829105
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0009,
+         -0.0002,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.1,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1013,
+    "direction": "CW",
+    "lock_xy": [
+     -0.046715921010195574,
+     -0.12630615852772317
+    ],
+    "lock_yaw": 0.09040435059829105
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0009,
+         -0.0002,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.1,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -89.9,
+      "open_deg": 89.9,
+      "turns": [
+       {
+        "step": 80,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": -89.6,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -89.7,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0009,
+         -0.0002,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "blind",
+   "inst": {
+    "seed": 1013,
+    "direction": "CW",
+    "lock_xy": [
+     -0.046715921010195574,
+     -0.12630615852772317
+    ],
+    "lock_yaw": 0.09040435059829105
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0009,
+         -0.0002,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.1,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 95.53881000736828,
+      "dxy": [
+       -0.0019831936928057913,
+       -0.0009812527748956248
+      ],
+      "dyaw": 6.720705441514469
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.0,
+        "key_end_deg": 2.8,
+        "wrist_cmd_deg": 95.5,
+        "wrist_turn_deg": 9.3,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.004,
+         -0.0009,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.0188
+       }
+      ],
+      "first_turn": {
+       "step": 76,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.0,
+       "key_end_deg": 2.8,
+       "wrist_cmd_deg": 95.5,
+       "wrist_turn_deg": 9.3,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 9 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.4 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 94.11112807842956,
+      "dxy": [
+       0.002505982248232943,
+       0.0006408960546945915
+      ],
+      "dyaw": 5.3554797903703575
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.2,
+        "key_end_deg": 1.4,
+        "wrist_cmd_deg": 94.1,
+        "wrist_turn_deg": 9.6,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         0.0016,
+         0.0003,
+         -0.0003
+        ],
+        "held": true,
+        "width": 0.0186
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.2,
+       "key_end_deg": 1.4,
+       "wrist_cmd_deg": 94.1,
+       "wrist_turn_deg": 9.6,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 1 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm forward and 0.0 cm to the left of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 91.94329061570653,
+      "dxy": [
+       -0.0017640130415267528,
+       -0.0034237458997429106
+      ],
+      "dyaw": -4.370489279647353
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -0.9,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 91.9,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0022,
+         -0.0022,
+         -0.0002
+        ],
+        "held": true,
+        "width": 0.018
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -0.9,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 91.9,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 4 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.2 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 79.28687476512242,
+      "dxy": [
+       -0.0027627031160174192,
+       -0.0019185694015560239
+      ],
+      "dyaw": -3.6973890105656566
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.5,
+      "open_deg": -2.5,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": -0.4,
+        "key_end_deg": 2.5,
+        "wrist_cmd_deg": 79.3,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 50,
+        "offset": [
+         -0.0044,
+         -0.0014,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.018
+       }
+      ],
+      "first_turn": {
+       "step": 76,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": -0.4,
+       "key_end_deg": 2.5,
+       "wrist_cmd_deg": 79.3,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.4 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1014,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.093381879789036,
+     0.025710691590124374
+    ],
+    "lock_yaw": 0.20837388566858028
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0012,
+         0.0001,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive",
+   "inst": {
+    "seed": 1014,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.093381879789036,
+     0.025710691590124374
+    ],
+    "lock_yaw": 0.20837388566858028
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0012,
+         0.0001,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1014,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.093381879789036,
+     0.025710691590124374
+    ],
+    "lock_yaw": 0.20837388566858028
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0012,
+         0.0001,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "blind",
+   "inst": {
+    "seed": 1014,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.093381879789036,
+     0.025710691590124374
+    ],
+    "lock_yaw": 0.20837388566858028
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 248,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 48,
+        "offset": [
+         -0.0012,
+         0.0001,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1015,
+    "direction": "CW",
+    "lock_xy": [
+     -0.10321261841957244,
+     0.03212034858220958
+    ],
+    "lock_yaw": 0.07398718772236007
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 247,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive",
+   "inst": {
+    "seed": 1015,
+    "direction": "CW",
+    "lock_xy": [
+     -0.10321261841957244,
+     0.03212034858220958
+    ],
+    "lock_yaw": 0.07398718772236007
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1015,
+    "direction": "CW",
+    "lock_xy": [
+     -0.10321261841957244,
+     0.03212034858220958
+    ],
+    "lock_yaw": 0.07398718772236007
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 247,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "blind",
+   "inst": {
+    "seed": 1015,
+    "direction": "CW",
+    "lock_xy": [
+     -0.10321261841957244,
+     0.03212034858220958
+    ],
+    "lock_yaw": 0.07398718772236007
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.002,
+         0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 79.15299772499553,
+      "dxy": [
+       -0.0017047887851895966,
+       0.000602868956984855
+      ],
+      "dyaw": 4.485582979086827
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.5,
+      "open_deg": -2.5,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.2,
+        "key_end_deg": 2.3,
+        "wrist_cmd_deg": 79.2,
+        "wrist_turn_deg": 9.7,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0036,
+         0.0004,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.0183
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.2,
+       "key_end_deg": 2.3,
+       "wrist_cmd_deg": 79.2,
+       "wrist_turn_deg": 9.7,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.4 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 88.09012860133736,
+      "dxy": [
+       0.0002779396057295815,
+       0.0011574584245436427
+      ],
+      "dyaw": -8.618190459298848
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -1.4,
+        "key_end_deg": 1.7,
+        "wrist_cmd_deg": 88.1,
+        "wrist_turn_deg": 10.2,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0019,
+         0.0008,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.0193
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -1.4,
+       "key_end_deg": 1.7,
+       "wrist_cmd_deg": 88.1,
+       "wrist_turn_deg": 10.2,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 79.55387462273035,
+      "dxy": [
+       -0.0012972818221671574,
+       -0.00023694730383156325
+      ],
+      "dyaw": 0.18219427307869415
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 73,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 79.6,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0033,
+         -0.0001,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 73,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.1,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 79.6,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.3 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 84.9494983007547,
+      "dxy": [
+       -0.001257419089125935,
+       0.0034034854843708134
+      ],
+      "dyaw": -2.9948357860557326
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 74,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -3.3,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 84.9,
+        "wrist_turn_deg": 13.4,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 47,
+        "offset": [
+         -0.0035,
+         0.0021,
+         -0.0007
+        ],
+        "held": true,
+        "width": 0.0171
+       }
+      ],
+      "first_turn": {
+       "step": 74,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -3.3,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 84.9,
+       "wrist_turn_deg": 13.4,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 13 deg counterclockwise (seen from above) and the key rotated 6 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.4 cm backward and 0.2 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1016,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1203610924274159,
+     -0.017191802671706585
+    ],
+    "lock_yaw": -0.07664231852287665
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 89.8,
+      "open_deg": 89.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         0.0,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive",
+   "inst": {
+    "seed": 1016,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1203610924274159,
+     -0.017191802671706585
+    ],
+    "lock_yaw": -0.07664231852287665
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 89.8,
+      "open_deg": 89.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         0.0,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1016,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1203610924274159,
+     -0.017191802671706585
+    ],
+    "lock_yaw": -0.07664231852287665
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 89.8,
+      "open_deg": 89.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         0.0,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "blind",
+   "inst": {
+    "seed": 1016,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.1203610924274159,
+     -0.017191802671706585
+    ],
+    "lock_yaw": -0.07664231852287665
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 89.8,
+      "open_deg": 89.8,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 90.1,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         0.0,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1017,
+    "direction": "CW",
+    "lock_xy": [
+     -0.030614271939664095,
+     0.09639956209014439
+    ],
+    "lock_yaw": 0.2474419910645586
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 242,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         -0.0002,
+         -0.0001,
+         0.0001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive",
+   "inst": {
+    "seed": 1017,
+    "direction": "CW",
+    "lock_xy": [
+     -0.030614271939664095,
+     0.09639956209014439
+    ],
+    "lock_yaw": 0.2474419910645586
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.6,
+      "open_deg": -1.6,
+      "turns": [
+       {
+        "step": 68,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.5,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         -0.0002,
+         -0.0001,
+         0.0001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 68,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.5,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1017,
+    "direction": "CW",
+    "lock_xy": [
+     -0.030614271939664095,
+     0.09639956209014439
+    ],
+    "lock_yaw": 0.2474419910645586
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.6,
+      "open_deg": -1.6,
+      "turns": [
+       {
+        "step": 68,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.5,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         -0.0002,
+         -0.0001,
+         0.0001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 68,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.5,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 242,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         -0.0002,
+         -0.0001,
+         0.0001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "blind",
+   "inst": {
+    "seed": 1017,
+    "direction": "CW",
+    "lock_xy": [
+     -0.030614271939664095,
+     0.09639956209014439
+    ],
+    "lock_yaw": 0.2474419910645586
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.6,
+      "open_deg": -1.6,
+      "turns": [
+       {
+        "step": 68,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.5,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         -0.0002,
+         -0.0001,
+         0.0001
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 68,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.5,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.0 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 98.73385747680858,
+      "dxy": [
+       -0.004463387081300259,
+       -0.0021457219105785676
+      ],
+      "dyaw": 4.10217960455091
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 3.0,
+      "open_deg": -3.0,
+      "turns": [
+       {
+        "step": 77,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.6,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 94.7,
+        "wrist_turn_deg": 9.5,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0057,
+         -0.0016,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.0181
+       }
+      ],
+      "first_turn": {
+       "step": 77,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.6,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 94.7,
+       "wrist_turn_deg": 9.5,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.6 cm backward and 0.2 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 95.47079071245969,
+      "dxy": [
+       0.001641873774780289,
+       -0.002176909564739307
+      ],
+      "dyaw": 4.342530303547795
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.8,
+      "open_deg": -1.8,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.4,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 94.4,
+        "wrist_turn_deg": 6.2,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 51,
+        "offset": [
+         -0.0003,
+         -0.0011,
+         -0.0006
+        ],
+        "held": true,
+        "width": 0.0179
+       }
+      ],
+      "first_turn": {
+       "step": 76,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.4,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 94.4,
+       "wrist_turn_deg": 6.2,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 6 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.0 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 81.8291858299334,
+      "dxy": [
+       -0.0002767255843934185,
+       -0.0010073399809980455
+      ],
+      "dyaw": -1.7220642435781008
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.5,
+      "open_deg": -1.5,
+      "turns": [
+       {
+        "step": 68,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": -1.7,
+        "key_end_deg": 1.5,
+        "wrist_cmd_deg": 81.8,
+        "wrist_turn_deg": 10.0,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         -0.0006,
+         -0.0006,
+         0.0
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 68,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": -1.7,
+       "key_end_deg": 1.5,
+       "wrist_cmd_deg": 81.8,
+       "wrist_turn_deg": 10.0,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 3 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.1 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 80.92167935436795,
+      "dxy": [
+       0.0015331419156842537,
+       -0.0014388369508869995
+      ],
+      "dyaw": 2.076892997803091
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.9,
+      "open_deg": -2.9,
+      "turns": [
+       {
+        "step": 68,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 1.0,
+        "key_end_deg": 3.0,
+        "wrist_cmd_deg": 80.9,
+        "wrist_turn_deg": 9.8,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 42,
+        "offset": [
+         0.0011,
+         -0.0007,
+         -0.0
+        ],
+        "held": true,
+        "width": 0.0173
+       }
+      ],
+      "first_turn": {
+       "step": 68,
+       "held_at_start": true,
+       "held_at_end": false,
+       "key_start_deg": 1.0,
+       "key_end_deg": 3.0,
+       "wrist_cmd_deg": 80.9,
+       "wrist_turn_deg": 9.8,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper lost hold of the key during the turn. When the gripper first closed, its centre was 0.1 cm forward and 0.1 cm to the right of the centre of the key's head and 1.5 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1018,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.07278319160547038,
+     -0.013512277291467367
+    ],
+    "lock_yaw": 0.1945242167452485
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 249,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 49,
+        "offset": [
+         -0.001,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive",
+   "inst": {
+    "seed": 1018,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.07278319160547038,
+     -0.013512277291467367
+    ],
+    "lock_yaw": 0.1945242167452485
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 249,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 49,
+        "offset": [
+         -0.001,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1018,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.07278319160547038,
+     -0.013512277291467367
+    ],
+    "lock_yaw": 0.1945242167452485
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 249,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 49,
+        "offset": [
+         -0.001,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "blind",
+   "inst": {
+    "seed": 1018,
+    "direction": "CCW",
+    "lock_xy": [
+     -0.07278319160547038,
+     -0.013512277291467367
+    ],
+    "lock_yaw": 0.1945242167452485
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": 90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 249,
+        "held_at_start": true,
+        "held_at_end": false,
+        "key_start_deg": 0.1,
+        "key_end_deg": 90.0,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 89.9,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 49,
+        "offset": [
+         -0.001,
+         -0.0002,
+         -0.0005
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle",
+   "inst": {
+    "seed": 1019,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12179950838114309,
+     -0.031201485631883102
+    ],
+    "lock_yaw": -0.01733941105115322
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive",
+   "inst": {
+    "seed": 1019,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12179950838114309,
+     -0.031201485631883102
+    ],
+    "lock_yaw": -0.01733941105115322
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.3,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.3,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 1 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "adaptive",
+   "inst": {
+    "seed": 1019,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12179950838114309,
+     -0.031201485631883102
+    ],
+    "lock_yaw": -0.01733941105115322
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.3,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.3,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 1 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": -90.0
+     },
+     "outcome": {
+      "success": true,
+      "unlocked": true,
+      "n_turns": 1,
+      "key_deg": -90.0,
+      "open_deg": 90.0,
+      "turns": [
+       {
+        "step": 76,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": -90.0,
+        "wrist_cmd_deg": -90.0,
+        "wrist_turn_deg": -90.0,
+        "stalled": false
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": null,
+      "failure": null,
+      "detail": "The lock is unlocked."
+     }
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "blind",
+   "inst": {
+    "seed": 1019,
+    "direction": "CW",
+    "lock_xy": [
+     -0.12179950838114309,
+     -0.031201485631883102
+    ],
+    "lock_yaw": -0.01733941105115322
+   },
+   "history": [
+    {
+     "attempt": 1,
+     "params": {
+      "turn": 90.0
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.0,
+        "key_end_deg": 1.3,
+        "wrist_cmd_deg": 90.0,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0021,
+         -0.0001,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.017
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.0,
+       "key_end_deg": 1.3,
+       "wrist_cmd_deg": 90.0,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 1 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.0 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 2,
+     "params": {
+      "turn": 83.46399714069932,
+      "dxy": [
+       0.0006998572217161959,
+       -0.002317302013772499
+      ],
+      "dyaw": 3.4802948142191386
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 2.1,
+        "key_end_deg": 1.4,
+        "wrist_cmd_deg": 83.5,
+        "wrist_turn_deg": 6.4,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0017,
+         -0.0016,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.0174
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 2.1,
+       "key_end_deg": 1.4,
+       "wrist_cmd_deg": 83.5,
+       "wrist_turn_deg": 6.4,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 6 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.2 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 3,
+     "params": {
+      "turn": 84.13246493482927,
+      "dxy": [
+       0.0010272943582612473,
+       0.0005003333060011716
+      ],
+      "dyaw": 1.5678785877658439
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.7,
+      "open_deg": -1.7,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.1,
+        "key_end_deg": 1.6,
+        "wrist_cmd_deg": 84.1,
+        "wrist_turn_deg": 9.9,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0011,
+         0.0002,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0174
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.1,
+       "key_end_deg": 1.6,
+       "wrist_cmd_deg": 84.1,
+       "wrist_turn_deg": 9.9,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm backward and 0.0 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 4,
+     "params": {
+      "turn": 89.65649123121234,
+      "dxy": [
+       -0.0001922652873012467,
+       -0.0011594602330587825
+      ],
+      "dyaw": 3.588817889161134
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 1.4,
+      "open_deg": -1.4,
+      "turns": [
+       {
+        "step": 71,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 1.3,
+        "key_end_deg": 1.3,
+        "wrist_cmd_deg": 89.7,
+        "wrist_turn_deg": 6.3,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         -0.0025,
+         -0.0009,
+         -0.0008
+        ],
+        "held": true,
+        "width": 0.0177
+       }
+      ],
+      "first_turn": {
+       "step": 71,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 1.3,
+       "key_end_deg": 1.3,
+       "wrist_cmd_deg": 89.7,
+       "wrist_turn_deg": 6.3,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 6 deg counterclockwise (seen from above) and the key did not rotate at all, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.2 cm backward and 0.1 cm to the right of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    },
+    {
+     "attempt": 5,
+     "params": {
+      "turn": 84.01384611411814,
+      "dxy": [
+       0.0027633013944170785,
+       0.0011764767723733212
+      ],
+      "dyaw": 2.6838331812151037
+     },
+     "outcome": {
+      "success": false,
+      "unlocked": false,
+      "n_turns": 1,
+      "key_deg": 2.8,
+      "open_deg": -2.8,
+      "turns": [
+       {
+        "step": 72,
+        "held_at_start": true,
+        "held_at_end": true,
+        "key_start_deg": 0.5,
+        "key_end_deg": 2.8,
+        "wrist_cmd_deg": 84.0,
+        "wrist_turn_deg": 9.7,
+        "stalled": true
+       }
+      ],
+      "closes": [
+       {
+        "step": 46,
+        "offset": [
+         0.0007,
+         0.0006,
+         -0.0009
+        ],
+        "held": true,
+        "width": 0.0176
+       }
+      ],
+      "first_turn": {
+       "step": 72,
+       "held_at_start": true,
+       "held_at_end": true,
+       "key_start_deg": 0.5,
+       "key_end_deg": 2.8,
+       "wrist_cmd_deg": 84.0,
+       "wrist_turn_deg": 9.7,
+       "stalled": true
+      },
+      "failure": "still_locked",
+      "detail": "The lock is still locked. During your (first) turn the wrist rotated 10 deg counterclockwise (seen from above) and the key rotated 2 deg counterclockwise, then it would not turn any further and the wrist stopped there; the gripper held the key throughout the turn. When the gripper first closed, its centre was 0.1 cm forward and 0.1 cm to the left of the centre of the key's head and 1.6 cm below the top of the head; it was holding the key."
+     }
+    }
+   ]
+  }
+ ],
+ "seconds": 156.95583653450012
+}

@@ -1,0 +1,1151 @@
+diff --git a/rpent/planner/api_loop.py b/rpent/planner/api_loop.py
+index f60230e..a373fd5 100644
+--- a/rpent/planner/api_loop.py
++++ b/rpent/planner/api_loop.py
+@@ -271,12 +271,19 @@ class _HarnessToolkit(FunctionToolset):
+         self.messages: list[dict[str, Any]] = []
+         self.stopping = threading.Event()
+         self.validators: dict[str, Draft202012Validator] = {}
+-        self.output_types: list[Any] = [str]
++        # A toolkit may require the run to end through its loop-ending tool
++        # only; a text-only reply then gets the SDK's retry prompt instead of
++        # ending the run (lffbench: attempts are owned by an external server).
++        requires_finish = bool(getattr(toolkit, "requires_finish_tool", False))
++        self.output_types: list[Any] = [] if requires_finish else [str]
++        # The loop-ending tool is ``finish`` unless the toolkit needs that name
++        # for a robot command (lffbench v2: ``finish`` ends one attempt).
++        finish_name = getattr(toolkit, "finish_tool_name", "finish")
+         self.add_tool(Tool(self.read_image, takes_ctx=True, sequential=True))
+         for spec in toolkit.get_tools_spec():
+             name = spec["name"]
+             self.validators[name] = Draft202012Validator(spec["input_schema"])
+-            if name == "finish":
++            if name == finish_name:
+                 # Eager annotations bind this toolkit's schema to the output
+                 # function. Keep this module free of postponed annotations.
+                 FinishArguments = StructuredDict(
+@@ -286,7 +293,7 @@ class _HarnessToolkit(FunctionToolset):
+                 async def finish(
+                     ctx: RunContext, arguments: FinishArguments
+                 ) -> dict[str, Any]:
+-                    result = await self.execute("finish", arguments, ctx)
++                    result = await self.execute(finish_name, arguments, ctx)
+                     if not result.is_finish:
+                         raise ModelRetry(self._text(result))
+                     self.finish_result = result.result
+@@ -294,7 +301,7 @@ class _HarnessToolkit(FunctionToolset):
+ 
+                 self.output_types.append(
+                     ToolOutput(
+-                        finish, name="finish", description=spec.get("description")
++                        finish, name=finish_name, description=spec.get("description")
+                     )
+                 )
+             else:
+diff --git a/robots/lffbench/__init__.py b/robots/lffbench/__init__.py
+new file mode 100644
+index 0000000..ba2c74d
+--- /dev/null
++++ b/robots/lffbench/__init__.py
+@@ -0,0 +1,5 @@
++"""LFF-Bench robot extension (borrows an LFF-Bench robot_server session)."""
++
++from robots.lffbench.robot_spec import get_robot_spec, get_toolkit
++
++__all__ = ["get_robot_spec", "get_toolkit"]
+diff --git a/robots/lffbench/audit.py b/robots/lffbench/audit.py
+new file mode 100644
+index 0000000..5587c0b
+--- /dev/null
++++ b/robots/lffbench/audit.py
+@@ -0,0 +1,177 @@
++"""Audit an RPent run's model requests against the unified information contract
++(agentic-robotics/docs/04, interface v2).
++
++    python3 robots/lffbench/audit.py <run log dir>      (plain python3, no venv needed)
++
++Checks every logged request in <run log dir>/rpent_transcript.jsonl:
++- tool set is exactly the v2 robot commands + RPent's read_image / final_report;
++- the system message contains the sandbox README verbatim, and RPent's own text
++  (system message minus README, user turns, tool descriptions) carries no
++  robot-geometry / camera priors and nothing from the forbidden list;
++- tool outputs carry only server fields (+ RPent's step / artifacts), never
++  holding / touched / events, and each one equals the server's logged reply;
++- every image sent is byte-identical to the server's copy of an obs/ JPEG;
++- every F2 feedback reached the model.
++The model's own messages are not scanned (it may say anything).
++"""
++
++import hashlib
++import json
++import os
++import re
++import sys
++from collections import Counter
++
++LOG = sys.argv[1]
++recs = [json.loads(line) for line in open(os.path.join(LOG, "rpent_transcript.jsonl"))]
++reqs = [r for r in recs if r["ev"] == "request"]
++resps = [r for r in recs if r["ev"] == "response"]
++sess = json.load(open(os.path.join(LOG, "session.json")))
++readme = open(os.path.join(sess["sandbox"], "README.md")).read().strip()
++events = [json.loads(line) for line in open(os.path.join(LOG, "events.jsonl"))]
++calls = [e for e in events if e["ev"] == "call"]
++dones = [e for e in events if e["ev"] == "done"]
++
++problems = []
++ALLOWED_TOOLS = {"read_image", "status", "observe", "move_eef", "finish", "final_report"}
++FORBIDDEN = [r"depth", r"point ?cloud", r"pixel_to_world", r"back_?project", r"\bSAM3?\b", r"\bsegment\(",
++             r"intrinsic", r"extrinsic", r"calibration", r"camera_meta", r"MEMORY\.md", r"\bmemory\b", r"recipe",
++             r"PROVEN", r"LIBERO", r"\bpi0", r"BDDL", r"read_text_file", r"write_text_file", r"list_dir",
++             r"\bbash\b", r"/tmp/robotlab", r"/mnt/cpfs", r"@gmail", r"lffbench", r"l1_bias",
++             r"\bseed\b", r"world_xyz", r"object_pos", r"terminated",
++             # v2 replies have no held/touched flags or per-step events (the words may appear in F2 feedback)
++             r'"holding_object"', r'"touched_object', r'"events"', r"move_to", r"open_gripper", r"close_gripper"]
++# extra private strings that must not appear (e.g. your user name): comma-separated regexes in LFF_AUDIT_PRIVATE
++FORBIDDEN += [p for p in os.environ.get("LFF_AUDIT_PRIVATE", "").split(",") if p]
++# priors v2 withholds; only checked in RPent's own text (system message minus README, user turns, tools)
++PRIORS = [r"\btable\b", r"\baxis\b|\baxes\b", r"(?<![\w.])[+-][xyz]\b", r"\b0\.9\d?\b", r"forward|backward",
++          r"\bbase\b", r"image-(right|down|left|up)", r"looks (down|at)", r"robot-centric", r"\bleft\b|\bright\b",
++          r"\bup\b|\bdown\b|vertical|horizontal"]
++SERVER_KEYS = {"ok", "error", "task", "attempt", "max_attempts", "finished", "eef_pos", "eef_yaw_deg",
++               "gripper_width_m", "budget_left", "stopped_from_target", "ended", "feedback", "message", "note",
++               "attempt_ended"}
++RPENT_KEYS = {"step", "artifacts"}
++
++
++def model_inputs(body):
++    """(where, text) for every text the model receives that is not its own output."""
++    out = []
++    for i, it in enumerate(body["input"]):
++        if it.get("role") == "system":
++            out.append(("system", it["content"] if isinstance(it["content"], str) else json.dumps(it["content"])))
++        elif it.get("role") == "user":
++            c = it["content"]
++            out.append((f"user[{i}]", c if isinstance(c, str) else " ".join(x.get("text", "") for x in c)))
++        elif it.get("type") == "function_call_output":
++            o = it["output"]
++            out.append((f"tool_output[{i}]", o if isinstance(o, str) else
++                        " ".join(x.get("text", "") for x in o if x.get("type") == "input_text")))
++    for t in body.get("tools", []):
++        out.append((f"tool:{t['name']}", json.dumps(t)))
++    return out
++
++
++def images(obj):
++    if isinstance(obj, dict):
++        if obj.get("type") == "input_image":
++            yield obj
++        for v in obj.values():
++            yield from images(v)
++    elif isinstance(obj, list):
++        for v in obj:
++            yield from images(v)
++
++
++def flagged(text, pats):
++    hits = []
++    for pat in pats:
++        m = re.search(pat, text, re.I)
++        if m:
++            hits.append(f"{pat!r}: ...{text[max(0, m.start() - 50):m.end() + 50]!r}")
++    return hits
++
++
++seen = {}
++img_total, img_checked = 0, set()
++for r in reqs:
++    b = r["body"]
++    tools = {t["name"] for t in b.get("tools", [])}
++    if tools != ALLOWED_TOOLS:
++        problems.append(f"req {r['n']}: tool set {sorted(tools)}")
++    sysmsg = b["input"][0]
++    if sysmsg.get("role") != "system" or readme not in sysmsg["content"]:
++        problems.append(f"req {r['n']}: README not verbatim in system message")
++    for where, text in model_inputs(b):
++        if text in seen:
++            continue
++        seen[text] = where
++        own = text.replace(readme, "") if where == "system" else text
++        for h in flagged(own, FORBIDDEN):
++            problems.append(f"req {r['n']} {where}: forbidden {h}")
++        if where == "system" or where.startswith("user") or where.startswith("tool:"):
++            for h in flagged(own, PRIORS):
++                problems.append(f"req {r['n']} {where}: prior {h}")
++    for im in images(b["input"]):
++        img_total += 1
++        ref = im["image_url"]
++        if not isinstance(ref, dict) or "image_file" not in ref:
++            problems.append(f"req {r['n']}: image not from server obs: {str(ref)[:200]}")
++            continue
++        if ref["sha1"] in img_checked:
++            continue
++        img_checked.add(ref["sha1"])
++        if hashlib.sha1(open(ref["image_file"], "rb").read()).hexdigest() != ref["sha1"]:
++            problems.append(f"artifact bytes differ from sent bytes: {ref['image_file']}")
++        name = os.path.basename(ref["sandbox_file"])
++        cands = [f for f in os.listdir(os.path.join(LOG, "images")) if f.endswith("_" + name)]
++        if not any(hashlib.sha1(open(os.path.join(LOG, "images", f), "rb").read()).hexdigest() == ref["sha1"]
++                   for f in cands):
++            problems.append(f"sent image {name} not byte-identical to the server's copy {cands}")
++        if ref.get("media") != "data:image/jpeg;base64":
++            problems.append(f"media type {ref.get('media')}")
++
++# tool outputs: keys and equality with the server's logged replies
++outputs, call_names = {}, {}
++for r in reqs:
++    for it in r["body"]["input"]:
++        if it.get("type") == "function_call_output":
++            o = it["output"]
++            outputs[it["call_id"]] = o if isinstance(o, str) else next(
++                (c["text"] for c in o if c.get("type") == "input_text"), "")
++        elif it.get("type") == "function_call":
++            call_names[it["call_id"]] = it["name"]
++server_reports = [json.dumps({k: v for k, v in e["report"].items() if k != "images"}, sort_keys=True)
++                  for e in calls]
++key_count, matched = Counter(), 0
++for cid, txt in outputs.items():
++    name = call_names.get(cid, "?")
++    try:
++        d = json.loads(txt)
++    except ValueError:
++        continue
++    if not isinstance(d, dict):
++        continue
++    for dd in (d, d.get("attempt_ended") if isinstance(d.get("attempt_ended"), dict) else {}):
++        key_count.update(dd.keys())
++        extra = set(dd) - SERVER_KEYS - RPENT_KEYS
++        if extra and name in ("status", "observe", "move_eef", "finish"):
++            problems.append(f"{name} output has keys beyond the server reply: {sorted(extra)}")
++    if name in ("observe", "move_eef") and d.get("ok") is not False and "ended" not in d:
++        core = json.dumps({k: v for k, v in d.items() if k not in RPENT_KEYS | {"attempt_ended"}}, sort_keys=True)
++        if core in server_reports:
++            matched += 1
++        else:
++            problems.append(f"{name} output differs from the server's logged reply: {core[:200]}")
++fb = [d["feedback"] for d in dones if any(d["feedback"] in t for t in seen)]
++
++print("tool-output keys:", dict(key_count))
++print(f"observe/move_eef outputs identical to server replies: {matched}; tool outputs seen: {len(outputs)}")
++print("tool calls by name:", dict(Counter(call_names.values())))
++print(f"requests={len(reqs)} responses={len(resps)} images_sent_total={img_total} unique_images={len(img_checked)}")
++print("server commands:", len(calls), dict(Counter(e["cmd"] for e in calls)))
++print("attempts:", [(d["attempt"], d["success"]) for d in dones], f"feedback delivered {len(fb)}/{len(dones)}")
++if len(fb) != len(dones):
++    problems.append("not every attempt's feedback reached the model")
++print("PROBLEMS:" if problems else "NO PROBLEMS FOUND")
++for p in problems:
++    print(" -", p)
+diff --git a/robots/lffbench/client.py b/robots/lffbench/client.py
+new file mode 100644
+index 0000000..c92d4cc
+--- /dev/null
++++ b/robots/lffbench/client.py
+@@ -0,0 +1,56 @@
++"""Minimal HTTP client for one LFF-Bench ``robot_server`` session.
++
++The robot server (``lffbench/agent/robot_server.py``) owns the simulator, the
++task instance, the attempt counter, the outcome feedback and the video. This
++client only forwards ``{"cmd", "args"}`` to ``POST /call`` with the session
++token, exactly like the sandbox's ``./robot`` CLI does, and reads back the
++JPEG files the server wrote into ``<sandbox>/obs/``.
++"""
++
++from __future__ import annotations
++
++import json
++import os
++import urllib.request
++from pathlib import Path
++from typing import Any
++
++
++def read_token(sandbox: str | Path) -> str:
++    """Return the session token embedded in the sandbox's ``robot`` CLI."""
++    text = (Path(sandbox) / "robot").read_text()
++    return text.split('TOKEN = "', 1)[1].split('"', 1)[0]
++
++
++class RobotServerClient:
++    """Talks to one robot_server over localhost HTTP (never through a proxy)."""
++
++    def __init__(self, *, port: int, token: str, sandbox: str | Path, timeout_s: float = 900.0):
++        self.port = int(port)
++        self.token = token
++        self.sandbox = Path(sandbox).resolve()
++        self.obs_dir = (self.sandbox / "obs").resolve()
++        self.timeout_s = timeout_s
++        self._opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
++
++    def call(self, cmd: str, args: dict[str, Any] | None = None) -> dict[str, Any]:
++        """Run one robot command; return the server's JSON report as a dict."""
++        req = urllib.request.Request(
++            f"http://127.0.0.1:{self.port}/call",
++            data=json.dumps({"cmd": cmd, "args": args or {}}).encode(),
++            headers={"Content-Type": "application/json", "X-Token": self.token},
++        )
++        with self._opener.open(req, timeout=self.timeout_s) as r:
++            raw = r.read().decode()
++        try:
++            rep = json.loads(raw)
++        except ValueError:  # only `help` returns plain text; it is not exposed
++            return {"text": raw}
++        return rep if isinstance(rep, dict) else {"value": rep}
++
++    def read_image(self, rel_path: str) -> bytes:
++        """Return the exact bytes of an image the server wrote under ``obs/``."""
++        path = (self.sandbox / rel_path).resolve()
++        if os.path.commonpath([str(path), str(self.obs_dir)]) != str(self.obs_dir):
++            raise ValueError(f"image path outside the sandbox obs/ directory: {rel_path!r}")
++        return path.read_bytes()
+diff --git a/robots/lffbench/player.py b/robots/lffbench/player.py
+new file mode 100644
+index 0000000..514a32a
+--- /dev/null
++++ b/robots/lffbench/player.py
+@@ -0,0 +1,357 @@
++"""Run RPent's own CLI (api planner) on one LFF-Bench robot_server session.
++
++    python -m robots.lffbench.player --session <run log dir>/session.json
++
++This is a thin wrapper around ``rpent.cli.main.main`` (``--robot lffbench
++--planner api``). It adds only observability and transport robustness:
++
++* every HTTP request RPent's planner sends to the model endpoint and every
++  response are appended to ``<run log dir>/rpent_transcript.jsonl``; base64
++  images are replaced by references to the JPEG files they came from and
++  encrypted reasoning blobs by their length/sha1 (request headers, and so the
++  API key, are never logged);
++* the planner's streamed model requests go over the wire as plain
++  (non-streaming) Responses requests and are replayed to pydantic-ai as stream
++  events, because the sub2api relay delivers SSE bodies minutes late; request
++  content and the resulting ModelResponse are unchanged;
++* transient endpoint failures (connection errors, 408/409/425/429/5xx) are
++  retried with exponential backoff (5, 10, 20, 40, 60 s), a bounded number of
++  times; after that the run stops and the failure is recorded;
++* afterwards the model's final report goes to ``<run log dir>/final_report.md``
++  and a summary to ``<run log dir>/rpent_result.json``.
++
++Credentials come from the environment (OPENAI_API_KEY / OPENAI_BASE_URL /
++SSL_CERT_FILE), e.g. ``set -a; source <lffbench>/.env; set +a``.
++"""
++
++from __future__ import annotations
++
++import argparse
++import asyncio
++import base64
++import hashlib
++import json
++import os
++import subprocess
++import sys
++import threading
++import time
++from pathlib import Path
++from typing import Any
++
++REPO_ROOT = Path(__file__).resolve().parents[2]
++if str(REPO_ROOT) not in sys.path:
++    sys.path.insert(0, str(REPO_ROOT))
++
++TRANSIENT_STATUS = {408, 409, 425, 429, 500, 502, 503, 504, 520, 521, 522, 523, 524, 529}
++
++
++class TranscriptLog:
++    """Thread-safe JSONL writer for model requests/responses."""
++
++    def __init__(self, path: Path):
++        self.path = path
++        self._f = open(path, "a", encoding="utf-8")
++        self._lock = threading.Lock()
++        self.n_requests = 0
++        self.n_images_sent = 0
++        self.unknown_images = 0
++        self._pending: dict[int, tuple[int, float]] = {}
++
++    def write(self, rec: dict[str, Any]) -> None:
++        rec.setdefault("t", time.time())
++        with self._lock:
++            self._f.write(json.dumps(rec, ensure_ascii=False, default=str) + "\n")
++            self._f.flush()
++
++    # ------------------------------------------------------------ sanitizing
++    def _image_ref(self, data_url: str) -> dict[str, Any]:
++        from robots.lffbench.toolkit import IMAGE_INDEX
++
++        header, _, b64 = data_url.partition(",")
++        raw = base64.b64decode(b64)
++        sha1 = hashlib.sha1(raw).hexdigest()
++        info = IMAGE_INDEX.get(sha1)
++        if info is None:
++            self.unknown_images += 1
++            return {"image_unknown": True, "media": header, "sha1": sha1, "n_bytes": len(raw)}
++        return {"image_file": info["artifact"], "sandbox_file": info["sandbox_file"], "camera": info["camera"],
++                "rpent_step": info["step"], "media": header, "sha1": sha1, "n_bytes": len(raw)}
++
++    def sanitize(self, obj: Any, counter: list[int] | None = None) -> Any:
++        if isinstance(obj, dict):
++            out = {}
++            for k, v in obj.items():
++                if k == "encrypted_content" and isinstance(v, str):
++                    out[k] = {"omitted_encrypted_content": True, "len": len(v),
++                              "sha1": hashlib.sha1(v.encode()).hexdigest()}
++                else:
++                    out[k] = self.sanitize(v, counter)
++            return out
++        if isinstance(obj, list):
++            return [self.sanitize(v, counter) for v in obj]
++        if isinstance(obj, str) and obj.startswith("data:image/"):
++            if counter is not None:
++                counter[0] += 1
++            return self._image_ref(obj)
++        return obj
++
++    # ------------------------------------------------------------ httpx hooks
++    async def on_request(self, request) -> None:
++        try:
++            body = json.loads(request.content.decode("utf-8")) if request.content else None
++        except Exception as exc:  # never break the request because of logging
++            body = {"unparsed_body": True, "error": repr(exc), "n_bytes": len(request.content or b"")}
++        counter = [0]
++        clean = self.sanitize(body, counter)
++        with self._lock:
++            self.n_requests += 1
++            n = self.n_requests
++            lost = sorted(v[0] for v in self._pending.values())
++            self._pending.clear()  # requests are sequential: older ones got no response
++            self._pending[id(request)] = (n, time.time())
++        for m in lost:
++            self.write({"ev": "no_response", "n": m, "note": "transport error before a response (SDK retried)"})
++        self.n_images_sent += counter[0]
++        self.write({"ev": "request", "n": n, "method": request.method, "path": request.url.path,
++                    "n_images": counter[0], "body": clean})
++
++    async def on_response(self, response) -> None:
++        """Log the response. The whole body (SSE included) is read here, inside
++        the SDK's ``send``: a dropped or stalled connection then fails the
++        request itself, where the SDK and the retry wrapper can retry it."""
++        n, t0 = self._pending.pop(id(response.request), (None, None))
++        try:
++            await response.aread()
++        except Exception as exc:
++            self.write({"ev": "response_read_error", "n": n, "status_code": response.status_code,
++                        "latency_s": None if t0 is None else round(time.time() - t0, 3), "error": repr(exc)})
++            raise
++        try:
++            text = response.content.decode("utf-8", errors="replace")
++            if "text/event-stream" in response.headers.get("content-type", ""):
++                body = None
++                for line in text.splitlines():
++                    if line.startswith("data:"):
++                        try:
++                            ev = json.loads(line[5:].strip())
++                        except ValueError:
++                            continue
++                        if isinstance(ev, dict) and ev.get("type") in (
++                            "response.completed", "response.incomplete", "response.failed", "error"
++                        ):
++                            body = ev
++                body = body if body is not None else {"unparsed_stream_tail": text[-4000:]}
++            else:
++                try:
++                    body = json.loads(text)
++                except ValueError:
++                    body = {"text": text[:20000]}
++        except Exception as exc:  # logging must never break the request
++            body = {"log_parse_error": repr(exc)}
++        self.write({"ev": "response", "n": n, "status_code": response.status_code,
++                    "latency_s": None if t0 is None else round(time.time() - t0, 3),
++                    "body": self.sanitize(body)})
++
++
++def install_hooks(tlog: TranscriptLog, api_retries: int) -> None:
++    """Wrap RPent's model factory: add logging hooks and bounded retry/backoff."""
++    from contextlib import asynccontextmanager
++
++    import rpent.planner.base as planner_base
++    from pydantic_ai.exceptions import ModelAPIError, ModelHTTPError
++    from pydantic_ai.models import CompletedStreamedResponse
++
++    original = planner_base.build_api_model
++
++    async def backoff_or_raise(exc: Exception, attempt: int) -> None:
++        """Sleep before the next attempt, or re-raise if not retryable / out of retries."""
++        status = getattr(exc, "status_code", None)
++        err = f"{type(exc).__name__}{'' if status is None else ' HTTP ' + str(status)}: {str(exc)[:500]}"
++        if (isinstance(exc, ModelHTTPError) and status not in TRANSIENT_STATUS) or attempt >= api_retries:
++            tlog.write({"ev": "api_error", "attempt": attempt, "final": True, "error": err})
++            print(f"[rpent_player] model API error, giving up: {err}", flush=True)
++            raise exc
++        wait = min(60, 5 * 2**attempt)
++        tlog.write({"ev": "api_retry", "attempt": attempt, "wait_s": wait, "error": err})
++        print(f"[rpent_player] model API error, retry {attempt + 1}/{api_retries} in {wait}s: {err}", flush=True)
++        await asyncio.sleep(wait)
++
++    def build_api_model_logged(model, base_url=None):
++        m = original(model, base_url)
++        m.client.max_retries = 1  # quick SDK retry; longer backoff below
++        http = m.client._client  # the SDK's async HTTP client (headers are never read)
++        hooks = dict(http.event_hooks)
++        hooks["request"] = [*hooks.get("request", []), tlog.on_request]
++        hooks["response"] = [*hooks.get("response", []), tlog.on_response]
++        http.event_hooks = hooks
++        request = m.request
++
++        async def request_with_retry(*args, **kwargs):
++            for attempt in range(api_retries + 1):
++                try:
++                    return await request(*args, **kwargs)
++                except (ModelHTTPError, ModelAPIError) as exc:
++                    await backoff_or_raise(exc, attempt)
++
++        @asynccontextmanager
++        async def request_stream_via_request(messages, model_settings, model_request_parameters, run_context=None):
++            # The api planner consumes a stream (its capabilities observe part
++            # events), but the sub2api relay delivers SSE bodies minutes after the
++            # upstream response has completed. Send a plain (non-streaming)
++            # Responses request instead and replay the finished response as
++            # stream events: same request content, same ModelResponse.
++            _, prepared = m.prepare_request(model_settings, model_request_parameters)
++            response = await request_with_retry(messages, model_settings, model_request_parameters)
++            yield CompletedStreamedResponse(response, model_request_parameters=prepared, replay_events=True)
++
++        m.request = request_with_retry
++        m.request_stream = request_stream_via_request
++        tlog.write({"ev": "model", "class": type(m).__name__, "model_name": m.model_name,
++                    "base_url": str(m.base_url)})
++        return m
++
++    planner_base.build_api_model = build_api_model_logged
++
++
++def _log_sdk_retries(tlog: TranscriptLog) -> None:
++    """Copy the OpenAI SDK's own retry notices (transport errors) into the transcript."""
++    import logging
++
++    class _Handler(logging.Handler):
++        def emit(self, record: logging.LogRecord) -> None:
++            msg = record.getMessage()
++            if record.exc_info and record.exc_info[1] is not None:
++                msg += f" [{type(record.exc_info[1]).__name__}: {str(record.exc_info[1])[:300]}]"
++            if "Retrying" in msg or "Encountered" in msg or record.levelno >= logging.WARNING:
++                tlog.write({"ev": "sdk_log", "level": record.levelname, "msg": msg[:1000]})
++
++    sdk_logger = logging.getLogger("openai")
++    sdk_logger.setLevel(logging.DEBUG)
++    sdk_logger.addHandler(_Handler())
++    sdk_logger.propagate = False
++
++
++def _server_attempts(log_dir: Path) -> list[dict[str, Any]]:
++    out = []
++    path = log_dir / "events.jsonl"
++    if path.exists():
++        for line in path.read_text().splitlines():
++            d = json.loads(line)
++            if d.get("ev") == "done":
++                out.append({"attempt": d["attempt"], "success": d["success"], "reason": d.get("reason"),
++                            "feedback": d.get("feedback")})
++    return out
++
++
++def _server_commands(log_dir: Path) -> int:
++    path = log_dir / "events.jsonl"
++    if not path.exists():
++        return 0
++    return sum(1 for line in path.read_text().splitlines() if '"ev": "call"' in line)
++
++
++def _load_record(transcript: Path) -> dict[str, Any] | None:
++    """Return the last run record the RPent CLI appended to its transcript file."""
++    if not transcript.exists():
++        return None
++    text = transcript.read_text()
++    record, idx, dec = None, 0, json.JSONDecoder()
++    while idx < len(text):  # the CLI appends one JSON object per run
++        while idx < len(text) and text[idx].isspace():
++            idx += 1
++        if idx >= len(text):
++            break
++        record, idx = dec.raw_decode(text, idx)
++    return record
++
++
++def _final_report(record: dict[str, Any] | None) -> tuple[str | None, str]:
++    """Return (report, source): the `finish` summary, else the last assistant text."""
++    if not record:
++        return None, "none"
++    finish = record.get("finish")
++    if finish and finish.get("summary"):
++        return finish["summary"], "finish"
++    for msg in reversed(record.get("messages") or []):
++        if msg.get("role") == "assistant":
++            parts = [c.get("text") for c in msg.get("content") or [] if c.get("type") == "text" and c.get("text")]
++            if parts:
++                return "\n\n".join(parts), "last_assistant_text"
++    return None, "none"
++
++
++def main() -> int:
++    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
++    ap.add_argument("--session", required=True, help="session.json written by start_robot_session.sh")
++    ap.add_argument("--model", default="gpt-6-astra")
++    ap.add_argument("--effort", default="medium")
++    ap.add_argument("--max-turns", type=int, default=400, help="RPent request budget (model calls)")
++    ap.add_argument("--max-tokens", type=int, default=32000, help="max output tokens per model call")
++    ap.add_argument("--timeout-s", type=int, default=4 * 3600, help="RPent planner wall-clock cap")
++    ap.add_argument("--api-retries", type=int, default=5)
++    a = ap.parse_args()
++
++    session = Path(a.session).expanduser().resolve()
++    log_dir = session.parent
++    out_dir = log_dir / "rpent"
++    if not os.environ.get("OPENAI_API_KEY"):
++        print("OPENAI_API_KEY is not set (source the .env file first)", file=sys.stderr)
++        return 2
++    os.environ.setdefault("PYDANTIC_AI_NO_BANNER", "1")
++    if not os.environ.get("SSL_CERT_FILE") and os.path.exists("/etc/ssl/certs/ca-certificates.crt"):
++        os.environ["SSL_CERT_FILE"] = "/etc/ssl/certs/ca-certificates.crt"
++
++    tlog = TranscriptLog(log_dir / "rpent_transcript.jsonl")
++    try:
++        commit = subprocess.run(["git", "-C", str(REPO_ROOT), "rev-parse", "--short", "HEAD"],
++                                capture_output=True, text=True).stdout.strip()
++    except Exception:
++        commit = None
++    argv = ["rpent", "--robot", "lffbench", "--session", str(session), "--planner", "api",
++            "--model", f"openai-responses:{a.model}", "--reasoning-effort", a.effort,
++            "--max-turns", str(a.max_turns), "--max-tokens", str(a.max_tokens),
++            "--planner-timeout-s", str(a.timeout_s), "--output-dir", str(out_dir)]
++    tlog.write({"ev": "start", "rpent_repo": str(REPO_ROOT), "rpent_base_commit": commit, "argv": argv,
++                "base_url": os.environ.get("OPENAI_BASE_URL")})
++    install_hooks(tlog, a.api_retries)
++    _log_sdk_retries(tlog)
++
++    from rpent.cli import main as rpent_main
++
++    t0 = time.time()
++    sys.argv = argv
++    rc = rpent_main.main()
++    elapsed = time.time() - t0
++
++    record = _load_record(out_dir / "transcript_lffbench.json") or {}
++    report, report_source = _final_report(record)
++    if report:
++        if report_source != "finish":
++            report = ("> The planner ended without calling `finish` (" + str(record.get("error") or "no error") +
++                      "); below is the model's last text, not a final report.\n\n" + report)
++        (log_dir / "final_report.md").write_text(report.strip() + "\n")
++    result = {
++        "rc": rc,
++        "elapsed_s": round(elapsed, 1),
++        "model": a.model,
++        "effort": a.effort,
++        "finish": record.get("finish"),
++        "planner_error": record.get("error"),
++        "rpent_stats": record.get("stats"),
++        "model_requests": tlog.n_requests,
++        "images_sent_total": tlog.n_images_sent,
++        "unknown_images": tlog.unknown_images,
++        "server_commands": _server_commands(log_dir),
++        "attempts": _server_attempts(log_dir),
++        "final_report_source": report_source,
++    }
++    (log_dir / "rpent_result.json").write_text(json.dumps(result, indent=1, ensure_ascii=False))
++    tlog.write({"ev": "end", **result})
++    print(json.dumps({k: result[k] for k in ("rc", "elapsed_s", "model_requests", "server_commands", "attempts")},
++                     ensure_ascii=False), flush=True)
++    return rc
++
++
++if __name__ == "__main__":
++    sys.exit(main())
+diff --git a/robots/lffbench/prompt_bundle.py b/robots/lffbench/prompt_bundle.py
+new file mode 100644
+index 0000000..6e5b337
+--- /dev/null
++++ b/robots/lffbench/prompt_bundle.py
+@@ -0,0 +1,29 @@
++"""LFF-Bench prompt bundle assembly."""
++
++from __future__ import annotations
++
++from collections.abc import Mapping
++
++from robots.lffbench.prompts import system as system_parts
++from robots.lffbench.prompts import user as user_parts
++from rpent.prompt.utils import Numbered, PromptNode
++
++
++def system_prompt(variables: Mapping[str, object] | None = None) -> PromptNode:
++    """Assemble the system prompt: RPent harness sections + the sandbox README."""
++    return {
++        "ROLE": system_parts.ROLE,
++        "RUNTIME": system_parts.RUNTIME,
++        "ROBOT AND TASK (README)": system_parts.ROBOT_AND_TASK,
++        "RULES": system_parts.RULES,
++        "WORKFLOW": Numbered(system_parts.WORKFLOW),
++        "OUTPUT DISCIPLINE": system_parts.OUTPUT_DISCIPLINE,
++    }
++
++
++def user_prompt(variables: Mapping[str, object] | None = None) -> PromptNode:
++    """Assemble the initial user message."""
++    return {"BEGIN": user_parts.BEGIN}
++
++
++__all__ = ["system_prompt", "user_prompt"]
+diff --git a/robots/lffbench/prompts/__init__.py b/robots/lffbench/prompts/__init__.py
+new file mode 100644
+index 0000000..c9d1432
+--- /dev/null
++++ b/robots/lffbench/prompts/__init__.py
+@@ -0,0 +1 @@
++"""LFF-Bench prompt content fragments."""
+diff --git a/robots/lffbench/prompts/system.py b/robots/lffbench/prompts/system.py
+new file mode 100644
+index 0000000..21bac29
+--- /dev/null
++++ b/robots/lffbench/prompts/system.py
+@@ -0,0 +1,54 @@
++"""System prompt sections for an LFF-Bench robot_server (v2) session.
++
++Only RPent's task-independent harness structure lives here (role, runtime,
++image rule, workflow, output discipline). Everything about the robot and the
++task is the sandbox README, inserted verbatim through ``{{readme}}``. No
++robot geometry or camera priors, memory, recipes, proven levers, perception
++algorithms or tuned numbers.
++"""
++
++from __future__ import annotations
++
++ROLE = """You are an LLM-in-the-loop agent controlling a robot through structured
++tools. The robot, its commands, the attempt rules and your task are described
++in the ROBOT AND TASK section below."""
++
++RUNTIME = """A robot server process is already running. It owns the simulator, the
++attempts, the budgets and the outcome checks; do not try to start, stop or
++reset anything yourself.
++
++Each robot command described in the README is exposed as a structured tool
++with the same name and arguments: `status`, `observe`, `move_eef`, `finish`.
++Call these tools instead of running `./robot`. The camera images a command
++takes are embedded in its tool result, after the command's JSON report,
++instead of being given as file paths.
++
++`final_report` is not a robot command: it ends this conversation once the
++episode is over."""
++
++ROBOT_AND_TASK = """{{readme}}"""
++
++RULES = """Rule 0 — USE IMAGES. After every robot tool call, inspect the returned
++report and the embedded images. The images are your spatial-reasoning input;
++the report gives the robot's own state and the command's outcome."""
++
++WORKFLOW = (
++    """INSPECT INITIAL STATE: call `status`; inspect the task text, the robot
++state and the camera images.""",
++    """EXECUTE one robot command at a time by calling its tool. Each tool blocks
++until the command has finished and returns the report and the new images.
++Inspect them, decide, and repeat.""",
++    """ATTEMPTS are run by the robot server: `finish` ends the current attempt.
++Its result gives the outcome and, when another attempt follows, the images of
++the reset scene. Continue in this same conversation.""",
++    """WHEN a robot tool result says that the episode is over, call
++`final_report` with a `status` and a `summary`: what you did (key commands and
++parameter values), what you observed, any feedback you got, and how you
++changed your approach.""",
++)
++
++OUTPUT_DISCIPLINE = """- Brief reasoning before each tool call (1-2 sentences): observation → decision.
++- Don't call `observe` immediately after a robot tool already returned the new
++  images.
++- Numerical values in 3 decimals are enough.
++- Stop immediately after calling `final_report`. Do not chat further."""
+diff --git a/robots/lffbench/prompts/user.py b/robots/lffbench/prompts/user.py
+new file mode 100644
+index 0000000..c22cee8
+--- /dev/null
++++ b/robots/lffbench/prompts/user.py
+@@ -0,0 +1,6 @@
++"""Initial user message for an LFF-Bench robot_server session."""
++
++from __future__ import annotations
++
++BEGIN = """Call `status` and inspect the task, the robot state and the camera
++images, then plan and execute the task described in your instructions."""
+diff --git a/robots/lffbench/robot_spec.py b/robots/lffbench/robot_spec.py
+new file mode 100644
+index 0000000..61559be
+--- /dev/null
++++ b/robots/lffbench/robot_spec.py
+@@ -0,0 +1,96 @@
++"""LFF-Bench robot extension: RobotSpec factory, toolkit factory, runtime hooks.
++
++RPent does not own the simulator here. An LFF-Bench ``robot_server`` session
++(``lffbench/scripts/start_robot_session.sh``) is already running; this robot
++borrows it through ``--session <run log dir>/session.json``. There is no memory
++corpus: ``prepare_memory`` is a no-op, so nothing is synced or read.
++"""
++
++from __future__ import annotations
++
++import argparse
++import json
++from pathlib import Path
++from typing import Any
++
++from robots.lffbench.client import RobotServerClient, read_token
++from robots.lffbench.prompt_bundle import system_prompt, user_prompt
++from rpent.dashboard.events import DashboardEventSink
++from rpent.robots.prompt_bundle import PromptBundle
++from rpent.robots.robot_spec import RobotSpec, RunConfig
++
++
++def get_robot_spec() -> RobotSpec:
++    """Return the LFF-Bench robot identity, prompt bundle, and runner hooks."""
++    return RobotSpec(
++        name="lffbench",
++        prompts=PromptBundle(system=system_prompt, user=user_prompt),
++        add_cli_args=_add_cli_args,
++        parse_config=_parse_config,
++        init_runtime=_init_runtime,
++        prepare_memory=_no_memory,
++    )
++
++
++def get_toolkit(
++    *,
++    runtime_kwargs: dict[str, Any],
++    dashboard_events: DashboardEventSink,
++    config: RunConfig,
++):
++    """Return the toolkit bound to the borrowed robot_server session."""
++    from robots.lffbench.toolkit import LffBenchToolkit
++
++    return LffBenchToolkit(
++        client=runtime_kwargs["client"],
++        dashboard_events=dashboard_events,
++        state_output_dir=config.output_dir,
++    )
++
++
++def _add_cli_args(parser: argparse.ArgumentParser, use_dashboard: bool) -> None:
++    parser.add_argument(
++        "--session",
++        required=not use_dashboard,
++        help="session.json written by lffbench/scripts/start_robot_session.sh",
++    )
++
++
++def _no_memory(args: argparse.Namespace, config: RunConfig) -> None:
++    """No cross-run memory: nothing to sync, nothing exposed."""
++
++
++def _parse_config(args: argparse.Namespace) -> RunConfig:
++    if not args.session:
++        raise ValueError("--session is required")
++    session_path = Path(args.session).expanduser().resolve()
++    sess = json.loads(session_path.read_text())
++    sandbox = Path(sess["sandbox"])
++    readme = (sandbox / "README.md").read_text()
++    if "./robot move_eef" not in readme:
++        raise ValueError(
++            "this toolkit speaks robot_server interface v2 (move_eef / finish); start the "
++            "session with LFF_STYLE=v2 scripts/start_robot_session.sh ..."
++        )
++    output_dir = Path(args.output_dir) if args.output_dir else session_path.parent / "rpent"
++    return RunConfig(
++        recipe_tag="lffbench",
++        output_dir=output_dir,
++        # The README is passed verbatim as a variable (never re-scanned for
++        # placeholders); nothing else about the run reaches the prompts.
++        prompt_vars={"readme": readme.strip()},
++        task_desc={"run": sess.get("run"), "session": str(session_path)},
++    )
++
++
++def _init_runtime(
++    args: argparse.Namespace,
++    output_dir: Path,
++    dashboard_events: DashboardEventSink,
++    components: set[str] | None,
++) -> tuple[list, dict[str, Any]]:
++    """Connect to the already-running robot_server; RPent owns no daemons."""
++    sess = json.loads(Path(args.session).expanduser().read_text())
++    sandbox = Path(sess["sandbox"])
++    client = RobotServerClient(port=sess["port"], token=read_token(sandbox), sandbox=sandbox)
++    return [], {"client": client}
+diff --git a/robots/lffbench/toolkit.py b/robots/lffbench/toolkit.py
+new file mode 100644
+index 0000000..1c85c25
+--- /dev/null
++++ b/robots/lffbench/toolkit.py
+@@ -0,0 +1,266 @@
++"""LFF-Bench toolkit: the robot_server v2 commands as RPent structured tools.
++
++Every robot tool forwards one command to the session's ``robot_server``
++(``--style v2``) and nothing else: ``status``, ``observe``, ``move_eef`` and
++``finish`` (ends one attempt), with the server's own arguments. There are no
++file, memory, perception or VLA tools. A tool result is the server's JSON reply
++with its image path lists removed, plus RPent's step index / artifact names;
++the JPEG files the server wrote into ``<sandbox>/obs/`` are attached byte for
++byte (agentview, then wrist; a reply that also starts the next attempt carries
++the reset scene's pair after them).
++
++RPent harness mechanisms kept: stateful tools capture their observation through
++:meth:`get_env_state` into the run's :class:`EnvState` (so the api planner's
++native ``read_image`` can re-open earlier images after history compaction), and
++the planner loop ends through a dedicated tool, ``final_report`` (RPent's
++``finish``, renamed because ``finish`` is the server's attempt command). It is
++refused until the server reports the episode over; attempts, resets, budgets
++and feedback belong to the server.
++"""
++
++from __future__ import annotations
++
++import hashlib
++import time
++import traceback
++from functools import partial
++from pathlib import Path
++from typing import Any
++
++from rpent.dashboard.events import DashboardEventSink
++from rpent.session import EnvState
++from rpent.tools import common
++from rpent.tools.toolkit import Toolkit, ToolResult, readonly
++from rpent.utils.logging import get_logger, get_output_dir
++
++from robots.lffbench.client import RobotServerClient
++
++logger = get_logger("lffbench_toolkit")
++
++#: sha1(JPEG bytes) -> where those bytes came from; read by the transcript logger
++#: to replace base64 payloads in logged requests with file references.
++IMAGE_INDEX: dict[str, dict[str, Any]] = {}
++
++_NO_ARGS = {"type": "object", "properties": {}, "additionalProperties": False}
++_IMAGES = " The two camera images it takes (agentview, then wrist) are attached to the result."
++
++# Wording follows the sandbox README's command list; nothing beyond it.
++TOOLS_SPEC: list[dict[str, Any]] = [
++    {
++        "name": "status",
++        "description": "`./robot status`: task, attempt, budget, current state and images." + _IMAGES,
++        "input_schema": _NO_ARGS,
++    },
++    {
++        "name": "observe",
++        "description": "`./robot observe`: new images and state without moving." + _IMAGES,
++        "input_schema": _NO_ARGS,
++    },
++    {
++        "name": "move_eef",
++        "description": (
++            "`./robot move_eef [x=..] [y=..] [z=..] [yaw=..] [gripper=open|close] [speed=..]`: "
++            "move the grasp point to an absolute target in the same frame as eef_pos (metres; yaw in "
++            "degrees); omitted coordinates keep their current value; the gripper command is executed "
++            "after the motion; speed in m/s (omit = fastest); a target the arm cannot reach is rejected "
++            "and the arm does not move." + _IMAGES
++        ),
++        "input_schema": {
++            "type": "object",
++            "properties": {
++                "x": {"type": "number", "description": "metres"},
++                "y": {"type": "number", "description": "metres"},
++                "z": {"type": "number", "description": "metres"},
++                "yaw": {"type": "number", "description": "degrees"},
++                "gripper": {"type": "string", "enum": ["open", "close"]},
++                "speed": {"type": "number", "description": "m/s (omit = fastest)"},
++            },
++            "additionalProperties": False,
++        },
++    },
++    {
++        "name": "finish",
++        "description": (
++            '`./robot finish reason="..."`: end the current attempt. The result gives the outcome '
++            "and, when another attempt follows, the images of the reset scene."
++        ),
++        "input_schema": {
++            "type": "object",
++            "properties": {"reason": {"type": "string"}},
++            "required": ["reason"],
++            "additionalProperties": False,
++        },
++    },
++]
++
++FINAL_REPORT_SPEC: dict[str, Any] = {
++    "name": "final_report",
++    "description": (
++        "Halts the agent loop. Call it only after a robot tool result has said that the "
++        "episode is over; put your final report in `summary`."
++    ),
++    "input_schema": {
++        "type": "object",
++        "properties": {
++            "status": {"type": "string", "description": "Outcome, e.g. 'success' or 'failure'."},
++            "summary": {"type": "string", "description": "Your final report."},
++        },
++        "required": ["status", "summary"],
++    },
++}
++
++_CAMERAS = ("agentview", "wrist")
++_EPISODE_OVER_MARKERS = ("episode is over", "No attempts left", "Stop now")
++# ToolResult turns these keys into image blocks, in this order.
++_IMAGE_KEYS = ("_image_bytes", "_image_cam_bytes", "_image_nav_bytes", "_image_wrist_bytes")
++
++
++class LffBenchToolkit(Toolkit):
++    """RPent toolkit whose only actuator/sensor is one robot_server v2 session."""
++
++    #: The planner ends only through ``final_report``; a text-only reply is
++    #: answered with the SDK's retry prompt instead of ending the run early.
++    requires_finish_tool = True
++    finish_tool_name = "final_report"
++
++    def __init__(
++        self,
++        *,
++        client: RobotServerClient,
++        dashboard_events: DashboardEventSink,
++        state_output_dir: Path | str | None = None,
++    ) -> None:
++        self._client = client
++        self._episode_over = False
++        state = EnvState(Path(state_output_dir or get_output_dir()))
++        super().__init__(dashboard_events=dashboard_events, state=state, memory=None)
++        for spec in TOOLS_SPEC:
++            self.add_tool(spec["name"], spec, partial(self._robot_command, spec["name"]))
++
++    # ------------------------------------------------------------------
++    # Registration
++    # ------------------------------------------------------------------
++    def _register_common_tools(self) -> None:
++        """Expose only the loop-ending tool (no file / memory I/O)."""
++        self.add_tool("final_report", FINAL_REPORT_SPEC, self._guarded_final_report)
++
++    @readonly
++    def _guarded_final_report(self, status: str, summary: str) -> dict[str, Any]:
++        """Refuse to end the planner loop while the server episode is running."""
++        if not self._episode_over:
++            return {
++                "error": "final_report refused",
++                "reason": (
++                    "The episode is not over yet. Continue with the robot tools; `finish` "
++                    "ends the current attempt. Call `final_report` only after a robot tool "
++                    "result says that the episode is over."
++                ),
++            }
++        return common.finish(status=status, summary=summary)
++
++    # ------------------------------------------------------------------
++    # Tool handlers
++    # ------------------------------------------------------------------
++    def _robot_command(self, cmd: str, **args: Any) -> dict[str, Any]:
++        """Forward one command; never raise (tracebacks carry local paths)."""
++        try:
++            rep = self._client.call(cmd, args)
++        except Exception as exc:  # server down / timeout: report, don't leak
++            logger.error("robot server call %s failed: %s", cmd, traceback.format_exc())
++            return {"ok": False, "error": f"robot server unreachable ({type(exc).__name__})"}
++        replies = [rep]
++        if isinstance(rep.get("attempt_ended"), dict):  # a budget ran out during this command
++            replies.append(rep["attempt_ended"])
++        for r in replies:
++            msg = " ".join(str(r.get(k, "")) for k in ("message", "error"))
++            if any(m in msg for m in _EPISODE_OVER_MARKERS):
++                self._episode_over = True
++        return rep
++
++    def _record_images(
++        self, paths: list[str], *, command: dict[str, Any], state: dict[str, Any], elapsed_s: float
++    ) -> tuple[int, list[str], list[bytes]]:
++        """Store one image pair as an EnvState step; return (step, names, bytes)."""
++        images: list[tuple[str, str, bytes]] = []
++        for cam in _CAMERAS:
++            rel = next((p for p in paths if p.endswith(f"_{cam}.jpg")), None)
++            if rel is not None:
++                images.append((cam, rel, self._client.read_image(rel)))
++        with self._state.record_step(state=state, command=command, elapsed_s=elapsed_s) as step:
++            record = self._state.latest_record()
++            for cam, rel, data in images:
++                name = f"{cam}.jpg"
++                dest = self._state.artifact_path(name, step=step)
++                dest.parent.mkdir(parents=True, exist_ok=True)
++                dest.write_bytes(data)  # exact server bytes, no re-encoding
++                record.artifacts.add(name)
++                IMAGE_INDEX[hashlib.sha1(data).hexdigest()] = {
++                    "sandbox_file": rel,
++                    "artifact": str(dest),
++                    "step": step,
++                    "camera": cam,
++                    "n_bytes": len(data),
++                    "t": time.time(),
++                }
++        return step, [f"{cam}.jpg" for cam, _, _ in images], [data for _, _, data in images]
++
++    def get_env_state(
++        self,
++        *,
++        command: dict[str, Any],
++        result: dict[str, Any],
++        elapsed_s: float,
++    ) -> dict[str, Any]:
++        """Record the server's images as step artifacts and attach them.
++
++        The text the model sees is the server's JSON reply with the image path
++        lists removed (the images themselves are attached), plus RPent's step
++        index and artifact names for ``read_image``.
++        """
++        out = {k: v for k, v in result.items() if k != "images"}
++        nested = result.get("attempt_ended") if isinstance(result.get("attempt_ended"), dict) else None
++        if nested is not None:
++            out["attempt_ended"] = {k: v for k, v in nested.items() if k != "images"}
++        attached: list[bytes] = []
++        for target, source in ((out, result), (out.get("attempt_ended"), nested)):
++            paths = list((source or {}).get("images") or [])
++            if target is None or not paths:
++                continue
++            try:
++                step, names, data = self._record_images(
++                    paths, command=command, state=target, elapsed_s=elapsed_s
++                )
++            except Exception:
++                logger.error("failed to read server images %s: %s", paths, traceback.format_exc())
++                target["images_unavailable"] = True  # harness failure marker, no task information
++                continue
++            target["step"] = step
++            target["artifacts"] = names
++            attached.extend(data)
++        for key, data in zip(_IMAGE_KEYS, attached):
++            out[key] = data
++        return out
++
++    # ------------------------------------------------------------------
++    # Planner-facing API
++    # ------------------------------------------------------------------
++    def execute_tool(self, name: str, input_dict: dict[str, Any]) -> ToolResult:
++        """Dispatch, then label images as JPEG and drop any traceback text."""
++        result = super().execute_tool(name, input_dict)
++        if isinstance(result.result, dict) and "traceback" in result.result:
++            logger.error("tool %s failed: %s", name, result.result["traceback"])
++            cleaned = {k: v for k, v in result.result.items() if k not in ("traceback", "got")}
++            result = ToolResult(name=name, result=cleaned, call_id=result.call_id)
++        for block in result.content_blocks:
++            if block["type"] == "image":
++                block["source"]["media_type"] = "image/jpeg"
++        return result
++
++    @property
++    def episode_over(self) -> bool:
++        """Whether the robot server has reported the episode over."""
++        return self._episode_over
++
++    def solved(self) -> bool:
++        """Task success is judged by the robot server (events.jsonl), not here."""
++        return False
