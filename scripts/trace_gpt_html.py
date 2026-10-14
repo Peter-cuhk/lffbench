@@ -35,7 +35,8 @@ def main():
     a = ap.parse_args()
     sess = json.load(open(os.path.join(a.log, "session.json")))
     sb = sess["sandbox"]
-    tr = [json.loads(l) for l in open(os.path.join(a.log, "gpt_transcript.jsonl"))]
+    tp = os.path.join(a.log, "transcript.jsonl")  # api_player; older gpt_player runs: gpt_transcript.jsonl
+    tr = [json.loads(l) for l in open(tp if os.path.exists(tp) else os.path.join(a.log, "gpt_transcript.jsonl"))]
     ev = [json.loads(l) for l in open(os.path.join(a.log, "events.jsonl"))]
     start = next(e for e in ev if e["ev"] == "session_start")
     dones = [e for e in ev if e["ev"] == "done"]

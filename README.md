@@ -8,6 +8,8 @@
   机械臂、桌子和部分物体网格来自 LIBERO，安装时从上游下载。
 - 每个任务的说明在 `task_cards/<task>.md`，headroom 验证结果在 `results/<task>/validate.json`。
 - 开发者指南（加任务的规则）：`AGENT_GUIDE.md`；智能体 harness 细节：`lffbench/agent/README.md`。
+- **用自己的 API 跑主表**：`RUN_WITH_YOUR_API.md`（英文）；主表任务和实例：`sets/main_v1.txt`。
+- **设计要点、实测经验和测试时的坑**（给测试侧的交接）：`DESIGN_INSIGHTS.md`。
 
 ## 1. 环境要求
 

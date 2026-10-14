@@ -1,0 +1,325 @@
+{
+ "task": "l2_turntable_restore",
+ "date": "2026-10-12",
+ "spec": "lffbench/arm_specs/l2_turntable_restore.py",
+ "hidden_keys": [
+  "q0"
+ ],
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "fixed_full5": [
+  3000,
+  3001,
+  3002
+ ],
+ "scan": [
+  {
+   "seed": 3003,
+   "naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 169.9,
+    "target_loc": "basket"
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.9,
+    "target_loc": "basket"
+   },
+   "trap": true
+  },
+  {
+   "seed": 3004,
+   "naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -149.4,
+    "target_loc": "basket"
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.9,
+    "target_loc": "basket"
+   },
+   "trap": true
+  }
+ ],
+ "expected": {
+  "orig_naive": "F",
+  "orig_oracle": "S",
+  "h0_naive": "S",
+  "twin_naive": "F",
+  "twin_oracle": "S",
+  "cross": "F"
+ },
+ "rows": [
+  {
+   "seed": 3000,
+   "hidden": {
+    "q0": -2.0044944439064745
+   },
+   "h0_overrides": {
+    "q0": 1.667934612623247
+   },
+   "twin_overrides": {
+    "q0": -0.8627928027685314
+   },
+   "reveal": "Note: at the start, seen from above, the yellow stripe on the turntable points out from the turntable's centre 65 deg counter-clockwise from straight forward (roughly forward-left); that is the angle the turntable is at now.",
+   "orig_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -150.4,
+    "target_loc": "basket"
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.6,
+    "target_loc": "basket"
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.0,
+    "target_loc": "basket"
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 145.7,
+    "target_loc": "basket"
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.7,
+    "target_loc": "basket"
+   },
+   "cross": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 64.8,
+    "target_loc": "basket"
+   },
+   "deviations": [],
+   "sec": 38
+  },
+  {
+   "seed": 3001,
+   "hidden": {
+    "q0": -1.397622844506306
+   },
+   "h0_overrides": {
+    "q0": 1.6359022364938633
+   },
+   "twin_overrides": {
+    "q0": -2.1165556552939453
+   },
+   "reveal": "Note: at the start, seen from above, the yellow stripe on the turntable points out from the turntable's centre 100 deg counter-clockwise from straight forward (roughly left); that is the angle the turntable is at now.",
+   "orig_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 174.6,
+    "target_loc": "basket"
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.7,
+    "target_loc": "basket"
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.2,
+    "target_loc": "basket"
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -145.7,
+    "target_loc": "basket"
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.6,
+    "target_loc": "basket"
+   },
+   "cross": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -40.6,
+    "target_loc": "basket"
+   },
+   "deviations": [],
+   "sec": 41
+  },
+  {
+   "seed": 3002,
+   "hidden": {
+    "q0": -1.0486027451452316
+   },
+   "h0_overrides": {
+    "q0": 1.6531191486560592
+   },
+   "twin_overrides": {
+    "q0": -2.0993387431317485
+   },
+   "reveal": "Note: at the start, seen from above, the yellow stripe on the turntable points out from the turntable's centre 120 deg counter-clockwise from straight forward (roughly backward-left); that is the angle the turntable is at now.",
+   "orig_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 155.5,
+    "target_loc": "basket"
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.9,
+    "target_loc": "basket"
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.0,
+    "target_loc": "basket"
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -145.8,
+    "target_loc": "basket"
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.0,
+    "target_loc": "basket"
+   },
+   "cross": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -60.2,
+    "target_loc": "basket"
+   },
+   "deviations": [],
+   "sec": 40
+  },
+  {
+   "seed": 3003,
+   "hidden": {
+    "q0": -1.2865977109143927
+   },
+   "h0_overrides": {
+    "q0": 1.666971821053183
+   },
+   "twin_overrides": {
+    "q0": -2.0854860707346248
+   },
+   "reveal": "Note: at the start, seen from above, the yellow stripe on the turntable points out from the turntable's centre 106 deg counter-clockwise from straight forward (roughly left); that is the angle the turntable is at now.",
+   "orig_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 169.9,
+    "target_loc": "basket"
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.9,
+    "target_loc": "basket"
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.0,
+    "target_loc": "basket"
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -145.8,
+    "target_loc": "basket"
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.1,
+    "target_loc": "basket"
+   },
+   "cross": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -45.7,
+    "target_loc": "basket"
+   },
+   "deviations": [],
+   "sec": 40
+  },
+  {
+   "seed": 3004,
+   "hidden": {
+    "q0": -2.025729301549088
+   },
+   "h0_overrides": {
+    "q0": 1.6629287550002685
+   },
+   "twin_overrides": {
+    "q0": -0.8677986603915091
+   },
+   "reveal": "Note: at the start, seen from above, the yellow stripe on the turntable points out from the turntable's centre 64 deg counter-clockwise from straight forward (roughly forward-left); that is the angle the turntable is at now.",
+   "orig_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": -149.4,
+    "target_loc": "basket"
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.9,
+    "target_loc": "basket"
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": 0.2,
+    "target_loc": "basket"
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 145.9,
+    "target_loc": "basket"
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "angle_err_deg": -0.9,
+    "target_loc": "basket"
+   },
+   "cross": {
+    "success": false,
+    "failure": "The turntable is not turned the way it was at the start.",
+    "angle_err_deg": 65.4,
+    "target_loc": "basket"
+   },
+   "deviations": [],
+   "sec": 38
+  }
+ ],
+ "renders": {
+  "orig": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l2_turntable_restore/arms/orig_naive_end_3000.png",
+  "twin": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l2_turntable_restore/arms/twin_naive_end_3000.png",
+  "h0": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l2_turntable_restore/arms/h0_naive_end_3000.png"
+ },
+ "render_seed": 3000
+}

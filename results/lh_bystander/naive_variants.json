@@ -1,0 +1,1142 @@
+{
+ "carry11": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.4,
+     0.2,
+     11.0
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     -0.1,
+     8.2
+    ]
+   ]
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -7.5,
+     -25.3,
+     10.9
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.1,
+     7.7
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     3.6,
+     -3.1,
+     4.4
+    ]
+   ]
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -4.3,
+     -27.9,
+     10.9
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     6.2
+    ]
+   ]
+  }
+ ],
+ "carry20": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     -0.0,
+     4.2
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     3.6,
+     -3.1,
+     4.4
+    ]
+   ]
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  }
+ ],
+ "rel6": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     13.8
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     6.1
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     6.1
+    ]
+   ]
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     6.1
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.4,
+     -0.1,
+     9.1
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.1,
+     10.2
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.1,
+     0.0,
+     6.5
+    ]
+   ]
+  }
+ ],
+ "rel8": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     13.8
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     13.8
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.1,
+     0.0,
+     10.1
+    ]
+   ]
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.1,
+     0.0,
+     9.3
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     9.7
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     9.9
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     8.5
+    ]
+   ]
+  }
+ ],
+ "rows_mid": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.3,
+     -3.2,
+     4.5
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.0,
+     0.1,
+     4.4
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.2,
+     -3.0,
+     4.6
+    ]
+   ]
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.1,
+     3.1,
+     4.2
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.1,
+     3.1,
+     4.2
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.1,
+     3.1,
+     4.2
+    ]
+   ]
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -0.1,
+     3.3,
+     14.7
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.2,
+     3.1,
+     4.3
+    ]
+   ]
+  }
+ ],
+ "fast": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -9.6,
+     27.9,
+     9.6
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     -0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     -0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1007,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  }
+ ],
+ "down05": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     0.0,
+     14.7
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.0,
+     -0.1,
+     7.1
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.4,
+     -0.2,
+     12.1
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     3.6,
+     -3.1,
+     4.4
+    ]
+   ]
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.4,
+     -0.2,
+     12.3
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  }
+ ],
+ "down03": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     0.0,
+     14.7
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.0,
+     -0.1,
+     6.2
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.4,
+     -0.2,
+     13.2
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.4,
+     -0.2,
+     13.4
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [],
+   "success": false,
+   "eef": []
+  }
+ ],
+ "near_first": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.3,
+     -0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     -0.0,
+     4.1
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.1,
+     0.1,
+     5.4
+    ]
+   ]
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -7.3,
+     -19.8,
+     14.8
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -0.2,
+     -20.5,
+     14.8
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -0.0,
+     -16.7,
+     14.9
+    ]
+   ]
+  },
+  {
+   "seed": 1007,
+   "trap": true,
+   "fail": "bystander_moved",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -4.3,
+     -13.4,
+     14.7
+    ]
+   ]
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -4.4,
+     -17.8,
+     14.8
+    ]
+   ]
+  }
+ ],
+ "near_first_down10": [
+  {
+   "seed": 1000,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.2,
+     -0.0,
+     4.2
+    ]
+   ]
+  },
+  {
+   "seed": 1001,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -3.1,
+     -0.1,
+     6.2
+    ]
+   ]
+  },
+  {
+   "seed": 1002,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1003,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -8.2,
+     -24.2,
+     14.9
+    ]
+   ]
+  },
+  {
+   "seed": 1004,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -0.2,
+     -20.5,
+     14.8
+    ]
+   ]
+  },
+  {
+   "seed": 1006,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "hand"
+   ],
+   "success": false,
+   "eef": [
+    [
+     0.4,
+     -18.9,
+     14.8
+    ]
+   ]
+  },
+  {
+   "seed": 1007,
+   "trap": false,
+   "fail": null,
+   "causes": [],
+   "success": true,
+   "eef": []
+  },
+  {
+   "seed": 1009,
+   "trap": true,
+   "fail": "bystander_knocked",
+   "causes": [
+    "arm"
+   ],
+   "success": false,
+   "eef": [
+    [
+     -4.7,
+     -24.5,
+     14.9
+    ]
+   ]
+  }
+ ]
+}

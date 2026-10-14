@@ -1,0 +1,1045 @@
+{
+ "task": "l3_card_shelf",
+ "date": "2026-10-12",
+ "seeds": [
+  3003,
+  3004,
+  3007,
+  3009,
+  3013
+ ],
+ "seed_rule": "y-oriented cards only (coordinator decision 2026-10-12): 3003, 3004 from the first scan (3000-3006); then seeds 3007..3059 with card_along == 'y', scripted naive attempt 1 fails and oracle attempt 1 succeeds, first 3",
+ "scan": {
+  "first": [
+   {
+    "seed": 3002,
+    "naive": [
+     true,
+     "none"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": false
+   },
+   {
+    "seed": 3004,
+    "naive": [
+     false,
+     "fell_off"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": true
+   },
+   {
+    "seed": 3005,
+    "naive": [
+     true,
+     "none"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": false
+   },
+   {
+    "seed": 3006,
+    "naive": [
+     false,
+     "fell_off"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": true
+   }
+  ],
+  "y_extra": [
+   {
+    "seed": 3007,
+    "naive": [
+     false,
+     "fell_off"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": true
+   },
+   {
+    "seed": 3008,
+    "naive": [
+     true,
+     "none"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": false
+   },
+   {
+    "seed": 3009,
+    "naive": [
+     false,
+     "fell_off"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": true
+   },
+   {
+    "seed": 3011,
+    "naive": [
+     true,
+     "none"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": false
+   },
+   {
+    "seed": 3013,
+    "naive": [
+     false,
+     "fell_off"
+    ],
+    "oracle": [
+     true,
+     "none"
+    ],
+    "trap": true
+   }
+  ]
+ },
+ "expected": {
+  "orig_naive": "F",
+  "orig_oracle": "S",
+  "h0_naive": "S",
+  "twin_naive": "F",
+  "twin_oracle": "S",
+  "cross": "F"
+ },
+ "cross_note": "execute(orig, oracle_params(twin)) after reset_instance(orig); the card oracle's relative 'light end' is resolved to the twin's world edge",
+ "per_seed": {
+  "3003": {
+   "orig_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0275
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "orig_naive_render": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0275
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "image": "results/l3_card_shelf/arms/s3003_orig_naive_end.png",
+    "sec": 3
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 4
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.0278
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "image": "results/l3_card_shelf/arms/s3003_twin_naive_end.png",
+    "sec": 3
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "cross": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0282
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+    "params": {
+     "mode": "edge",
+     "steps": [
+      0.02,
+      0.03
+     ],
+     "edge": "right"
+    },
+    "sec": 1
+   },
+   "overrides": {
+    "h0": {
+     "card_yaw": 1.474469212561126,
+     "heavy_near": false,
+     "heavy_edge": "left"
+    },
+    "twin": {
+     "card_xy": [
+      -0.13015987476589713,
+      0.10857207414222224
+     ],
+     "card_yaw": 1.667123441028667,
+     "near_edge": "left",
+     "far_edge": "right",
+     "heavy_edge": "left"
+    }
+   },
+   "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's right edge (on the robot's right), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+   "hidden": {
+    "card_yaw": -1.6671234410286673,
+    "heavy_near": true,
+    "heavy_edge": "right"
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3004": {
+   "orig_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0282
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 4
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.028
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "cross": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0282
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+    "params": {
+     "mode": "edge",
+     "steps": [
+      0.02,
+      0.03
+     ],
+     "edge": "right"
+    },
+    "sec": 1
+   },
+   "overrides": {
+    "h0": {
+     "card_yaw": 1.5028444242507613,
+     "heavy_near": false,
+     "heavy_edge": "left"
+    },
+    "twin": {
+     "card_xy": [
+      -0.05003195130083708,
+      0.13429238867280932
+     ],
+     "card_yaw": 1.6387482293390319,
+     "near_edge": "left",
+     "far_edge": "right",
+     "heavy_edge": "left"
+    }
+   },
+   "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's right edge (on the robot's right), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+   "hidden": {
+    "card_yaw": -1.6387482293390319,
+    "heavy_near": true,
+    "heavy_edge": "right"
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3007": {
+   "orig_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0282
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 4
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.0274
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.7 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "cross": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0281
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+    "params": {
+     "mode": "edge",
+     "steps": [
+      0.02,
+      0.03
+     ],
+     "edge": "right"
+    },
+    "sec": 1
+   },
+   "overrides": {
+    "h0": {
+     "card_yaw": 1.5351504027252858,
+     "heavy_near": false,
+     "heavy_edge": "left"
+    },
+    "twin": {
+     "card_xy": [
+      -0.10646580468573572,
+      0.12015654670155262
+     ],
+     "card_yaw": 1.6064422508645073,
+     "near_edge": "left",
+     "far_edge": "right",
+     "heavy_edge": "left"
+    }
+   },
+   "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's right edge (on the robot's right), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+   "hidden": {
+    "card_yaw": -1.6064422508645075,
+    "heavy_near": true,
+    "heavy_edge": "right"
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3009": {
+   "orig_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.0276
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 4
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0277
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "cross": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.0276
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+    "params": {
+     "mode": "edge",
+     "steps": [
+      0.02,
+      0.03
+     ],
+     "edge": "left"
+    },
+    "sec": 1
+   },
+   "overrides": {
+    "h0": {
+     "card_yaw": -1.6314199510044816,
+     "heavy_near": false,
+     "heavy_edge": "right"
+    },
+    "twin": {
+     "card_xy": [
+      -0.09306737649804228,
+      -0.08118268605123508
+     ],
+     "card_yaw": -1.5101727025853118,
+     "near_edge": "right",
+     "far_edge": "left",
+     "heavy_edge": "right"
+    }
+   },
+   "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's left edge (on the robot's left), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+   "hidden": {
+    "card_yaw": 1.5101727025853118,
+    "heavy_near": true,
+    "heavy_edge": "left"
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3013": {
+   "orig_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.0275
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "right",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 4
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "right",
+     "overhang": 0.0277
+    },
+    "slid_edge": "right",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's right edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+    "sec": 3
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": "none",
+    "tip": null,
+    "slid_edge": "left",
+    "trap_fired": false,
+    "detail": "The card is in the bin.",
+    "sec": 2
+   },
+   "cross": {
+    "success": false,
+    "failure": "fell_off",
+    "tip": {
+     "part": "heavy",
+     "edge": "left",
+     "overhang": 0.0273
+    },
+    "slid_edge": "left",
+    "trap_fired": true,
+    "detail": "The card was never lifted: after one end of it had been slid 2.7 cm beyond the shelf's left edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+    "params": {
+     "mode": "edge",
+     "steps": [
+      0.02,
+      0.03
+     ],
+     "edge": "left"
+    },
+    "sec": 1
+   },
+   "overrides": {
+    "h0": {
+     "card_yaw": -1.517643919874586,
+     "heavy_near": false,
+     "heavy_edge": "right"
+    },
+    "twin": {
+     "card_xy": [
+      -0.1433403469497864,
+      -0.07330528742667564
+     ],
+     "card_yaw": -1.6239487337152074,
+     "near_edge": "right",
+     "far_edge": "left",
+     "heavy_edge": "right"
+    }
+   },
+   "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's left edge (on the robot's left), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+   "hidden": {
+    "card_yaw": 1.6239487337152074,
+    "heavy_near": true,
+    "heavy_edge": "left"
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  }
+ },
+ "x_cards_excluded": {
+  "seeds": [
+   3000,
+   3001,
+   3006
+  ],
+  "per_seed": {
+   "3000": {
+    "orig_naive": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.0282
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "sec": 3
+    },
+    "orig_oracle": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "backward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 2
+    },
+    "orig_naive_render": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.0282
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "image": "results/l3_card_shelf/arms/s3000_orig_naive_end.png",
+     "sec": 3
+    },
+    "h0_naive": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "forward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 4
+    },
+    "twin_naive": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "backward",
+      "overhang": 0.0264
+     },
+     "slid_edge": "backward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.6 cm beyond the shelf's backward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "image": "results/l3_card_shelf/arms/s3000_twin_naive_end.png",
+     "sec": 3
+    },
+    "twin_oracle": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "forward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 2
+    },
+    "cross": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.0229
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.3 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+     "params": {
+      "mode": "edge",
+      "steps": [
+       0.02,
+       0.03
+      ],
+      "edge": "forward"
+     },
+     "sec": 1
+    },
+    "overrides": {
+     "h0": {
+      "card_yaw": 3.0799458448763906,
+      "heavy_near": false,
+      "heavy_edge": "backward"
+     },
+     "twin": {
+      "card_xy": [
+       -0.14083564531257226,
+       -0.01618955074812857
+      ],
+      "card_yaw": -3.0799458448763906,
+      "near_edge": "backward",
+      "far_edge": "forward",
+      "heavy_edge": "backward"
+     }
+    },
+    "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's forward edge (away from the robot), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+    "hidden": {
+     "card_yaw": -0.06164680871340239,
+     "heavy_near": true,
+     "heavy_edge": "forward"
+    },
+    "as_expected": {
+     "orig_naive": true,
+     "orig_oracle": true,
+     "h0_naive": true,
+     "twin_naive": true,
+     "twin_oracle": true,
+     "cross": true
+    }
+   },
+   "3001": {
+    "orig_naive": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.0277
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "sec": 3
+    },
+    "orig_oracle": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "backward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 3
+    },
+    "h0_naive": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "forward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 4
+    },
+    "twin_naive": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "backward",
+      "overhang": 0.0264
+     },
+     "slid_edge": "backward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.6 cm beyond the shelf's backward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "sec": 3
+    },
+    "twin_oracle": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "forward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 2
+    },
+    "cross": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.023
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.3 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+     "params": {
+      "mode": "edge",
+      "steps": [
+       0.02,
+       0.03
+      ],
+      "edge": "forward"
+     },
+     "sec": 1
+    },
+    "overrides": {
+     "h0": {
+      "card_yaw": 3.020495870683071,
+      "heavy_near": false,
+      "heavy_edge": "backward"
+     },
+     "twin": {
+      "card_xy": [
+       -0.09328609308170309,
+       0.04978152242613895
+      ],
+      "card_yaw": -3.020495870683071,
+      "near_edge": "backward",
+      "far_edge": "forward",
+      "heavy_edge": "backward"
+     }
+    },
+    "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's forward edge (away from the robot), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+    "hidden": {
+     "card_yaw": -0.12109678290672216,
+     "heavy_near": true,
+     "heavy_edge": "forward"
+    },
+    "as_expected": {
+     "orig_naive": true,
+     "orig_oracle": true,
+     "h0_naive": true,
+     "twin_naive": true,
+     "twin_oracle": true,
+     "cross": true
+    }
+   },
+   "3006": {
+    "orig_naive": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.0278
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.8 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "sec": 3
+    },
+    "orig_oracle": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "backward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 2
+    },
+    "h0_naive": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "forward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 4
+    },
+    "twin_naive": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "backward",
+      "overhang": 0.0258
+     },
+     "slid_edge": "backward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.6 cm beyond the shelf's backward edge, it tipped over that edge and fell off the shelf; it lies flat on the table. When the gripper closed on the card lying flat on the shelf, its fingertips were on either side of the card, at shelf level (-0.2 cm from the fingertips to the top of the card); the fingers closed fully, sliding over the top of the card instead of gripping its edges.",
+     "sec": 3
+    },
+    "twin_oracle": {
+     "success": true,
+     "failure": "none",
+     "tip": null,
+     "slid_edge": "forward",
+     "trap_fired": false,
+     "detail": "The card is in the bin.",
+     "sec": 2
+    },
+    "cross": {
+     "success": false,
+     "failure": "fell_off",
+     "tip": {
+      "part": "heavy",
+      "edge": "forward",
+      "overhang": 0.0222
+     },
+     "slid_edge": "forward",
+     "trap_fired": true,
+     "detail": "The card was never lifted: after one end of it had been slid 2.2 cm beyond the shelf's forward edge, it tipped over that edge and fell off the shelf; it lies flat on the table.",
+     "params": {
+      "mode": "edge",
+      "steps": [
+       0.02,
+       0.03
+      ],
+      "edge": "forward"
+     },
+     "sec": 1
+    },
+    "overrides": {
+     "h0": {
+      "card_yaw": 3.0299207443100133,
+      "heavy_near": false,
+      "heavy_edge": "backward"
+     },
+     "twin": {
+      "card_xy": [
+       -0.16813563427725947,
+       -0.025785859748361693
+      ],
+      "card_yaw": -3.0299207443100133,
+      "near_edge": "backward",
+      "far_edge": "forward",
+      "heavy_edge": "backward"
+     }
+    },
+    "reveal": "The card is not uniform: 8 g of its 10 g are a weight hidden in the end that points towards the shelf's forward edge (away from the robot), so its centre of mass is 2.8 cm from the card's middle towards that end.",
+    "hidden": {
+     "card_yaw": -0.11167190927977973,
+     "heavy_near": true,
+     "heavy_edge": "forward"
+    },
+    "as_expected": {
+     "orig_naive": true,
+     "orig_oracle": true,
+     "h0_naive": true,
+     "twin_naive": true,
+     "twin_oracle": true,
+     "cross": true
+    }
+   }
+  },
+  "visibility": "y-card (3003): original and twin both visible in agentview (card flat on the table beside the shelf, right / left). x-card (3000; also 3001, 3006): original visible (card flat on the table in front of the shelf); the twin's card tips off the BACKWARD edge and lands behind the shelf: agentview shows only an empty shelf, the wrist camera a thin red sliver below the shelf's backward edge (the task's own sampler avoids backward near ends for this reason).",
+  "reason": "the twin's card tips off the backward edge and lands behind the shelf, invisible in agentview"
+ },
+ "visibility": {
+  "images": [
+   "results/l3_card_shelf/arms/s3000_orig_naive_end.png",
+   "results/l3_card_shelf/arms/s3000_twin_naive_end.png",
+   "results/l3_card_shelf/arms/s3000_orig_naive_end_wrist.png",
+   "results/l3_card_shelf/arms/s3000_twin_naive_end_wrist.png",
+   "results/l3_card_shelf/arms/s3003_orig_naive_end.png",
+   "results/l3_card_shelf/arms/s3003_twin_naive_end.png"
+  ],
+  "note": "y cards: original and twin failures both visible in agentview (card flat on the table beside the shelf; s3003_*_naive_end.png). x-card images (s3000_*) kept for the excluded seeds."
+ }
+}

@@ -113,14 +113,20 @@ def cmd_start(a):
                     continue
                 while port in used or not port_free(port):
                     port += 1
-                tag = f"{a.batch}-{a.model}-{cond}{rep if cond == 'noharness' else ''}" + ("-nominal" if a.nominal else "")
-                extra = ("--agent-iface cli" if a.style == "la" else "") + (" --nominal" if a.nominal else "")
+                hide_k = bool(a.hide_k and cond == "harness")
+                tag = (f"{a.batch}-{a.model}-{cond}{rep if cond == 'noharness' else ''}" + ("-nominal" if a.nominal else "")
+                       + ("-hidek" if hide_k else "") + (f"-arm{a.arm}" if a.arm != "none" else "")
+                       + ("-dossier" if a.dossier else ""))
+                extra = (("--agent-iface cli" if a.style == "la" else "") + (" --nominal" if a.nominal else "")
+                         + (" --hide-k" if hide_k else "") + (f" --arm {a.arm}" if a.arm != "none" else "")
+                         + (f" --dossier {os.path.abspath(a.dossier)}" if a.dossier else ""))
                 os.environ["LFF_RUNS_DIR"] = os.path.join(RUNS, a.batch)
                 sb, log = start_one(task, int(seed), mem, k, port, tag, a.perception, a.video, a.style, extra.strip(), a.feedback)
                 used.add(port)
                 r = dict(run=os.path.basename(log), task=task, seed=int(seed), model=a.model, cond=cond, rep=rep, k=k,
                          port=port, sandbox=sb, log=log, perception=a.perception, video=a.video, style=a.style,
-                         nominal=a.nominal, feedback=a.feedback, think_aloud=a.think_aloud,
+                         nominal=a.nominal, feedback=a.feedback, think_aloud=a.think_aloud, hide_k=hide_k,
+                         arm=a.arm, dossier=os.path.abspath(a.dossier) if a.dossier else "",
                          prompt=(PLAYER_PROMPT_LA if a.style == "la" else PLAYER_PROMPT).format(sb=sb)
                          + (THINK_ALOUD if a.think_aloud else ""))
                 m["runs"].append(r)
@@ -234,14 +240,19 @@ def cmd_restart(a):
         tag = f"{a.batch}-{r['model']}-{r['cond']}{r['rep'] if r['cond'] == 'noharness' else ''}"
         if r.get("style") == "la":
             os.environ["LFF_RUNS_DIR"] = os.path.dirname(r["log"])
-        extra = ("--agent-iface cli" if r.get("style") == "la" else "") + (" --nominal" if r.get("nominal") else "")
+        extra = (("--agent-iface cli" if r.get("style") == "la" else "") + (" --nominal" if r.get("nominal") else "")
+                 + (" --hide-k" if r.get("hide_k") else "")
+                 + (f" --arm {r['arm']}" if r.get("arm", "none") != "none" else "")
+                 + (f" --dossier {r['dossier']}" if r.get("dossier") else ""))
+        tag += ("-hidek" if r.get("hide_k") else "") + (f"-arm{r['arm']}" if r.get("arm", "none") != "none" else "") \
+            + ("-dossier" if r.get("dossier") else "")
         sb, log = start_one(r["task"], r["seed"], mem, r["k"], port, tag, r.get("perception", "depth"), r.get("video", False),
                             r.get("style", "v1"), extra.strip(), r.get("feedback", "F2"))
         used.add(port)
         new = {k: v for k, v in r.items() if k not in ("agent", "tokens", "ms", "tool_uses", "audit")}
         new.update(run=os.path.basename(log), port=port, sandbox=sb, log=log,
                    prompt=(PLAYER_PROMPT_LA if r.get("style") == "la" else PLAYER_PROMPT).format(sb=sb))
-        m.setdefault("superseded", []).append(dict(r, reason="interrupted (rate limit)"))
+        m.setdefault("superseded", []).append(dict(r, reason=a.reason))
         m["runs"][i] = new
         print(json.dumps(dict(run=new["run"], sandbox=sb)))
     save(a.batch, m)
@@ -266,6 +277,13 @@ def main():
     s.add_argument("--perception", default="depth", choices=["depth", "rgb", "rgbd"]); s.add_argument("--video", action="store_true")
     s.add_argument("--style", default="v1", choices=["v1", "v2", "la"])
     s.add_argument("--nominal", action="store_true", help="L1 control: hidden calibration error removed")
+    s.add_argument("--arm", default="none", choices=["none", "h0", "hplus", "twin"],
+                   help="full5 controlled arm (lffbench/arm_specs/<task>.py), passed to every run of this call")
+    s.add_argument("--dossier", default="",
+                   help="la, single task:seed per call: earlier-attempt record (scripts/make_dossier.py) copied to history/")
+    s.add_argument("--hide-k", action="store_true",
+                   help="harness runs: README says 1 attempt (same as the independent run); the other k-1 attempts are "
+                        "announced only after a failure")
     s.add_argument("--think-aloud", action="store_true",
                    help="append a request to write 1-3 plain sentences before every robot command (the transcript keeps no "
                         "thinking text, so this is the only way to record the agent's reasoning); changes the prompt")
@@ -280,6 +298,7 @@ def main():
     st = sub.add_parser("stop"); st.add_argument("--batch", required=True)
     rs = sub.add_parser("restart"); rs.add_argument("--batch", required=True); rs.add_argument("--runs", nargs="+", required=True)
     rs.add_argument("--port0", type=int, default=9300)
+    rs.add_argument("--reason", default="interrupted (rate limit)")
     a = ap.parse_args()
     dict(start=cmd_start, usage=cmd_usage, audit=cmd_audit, table=cmd_table, stop=cmd_stop, restart=cmd_restart)[a.cmd](a)
 

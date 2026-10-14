@@ -1,0 +1,287 @@
+{
+ "task": "l3_under_table_tool",
+ "date": "2026-10-12",
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "full5_seeds": [
+  3000,
+  3001,
+  3002
+ ],
+ "scan": [
+  {
+   "seed": 3003,
+   "naive": [
+    false,
+    "pane"
+   ],
+   "oracle": [
+    true,
+    "success"
+   ],
+   "trap": true
+  },
+  {
+   "seed": 3004,
+   "naive": [
+    false,
+    "pane"
+   ],
+   "oracle": [
+    true,
+    "success"
+   ],
+   "trap": true
+  }
+ ],
+ "expect": {
+  "orig_naive": false,
+  "orig_oracle": true,
+  "h0_naive": true,
+  "twin_naive": false,
+  "twin_oracle": true,
+  "cross": false
+ },
+ "hidden_keys": [
+  "pane_side"
+ ],
+ "render_seed": 3000,
+ "rows": [
+  {
+   "seed": 3000,
+   "overrides": {
+    "h0": {
+     "pane_side": 0
+    },
+    "twin": {
+     "pane_side": 1
+    }
+   },
+   "reveal": "A clear acrylic panel, invisible in the camera images, closes the right (-y) side of the low glass table (between its two legs, from the tabletop up to the glass); nothing can pass under the table edge on that side. The other three sides are open.",
+   "orig_naive": [
+    false,
+    "pane"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "front"
+   },
+   "orig_oracle_params": {
+    "mode": "front"
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 36
+  },
+  {
+   "seed": 3001,
+   "overrides": {
+    "h0": {
+     "pane_side": 0
+    },
+    "twin": {
+     "pane_side": -1
+    }
+   },
+   "reveal": "A clear acrylic panel, invisible in the camera images, closes the left (+y) side of the low glass table (between its two legs, from the tabletop up to the glass); nothing can pass under the table edge on that side. The other three sides are open.",
+   "orig_naive": [
+    false,
+    "pane"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "front"
+   },
+   "orig_oracle_params": {
+    "mode": "front"
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 36
+  },
+  {
+   "seed": 3002,
+   "overrides": {
+    "h0": {
+     "pane_side": 0
+    },
+    "twin": {
+     "pane_side": -1
+    }
+   },
+   "reveal": "A clear acrylic panel, invisible in the camera images, closes the left (+y) side of the low glass table (between its two legs, from the tabletop up to the glass); nothing can pass under the table edge on that side. The other three sides are open.",
+   "orig_naive": [
+    false,
+    "pane"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "front"
+   },
+   "orig_oracle_params": {
+    "mode": "front"
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 36
+  },
+  {
+   "seed": 3003,
+   "overrides": {
+    "h0": {
+     "pane_side": 0
+    },
+    "twin": {
+     "pane_side": 1
+    }
+   },
+   "reveal": "A clear acrylic panel, invisible in the camera images, closes the right (-y) side of the low glass table (between its two legs, from the tabletop up to the glass); nothing can pass under the table edge on that side. The other three sides are open.",
+   "orig_naive": [
+    false,
+    "pane"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "front"
+   },
+   "orig_oracle_params": {
+    "mode": "front"
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 38
+  },
+  {
+   "seed": 3004,
+   "overrides": {
+    "h0": {
+     "pane_side": 0
+    },
+    "twin": {
+     "pane_side": -1
+    }
+   },
+   "reveal": "A clear acrylic panel, invisible in the camera images, closes the left (+y) side of the low glass table (between its two legs, from the tabletop up to the glass); nothing can pass under the table edge on that side. The other three sides are open.",
+   "orig_naive": [
+    false,
+    "pane"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "front"
+   },
+   "orig_oracle_params": {
+    "mode": "front"
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 37
+  }
+ ],
+ "n_deviations": 5
+}

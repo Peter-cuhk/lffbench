@@ -1,0 +1,32 @@
+# LFF-Bench main task set v1 (2026-10-14): one "task:seed,seed,..." per line; lines starting with # are ignored.
+# Pass to scripts/api_batch.py with:  --tasks $(grep -v '^#' sets/main_v1.txt)
+# Seeds: the first seeds >= 3000 where the scripted naive policy fails and the oracle succeeds on attempt 1
+# (hidden-variable subset: 5 instances; other tasks: 3). See task_cards/<task>.md for each task.
+#
+# hidden-variable short tasks (10)
+l7_offcenter_push:3000,3001,3002,3003,3004
+l5_slide_to_target:3000,3001,3003,3004,3007
+l5_tablecloth_pull:3000,3001,3002,3003,3004
+l3_wall_flush:3000,3001,3002,3003,3004
+l3_under_table_tool:3000,3001,3002,3003,3004
+l4_fit_container:3000,3001,3002,3003,3004
+l7_key_turn:3001,3003,3005,3007,3009
+l2_turntable_restore:3000,3001,3002,3003,3004
+l3_card_shelf:3003,3004,3007,3009,3013
+l5_loaded_beam:3000,3001,3002,3003,3004
+# long-horizon tasks (later stages can break earlier progress)
+lh_lid_box:3000,3001,3003
+lh_bridge:3001,3002,3004
+lh_tray_delivery:3000,3002,3003
+lh_balance_board:3000,3001,3003
+lh_false_bottom_lid:3000,3001,3003
+lh_clear_cover:3000,3001,3003
+lh_bystander:3000,3001,3002
+lh_nudge_row:3000,3001,3003
+# easy tier (saturated for strong models; kept for weaker ones)
+l1_bias_place:3001,3002,3003
+l1_height_bias:3000,3001,3002
+l2_knock_restore:3000,3001,3002
+l2_restore_layout:3000,3001,3002
+l3_too_wide_push:3000,3001,3002
+l4_nest_order:3000,3001,3004

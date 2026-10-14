@@ -1,0 +1,486 @@
+{
+ "task": "l5_tablecloth_pull",
+ "hidden_keys": [
+  "mu"
+ ],
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "expected": {
+  "orig_naive": false,
+  "orig_oracle": true,
+  "h0_naive": true,
+  "twin_naive": false,
+  "twin_oracle": true,
+  "cross_twin_on_orig": false,
+  "cross_orig_on_twin": false
+ },
+ "image_seed": 3000,
+ "created": "2026-10-12",
+ "rows": [
+  {
+   "seed": 3000,
+   "inst": {
+    "seed": 3000,
+    "board_xy": [
+     0.051056943002834955,
+     -0.04892164302170146
+    ],
+    "mu": 0.10525900407329881,
+    "band_d": 0.044973620502905105
+   },
+   "h0_overrides": {
+    "mu": 0.1543
+   },
+   "twin_overrides": {
+    "mu": 0.1876
+   },
+   "reveal": "The red cube's friction coefficient (against the board and against the table) is about 0.105.",
+   "orig_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0195,
+    "moved_toward_robot": 0.0255,
+    "band_offset_x": 0.0195,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 1.9 cm forward (+x, away from the robot) of the band's centre line. It moved 2.6 cm toward the robot."
+   },
+   "orig_oracle_params": {
+    "speed": 0.47500000000000003
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "err": -0.01,
+    "moved_toward_robot": 0.035,
+    "band_offset_x": 0.01,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 1.0 cm forward (+x, away from the robot) of the band's centre line. It moved 3.5 cm toward the robot."
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "err": 0.0006,
+    "moved_toward_robot": 0.0456,
+    "band_offset_x": -0.0006,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.1 cm backward (-x, toward the robot) of the band's centre line. It moved 4.6 cm toward the robot."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": 0.0165,
+    "moved_toward_robot": 0.0615,
+    "band_offset_x": -0.0165,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 1.7 cm backward (-x, toward the robot) of the band's centre line. It moved 6.2 cm toward the robot."
+   },
+   "twin_oracle_params": {
+    "speed": 0.71875
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "err": 0.006,
+    "moved_toward_robot": 0.051,
+    "band_offset_x": -0.006,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.6 cm backward (-x, toward the robot) of the band's centre line. It moved 5.1 cm toward the robot."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0173,
+    "moved_toward_robot": 0.0277,
+    "band_offset_x": 0.0173,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 1.7 cm forward (+x, away from the robot) of the band's centre line. It moved 2.8 cm toward the robot."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "missed_band",
+    "err": 0.0805,
+    "moved_toward_robot": 0.1255,
+    "band_offset_x": -0.0805,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 8.1 cm backward (-x, toward the robot) of the band's centre line. It moved 12.6 cm toward the robot."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 14.6
+  },
+  {
+   "seed": 3001,
+   "inst": {
+    "seed": 3001,
+    "board_xy": [
+     0.06970244642514913,
+     0.035138316392852004
+    ],
+    "mu": 0.14243727925941518,
+    "band_d": 0.06820599518262703
+   },
+   "h0_overrides": {
+    "mu": 0.1744
+   },
+   "twin_overrides": {
+    "mu": 0.1995
+   },
+   "reveal": "The red cube's friction coefficient (against the board and against the table) is about 0.142.",
+   "orig_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0185,
+    "moved_toward_robot": 0.0497,
+    "band_offset_x": 0.0185,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 1.8 cm forward (+x, away from the robot) of the band's centre line. It moved 5.0 cm toward the robot."
+   },
+   "orig_oracle_params": {
+    "speed": 0.47500000000000003
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "err": 0.0095,
+    "moved_toward_robot": 0.0777,
+    "band_offset_x": -0.0095,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 1.0 cm backward (-x, toward the robot) of the band's centre line. It moved 7.8 cm toward the robot."
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "err": 0.0011,
+    "moved_toward_robot": 0.0693,
+    "band_offset_x": -0.0011,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.1 cm backward (-x, toward the robot) of the band's centre line. It moved 6.9 cm toward the robot."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": 0.0216,
+    "moved_toward_robot": 0.0898,
+    "band_offset_x": -0.0216,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.2 cm backward (-x, toward the robot) of the band's centre line. It moved 9.0 cm toward the robot."
+   },
+   "twin_oracle_params": {
+    "speed": 0.6375000000000001
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "err": 0.0047,
+    "moved_toward_robot": 0.0729,
+    "band_offset_x": -0.0047,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.5 cm backward (-x, toward the robot) of the band's centre line. It moved 7.3 cm toward the robot."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0203,
+    "moved_toward_robot": 0.0479,
+    "band_offset_x": 0.0203,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.0 cm forward (+x, away from the robot) of the band's centre line. It moved 4.8 cm toward the robot."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "rode_along",
+    "err": 0.1817,
+    "moved_toward_robot": 0.2499,
+    "band_offset_x": -0.1817,
+    "detail": "The board was pulled 25 cm, but the cube rode along on it: it is still on the board and moved 25.0 cm toward the robot."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 12.7
+  },
+  {
+   "seed": 3002,
+   "inst": {
+    "seed": 3002,
+    "board_xy": [
+     0.06091776205565087,
+     -0.013305293665617682
+    ],
+    "mu": 0.08782211755216271,
+    "band_d": 0.03995997255177577
+   },
+   "h0_overrides": {
+    "mu": 0.1393
+   },
+   "twin_overrides": {
+    "mu": 0.1716
+   },
+   "reveal": "The red cube's friction coefficient (against the board and against the table) is about 0.088.",
+   "orig_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0161,
+    "moved_toward_robot": 0.0239,
+    "band_offset_x": 0.0161,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 1.6 cm forward (+x, away from the robot) of the band's centre line. It moved 2.4 cm toward the robot."
+   },
+   "orig_oracle_params": {
+    "speed": 0.39375000000000004
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "err": -0.001,
+    "moved_toward_robot": 0.0389,
+    "band_offset_x": 0.001,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.1 cm forward (+x, away from the robot) of the band's centre line. It moved 3.9 cm toward the robot."
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "err": -0.001,
+    "moved_toward_robot": 0.0389,
+    "band_offset_x": 0.001,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.1 cm forward (+x, away from the robot) of the band's centre line. It moved 3.9 cm toward the robot."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": 0.0141,
+    "moved_toward_robot": 0.0541,
+    "band_offset_x": -0.0141,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 1.4 cm backward (-x, toward the robot) of the band's centre line. It moved 5.4 cm toward the robot."
+   },
+   "twin_oracle_params": {
+    "speed": 0.6375000000000001
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "err": 0.009,
+    "moved_toward_robot": 0.049,
+    "band_offset_x": -0.009,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.9 cm backward (-x, toward the robot) of the band's centre line. It moved 4.9 cm toward the robot."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0196,
+    "moved_toward_robot": 0.0204,
+    "band_offset_x": 0.0196,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.0 cm forward (+x, away from the robot) of the band's centre line. It moved 2.0 cm toward the robot."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "rode_along",
+    "err": 0.1902,
+    "moved_toward_robot": 0.2301,
+    "band_offset_x": -0.1902,
+    "detail": "The board was pulled 24 cm, but the cube rode along on it: it is still on the board and moved 23.0 cm toward the robot."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 14.0
+  },
+  {
+   "seed": 3003,
+   "inst": {
+    "seed": 3003,
+    "board_xy": [
+     0.058768958764275445,
+     0.030386910116271953
+    ],
+    "mu": 0.08319349967761666,
+    "band_d": 0.04072910579523929
+   },
+   "h0_overrides": {
+    "mu": 0.1442
+   },
+   "twin_overrides": {
+    "mu": 0.1775
+   },
+   "reveal": "The red cube's friction coefficient (against the board and against the table) is about 0.083.",
+   "orig_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0204,
+    "moved_toward_robot": 0.0203,
+    "band_offset_x": 0.0204,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.0 cm forward (+x, away from the robot) of the band's centre line. It moved 2.0 cm toward the robot."
+   },
+   "orig_oracle_params": {
+    "speed": 0.39375000000000004
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "err": -0.0038,
+    "moved_toward_robot": 0.037,
+    "band_offset_x": 0.0038,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.4 cm forward (+x, away from the robot) of the band's centre line. It moved 3.7 cm toward the robot."
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "err": 0.0008,
+    "moved_toward_robot": 0.0415,
+    "band_offset_x": -0.0008,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.1 cm backward (-x, toward the robot) of the band's centre line. It moved 4.1 cm toward the robot."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": 0.0217,
+    "moved_toward_robot": 0.0625,
+    "band_offset_x": -0.0217,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.2 cm backward (-x, toward the robot) of the band's centre line. It moved 6.2 cm toward the robot."
+   },
+   "twin_oracle_params": {
+    "speed": 0.759375
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "err": 0.0044,
+    "moved_toward_robot": 0.0451,
+    "band_offset_x": -0.0044,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.4 cm backward (-x, toward the robot) of the band's centre line. It moved 4.5 cm toward the robot."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0246,
+    "moved_toward_robot": 0.0162,
+    "band_offset_x": 0.0246,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.5 cm forward (+x, away from the robot) of the band's centre line. It moved 1.6 cm toward the robot."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "rode_along",
+    "err": 0.192,
+    "moved_toward_robot": 0.2327,
+    "band_offset_x": -0.192,
+    "detail": "The board was pulled 24 cm, but the cube rode along on it: it is still on the board and moved 23.3 cm toward the robot."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 16.3
+  },
+  {
+   "seed": 3004,
+   "inst": {
+    "seed": 3004,
+    "board_xy": [
+     0.053321680864280685,
+     0.015453426511111243
+    ],
+    "mu": 0.1366307020439991,
+    "band_d": 0.06816913739063918
+   },
+   "h0_overrides": {
+    "mu": 0.1944
+   },
+   "twin_overrides": {
+    "mu": 0.225
+   },
+   "reveal": "The red cube's friction coefficient (against the board and against the table) is about 0.137.",
+   "orig_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0345,
+    "moved_toward_robot": 0.0336,
+    "band_offset_x": 0.0345,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 3.5 cm forward (+x, away from the robot) of the band's centre line. It moved 3.4 cm toward the robot."
+   },
+   "orig_oracle_params": {
+    "speed": 0.47500000000000003
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "err": -0.006,
+    "moved_toward_robot": 0.0622,
+    "band_offset_x": 0.006,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.6 cm forward (+x, away from the robot) of the band's centre line. It moved 6.2 cm toward the robot."
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "err": 0.0007,
+    "moved_toward_robot": 0.0689,
+    "band_offset_x": -0.0007,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.1 cm backward (-x, toward the robot) of the band's centre line. It moved 6.9 cm toward the robot."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "missed_band",
+    "err": 0.0274,
+    "moved_toward_robot": 0.0955,
+    "band_offset_x": -0.0274,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 2.7 cm backward (-x, toward the robot) of the band's centre line. It moved 9.6 cm toward the robot."
+   },
+   "twin_oracle_params": {
+    "speed": 0.7898437500000001
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "err": 0.0051,
+    "moved_toward_robot": 0.0733,
+    "band_offset_x": -0.0051,
+    "detail": "The board came out from under the cube and the cube is standing inside the green band; its centre is 0.5 cm backward (-x, toward the robot) of the band's centre line. It moved 7.3 cm toward the robot."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "missed_band",
+    "err": -0.0359,
+    "moved_toward_robot": 0.0323,
+    "band_offset_x": 0.0359,
+    "detail": "The board came out from under the cube and the cube is standing on the table, but not completely inside the green band: its centre is 3.6 cm forward (+x, away from the robot) of the band's centre line. It moved 3.2 cm toward the robot."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "rode_along",
+    "err": 0.1712,
+    "moved_toward_robot": 0.2394,
+    "band_offset_x": -0.1712,
+    "detail": "The board was pulled 25 cm, but the cube rode along on it: it is still on the board and moved 23.9 cm toward the robot."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 16.1
+  }
+ ]
+}

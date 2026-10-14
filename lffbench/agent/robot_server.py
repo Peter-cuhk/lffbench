@@ -187,8 +187,24 @@ class RobotSession:
                 elif isinstance(v, (int, float)):
                     self.inst[k] = 0.0
             self.inst["nominal"] = True
+        # full5 controlled arms (docs/14 §6): h0 / twin override the hidden variable, hplus states it in the instruction
+        self.arm, self.arm_overrides, self.reveal_text = getattr(a, "arm", "none") or "none", {}, ""
+        if self.arm in ("h0", "twin"):
+            from .. import arm_specs
+            self.arm_overrides = arm_specs.overrides(a.task, self.arm, self.inst)
+            self.inst.update(self.arm_overrides)
+        elif self.arm == "hplus":
+            from .. import arm_specs
+            self.reveal_text = arm_specs.reveal(a.task, self.inst).strip()
+            if a.style in ("v2", "la"):  # same rule as the F2 feedback: no axis labels such as "(+y)"
+                self.reveal_text = strip_axes(self.reveal_text)
+        self.n_mon_events = 0  # regression snapshots: monitor events already inspected
         self.protocol = getattr(self.task, "protocol", "cross")
         self.k = a.k or self.task.max_attempts
+        # --hide-k (memory=full): README and status say 1 attempt, exactly like an independent k=1 run, and the other
+        # attempts are announced only after a failure, so attempt 1 sees the same thing as the independent run.
+        self.k_shown = 1 if getattr(a, "hide_k", False) and a.memory == "full" else self.k
+        assert self.k_shown == self.k or a.style in ("v2", "la"), "--hide-k needs --style v2 or la"
         self.sandbox = os.path.abspath(a.sandbox)
         self.obs_dir = os.path.join(self.sandbox, "obs")
         self.log_dir = os.path.abspath(a.log_dir)
@@ -227,9 +243,10 @@ class RobotSession:
             assert np.allclose(sim.data.body_xmat[bid].reshape(3, 3), np.eye(3), atol=1e-6), "robot base is rotated"
             self.base_off = np.array(sim.data.body_xpos[bid], float).copy()
         self._write_sandbox()
-        self.log(dict(ev="session_start", task=a.task, seed=a.seed, k=self.k, protocol=self.protocol,
+        self.log(dict(ev="session_start", task=a.task, seed=a.seed, k=self.k, k_shown=self.k_shown, protocol=self.protocol,
                       memory=a.memory, feedback=a.feedback, instruction=a.instruction, perception=a.perception,
-                      inst={k: v for k, v in self.inst.items() if not k.startswith("_")}))
+                      inst={k: v for k, v in self.inst.items() if not k.startswith("_")}, arm=self.arm,
+                      arm_overrides=self.arm_overrides, reveal=self.reveal_text, dossier=getattr(a, "dossier", "") or ""))
 
     # ------------------------------------------------------------------ helpers
     def log(self, d):
@@ -240,10 +257,12 @@ class RobotSession:
     def instruction(self):
         hook = getattr(self.task, "agent_instruction", None)
         if hook is not None:
-            return hook(self.inst, self.a.instruction)
-        if self.a.instruction == "indirect" and getattr(self.task, "instruction_indirect", ""):
-            return self.task.instruction_indirect
-        return self.task.instruction
+            text = hook(self.inst, self.a.instruction)
+        elif self.a.instruction == "indirect" and getattr(self.task, "instruction_indirect", ""):
+            text = self.task.instruction_indirect
+        else:
+            text = self.task.instruction
+        return text + (" " + self.reveal_text if getattr(self, "reveal_text", "") else "")
 
     def feedback_text(self, out):
         import inspect
@@ -264,11 +283,11 @@ class RobotSession:
 
     def _save_obs(self, tag):
         """Same bytes as the GPT harness sends (JPEG q90). Under memory=none the file names carry no
-        attempt number, so a fresh agent cannot tell it is a retry."""
+        attempt number, so a fresh agent cannot tell it is a retry; --hide-k names attempt 1 the same way."""
         from PIL import Image
         paths = []
         for ref in self.ex.observe(label=tag):
-            name = (f"s{self.step:03d}_{ref.camera}.jpg" if self.a.memory == "none"
+            name = (f"s{self.step:03d}_{ref.camera}.jpg" if self.a.memory == "none" or (self.k_shown < self.k and self.attempt == 1)
                     else f"a{self.attempt}_s{self.step:03d}_{ref.camera}.jpg")
             Image.fromarray(ref.array).save(os.path.join(self.obs_dir, name), quality=90)
             shutil.copy(os.path.join(self.obs_dir, name), os.path.join(self.log_dir, "images", f"a{self.attempt}_{name}"))
@@ -330,6 +349,8 @@ class RobotSession:
                                max_tool_calls=self.a.max_tool_calls, perception=self.a.perception), f)
             with open(os.path.join(self.sandbox, "README.md"), "w") as f:
                 f.write(self.readme())
+            if getattr(self.a, "dossier", ""):
+                shutil.copytree(self.a.dossier, os.path.join(self.sandbox, "history"))
             if self.a.agent_iface == "cli":  # coding-agent harness (Claude Code): ./robot + ./shell in the workspace
                 for name, body in (("robot", CLI_TEMPLATE.replace("__PORT__", str(self.a.port)).replace("__TOKEN__", self.token)),
                                    ("shell", SHELL_TEMPLATE)):
@@ -445,14 +466,18 @@ class RobotSession:
                               if out.get("terminal") else "No attempts left. The episode is over. Stop now and report.")
             return rep
         self.attempt += 1
+        reveal = ""
+        if self.k_shown < self.k:  # --hide-k: first failure, announce the extra attempts now
+            self.k_shown = self.k
+            reveal = f"You get more attempts than README.md says: up to {self.k} in total. "
         if self.protocol == "cross":
             self._start_attempt(reset=True)
-            rep["message"] = (f"Attempt {self.attempt} of {self.k} starts now. The scene has been reset to exactly the "
-                              f"same initial state.")
+            rep["message"] = reveal + (f"Attempt {self.attempt} of {self.k} starts now. The scene has been reset to exactly the "
+                                       f"same initial state.")
         else:
             self._start_attempt(reset=False)
-            rep["message"] = (f"Continue from the current state (segment {self.attempt}; you may call done at most "
-                              f"{self.k} times in total).")
+            rep["message"] = reveal + (f"Continue from the current state (segment {self.attempt}; you may call done at most "
+                                       f"{self.k} times in total).")
         self.step += 1
         rep["images"] = self._save_obs("attempt_start")
         rep.update(self._la_files())
@@ -480,9 +505,9 @@ class _V2:
 
 def _readme_v2(self):
     sec = self.sim_budget()
-    proto = (f"You have up to {self.k} attempts at this task. Before every attempt the scene is reset to exactly the "
+    proto = (f"You have up to {self.k_shown} attempts at this task. Before every attempt the scene is reset to exactly the "
              f"same initial state." if self.protocol == "cross" else
-             f"Everything happens in one continuous scene. You may end an attempt up to {self.k} times; after a "
+             f"Everything happens in one continuous scene. You may end an attempt up to {self.k_shown} times; after a "
              f"failed attempt you continue from the current state.")
     return "\n".join([
         "# Robot task", "",
@@ -543,7 +568,7 @@ def _handle_v2(self, cmd, args):
     if cmd == "help":
         return dict(text=self.readme())
     if cmd == "status":
-        st = dict(task=self.instruction(), attempt=self.attempt, max_attempts=self.k, finished=self.finished)
+        st = dict(task=self.instruction(), attempt=self.attempt, max_attempts=self.k_shown, finished=self.finished)
         st["images"] = self._save_obs("status")
         st.update(self._la_files())
         st.update(self._state_v2())
@@ -624,11 +649,53 @@ def _handle_v2(self, cmd, args):
     rep["images"] = self._save_obs(cmd)
     rep.update(self._la_files())
     self.log(dict(ev="call", attempt=self.attempt, step=self.step, cmd=cmd, args=args, report=rep, raw=raw))
+    self._snap_regressions()
     if rep["budget_left"]["sim_seconds"] <= 0 and left > 0:
         fin = self._done("motion budget used up (automatic)")
         fin["note"] = f"The {self.sim_budget():.0f} s motion budget for this attempt was used up."
         rep["attempt_ended"] = fin
     return rep
+
+
+LOSS_EVENTS = ("lost", "toppled", "tipped", "load_fell", "load_displaced")
+
+
+def _snap_regressions(self):
+    """Save the simulator state right after a command during which the task monitor registered a loss of earlier
+    progress (lost / toppled / tipped / load_fell ...), for the "self-inflicted vs handed-over" experiment (docs/14 §6).
+    Server-side only: snapshots go to <log>/snapshots/, never to the agent's workspace."""
+    try:  # bookkeeping only: it must never change what the agent gets back
+        self._snap_regressions_inner()
+    except Exception:
+        self.log(dict(ev="snapshot_error", error=traceback.format_exc()[-1500:]))
+
+
+def _snap_regressions_inner(self):
+    mon = getattr(self.task, "mon", None)
+    evs = mon.get("events") if isinstance(mon, dict) else None
+    if not isinstance(evs, list):
+        return
+    new = evs[self.n_mon_events:]
+    self.n_mon_events = len(evs)
+    loss = [e for e in new if isinstance(e, dict) and str(e.get("ev", e.get("event", ""))) in LOSS_EVENTS]
+    if not loss:
+        return
+    import copy
+    d = os.path.join(self.log_dir, "snapshots")
+    os.makedirs(d, exist_ok=True)
+    name = f"a{self.attempt}_s{self.step:03d}"
+    try:
+        flat = np.asarray(self.task.env.sim.get_state().flatten(), float)
+    except Exception:  # keep the run going even if a simulator binding lacks get_state
+        flat = np.concatenate([self.task.env.sim.data.qpos, self.task.env.sim.data.qvel]).astype(float)
+    np.save(os.path.join(d, name + "_sim.npy"), flat)
+    meta = dict(attempt=self.attempt, step=self.step, n_actions=self.n_actions, sim_steps=int(self.task.sk.n_steps - self.sim0),
+                loss_events=loss, mon=copy.deepcopy(mon))
+    def _dflt(o):  # task monitors keep sets (ever / lost / lid_hits ...)
+        return sorted(o, key=str) if isinstance(o, (set, frozenset)) else _json_default(o)
+    with open(os.path.join(d, name + "_meta.json"), "w") as f:
+        json.dump(meta, f, default=_dflt)
+    self.log(dict(ev="regression_snapshot", attempt=self.attempt, step=self.step, file=f"snapshots/{name}", n_loss=len(loss)))
 
 
 def _la_files(self):
@@ -734,9 +801,9 @@ def _readme_la(self):
     rgbd = self.a.perception == "rgbd"
     cli = self.a.agent_iface == "cli"
     pre = "./robot " if cli else ""
-    proto = (f"You have up to {self.k} attempts at this task. Before every attempt the scene is reset to exactly the "
+    proto = (f"You have up to {self.k_shown} attempts at this task. Before every attempt the scene is reset to exactly the "
              f"same initial state." if self.protocol == "cross" else
-             f"Everything happens in one continuous scene. You may end an attempt up to {self.k} times; after a "
+             f"Everything happens in one continuous scene. You may end an attempt up to {self.k_shown} times; after a "
              f"failed attempt you continue from the current state.")
     files = [
         "- obs/a<attempt>_s<step>_agentview.jpg and obs/a<attempt>_s<step>_wrist.jpg: 512x512 RGB images from "
@@ -761,6 +828,11 @@ def _readme_la(self):
         "## Attempts", proto + f" An attempt ends when you run the robot command `{pre}finish reason=\"...\"` or when its "
         "budget is used up. " + _fb_sentence(self.a.feedback) + " The episode ends at the first success or after the "
         "last attempt.", "",
+        *(["## Earlier attempt",
+           "Before this episode, an earlier attempt at this task, starting from a scene that looked the same as yours, "
+           "failed. Its record is in history/: history/README.md lists every robot command of that attempt with the "
+           "robot's reply and its closing remark, and history/obs/ holds the camera images it produced.", ""]
+          if getattr(self.a, "dossier", "") else []),
         "## Budget (per attempt)",
         f"- at most {self.a.max_steps} robot commands (status and help are free);",
         f"- at most {sec:.0f} s of simulated robot motion;",
@@ -795,7 +867,8 @@ def _readme_la(self):
 
 for _n, _f in (("_believed_joints", _believed_joints), ("readme_la", _readme_la), ("_la_files", _la_files), ("_believed_pose", _believed_pose),
                ("_write_la_files", _write_la_files), ("readme_v2", _readme_v2), ("sim_budget", _sim_budget), ("_budget_left", _budget_left),
-               ("_state_v2", _state_v2), ("handle_v2", _handle_v2)):
+               ("_state_v2", _state_v2), ("handle_v2", _handle_v2), ("_snap_regressions", _snap_regressions),
+               ("_snap_regressions_inner", _snap_regressions_inner)):
     setattr(RobotSession, _n, _f)
 RobotSession._clean_v2 = staticmethod(_clean_v2)
 
@@ -852,6 +925,9 @@ def main():
     ap.add_argument("--seed", type=int, required=True)
     ap.add_argument("--k", type=int, default=None)
     ap.add_argument("--memory", default="full", choices=["full", "none"])
+    ap.add_argument("--hide-k", action="store_true",
+                    help="memory=full: README/status say 1 attempt (same as an independent k=1 run); the remaining "
+                         "attempts are announced only after a failed attempt")
     ap.add_argument("--feedback", default="F1", choices=["F0", "F1", "F2"])
     ap.add_argument("--instruction", default="direct", choices=["direct", "indirect"])
     ap.add_argument("--image-res", type=int, default=512)
@@ -874,6 +950,12 @@ def main():
                          "./shell in the workspace for a coding agent such as Claude Code")
     ap.add_argument("--max-tool-calls", type=int, default=100,
                     help="la: tool calls per attempt (robot + shell + view_image), enforced by the harness")
+    ap.add_argument("--arm", default="none", choices=["none", "h0", "hplus", "twin"],
+                    help="full5 controlled arms (lffbench/arm_specs/<task>.py): h0 = hidden variable at its ordinary value; "
+                         "hplus = hidden variable stated in the instruction; twin = mismatched-history source instance")
+    ap.add_argument("--dossier", default="",
+                    help="la: copy this directory into the workspace as history/ (record of an earlier failed attempt, "
+                         "made by scripts/make_dossier.py) and say so in README.md")
     ap.add_argument("--video", default="", help="record agentview|wrist mp4 to this path")
     ap.add_argument("--video-every", type=int, default=3, help="one frame every N control steps (20 Hz)")
     ap.add_argument("--video-fps", type=int, default=20)

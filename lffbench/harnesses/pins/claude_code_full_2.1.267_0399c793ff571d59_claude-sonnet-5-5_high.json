@@ -1,0 +1,15 @@
+{
+ "key": "claude_code_full|2.1.267|0399c793ff571d59|claude-sonnet-5-5|high",
+ "fingerprint_sha256": "0f8972223c9bdc90da28633f367aa577ae839f887c2f3f015f8128bb34a7f5b4",
+ "written": "2026-10-13 04:12:38",
+ "summary": {
+  "system_chars": 26736,
+  "tools": [
+   "mcp__lff__robot",
+   "mcp__lff__shell",
+   "mcp__lff__view_images"
+  ],
+  "effort_in_request": "high",
+  "model_in_request": "claude-sonnet-5-5"
+ }
+}

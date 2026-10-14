@@ -4,20 +4,26 @@ import sys
 from dataclasses import dataclass, field
 from typing import Optional
 
-# Normally `openai` is installed in the venv (setup/install.sh). Optionally it can live in a separate
-# `pip install --target` directory, given by LFF_OPENAI_SDK_DIR, that is APPENDED to sys.path so every
-# package already in the venv keeps precedence.
-OPENAI_SDK_DIR = os.environ.get("LFF_OPENAI_SDK_DIR", "")
+# Normally the API SDKs (`openai`, `anthropic`, `google-genai`) are installed in the venv (setup/install.sh).
+# Optionally they can live in a separate `pip install --target` directory, given by LFF_API_SDK_DIR (older name:
+# LFF_OPENAI_SDK_DIR), that is APPENDED to sys.path so every package already in the venv keeps precedence.
+API_SDK_DIR = os.environ.get("LFF_API_SDK_DIR") or os.environ.get("LFF_OPENAI_SDK_DIR", "")
+OPENAI_SDK_DIR = API_SDK_DIR  # old name
+
+
+def import_sdk(module):
+    """Import an API SDK module ("openai", "anthropic", "google.genai")."""
+    import importlib
+    try:
+        return importlib.import_module(module)
+    except ImportError:
+        if API_SDK_DIR and os.path.isdir(API_SDK_DIR) and API_SDK_DIR not in sys.path:
+            sys.path.append(API_SDK_DIR)
+        return importlib.import_module(module)
 
 
 def import_openai():
-    try:
-        import openai  # noqa: F401
-    except ImportError:
-        if OPENAI_SDK_DIR and os.path.isdir(OPENAI_SDK_DIR) and OPENAI_SDK_DIR not in sys.path:
-            sys.path.append(OPENAI_SDK_DIR)
-        import openai  # noqa: F401
-    return sys.modules["openai"]
+    return import_sdk("openai")
 
 
 @dataclass

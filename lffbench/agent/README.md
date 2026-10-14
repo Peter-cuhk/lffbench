@@ -16,6 +16,9 @@
 | `backends/openai_responses.py` | `OpenAIResponsesBackend`（GPT-6 Astra） |
 | `backends/scripted.py` | `ScriptedBackend`：不调模型，把任务自带的 scripted 策略经工具接口跑一遍 |
 | `backends/chat_completions.py` | `ChatCompletionsBackend`：OpenAI 兼容 Chat Completions（本地 Qwen3-VL 服务、vLLM 等） |
+| `backends/anthropic_messages.py` | `AnthropicMessagesBackend`：Anthropic Messages API（自适应思考 + effort、思考块原样回放、自动缓存，2026-10-11） |
+| `backends/gemini.py` | `GeminiBackend`：Gemini API（google-genai；thought_signature 原样回放，2026-10-11） |
+| `../../scripts/api_player.py` / `api_batch.py` / `mcp_robot_server.py` | LA 接口的统一驱动、批处理调度、给原生 harness 的 MCP server（见 docs/12-统一harness.md） |
 | `runlog.py` / `replay.py` | 运行目录写入；从运行目录重建尝试记录（给 mismatched 当 donor） |
 | `metrics.py` / `cost.py` | succ@k、ΔICL、重复动作率；token 计价 |
 | `../../scripts/run_agent.py` | 命令行入口 |

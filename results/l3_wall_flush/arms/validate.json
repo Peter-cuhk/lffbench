@@ -1,0 +1,342 @@
+{
+ "task": "l3_wall_flush",
+ "date": "2026-10-12",
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "full5_seeds": [
+  3000,
+  3001,
+  3002
+ ],
+ "scan": [
+  {
+   "seed": 3003,
+   "naive": [
+    false,
+    "wall_blocked"
+   ],
+   "oracle": [
+    true,
+    "success"
+   ],
+   "trap": true
+  },
+  {
+   "seed": 3004,
+   "naive": [
+    false,
+    "wall_blocked"
+   ],
+   "oracle": [
+    true,
+    "success"
+   ],
+   "trap": true
+  }
+ ],
+ "expect": {
+  "orig_naive": false,
+  "orig_oracle": true,
+  "h0_naive": true,
+  "twin_naive": false,
+  "twin_oracle": true,
+  "cross": false
+ },
+ "hidden_keys": [
+  "gap"
+ ],
+ "render_seed": 3000,
+ "rows": [
+  {
+   "seed": 3000,
+   "overrides": {
+    "h0": {
+     "gap": 0.05,
+     "wall_xy": [
+      -0.011114226629439589,
+      -0.009463336793196109
+     ]
+    },
+    "twin": {
+     "wall_xy": [
+      -0.06027649574688864,
+      -0.057554958489127506
+     ]
+    }
+   },
+   "reveal": "The long box is pressed flush against the wall on its far (+x) side along its whole length: the gap between box and wall is only about 0.1 cm, much thinner than a gripper finger.",
+   "orig_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "push_grasp",
+    "end": 1,
+    "margin": 0.045
+   },
+   "orig_oracle_params": {
+    "mode": "push_grasp",
+    "end": -1,
+    "margin": 0.045
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 14
+  },
+  {
+   "seed": 3001,
+   "overrides": {
+    "h0": {
+     "gap": 0.05,
+     "wall_xy": [
+      -0.24036051682068205,
+      0.0352858714203579
+     ]
+    },
+    "twin": {
+     "wall_xy": [
+      -0.1905595790882132,
+      0.09990430937154421
+     ]
+    }
+   },
+   "reveal": "The long box is pressed flush against the wall on its near (-x) side along its whole length: the gap between box and wall is only about 0.1 cm, much thinner than a gripper finger.",
+   "orig_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "push_grasp",
+    "end": -1,
+    "margin": 0.045
+   },
+   "orig_oracle_params": {
+    "mode": "push_grasp",
+    "end": 1,
+    "margin": 0.045
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 16
+  },
+  {
+   "seed": 3002,
+   "overrides": {
+    "h0": {
+     "gap": 0.05,
+     "wall_xy": [
+      -0.22318176005892587,
+      0.014202628933562098
+     ]
+    },
+    "twin": {
+     "wall_xy": [
+      -0.17366297515269521,
+      -0.02771336835114437
+     ]
+    }
+   },
+   "reveal": "The long box is pressed flush against the wall on its near (-x) side along its whole length: the gap between box and wall is only about 0.1 cm, much thinner than a gripper finger.",
+   "orig_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "push_grasp",
+    "end": 1,
+    "margin": 0.045
+   },
+   "orig_oracle_params": {
+    "mode": "push_grasp",
+    "end": -1,
+    "margin": 0.045
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 14
+  },
+  {
+   "seed": 3003,
+   "overrides": {
+    "h0": {
+     "gap": 0.05,
+     "wall_xy": [
+      0.03249267564338275,
+      0.009045501034261064
+     ]
+    },
+    "twin": {
+     "wall_xy": [
+      -0.01704216256254281,
+      0.07333802663735442
+     ]
+    }
+   },
+   "reveal": "The long box is pressed flush against the wall on its far (+x) side along its whole length: the gap between box and wall is only about 0.1 cm, much thinner than a gripper finger.",
+   "orig_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "push_grasp",
+    "end": -1,
+    "margin": 0.045
+   },
+   "orig_oracle_params": {
+    "mode": "push_grasp",
+    "end": 1,
+    "margin": 0.045
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 14
+  },
+  {
+   "seed": 3004,
+   "overrides": {
+    "h0": {
+     "gap": 0.05,
+     "wall_xy": [
+      -0.28160423879240226,
+      -0.004027965925726351
+     ]
+    },
+    "twin": {
+     "wall_xy": [
+      -0.2323742343125904,
+      0.05531753908829191
+     ]
+    }
+   },
+   "reveal": "The long box is pressed flush against the wall on its near (-x) side along its whole length: the gap between box and wall is only about 0.1 cm, much thinner than a gripper finger.",
+   "orig_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "orig_oracle": [
+    true,
+    "success"
+   ],
+   "h0_naive": [
+    true,
+    "success"
+   ],
+   "twin_naive": [
+    false,
+    "wall_blocked"
+   ],
+   "twin_oracle": [
+    true,
+    "success"
+   ],
+   "cross": [
+    true,
+    "success"
+   ],
+   "cross_params": {
+    "mode": "push_grasp",
+    "end": -1,
+    "margin": 0.045
+   },
+   "orig_oracle_params": {
+    "mode": "push_grasp",
+    "end": 1,
+    "margin": 0.045
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 14
+  }
+ ],
+ "n_deviations": 5
+}

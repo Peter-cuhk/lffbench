@@ -1,0 +1,357 @@
+{
+ "switch": {
+  "runs": [
+   {
+    "seed": 1000,
+    "cover": "red",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1001,
+    "cover": "blue",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1002,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1003,
+    "cover": "red",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1004,
+    "cover": "blue",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1005,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1006,
+    "cover": "red",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1007,
+    "cover": "blue",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1008,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1009,
+    "cover": "red",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1010,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1011,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1012,
+    "cover": "red",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1013,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1014,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1015,
+    "cover": "blue",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1016,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1017,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   },
+   {
+    "seed": 1018,
+    "cover": "blue",
+    "successes": [
+     false,
+     true
+    ],
+    "fails": [
+     "cube_on_cover",
+     null
+    ]
+   },
+   {
+    "seed": 1019,
+    "cover": null,
+    "successes": [
+     true
+    ],
+    "fails": [
+     null
+    ]
+   }
+  ],
+  "succ_at_k": [
+   0.5,
+   1.0,
+   1.0
+  ]
+ },
+ "oracle_noise": {
+  "runs": [
+   {
+    "seed": 4000,
+    "cover": "red",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4001,
+    "cover": "blue",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4002,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4003,
+    "cover": "red",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4004,
+    "cover": "blue",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4005,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4006,
+    "cover": "red",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4007,
+    "cover": "blue",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4008,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4009,
+    "cover": "red",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4010,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4011,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4012,
+    "cover": "red",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4013,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4014,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4015,
+    "cover": "blue",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4016,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4017,
+    "cover": null,
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4018,
+    "cover": "blue",
+    "success": true,
+    "failure": null
+   },
+   {
+    "seed": 4019,
+    "cover": null,
+    "success": true,
+    "failure": null
+   }
+  ],
+  "success": 20
+ },
+ "seconds": 308.58649706840515
+}

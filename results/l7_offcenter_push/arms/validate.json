@@ -1,0 +1,586 @@
+{
+ "task": "l7_offcenter_push",
+ "hidden_keys": [
+  "com_offset"
+ ],
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "expected": {
+  "orig_naive": false,
+  "orig_oracle": true,
+  "h0_naive": true,
+  "twin_naive": false,
+  "twin_oracle": true,
+  "cross_twin_on_orig": false,
+  "cross_orig_on_twin": false
+ },
+ "image_seed": 3000,
+ "created": "2026-10-12",
+ "rows": [
+  {
+   "seed": 3000,
+   "inst": {
+    "seed": 3000,
+    "box_xy": [
+     -0.17473166839659807,
+     -0.04892164302170146
+    ],
+    "target_dist": 0.09396218137584918,
+    "com_offset": 0.05484238833371746
+   },
+   "h0_overrides": {
+    "com_offset": 0.0
+   },
+   "twin_overrides": {
+    "com_offset": -0.05484238833371746
+   },
+   "reveal": "The box's centre of mass is not at its middle: it is about 5.5 cm from the middle along the box's long side, toward the robot's left.",
+   "orig_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 25.6,
+    "centre_offset": [
+     0.0047,
+     0.022
+    ],
+    "touch_offset": -0.0005,
+    "detail": "The box is not completely inside the rectangle. It turned 26 degrees counterclockwise (seen from above): its left end ended 9.5 cm further back than its right end. Its centre ended 0.5 cm forward and 2.2 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "orig_oracle_params": {
+    "c": 0.05484238833371746,
+    "end_dx": 0.0
+   },
+   "orig_oracle": {
+    "success": true,
+    "yaw_deg": 0.0,
+    "centre_offset": [
+     -0.0006,
+     -0.0012
+    ],
+    "touch_offset": 0.055,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm backward and 0.1 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 5.5 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "h0_naive": {
+    "success": true,
+    "yaw_deg": 0.0,
+    "centre_offset": [
+     -0.0007,
+     -0.0002
+    ],
+    "touch_offset": -0.0005,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm backward and 0.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -25.3,
+    "centre_offset": [
+     0.0054,
+     -0.0212
+    ],
+    "touch_offset": -0.0004,
+    "detail": "The box is not completely inside the rectangle. It turned 25 degrees clockwise (seen from above): its right end ended 9.4 cm further back than its left end. Its centre ended 0.5 cm forward and 2.1 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "twin_oracle_params": {
+    "c": -0.05484238833371746,
+    "end_dx": 0.0
+   },
+   "twin_oracle": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     -0.0001,
+     0.0005
+    ],
+    "touch_offset": -0.055,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm backward and 0.1 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 5.5 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 30.7,
+    "centre_offset": [
+     -0.0252,
+     0.0233
+    ],
+    "touch_offset": -0.055,
+    "detail": "The box is not completely inside the rectangle. It turned 31 degrees counterclockwise (seen from above): its left end ended 11.2 cm further back than its right end. Its centre ended 2.5 cm backward and 2.3 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 5.5 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -30.6,
+    "centre_offset": [
+     -0.0251,
+     -0.0224
+    ],
+    "touch_offset": 0.055,
+    "detail": "The box is not completely inside the rectangle. It turned 31 degrees clockwise (seen from above): its right end ended 11.2 cm further back than its left end. Its centre ended 2.5 cm backward and 2.2 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 5.5 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 7.6
+  },
+  {
+   "seed": 3001,
+   "inst": {
+    "seed": 3001,
+    "box_xy": [
+     -0.15235706428982107,
+     0.035138316392852004
+    ],
+    "target_dist": 0.08331770445885266,
+    "com_offset": -0.06989795576354142
+   },
+   "h0_overrides": {
+    "com_offset": 0.0
+   },
+   "twin_overrides": {
+    "com_offset": 0.06989795576354142
+   },
+   "reveal": "The box's centre of mass is not at its middle: it is about 7.0 cm from the middle along the box's long side, toward the robot's right.",
+   "orig_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -28.9,
+    "centre_offset": [
+     0.0063,
+     -0.0247
+    ],
+    "touch_offset": 0.0004,
+    "detail": "The box is not completely inside the rectangle. It turned 29 degrees clockwise (seen from above): its right end ended 10.6 cm further back than its left end. Its centre ended 0.6 cm forward and 2.5 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "orig_oracle_params": {
+    "c": -0.06989795576354142,
+    "end_dx": 0.0
+   },
+   "orig_oracle": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     0.001,
+     0.0006
+    ],
+    "touch_offset": -0.0702,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm forward and 0.1 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 7.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "h0_naive": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     0.0007,
+     -0.0002
+    ],
+    "touch_offset": 0.0004,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm forward and 0.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 28.6,
+    "centre_offset": [
+     0.0072,
+     0.0234
+    ],
+    "touch_offset": 0.0003,
+    "detail": "The box is not completely inside the rectangle. It turned 29 degrees counterclockwise (seen from above): its left end ended 10.5 cm further back than its right end. Its centre ended 0.7 cm forward and 2.3 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "twin_oracle_params": {
+    "c": 0.06989795576354142,
+    "end_dx": 0.0
+   },
+   "twin_oracle": {
+    "success": true,
+    "yaw_deg": -0.0,
+    "centre_offset": [
+     0.0004,
+     -0.0001
+    ],
+    "touch_offset": 0.0702,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 7.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -27.0,
+    "centre_offset": [
+     -0.0257,
+     -0.0163
+    ],
+    "touch_offset": 0.0702,
+    "detail": "The box is not completely inside the rectangle. It turned 27 degrees clockwise (seen from above): its right end ended 10.0 cm further back than its left end. Its centre ended 2.6 cm backward and 1.6 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 7.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 27.2,
+    "centre_offset": [
+     -0.0263,
+     0.0177
+    ],
+    "touch_offset": -0.0703,
+    "detail": "The box is not completely inside the rectangle. It turned 27 degrees counterclockwise (seen from above): its left end ended 10.0 cm further back than its right end. Its centre ended 2.6 cm backward and 1.8 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 7.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 6.3
+  },
+  {
+   "seed": 3002,
+   "inst": {
+    "seed": 3002,
+    "box_xy": [
+     -0.16289868553321896,
+     -0.013305293665617682
+    ],
+    "target_dist": 0.08802025156282238,
+    "com_offset": -0.060938794585372796
+   },
+   "h0_overrides": {
+    "com_offset": 0.0
+   },
+   "twin_overrides": {
+    "com_offset": 0.060938794585372796
+   },
+   "reveal": "The box's centre of mass is not at its middle: it is about 6.1 cm from the middle along the box's long side, toward the robot's right.",
+   "orig_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -27.1,
+    "centre_offset": [
+     0.0071,
+     -0.0223
+    ],
+    "touch_offset": -0.0002,
+    "detail": "The box is not completely inside the rectangle. It turned 27 degrees clockwise (seen from above): its right end ended 10.0 cm further back than its left end. Its centre ended 0.7 cm forward and 2.2 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "orig_oracle_params": {
+    "c": -0.060938794585372796,
+    "end_dx": 0.0
+   },
+   "orig_oracle": {
+    "success": true,
+    "yaw_deg": -0.0,
+    "centre_offset": [
+     0.0004,
+     0.0013
+    ],
+    "touch_offset": -0.0615,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.1 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 6.1 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "h0_naive": {
+    "success": true,
+    "yaw_deg": -0.0,
+    "centre_offset": [
+     0.0005,
+     -0.0003
+    ],
+    "touch_offset": -0.0002,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 27.2,
+    "centre_offset": [
+     0.0063,
+     0.0227
+    ],
+    "touch_offset": -0.0002,
+    "detail": "The box is not completely inside the rectangle. It turned 27 degrees counterclockwise (seen from above): its left end ended 10.1 cm further back than its right end. Its centre ended 0.6 cm forward and 2.3 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "twin_oracle_params": {
+    "c": 0.060938794585372796,
+    "end_dx": 0.0
+   },
+   "twin_oracle": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     0.0002,
+     -0.001
+    ],
+    "touch_offset": 0.0614,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.1 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 6.1 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -28.8,
+    "centre_offset": [
+     -0.0243,
+     -0.0199
+    ],
+    "touch_offset": 0.0614,
+    "detail": "The box is not completely inside the rectangle. It turned 29 degrees clockwise (seen from above): its right end ended 10.6 cm further back than its left end. Its centre ended 2.4 cm backward and 2.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 6.1 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 28.8,
+    "centre_offset": [
+     -0.0247,
+     0.0197
+    ],
+    "touch_offset": -0.0615,
+    "detail": "The box is not completely inside the rectangle. It turned 29 degrees counterclockwise (seen from above): its left end ended 10.6 cm further back than its right end. Its centre ended 2.5 cm backward and 2.0 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 6.1 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 6.5
+  },
+  {
+   "seed": 3003,
+   "inst": {
+    "seed": 3003,
+    "box_xy": [
+     -0.1654772494828695,
+     0.030386910116271953
+    ],
+    "target_dist": 0.08775269656790745,
+    "com_offset": 0.07159431125329858
+   },
+   "h0_overrides": {
+    "com_offset": 0.0
+   },
+   "twin_overrides": {
+    "com_offset": -0.07159431125329858
+   },
+   "reveal": "The box's centre of mass is not at its middle: it is about 7.2 cm from the middle along the box's long side, toward the robot's left.",
+   "orig_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 30.0,
+    "centre_offset": [
+     0.0065,
+     0.0255
+    ],
+    "touch_offset": 0.0003,
+    "detail": "The box is not completely inside the rectangle. It turned 30 degrees counterclockwise (seen from above): its left end ended 11.0 cm further back than its right end. Its centre ended 0.6 cm forward and 2.5 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "orig_oracle_params": {
+    "c": 0.07159431125329858,
+    "end_dx": 0.0
+   },
+   "orig_oracle": {
+    "success": true,
+    "yaw_deg": -0.0,
+    "centre_offset": [
+     0.0005,
+     -0.0007
+    ],
+    "touch_offset": 0.0718,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm forward and 0.1 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 7.2 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "h0_naive": {
+    "success": true,
+    "yaw_deg": -0.0,
+    "centre_offset": [
+     0.0006,
+     -0.0002
+    ],
+    "touch_offset": 0.0003,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm forward and 0.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -30.4,
+    "centre_offset": [
+     0.0062,
+     -0.0262
+    ],
+    "touch_offset": 0.0003,
+    "detail": "The box is not completely inside the rectangle. It turned 30 degrees clockwise (seen from above): its right end ended 11.1 cm further back than its left end. Its centre ended 0.6 cm forward and 2.6 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "twin_oracle_params": {
+    "c": -0.07159431125329858,
+    "end_dx": 0.0
+   },
+   "twin_oracle": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     0.0008,
+     0.0011
+    ],
+    "touch_offset": -0.072,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.1 cm forward and 0.1 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 7.2 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 28.0,
+    "centre_offset": [
+     -0.029,
+     0.019
+    ],
+    "touch_offset": -0.072,
+    "detail": "The box is not completely inside the rectangle. It turned 28 degrees counterclockwise (seen from above): its left end ended 10.3 cm further back than its right end. Its centre ended 2.9 cm backward and 1.9 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 7.2 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -28.0,
+    "centre_offset": [
+     -0.0288,
+     -0.0185
+    ],
+    "touch_offset": 0.0718,
+    "detail": "The box is not completely inside the rectangle. It turned 28 degrees clockwise (seen from above): its right end ended 10.3 cm further back than its left end. Its centre ended 2.9 cm backward and 1.9 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 7.2 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 6.0
+  },
+  {
+   "seed": 3004,
+   "inst": {
+    "seed": 3004,
+    "box_xy": [
+     -0.1720139829628632,
+     0.015453426511111243
+    ],
+    "target_dist": 0.09283325866980238,
+    "com_offset": -0.07473776819388261
+   },
+   "h0_overrides": {
+    "com_offset": 0.0
+   },
+   "twin_overrides": {
+    "com_offset": 0.07473776819388261
+   },
+   "reveal": "The box's centre of mass is not at its middle: it is about 7.5 cm from the middle along the box's long side, toward the robot's right.",
+   "orig_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -32.8,
+    "centre_offset": [
+     0.0045,
+     -0.03
+    ],
+    "touch_offset": 0.0002,
+    "detail": "The box is not completely inside the rectangle. It turned 33 degrees clockwise (seen from above): its right end ended 11.9 cm further back than its left end. Its centre ended 0.5 cm forward and 3.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "orig_oracle_params": {
+    "c": -0.07473776819388261,
+    "end_dx": 0.0
+   },
+   "orig_oracle": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     0.0002,
+     0.0009
+    ],
+    "touch_offset": -0.0752,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.1 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 7.5 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "h0_naive": {
+    "success": true,
+    "yaw_deg": -0.1,
+    "centre_offset": [
+     0.0001,
+     0.0003
+    ],
+    "touch_offset": 0.0002,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.0 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 32.4,
+    "centre_offset": [
+     0.0056,
+     0.0281
+    ],
+    "touch_offset": 0.0002,
+    "detail": "The box is not completely inside the rectangle. It turned 32 degrees counterclockwise (seen from above): its left end ended 11.8 cm further back than its right end. Its centre ended 0.6 cm forward and 2.8 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 0.0 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "twin_oracle_params": {
+    "c": 0.07473776819388261,
+    "end_dx": 0.0
+   },
+   "twin_oracle": {
+    "success": true,
+    "yaw_deg": -0.0,
+    "centre_offset": [
+     0.0,
+     -0.0003
+    ],
+    "touch_offset": 0.075,
+    "detail": "The box is completely inside the rectangle. It did not turn (less than 1 degree). Its centre ended 0.0 cm forward and 0.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 7.5 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "cross_twin_on_orig": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": -29.0,
+    "centre_offset": [
+     -0.0325,
+     -0.0198
+    ],
+    "touch_offset": 0.075,
+    "detail": "The box is not completely inside the rectangle. It turned 29 degrees clockwise (seen from above): its right end ended 10.7 cm further back than its left end. Its centre ended 3.3 cm backward and 2.0 cm to the right of the rectangle's centre. When the box started to move, the gripper's centre was 7.5 cm to the left of the middle of the box (measured along the box's long side)."
+   },
+   "cross_orig_on_twin": {
+    "success": false,
+    "failure": "turned",
+    "yaw_deg": 29.0,
+    "centre_offset": [
+     -0.0317,
+     0.0182
+    ],
+    "touch_offset": -0.075,
+    "detail": "The box is not completely inside the rectangle. It turned 29 degrees counterclockwise (seen from above): its left end ended 10.7 cm further back than its right end. Its centre ended 3.2 cm backward and 1.8 cm to the left of the rectangle's centre. When the box started to move, the gripper's centre was 7.5 cm to the right of the middle of the box (measured along the box's long side)."
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross_twin_on_orig": true,
+    "cross_orig_on_twin": true
+   },
+   "all_as_expected": true,
+   "sec": 6.3
+  }
+ ]
+}

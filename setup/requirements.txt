@@ -19,5 +19,7 @@ imageio-ffmpeg==0.6.0
 PyYAML==6.0.3
 PyOpenGL==3.1.10
 openai==3.24.0
+anthropic==1.13.0     # unified harness: Anthropic Messages API backend
+google-genai==2.29.0  # unified harness: Gemini API backend
 socksio==1.0.0         # lets the openai client use a socks5 ALL_PROXY
 pytest==9.1.1

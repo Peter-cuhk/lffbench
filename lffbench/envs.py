@@ -237,3 +237,81 @@ def place_upright(env, obj_name, xy, yaw=0.0, surface_z=TABLE_Z, clearance=0.002
     qa, _ = free_joint_addr(env, obj_name)
     env.sim.data.qpos[qa + 2] -= dz
     env.sim.forward()
+
+
+# ---------------------------------------------------------------- collision bounds after runtime edits (2026-10-12)
+
+def _quat2mat(q):
+    w, x, y, z = q
+    return np.array([[1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)],
+                     [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
+                     [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)]])
+
+
+def _prim_bounds(m, g):
+    """(half extents in the geom frame, bounding-sphere radius) of a primitive geom from geom_size; None otherwise"""
+    t, s = int(m.geom_type[g]), m.geom_size[g]
+    if t == 6:  # box
+        return np.array(s[:3], float), float(np.linalg.norm(s[:3]))
+    if t == 4:  # ellipsoid
+        return np.array(s[:3], float), float(max(s[:3]))
+    if t == 2:  # sphere
+        return np.full(3, float(s[0])), float(s[0])
+    if t == 5:  # cylinder
+        return np.array([s[0], s[0], s[1]], float), float(np.hypot(s[0], s[1]))
+    if t == 3:  # capsule
+        return np.array([s[0], s[0], s[0] + s[1]], float), float(s[0] + s[1])
+    return None
+
+
+def refit_bounds(model, bodies, margin=0.0, geoms=True):
+    """Make the collision bounds of `bodies` (body id or ids) consistent again after runtime edits of their geoms
+    (geom_size / geom_pos / geom_quat) or of their inertial frame (body_ipos / body_iquat). `model`: an env, a
+    robosuite MjModel wrapper or a raw mujoco.MjModel.
+
+    MuJoCo (3.2.3) computes these bounds at compile time and never updates them: geom_aabb / geom_rbound (geom
+    frame; broad phase and geom-pair filters) and the per-body bounding-volume hierarchy bvh_aabb, stored in the
+    body's INERTIAL frame and used by the mid-phase whenever one of the two bodies of a pair has >= 2 collision
+    geoms. Stale boxes make MuJoCo silently skip contacts (lh_fence v1: a post whose centre of mass was raised sank
+    2.2 cm into the table; measured 2026-10-12: a body with a single collision geom whose COM moved 6 cm missed every
+    contact with a 2-geom body beyond the shifted box). With geoms=True the primitive geoms' geom_aabb / geom_rbound
+    are recomputed from geom_size (meshes keep theirs); then every BVH node becomes the union of its leaf geoms'
+    boxes (+ margin) in the runtime inertial frame, following body_sameframe / geom_sameframe like mj_kinematics
+    (on a pristine model this reproduces the compiled bvh_aabb exactly).
+    Also note: a runtime body_ipos is ignored by MuJoCo if the compiled inertial pos is the body origin
+    (body_sameframe = 1); bodies whose centre of mass is moved at runtime need a non-zero compiled inertial pos."""
+    if hasattr(model, "sim"):
+        model = model.sim.model
+    m = getattr(model, "_model", model)
+    for b in np.atleast_1d(bodies):
+        b = int(b)
+        if geoms:
+            for g in range(int(m.body_geomadr[b]), int(m.body_geomadr[b] + m.body_geomnum[b])):
+                pb = _prim_bounds(m, g)
+                if pb is not None:
+                    m.geom_aabb[g] = [0.0, 0.0, 0.0, *pb[0]]
+                    m.geom_rbound[g] = pb[1]
+        a, n = int(m.body_bvhadr[b]), int(m.body_bvhnum[b])
+        if a < 0 or n < 1:
+            continue
+        sf = int(m.body_sameframe[b])  # 1: inertial frame = body frame, 3: same orientation as the body
+        ip = np.zeros(3) if sf == 1 else np.array(m.body_ipos[b], float)
+        iR = np.eye(3) if sf in (1, 3) else _quat2mat(m.body_iquat[b])
+
+        def rec(i):
+            g = int(m.bvh_nodeid[i])
+            if g >= 0:
+                gsf = int(m.geom_sameframe[g])  # 1: body frame, 2: inertial frame, 3/4: their orientation
+                gp = np.zeros(3) if gsf == 1 else ip if gsf == 2 else np.array(m.geom_pos[g], float)
+                gR = np.eye(3) if gsf in (1, 3) else iR if gsf in (2, 4) else _quat2mat(m.geom_quat[g])
+                R = iR.T @ gR
+                c = iR.T @ (gp - ip) + R @ np.asarray(m.geom_aabb[g, :3])
+                h = np.abs(R) @ np.asarray(m.geom_aabb[g, 3:])
+                lo, hi = c - h, c + h
+            else:
+                l1, h1 = rec(a + int(m.bvh_child[i][0]))
+                l2, h2 = rec(a + int(m.bvh_child[i][1]))
+                lo, hi = np.minimum(l1, l2), np.maximum(h1, h2)
+            m.bvh_aabb[i] = np.concatenate([(lo + hi) / 2, (hi - lo) / 2 + margin])
+            return lo, hi
+        rec(a)

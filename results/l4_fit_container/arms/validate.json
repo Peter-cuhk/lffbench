@@ -1,0 +1,762 @@
+{
+ "task": "l4_fit_container",
+ "date": "2026-10-12",
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "full5_seeds": [
+  3000,
+  3001,
+  3002
+ ],
+ "scan": [
+  {
+   "seed": 3003,
+   "naive": [
+    false,
+    "rim"
+   ],
+   "oracle": [
+    true,
+    null
+   ],
+   "trap": true
+  },
+  {
+   "seed": 3004,
+   "naive": [
+    false,
+    "rim"
+   ],
+   "oracle": [
+    true,
+    null
+   ],
+   "trap": true
+  }
+ ],
+ "expect": {
+  "orig_naive": false,
+  "orig_oracle": true,
+  "h0_naive": true,
+  "twin_naive": false,
+  "twin_oracle": true,
+  "cross": false
+ },
+ "hidden_keys": [
+  "cap"
+ ],
+ "render_seed": 3000,
+ "rows": [
+  {
+   "seed": 3000,
+   "overrides": {
+    "h0": {
+     "cap": 0.0
+    },
+    "twin": {
+     "boxes": [
+      {
+       "name": "box_1",
+       "kind": "snug",
+       "crossed": true,
+       "xy": [
+        -0.3090144796592912,
+        -0.2294712507642132
+       ],
+       "yaw": -1.5587272754918065,
+       "inner": [
+        0.15196260156191851,
+        0.09432592957928486
+       ]
+      },
+      {
+       "name": "box_2",
+       "kind": "short_wide",
+       "crossed": true,
+       "xy": [
+        -0.2911889525654768,
+        5.4247302765986216e-05
+       ],
+       "yaw": 1.541874422330372,
+       "inner": [
+        0.1433338307323026,
+        0.10768156185480685
+       ]
+      },
+      {
+       "name": "box_3",
+       "kind": "fit",
+       "crossed": true,
+       "xy": [
+        -0.3091153031757778,
+        0.21710271300838963
+       ],
+       "yaw": 1.3122650184415896,
+       "inner": [
+        0.17111681666928186,
+        0.0764337933087998
+       ]
+      },
+      {
+       "name": "box_4",
+       "kind": "small",
+       "crossed": false,
+       "xy": [
+        -0.08381826831684197,
+        -0.22887280992859763
+       ],
+       "yaw": -0.4201907854398548,
+       "inner": [
+        0.13441737197564585,
+        0.07141663992468872
+       ]
+      },
+      {
+       "name": "box_5",
+       "kind": "narrow_long",
+       "crossed": false,
+       "xy": [
+        -0.08689474451915255,
+        -0.0020645944766704335
+       ],
+       "yaw": -0.1831462547703604,
+       "inner": [
+        0.17780345581341603,
+        0.06432315914657714
+       ]
+      }
+     ],
+     "fit": 2,
+     "fit_crossed": true,
+     "_perc": [
+      [
+       0.15158423730351606,
+       0.09658536331021472
+      ],
+      [
+       0.1417669971449597,
+       0.10610780643467764
+      ],
+      [
+       0.1728085567604918,
+       0.07972283899464222
+      ],
+      [
+       0.13421477963952394,
+       0.06778962194408657
+      ],
+      [
+       0.17915572815279515,
+       0.06395594660184287
+      ]
+     ]
+    }
+   },
+   "reveal": "The phone has clear bumper caps on both of its short ends that do not show in the camera images; each cap adds about 0.9 cm, so the phone is about 1.8 cm longer than it looks.",
+   "orig_naive": [
+    false,
+    "rim"
+   ],
+   "orig_oracle": [
+    true,
+    null
+   ],
+   "h0_naive": [
+    true,
+    null
+   ],
+   "twin_naive": [
+    false,
+    "rim"
+   ],
+   "twin_oracle": [
+    true,
+    null
+   ],
+   "cross": [
+    false,
+    "rim"
+   ],
+   "cross_params": {
+    "box": 2,
+    "place_yaw": 1.3122650184415896
+   },
+   "orig_oracle_params": {
+    "box": 0,
+    "place_yaw": -1.5587272754918065
+   },
+   "deviations": [],
+   "sec": 39
+  },
+  {
+   "seed": 3001,
+   "overrides": {
+    "h0": {
+     "cap": 0.0
+    },
+    "twin": {
+     "boxes": [
+      {
+       "name": "box_1",
+       "kind": "fit",
+       "crossed": true,
+       "xy": [
+        -0.309866900590543,
+        -0.21097812212134326
+       ],
+       "yaw": -1.494856828202475,
+       "inner": [
+        0.1713424625800931,
+        0.07671973988870662
+       ]
+      },
+      {
+       "name": "box_2",
+       "kind": "snug",
+       "crossed": false,
+       "xy": [
+        -0.3000030316990581,
+        -0.005430433604366272
+       ],
+       "yaw": 0.366322416082673,
+       "inner": [
+        0.15182079267982496,
+        0.09479550989979274
+       ]
+      },
+      {
+       "name": "box_3",
+       "kind": "narrow_long",
+       "crossed": true,
+       "xy": [
+        -0.29959928716661244,
+        0.21334932783375024
+       ],
+       "yaw": -1.4655212172799574,
+       "inner": [
+        0.17905965669496063,
+        0.06305312409452585
+       ]
+      },
+      {
+       "name": "box_4",
+       "kind": "small",
+       "crossed": false,
+       "xy": [
+        -0.07495674054552677,
+        -0.0012230426302628807
+       ],
+       "yaw": -0.12755904837822585,
+       "inner": [
+        0.13452642414603588,
+        0.07157361291588231
+       ]
+      },
+      {
+       "name": "box_5",
+       "kind": "short_wide",
+       "crossed": true,
+       "xy": [
+        -0.08607929244307656,
+        0.2285712751546994
+       ],
+       "yaw": 1.5706884300686093,
+       "inner": [
+        0.14426278432078918,
+        0.10530422386944896
+       ]
+      }
+     ],
+     "fit": 0,
+     "fit_crossed": true,
+     "_perc": [
+      [
+       0.1768410282109868,
+       0.07238637369687852
+      ],
+      [
+       0.14903103553896327,
+       0.09365584735109811
+      ],
+      [
+       0.1770052772562704,
+       0.06679072209265664
+      ],
+      [
+       0.13650504642560043,
+       0.07400619724705704
+      ],
+      [
+       0.14416209302853705,
+       0.10361326347553634
+      ]
+     ]
+    }
+   },
+   "reveal": "The phone has clear bumper caps on both of its short ends that do not show in the camera images; each cap adds about 0.8 cm, so the phone is about 1.7 cm longer than it looks.",
+   "orig_naive": [
+    false,
+    "rim"
+   ],
+   "orig_oracle": [
+    true,
+    null
+   ],
+   "h0_naive": [
+    true,
+    null
+   ],
+   "twin_naive": [
+    false,
+    "rim"
+   ],
+   "twin_oracle": [
+    true,
+    null
+   ],
+   "cross": [
+    false,
+    "rim"
+   ],
+   "cross_params": {
+    "box": 0,
+    "place_yaw": -1.494856828202475
+   },
+   "orig_oracle_params": {
+    "box": 1,
+    "place_yaw": 0.366322416082673
+   },
+   "deviations": [],
+   "sec": 39
+  },
+  {
+   "seed": 3002,
+   "overrides": {
+    "h0": {
+     "cap": 0.0
+    },
+    "twin": {
+     "boxes": [
+      {
+       "name": "box_1",
+       "kind": "snug",
+       "crossed": false,
+       "xy": [
+        -0.30765735323618565,
+        -0.22365920756271512
+       ],
+       "yaw": -0.1469613826695142,
+       "inner": [
+        0.15226337411022492,
+        0.09427144251301668
+       ]
+      },
+      {
+       "name": "box_2",
+       "kind": "narrow_long",
+       "crossed": true,
+       "xy": [
+        -0.2962451074257939,
+        -0.006463092256756158
+       ],
+       "yaw": 1.3558427518685554,
+       "inner": [
+        0.1798834973120184,
+        0.0624630731989308
+       ]
+      },
+      {
+       "name": "box_3",
+       "kind": "small",
+       "crossed": true,
+       "xy": [
+        -0.30545819038247196,
+        0.2199658759397335
+       ],
+       "yaw": 1.3140228062180404,
+       "inner": [
+        0.13215225247029255,
+        0.07256793513365989
+       ]
+      },
+      {
+       "name": "box_4",
+       "kind": "short_wide",
+       "crossed": true,
+       "xy": [
+        -0.07338655684120639,
+        -0.22356528801119852
+       ],
+       "yaw": 1.520932467359323,
+       "inner": [
+        0.14439306648669406,
+        0.10788437058474219
+       ]
+      },
+      {
+       "name": "box_5",
+       "kind": "fit",
+       "crossed": false,
+       "xy": [
+        -0.07805132954375109,
+        0.2261678941820815
+       ],
+       "yaw": -0.2591532715375784,
+       "inner": [
+        0.1709325608606823,
+        0.07642733043607017
+       ]
+      }
+     ],
+     "fit": 4,
+     "fit_crossed": false,
+     "_perc": [
+      [
+       0.1483018800533293,
+       0.09413900411381886
+      ],
+      [
+       0.1764312841189258,
+       0.06418659796047929
+      ],
+      [
+       0.13306019302001953,
+       0.07100505840936017
+      ],
+      [
+       0.1458921079714692,
+       0.10641935563351523
+      ],
+      [
+       0.17553977347439972,
+       0.07845204552179165
+      ]
+     ]
+    }
+   },
+   "reveal": "The phone has clear bumper caps on both of its short ends that do not show in the camera images; each cap adds about 0.9 cm, so the phone is about 1.7 cm longer than it looks.",
+   "orig_naive": [
+    false,
+    "rim"
+   ],
+   "orig_oracle": [
+    true,
+    null
+   ],
+   "h0_naive": [
+    true,
+    null
+   ],
+   "twin_naive": [
+    false,
+    "rim"
+   ],
+   "twin_oracle": [
+    true,
+    null
+   ],
+   "cross": [
+    false,
+    "rim"
+   ],
+   "cross_params": {
+    "box": 4,
+    "place_yaw": -0.2591532715375784
+   },
+   "orig_oracle_params": {
+    "box": 0,
+    "place_yaw": -0.1469613826695142
+   },
+   "deviations": [],
+   "sec": 14
+  },
+  {
+   "seed": 3003,
+   "overrides": {
+    "h0": {
+     "cap": 0.0
+    },
+    "twin": {
+     "boxes": [
+      {
+       "name": "box_1",
+       "kind": "narrow_long",
+       "crossed": false,
+       "xy": [
+        -0.29755828470544804,
+        -0.2141237141114235
+       ],
+       "yaw": -0.09931228767034539,
+       "inner": [
+        0.17774995516652958,
+        0.06321306745384998
+       ]
+      },
+      {
+       "name": "box_2",
+       "kind": "short_wide",
+       "crossed": true,
+       "xy": [
+        -0.29010506205707337,
+        -0.0009987623030832463
+       ],
+       "yaw": 1.5334852438362412,
+       "inner": [
+        0.1452060803695993,
+        0.10058144737868879
+       ]
+      },
+      {
+       "name": "box_3",
+       "kind": "small",
+       "crossed": false,
+       "xy": [
+        -0.2946389159321743,
+        0.2152796418568912
+       ],
+       "yaw": -0.029524015710870266,
+       "inner": [
+        0.13025120209611865,
+        0.0726454740435744
+       ]
+      },
+      {
+       "name": "box_4",
+       "kind": "fit",
+       "crossed": false,
+       "xy": [
+        -0.07462892968192618,
+        -0.2197516442147442
+       ],
+       "yaw": 0.19387825942539028,
+       "inner": [
+        0.1703198937426457,
+        0.07642903497555131
+       ]
+      },
+      {
+       "name": "box_5",
+       "kind": "snug",
+       "crossed": true,
+       "xy": [
+        -0.07005917368196128,
+        0.003314403534826966
+       ],
+       "yaw": 1.506313653676485,
+       "inner": [
+        0.15229721419552805,
+        0.09651964367480373
+       ]
+      }
+     ],
+     "fit": 3,
+     "fit_crossed": false,
+     "_perc": [
+      [
+       0.1770808981137474,
+       0.059850241423396025
+      ],
+      [
+       0.14002789232384583,
+       0.10155271668903346
+      ],
+      [
+       0.1262321657701224,
+       0.0686699739726601
+      ],
+      [
+       0.16370043954260452,
+       0.07746714166372616
+      ],
+      [
+       0.15150400014242973,
+       0.09739853151776243
+      ]
+     ]
+    }
+   },
+   "reveal": "The phone has clear bumper caps on both of its short ends that do not show in the camera images; each cap adds about 0.9 cm, so the phone is about 1.7 cm longer than it looks.",
+   "orig_naive": [
+    false,
+    "rim"
+   ],
+   "orig_oracle": [
+    true,
+    null
+   ],
+   "h0_naive": [
+    true,
+    null
+   ],
+   "twin_naive": [
+    false,
+    "rim"
+   ],
+   "twin_oracle": [
+    true,
+    null
+   ],
+   "cross": [
+    false,
+    "rim"
+   ],
+   "cross_params": {
+    "box": 3,
+    "place_yaw": 0.19387825942539028
+   },
+   "orig_oracle_params": {
+    "box": 4,
+    "place_yaw": 1.506313653676485
+   },
+   "deviations": [],
+   "sec": 27
+  },
+  {
+   "seed": 3004,
+   "overrides": {
+    "h0": {
+     "cap": 0.0
+    },
+    "twin": {
+     "boxes": [
+      {
+       "name": "box_1",
+       "kind": "short_wide",
+       "crossed": false,
+       "xy": [
+        -0.30921133996513583,
+        -0.22193496457944134
+       ],
+       "yaw": 0.24837760841654344,
+       "inner": [
+        0.14354486584663398,
+        0.1005937072828628
+       ]
+      },
+      {
+       "name": "box_2",
+       "kind": "small",
+       "crossed": false,
+       "xy": [
+        -0.3004456127921785,
+        -0.0064583644549088895
+       ],
+       "yaw": 0.25553607716207605,
+       "inner": [
+        0.13308795596840178,
+        0.07368184451983506
+       ]
+      },
+      {
+       "name": "box_3",
+       "kind": "snug",
+       "crossed": true,
+       "xy": [
+        -0.3002387412604338,
+        0.22975261084578633
+       ],
+       "yaw": 1.3832774982660672,
+       "inner": [
+        0.15204733904685236,
+        0.09774329413247669
+       ]
+      },
+      {
+       "name": "box_4",
+       "kind": "fit",
+       "crossed": true,
+       "xy": [
+        -0.0721807196603204,
+        0.007320477178866637
+       ],
+       "yaw": 1.5238138130786107,
+       "inner": [
+        0.16940751466647333,
+        0.07641109457339702
+       ]
+      },
+      {
+       "name": "box_5",
+       "kind": "narrow_long",
+       "crossed": false,
+       "xy": [
+        -0.07038265135790925,
+        0.22778811676785352
+       ],
+       "yaw": -0.02824856176282098,
+       "inner": [
+        0.1755305949864917,
+        0.06483301471421275
+       ]
+      }
+     ],
+     "fit": 3,
+     "fit_crossed": true,
+     "_perc": [
+      [
+       0.1461137970321072,
+       0.09757700486944522
+      ],
+      [
+       0.13110371451967204,
+       0.07252175337439026
+      ],
+      [
+       0.14982023211111423,
+       0.09654835668470081
+      ],
+      [
+       0.1710134728782816,
+       0.07794035139664604
+      ],
+      [
+       0.1782216406030652,
+       0.06253041572646537
+      ]
+     ]
+    }
+   },
+   "reveal": "The phone has clear bumper caps on both of its short ends that do not show in the camera images; each cap adds about 0.9 cm, so the phone is about 1.8 cm longer than it looks.",
+   "orig_naive": [
+    false,
+    "rim"
+   ],
+   "orig_oracle": [
+    true,
+    null
+   ],
+   "h0_naive": [
+    true,
+    null
+   ],
+   "twin_naive": [
+    false,
+    "rim"
+   ],
+   "twin_oracle": [
+    true,
+    null
+   ],
+   "cross": [
+    false,
+    "rim"
+   ],
+   "cross_params": {
+    "box": 3,
+    "place_yaw": 1.5238138130786107
+   },
+   "orig_oracle_params": {
+    "box": 2,
+    "place_yaw": 1.3832774982660672
+   },
+   "deviations": [],
+   "sec": 32
+  }
+ ],
+ "n_deviations": 0
+}

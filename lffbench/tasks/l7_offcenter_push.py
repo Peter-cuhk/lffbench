@@ -171,6 +171,7 @@ class OffcenterPush(LFFTask):
         bid = envs.body_id(self.env, BOX)
         m.body_mass[bid] = MASS
         m.body_ipos[bid] = [0.0, inst["com_offset"], 0.0]
+        envs.refit_bounds(self.env, bid)  # the collision BVH lives in the inertial frame (envs.refit_bounds)
         envs.set_friction(self.env, BOX, MU)
         x0, y0 = inst["box_xy"]
         envs.set_obj_pose(self.env, BOX, [x0, y0, envs.TABLE_Z + HALF[2] + 0.001])

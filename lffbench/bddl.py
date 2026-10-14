@@ -59,6 +59,8 @@ def write_bddl(task_name, language, objects, fixtures=(), extra_regions="", goal
 )
 """
     path = os.path.join(GEN_DIR, f"{task_name}.bddl")
-    with open(path, "w") as f:
+    tmp = f"{path}.{os.getpid()}.tmp"  # atomic: concurrent builders must never read a half-written file
+    with open(tmp, "w") as f:
         f.write(text)
+    os.replace(tmp, path)
     return path

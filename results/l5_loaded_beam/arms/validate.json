@@ -1,0 +1,515 @@
+{
+ "task": "l5_loaded_beam",
+ "date": "2026-10-12",
+ "seeds": [
+  3000,
+  3001,
+  3002,
+  3003,
+  3004
+ ],
+ "pilot_seeds": [
+  3000,
+  3001,
+  3002
+ ],
+ "scan": [
+  {
+   "seed": 3003,
+   "naive": [
+    false,
+    "tilted"
+   ],
+   "oracle": [
+    true,
+    null
+   ],
+   "trap": true
+  },
+  {
+   "seed": 3004,
+   "naive": [
+    false,
+    "tilted"
+   ],
+   "oracle": [
+    true,
+    null
+   ],
+   "trap": true
+  }
+ ],
+ "expected": {
+  "orig_naive": "F",
+  "orig_oracle": "S",
+  "h0_naive": "S",
+  "twin_naive": "F",
+  "twin_oracle": "S",
+  "cross": "F"
+ },
+ "cross_note": "execute(orig, oracle_params(twin)) after reset_instance(orig)",
+ "per_seed": {
+  "3000": {
+   "orig_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 32.2,
+    "grasp_along": -0.0008,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 32 degrees, its left end lower than its right end. Its lowest point is 7 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 32 degrees with its left end lower. The left block lies on the table, 4 cm beyond the bar's left end. The right block is still on the bar but 5 cm in from its right end position (8 cm right of the bar's middle). You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": 0.0361,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 3.6 cm to the left of its middle.",
+    "sec": 2
+   },
+   "orig_naive_render": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 32.2,
+    "grasp_along": -0.0008,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 32 degrees, its left end lower than its right end. Its lowest point is 7 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 32 degrees with its left end lower. The left block lies on the table, 4 cm beyond the bar's left end. The right block is still on the bar but 5 cm in from its right end position (8 cm right of the bar's middle). You last grasped the bar 0.1 cm to the right of its middle.",
+    "image": "results/l5_loaded_beam/arms/s3000_orig_naive_end.png",
+    "sec": 2
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0007,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 1
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -39.0,
+    "grasp_along": -0.0006,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 39 degrees, its right end lower than its left end. Its lowest point is 6 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 39 degrees with its right end lower. The left block is still on the bar but 5 cm in from its left end position (7 cm left of the bar's middle). The right block lies on the table, 5 cm beyond the bar's right end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "image": "results/l5_loaded_beam/arms/s3000_twin_naive_end.png",
+    "sec": 2
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0381,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 3.8 cm to the right of its middle.",
+    "sec": 1
+   },
+   "cross": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 51.5,
+    "grasp_along": -0.0382,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 52 degrees, its left end lower than its right end. Its lowest point is -0 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 52 degrees with its left end lower. The left block lies on the table, 10 cm beyond the bar's left end. The right block lies off the bar, 0 cm forward and 2 cm left of the bar's right end. You last grasped the bar 3.8 cm to the right of its middle.",
+    "params": {
+     "along": -0.037308276121453175,
+     "lift": 0.15,
+     "speed": 0.1
+    },
+    "sec": 2
+   },
+   "overrides": {
+    "h0": {
+     "com_offset": 0.0,
+     "com_total": 0.0
+    },
+    "twin": {
+     "com_offset": -0.039763582500576204,
+     "com_total": -0.037308276121453175
+    }
+   },
+   "reveal": "The bar is not uniform: a heavy weight is hidden inside it towards its left end (the robot's left). The bar weighs 912 g and its centre of mass is 4.0 cm to the left of its middle.",
+   "hidden": {
+    "com_offset": 0.039763582500576204,
+    "com_total": 0.037308276121453175
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3001": {
+   "orig_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -43.4,
+    "grasp_along": -0.0007,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 43 degrees, its right end lower than its left end. Its lowest point is 5 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 43 degrees with its right end lower. The left block is still on the bar but 4 cm in from its left end position (8 cm left of the bar's middle). The right block lies on the table, 6 cm beyond the bar's right end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0592,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 5.9 cm to the right of its middle.",
+    "sec": 1
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0008,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 1
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 37.6,
+    "grasp_along": -0.0007,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 38 degrees, its left end lower than its right end. Its lowest point is 6 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 38 degrees with its left end lower. The left block lies on the table, 6 cm beyond the bar's left end. The right block is still on the bar but 4 cm in from its right end position (8 cm right of the bar's middle). You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": 0.0578,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 5.8 cm to the left of its middle.",
+    "sec": 1
+   },
+   "cross": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -48.0,
+    "grasp_along": 0.0578,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 48 degrees, its right end lower than its left end. Its lowest point is -0 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 48 degrees with its right end lower. The left block lies off the bar, 0 cm forward and 2 cm right of the bar's left end. The right block lies on the table, 9 cm beyond the bar's right end. You last grasped the bar 5.8 cm to the left of its middle.",
+    "params": {
+     "along": 0.05812737320031606,
+     "lift": 0.15,
+     "speed": 0.1
+    },
+    "sec": 2
+   },
+   "overrides": {
+    "h0": {
+     "com_offset": 0.0,
+     "com_total": 0.0
+    },
+    "twin": {
+     "com_offset": 0.062346933645312144,
+     "com_total": 0.05812737320031606
+    }
+   },
+   "reveal": "The bar is not uniform: a heavy weight is hidden inside it towards its right end (the robot's right). The bar weighs 827 g and its centre of mass is 6.2 cm to the right of its middle.",
+   "hidden": {
+    "com_offset": -0.062346933645312144,
+    "com_total": -0.05812737320031606
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3002": {
+   "orig_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -41.5,
+    "grasp_along": -0.0011,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 41 degrees, its right end lower than its left end. Its lowest point is 5 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 42 degrees with its right end lower. The left block is still on the bar but 5 cm in from its left end position (8 cm left of the bar's middle). The right block lies on the table, 6 cm beyond the bar's right end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0471,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 4.7 cm to the right of its middle.",
+    "sec": 1
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0011,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 1
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 35.3,
+    "grasp_along": -0.0012,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 35 degrees, its left end lower than its right end. Its lowest point is 6 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 35 degrees with its left end lower. The left block lies on the table, 5 cm beyond the bar's left end. The right block is still on the bar but 4 cm in from its right end position (8 cm right of the bar's middle). You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": 0.0449,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 4.5 cm to the left of its middle.",
+    "sec": 1
+   },
+   "cross": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -51.5,
+    "grasp_along": 0.045,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 51 degrees, its right end lower than its left end. Its lowest point is -0 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 52 degrees with its right end lower. The right block lies on the table, 10 cm beyond the bar's right end. You last grasped the bar 4.5 cm to the left of its middle.",
+    "params": {
+     "along": 0.0457328920139833,
+     "lift": 0.15,
+     "speed": 0.1
+    },
+    "sec": 2
+   },
+   "overrides": {
+    "h0": {
+     "com_offset": 0.0,
+     "com_total": 0.0
+    },
+    "twin": {
+     "com_offset": 0.0489081918780592,
+     "com_total": 0.0457328920139833
+    }
+   },
+   "reveal": "The bar is not uniform: a heavy weight is hidden inside it towards its right end (the robot's right). The bar weighs 864 g and its centre of mass is 4.9 cm to the right of its middle.",
+   "hidden": {
+    "com_offset": -0.0489081918780592,
+    "com_total": -0.0457328920139833
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3003": {
+   "orig_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 37.6,
+    "grasp_along": -0.001,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 38 degrees, its left end lower than its right end. Its lowest point is 6 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 38 degrees with its left end lower. The left block lies on the table, 5 cm beyond the bar's left end. The right block is still on the bar but 4 cm in from its right end position (8 cm right of the bar's middle). You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": 0.0602,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 6.0 cm to the left of its middle.",
+    "sec": 1
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0009,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 1
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -42.1,
+    "grasp_along": -0.0008,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 42 degrees, its right end lower than its left end. Its lowest point is 5 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 42 degrees with its right end lower. The left block is still on the bar but 5 cm in from its left end position (8 cm left of the bar's middle). The right block lies on the table, 6 cm beyond the bar's right end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.062,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 6.2 cm to the right of its middle.",
+    "sec": 1
+   },
+   "cross": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 45.5,
+    "grasp_along": -0.062,
+    "n_load_falls": 2,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 46 degrees, its left end lower than its right end. Its lowest point is -0 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 46 degrees with its left end lower. Blocks fell off 2 times in this attempt. The left block lies on the table, 9 cm beyond the bar's left end. The right block lies on the table, 15 cm beyond the bar's right end. You last grasped the bar 6.2 cm to the right of its middle.",
+    "params": {
+     "along": -0.06066869365127247,
+     "lift": 0.15,
+     "speed": 0.1
+    },
+    "sec": 1
+   },
+   "overrides": {
+    "h0": {
+     "com_offset": 0.0,
+     "com_total": 0.0
+    },
+    "twin": {
+     "com_offset": -0.06489146687994787,
+     "com_total": -0.06066869365127247
+    }
+   },
+   "reveal": "The bar is not uniform: a heavy weight is hidden inside it towards its left end (the robot's left). The bar weighs 862 g and its centre of mass is 6.5 cm to the left of its middle.",
+   "hidden": {
+    "com_offset": 0.06489146687994787,
+    "com_total": 0.06066869365127247
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  },
+  "3004": {
+   "orig_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -52.7,
+    "grasp_along": -0.001,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 53 degrees, its right end lower than its left end. Its lowest point is 3 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 53 degrees with its right end lower. The right block lies on the table, 8 cm beyond the bar's right end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 2
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.066,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 15 cm above the table, with a block on each end. You last grasped the bar 6.6 cm to the right of its middle.",
+    "sec": 1
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": -0.0011,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 1
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": 48.6,
+    "grasp_along": -0.0011,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 49 degrees, its left end lower than its right end. Its lowest point is 3 cm above the table. The left block slid off the bar's left end while the bar hung tilted by up to 49 degrees with its left end lower. The left block lies on the table, 8 cm beyond the bar's left end. You last grasped the bar 0.1 cm to the right of its middle.",
+    "sec": 1
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "tilt_deg": -0.0,
+    "grasp_along": 0.0647,
+    "n_load_falls": 0,
+    "trap_fired": false,
+    "detail": "The bar is held level (tilt 0 degrees), 14 cm above the table, with a block on each end. You last grasped the bar 6.5 cm to the left of its middle.",
+    "sec": 1
+   },
+   "cross": {
+    "success": false,
+    "failure": "tilted",
+    "tilt_deg": -45.8,
+    "grasp_along": 0.0649,
+    "n_load_falls": 1,
+    "trap_fired": true,
+    "detail": "The bar did not stay level: it rotated in the gripper and now hangs tilted by 46 degrees, its right end lower than its left end. Its lowest point is -0 cm above the table. The right block slid off the bar's right end while the bar hung tilted by up to 46 degrees with its right end lower. The left block lies off the bar, 0 cm back and 2 cm right of the bar's left end. The right block lies on the table, 8 cm beyond the bar's right end. You last grasped the bar 6.5 cm to the left of its middle.",
+    "params": {
+     "along": 0.06526828484401775,
+     "lift": 0.15,
+     "speed": 0.1
+    },
+    "sec": 2
+   },
+   "overrides": {
+    "h0": {
+     "com_offset": 0.0,
+     "com_total": 0.0
+    },
+    "twin": {
+     "com_offset": 0.06960665229082394,
+     "com_total": 0.06526828484401775
+    }
+   },
+   "reveal": "The bar is not uniform: a heavy weight is hidden inside it towards its right end (the robot's right). The bar weighs 903 g and its centre of mass is 7.0 cm to the right of its middle.",
+   "hidden": {
+    "com_offset": -0.06960665229082394,
+    "com_total": -0.06526828484401775
+   },
+   "as_expected": {
+    "orig_naive": true,
+    "orig_oracle": true,
+    "h0_naive": true,
+    "twin_naive": true,
+    "twin_oracle": true,
+    "cross": true
+   }
+  }
+ }
+}

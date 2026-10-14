@@ -65,7 +65,9 @@ class ChatCompletionsBackend(Backend):
             elif it["kind"] == "tool_output":
                 msgs.append(dict(role="tool", tool_call_id=it["call_id"], content=it["text"]))
         req = dict(model=self.model, messages=msgs, tools=chat_tools(tools), tool_choice="auto",
-                   temperature=self.temperature, max_tokens=self.max_tokens)
+                   max_tokens=self.max_tokens)
+        if self.temperature is not None:  # None: the endpoint's default (reasoning models may reject a temperature)
+            req["temperature"] = self.temperature
         if self.extra_body:
             req["extra_body"] = dict(self.extra_body)
         return req

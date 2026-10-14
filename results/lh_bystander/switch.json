@@ -1,0 +1,352 @@
+[
+ {
+  "seed": 1000,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1001,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1002,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1003,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1004,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1005,
+  "hazard": false,
+  "attempts": [
+   [
+    1,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1006,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1007,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1008,
+  "hazard": false,
+  "attempts": [
+   [
+    1,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1009,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    0
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1010,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1011,
+  "hazard": false,
+  "attempts": [
+   [
+    1,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1012,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1013,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1014,
+  "hazard": false,
+  "attempts": [
+   [
+    1,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1015,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1016,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1017,
+  "hazard": false,
+  "attempts": [
+   [
+    1,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1018,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ },
+ {
+  "seed": 1019,
+  "hazard": true,
+  "attempts": [
+   [
+    1,
+    false,
+    "bystander_knocked",
+    1
+   ],
+   [
+    2,
+    true,
+    null,
+    0
+   ]
+  ],
+  "noise": null
+ }
+]

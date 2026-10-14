@@ -1,0 +1,150 @@
+{
+ "pilot": [
+  3000,
+  3001,
+  3003
+ ],
+ "log": [
+  {
+   "seed": 3000,
+   "block": "tight",
+   "side": "front",
+   "naive": {
+    "succ": false,
+    "fail": "nudged_out",
+    "trap": true,
+    "nudged": [
+     "red",
+     "yellow"
+    ],
+    "offsets": {
+     "red": [
+      0.78,
+      1.98
+     ],
+     "blue": [
+      1.47,
+      -0.08
+     ],
+     "green": [
+      0.84,
+      0.44
+     ],
+     "yellow": [
+      1.67,
+      2.56
+     ]
+    }
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  },
+  {
+   "seed": 3001,
+   "block": "tight",
+   "side": "left",
+   "naive": {
+    "succ": false,
+    "fail": "nudged_out",
+    "trap": true,
+    "nudged": [
+     "red",
+     "yellow"
+    ],
+    "offsets": {
+     "red": [
+      1.13,
+      -2.73
+     ],
+     "blue": [
+      1.66,
+      -0.42
+     ],
+     "green": [
+      1.28,
+      0.29
+     ],
+     "yellow": [
+      0.85,
+      -2.01
+     ]
+    }
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  },
+  {
+   "seed": 3002,
+   "block": "spaced",
+   "side": "right",
+   "naive": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "nudged": [],
+    "offsets": {
+     "red": [
+      0.73,
+      0.47
+     ],
+     "blue": [
+      0.96,
+      -0.59
+     ],
+     "green": [
+      1.7,
+      0.1
+     ],
+     "yellow": [
+      0.89,
+      -0.47
+     ]
+    }
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  },
+  {
+   "seed": 3003,
+   "block": "tight",
+   "side": "front",
+   "naive": {
+    "succ": false,
+    "fail": "nudged_out",
+    "trap": true,
+    "nudged": [
+     "blue",
+     "red"
+    ],
+    "offsets": {
+     "red": [
+      2.33,
+      2.48
+     ],
+     "blue": [
+      1.37,
+      2.64
+     ],
+     "green": [
+      2.2,
+      0.44
+     ],
+     "yellow": [
+      2.15,
+      0.59
+     ]
+    }
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  }
+ ]
+}

@@ -1,0 +1,405 @@
+{
+ "task": "l7_key_turn",
+ "date": "2026-10-12",
+ "spec": "lffbench/arm_specs/l7_key_turn.py",
+ "hidden_keys": [
+  "direction"
+ ],
+ "seeds": [
+  3001,
+  3003,
+  3005,
+  3007,
+  3009
+ ],
+ "fixed_full5": [
+  3001,
+  3003,
+  3005
+ ],
+ "scan": [
+  {
+   "seed": 3000,
+   "naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "trap": false
+  },
+  {
+   "seed": 3002,
+   "naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "trap": false
+  },
+  {
+   "seed": 3004,
+   "naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "trap": false
+  },
+  {
+   "seed": 3006,
+   "naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "trap": false
+  },
+  {
+   "seed": 3007,
+   "naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.8,
+    "open_deg": -1.8
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "trap": true
+  },
+  {
+   "seed": 3008,
+   "naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 89.9,
+    "open_deg": 89.9
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": 89.9,
+    "open_deg": 89.9
+   },
+   "trap": false
+  },
+  {
+   "seed": 3009,
+   "naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.6,
+    "open_deg": -1.6
+   },
+   "oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "trap": true
+  }
+ ],
+ "expected": {
+  "orig_naive": "F",
+  "orig_oracle": "S",
+  "h0_naive": "S",
+  "twin_naive": "F",
+  "twin_oracle": "S",
+  "cross": "F"
+ },
+ "rows": [
+  {
+   "seed": 3001,
+   "hidden": {
+    "direction": "CW"
+   },
+   "h0_overrides": {
+    "direction": "CCW"
+   },
+   "twin_overrides": {},
+   "reveal": "Note: this lock opens only when the key is turned clockwise (seen from above); turned counterclockwise the key moves about 3 degrees and then hits a hard stop.",
+   "orig_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.8,
+    "open_deg": -1.8
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.8,
+    "open_deg": -1.8
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "cross": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 10
+  },
+  {
+   "seed": 3003,
+   "hidden": {
+    "direction": "CW"
+   },
+   "h0_overrides": {
+    "direction": "CCW"
+   },
+   "twin_overrides": {},
+   "reveal": "Note: this lock opens only when the key is turned clockwise (seen from above); turned counterclockwise the key moves about 3 degrees and then hits a hard stop.",
+   "orig_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 2.3,
+    "open_deg": -2.3
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 2.3,
+    "open_deg": -2.3
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "cross": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 9
+  },
+  {
+   "seed": 3005,
+   "hidden": {
+    "direction": "CW"
+   },
+   "h0_overrides": {
+    "direction": "CCW"
+   },
+   "twin_overrides": {},
+   "reveal": "Note: this lock opens only when the key is turned clockwise (seen from above); turned counterclockwise the key moves about 3 degrees and then hits a hard stop.",
+   "orig_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 2.6,
+    "open_deg": -2.6
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 2.6,
+    "open_deg": -2.6
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "cross": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 8
+  },
+  {
+   "seed": 3007,
+   "hidden": {
+    "direction": "CW"
+   },
+   "h0_overrides": {
+    "direction": "CCW"
+   },
+   "twin_overrides": {},
+   "reveal": "Note: this lock opens only when the key is turned clockwise (seen from above); turned counterclockwise the key moves about 3 degrees and then hits a hard stop.",
+   "orig_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.8,
+    "open_deg": -1.8
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.8,
+    "open_deg": -1.8
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "cross": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 10
+  },
+  {
+   "seed": 3009,
+   "hidden": {
+    "direction": "CW"
+   },
+   "h0_overrides": {
+    "direction": "CCW"
+   },
+   "twin_overrides": {},
+   "reveal": "Note: this lock opens only when the key is turned clockwise (seen from above); turned counterclockwise the key moves about 3 degrees and then hits a hard stop.",
+   "orig_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.6,
+    "open_deg": -1.6
+   },
+   "orig_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "h0_naive": {
+    "success": true,
+    "failure": null,
+    "key_deg": 90.0,
+    "open_deg": 90.0
+   },
+   "twin_naive": {
+    "success": false,
+    "failure": "still_locked",
+    "key_deg": 1.6,
+    "open_deg": -1.6
+   },
+   "twin_oracle": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "cross": {
+    "success": true,
+    "failure": null,
+    "key_deg": -90.0,
+    "open_deg": 90.0
+   },
+   "deviations": [
+    "cross"
+   ],
+   "sec": 10
+  }
+ ],
+ "renders": {
+  "orig": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l7_key_turn/arms/orig_naive_end_3001.png",
+  "twin": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l7_key_turn/arms/twin_naive_end_3001.png",
+  "h0": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l7_key_turn/arms/h0_naive_end_3001.png"
+ },
+ "render_seed": 3001
+}

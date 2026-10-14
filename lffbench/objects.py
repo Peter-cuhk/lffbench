@@ -74,8 +74,12 @@ def register_generated(class_name, xml_text, free=True):
     """Write the MJCF and register a LIBERO object class. Returns the BDDL category name."""
     key = _key(class_name)
     path = os.path.join(GEN_DIR, f"{key}.xml")
-    with open(path, "w") as f:
+    # write to a private temp file and rename atomically: several servers / validators may build the same task at
+    # once, and a reader must never see a half-written file (seen 2026-10-09 by the lh_* builders)
+    tmp = f"{path}.{os.getpid()}.tmp"
+    with open(tmp, "w") as f:
         f.write(xml_text)
+    os.replace(tmp, path)
     if key in OBJECTS_DICT:
         return key
 

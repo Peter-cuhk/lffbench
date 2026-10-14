@@ -1,0 +1,3695 @@
+{
+ "note": "Extra scripted controls for lh_fence v2 (seeds 1000-1019 unless stated; produced with the task's run_scripted; 'disturbed' = attempt 1 had a lost stage or a toppled object). Generated 2026-10-11.",
+ "controls": {
+  "v1_naive": {
+   "summary": {
+    "n": 20,
+    "succ_at": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "disturbed_attempt1": 0,
+    "disturbed_hazard": "0/13",
+    "disturbed_benign": "0/7",
+    "causes_attempt1_runs": {}
+   },
+   "runs": [
+    {
+     "seed": 1000,
+     "kind": "v1_naive",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.28,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1001,
+     "kind": "v1_naive",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.18,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.8
+    },
+    {
+     "seed": 1002,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.43,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.5
+    },
+    {
+     "seed": 1003,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.41,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1004,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.31,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1005,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.4,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1006,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.27,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1007,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.48,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 14.0
+    },
+    {
+     "seed": 1008,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.7
+    },
+    {
+     "seed": 1009,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.25,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1010,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.54,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1011,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.22,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1012,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.8
+    },
+    {
+     "seed": 1013,
+     "kind": "v1_naive",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.3
+    },
+    {
+     "seed": 1014,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.42,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1015,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1016,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.8
+    },
+    {
+     "seed": 1017,
+     "kind": "v1_naive",
+     "row": "fb",
+     "posts": "footed",
+     "D": 4.45,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.8
+    },
+    {
+     "seed": 1018,
+     "kind": "v1_naive",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.5,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1019,
+     "kind": "v1_naive",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.37,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.2
+    }
+   ]
+  },
+  "naive_thin": {
+   "summary": {
+    "n": 20,
+    "succ_at": [
+     0.95,
+     0.95,
+     0.95
+    ],
+    "disturbed_attempt1": 1,
+    "disturbed_hazard": "1/13",
+    "disturbed_benign": "0/7",
+    "causes_attempt1_runs": {
+     "object:panel_b_1 (held)": 1
+    }
+   },
+   "runs": [
+    {
+     "seed": 1000,
+     "kind": "naive_thin",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.28,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1001,
+     "kind": "naive_thin",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.18,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1002,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.43,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1003,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.41,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1004,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.31,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1005,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.4,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1006,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.27,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1007,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.48,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.3
+    },
+    {
+     "seed": 1008,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.7
+    },
+    {
+     "seed": 1009,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.25,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1010,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.54,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.5
+    },
+    {
+     "seed": 1011,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.22,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.3
+    },
+    {
+     "seed": 1012,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "object:panel_b_1 (held)"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1013,
+     "kind": "naive_thin",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1014,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.42,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1015,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.5
+    },
+    {
+     "seed": 1016,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1017,
+     "kind": "naive_thin",
+     "row": "fb",
+     "posts": "footed",
+     "D": 4.45,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1018,
+     "kind": "naive_thin",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.5,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1019,
+     "kind": "naive_thin",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.37,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.3
+    }
+   ]
+  },
+  "naive_panels_first": {
+   "summary": {
+    "n": 20,
+    "succ_at": [
+     0.75,
+     0.75,
+     0.75
+    ],
+    "disturbed_attempt1": 5,
+    "disturbed_hazard": "5/13",
+    "disturbed_benign": "0/7",
+    "causes_attempt1_runs": {
+     "object:panel_b_1": 4,
+     "robot_finger_opening": 1,
+     "object:panel_a_1": 1
+    }
+   },
+   "runs": [
+    {
+     "seed": 1000,
+     "kind": "naive_panels_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.28,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 0,
+       "causes": [
+        "object:panel_b_1",
+        "robot_finger_opening"
+       ],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1001,
+     "kind": "naive_panels_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.18,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.8
+    },
+    {
+     "seed": 1002,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.43,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1003,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.41,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "object:panel_a_1"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      }
+     ],
+     "sec": 13.7
+    },
+    {
+     "seed": 1004,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.31,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 0,
+       "causes": [
+        "object:panel_b_1"
+       ],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1005,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.4,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1006,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.27,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1007,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.48,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1008,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.7
+    },
+    {
+     "seed": 1009,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.25,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 0,
+       "causes": [
+        "object:panel_b_1"
+       ],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1010,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.54,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.4
+    },
+    {
+     "seed": 1011,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.22,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1012,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 0,
+       "causes": [
+        "object:panel_b_1"
+       ],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1013,
+     "kind": "naive_panels_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.5
+    },
+    {
+     "seed": 1014,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.42,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1015,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1016,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1017,
+     "kind": "naive_panels_first",
+     "row": "fb",
+     "posts": "footed",
+     "D": 4.45,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1018,
+     "kind": "naive_panels_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.5,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1019,
+     "kind": "naive_panels_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.37,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.5
+    }
+   ]
+  },
+  "naive_posts_first": {
+   "summary": {
+    "n": 20,
+    "succ_at": [
+     0.35,
+     0.35,
+     0.35
+    ],
+    "disturbed_attempt1": 13,
+    "disturbed_hazard": "13/13",
+    "disturbed_benign": "0/7",
+    "causes_attempt1_runs": {
+     "object:post_a_1": 4,
+     "robot_finger_opening": 13,
+     "object:post_c_1": 4,
+     "object:post_b_1": 5
+    }
+   },
+   "runs": [
+    {
+     "seed": 1000,
+     "kind": "naive_posts_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.28,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_a_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_b_1"
+       ]
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1001,
+     "kind": "naive_posts_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.18,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_c_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_b_1"
+       ]
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1002,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.43,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1003,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.41,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_b_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_a_1"
+       ]
+      }
+     ],
+     "sec": 13.7
+    },
+    {
+     "seed": 1004,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.31,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 3,
+       "causes": [
+        "object:post_b_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "panel_b_1"
+       ]
+      }
+     ],
+     "sec": 12.7
+    },
+    {
+     "seed": 1005,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.4,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.7
+    },
+    {
+     "seed": 1006,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.27,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_a_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_b_1"
+       ]
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1007,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.48,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_a_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_b_1"
+       ]
+      }
+     ],
+     "sec": 15.4
+    },
+    {
+     "seed": 1008,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.4
+    },
+    {
+     "seed": 1009,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.25,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 2,
+       "causes": [
+        "object:post_b_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_b_1",
+        "post_c_1"
+       ]
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1010,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.54,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 3,
+       "causes": [
+        "object:post_c_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1"
+       ]
+      }
+     ],
+     "sec": 13.3
+    },
+    {
+     "seed": 1011,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.22,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1012,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_b_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_a_1"
+       ]
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1013,
+     "kind": "naive_posts_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_b_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_a_1"
+       ]
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1014,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.42,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1015,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 3,
+       "causes": [
+        "object:post_c_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1"
+       ]
+      }
+     ],
+     "sec": 13.6
+    },
+    {
+     "seed": 1016,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 4,
+       "causes": [
+        "object:post_c_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1",
+        "panel_a_1"
+       ]
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1017,
+     "kind": "naive_posts_first",
+     "row": "fb",
+     "posts": "footed",
+     "D": 4.45,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1018,
+     "kind": "naive_posts_first",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.5,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 3,
+       "causes": [
+        "object:post_a_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1",
+        "post_b_1",
+        "post_c_1"
+       ]
+      }
+     ],
+     "sec": 13.2
+    },
+    {
+     "seed": 1019,
+     "kind": "naive_posts_first",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.37,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.4
+    }
+   ]
+  },
+  "switch": {
+   "summary": {
+    "n": 20,
+    "succ_at": [
+     0.35,
+     1.0,
+     1.0
+    ],
+    "disturbed_attempt1": 13,
+    "disturbed_hazard": "13/13",
+    "disturbed_benign": "0/7",
+    "causes_attempt1_runs": {
+     "object:panel_a_1": 1,
+     "robot_finger_opening": 13
+    }
+   },
+   "runs": [
+    {
+     "seed": 1000,
+     "kind": "switch",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.28,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "object:panel_a_1",
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_c_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.8
+    },
+    {
+     "seed": 1001,
+     "kind": "switch",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.18,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_b_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.2
+    },
+    {
+     "seed": 1002,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.43,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.4
+    },
+    {
+     "seed": 1003,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.41,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 24.3
+    },
+    {
+     "seed": 1004,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.31,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_c_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.8
+    },
+    {
+     "seed": 1005,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.4,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.6
+    },
+    {
+     "seed": 1006,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.27,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_b_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.3
+    },
+    {
+     "seed": 1007,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.48,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_c_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 26.6
+    },
+    {
+     "seed": 1008,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.0
+    },
+    {
+     "seed": 1009,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.25,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 3,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 24.7
+    },
+    {
+     "seed": 1010,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.54,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.5
+    },
+    {
+     "seed": 1011,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.22,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1012,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.0
+    },
+    {
+     "seed": 1013,
+     "kind": "switch",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.9
+    },
+    {
+     "seed": 1014,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.42,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 13.1
+    },
+    {
+     "seed": 1015,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 1,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.6
+    },
+    {
+     "seed": 1016,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_a_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 24.2
+    },
+    {
+     "seed": 1017,
+     "kind": "switch",
+     "row": "fb",
+     "posts": "footed",
+     "D": 4.45,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.5
+    },
+    {
+     "seed": 1018,
+     "kind": "switch",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.5,
+     "att": [
+      {
+       "succ": false,
+       "fail": "regressed",
+       "reg": 2,
+       "res": 0,
+       "top": 1,
+       "causes": [
+        "robot_finger_opening"
+       ],
+       "fallen": [
+        "post_c_1"
+       ]
+      },
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 23.8
+    },
+    {
+     "seed": 1019,
+     "kind": "switch",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.37,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.3
+    }
+   ]
+  },
+  "oracle_noise": {
+   "summary": {
+    "n": 20,
+    "succ_at": [
+     1.0,
+     1.0,
+     1.0
+    ],
+    "disturbed_attempt1": 0,
+    "disturbed_hazard": "0/13",
+    "disturbed_benign": "0/7",
+    "causes_attempt1_runs": {}
+   },
+   "runs": [
+    {
+     "seed": 1000,
+     "kind": "oracle_noise",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.28,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 11.0
+    },
+    {
+     "seed": 1001,
+     "kind": "oracle_noise",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.18,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.7
+    },
+    {
+     "seed": 1002,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.43,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.7
+    },
+    {
+     "seed": 1003,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.41,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 11.2
+    },
+    {
+     "seed": 1004,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.31,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.6
+    },
+    {
+     "seed": 1005,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.4,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.6
+    },
+    {
+     "seed": 1006,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.27,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.6
+    },
+    {
+     "seed": 1007,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.48,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 12.9
+    },
+    {
+     "seed": 1008,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.9
+    },
+    {
+     "seed": 1009,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.25,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 11.1
+    },
+    {
+     "seed": 1010,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.54,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.4
+    },
+    {
+     "seed": 1011,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.22,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 11.3
+    },
+    {
+     "seed": 1012,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.5
+    },
+    {
+     "seed": 1013,
+     "kind": "oracle_noise",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.36,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.6
+    },
+    {
+     "seed": 1014,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.42,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.9
+    },
+    {
+     "seed": 1015,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 11.0
+    },
+    {
+     "seed": 1016,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "light",
+     "D": 4.3,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.4
+    },
+    {
+     "seed": 1017,
+     "kind": "oracle_noise",
+     "row": "fb",
+     "posts": "footed",
+     "D": 4.45,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.5
+    },
+    {
+     "seed": 1018,
+     "kind": "oracle_noise",
+     "row": "fb",
+     "posts": "light",
+     "D": 4.5,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 9.9
+    },
+    {
+     "seed": 1019,
+     "kind": "oracle_noise",
+     "row": "lr",
+     "posts": "footed",
+     "D": 4.37,
+     "att": [
+      {
+       "succ": true,
+       "fail": "none",
+       "reg": 0,
+       "res": 0,
+       "top": 0,
+       "causes": [],
+       "fallen": []
+      }
+     ],
+     "sec": 10.6
+    }
+   ]
+  }
+ },
+ "naive_seeds_1020_1059": {
+  "summary": {
+   "n": 40,
+   "succ_at": [
+    0.375
+   ],
+   "disturbed_attempt1": 25,
+   "disturbed_hazard": "25/26",
+   "disturbed_benign": "0/14",
+   "causes_attempt1_runs": {
+    "robot_finger_opening": 23,
+    "object:panel_b_1": 2,
+    "object:panel_a_1": 1
+   }
+  },
+  "runs": [
+   {
+    "seed": 1020,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.19,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1"
+      ]
+     }
+    ],
+    "sec": 13.2
+   },
+   {
+    "seed": 1021,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.57,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 13.0
+   },
+   {
+    "seed": 1022,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.43,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 12.7
+   },
+   {
+    "seed": 1023,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.44,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.4
+   },
+   {
+    "seed": 1024,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.23,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_c_1"
+      ]
+     }
+    ],
+    "sec": 13.2
+   },
+   {
+    "seed": 1025,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.27,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 12.7
+   },
+   {
+    "seed": 1026,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.26,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 13.4
+   },
+   {
+    "seed": 1027,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.49,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1"
+      ]
+     }
+    ],
+    "sec": 13.1
+   },
+   {
+    "seed": 1028,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.41,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.0
+   },
+   {
+    "seed": 1029,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.21,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 1,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1"
+      ]
+     }
+    ],
+    "sec": 12.9
+   },
+   {
+    "seed": 1030,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.51,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 1,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.5
+   },
+   {
+    "seed": 1031,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.43,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 12.9
+   },
+   {
+    "seed": 1032,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.48,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_c_1"
+      ]
+     }
+    ],
+    "sec": 12.4
+   },
+   {
+    "seed": 1033,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.56,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 13.3
+   },
+   {
+    "seed": 1034,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.17,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 12.7
+   },
+   {
+    "seed": 1035,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.34,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.3
+   },
+   {
+    "seed": 1036,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.31,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 3,
+      "res": 0,
+      "top": 3,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1",
+       "post_c_1",
+       "panel_a_1"
+      ]
+     }
+    ],
+    "sec": 13.2
+   },
+   {
+    "seed": 1037,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.44,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.6
+   },
+   {
+    "seed": 1038,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.35,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "object:panel_b_1",
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.9
+   },
+   {
+    "seed": 1039,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.45,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 12.8
+   },
+   {
+    "seed": 1040,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.46,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.9
+   },
+   {
+    "seed": 1041,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.47,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 0,
+      "causes": [
+       "object:panel_a_1"
+      ],
+      "fallen": []
+     }
+    ],
+    "sec": 13.0
+   },
+   {
+    "seed": 1042,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.37,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.0
+   },
+   {
+    "seed": 1043,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.32,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_c_1"
+      ]
+     }
+    ],
+    "sec": 12.6
+   },
+   {
+    "seed": 1044,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.28,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_c_1"
+      ]
+     }
+    ],
+    "sec": 13.1
+   },
+   {
+    "seed": 1045,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.44,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 14.1
+   },
+   {
+    "seed": 1046,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.37,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 1,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.7
+   },
+   {
+    "seed": 1047,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.27,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 0,
+      "causes": [
+       "object:panel_b_1"
+      ],
+      "fallen": []
+     }
+    ],
+    "sec": 14.1
+   },
+   {
+    "seed": 1048,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.41,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.4
+   },
+   {
+    "seed": 1049,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.43,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1"
+      ]
+     }
+    ],
+    "sec": 12.8
+   },
+   {
+    "seed": 1050,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.54,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 14.0
+   },
+   {
+    "seed": 1051,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "footed",
+    "D": 4.27,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.4
+   },
+   {
+    "seed": 1052,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.28,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1"
+      ]
+     }
+    ],
+    "sec": 12.7
+   },
+   {
+    "seed": 1053,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.43,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 1,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_a_1"
+      ]
+     }
+    ],
+    "sec": 13.4
+   },
+   {
+    "seed": 1054,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.27,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 12.7
+   },
+   {
+    "seed": 1055,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.32,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_c_1"
+      ]
+     }
+    ],
+    "sec": 13.5
+   },
+   {
+    "seed": 1056,
+    "kind": "naive",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.41,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 12.5
+   },
+   {
+    "seed": 1057,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.34,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.5
+   },
+   {
+    "seed": 1058,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.42,
+    "att": [
+     {
+      "succ": false,
+      "fail": "regressed",
+      "reg": 2,
+      "res": 0,
+      "top": 1,
+      "causes": [
+       "robot_finger_opening"
+      ],
+      "fallen": [
+       "post_b_1"
+      ]
+     }
+    ],
+    "sec": 13.3
+   },
+   {
+    "seed": 1059,
+    "kind": "naive",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.42,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 13.2
+   }
+  ]
+ },
+ "pilot_seed_check": {
+  "naive": [
+   {
+    "task": "lh_fence",
+    "seed": 3000,
+    "naive_success": false,
+    "n_regressions": 2,
+    "failure": "regressed",
+    "hidden": "{}"
+   },
+   {
+    "task": "lh_fence",
+    "seed": 3001,
+    "naive_success": false,
+    "n_regressions": 2,
+    "failure": "regressed",
+    "hidden": "{}"
+   },
+   {
+    "task": "lh_fence",
+    "seed": 3002,
+    "naive_success": true,
+    "n_regressions": 0,
+    "failure": "none",
+    "hidden": "{}"
+   },
+   {
+    "task": "lh_fence",
+    "seed": 3003,
+    "naive_success": false,
+    "n_regressions": 2,
+    "failure": "regressed",
+    "hidden": "{}"
+   }
+  ],
+  "oracle": [
+   {
+    "seed": 3000,
+    "kind": "oracle",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.25,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 11.1
+   },
+   {
+    "seed": 3001,
+    "kind": "oracle",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.45,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 10.5
+   },
+   {
+    "seed": 3002,
+    "kind": "oracle",
+    "row": "lr",
+    "posts": "footed",
+    "D": 4.45,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 11.2
+   },
+   {
+    "seed": 3003,
+    "kind": "oracle",
+    "row": "lr",
+    "posts": "light",
+    "D": 4.4,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 10.5
+   },
+   {
+    "seed": 3004,
+    "kind": "oracle",
+    "row": "fb",
+    "posts": "light",
+    "D": 4.26,
+    "att": [
+     {
+      "succ": true,
+      "fail": "none",
+      "reg": 0,
+      "res": 0,
+      "top": 0,
+      "causes": [],
+      "fallen": []
+     }
+    ],
+    "sec": 10.5
+   }
+  ],
+  "chosen": [
+   3000,
+   3001,
+   3003
+  ]
+ }
+}

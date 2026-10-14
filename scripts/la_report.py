@@ -14,7 +14,9 @@ from full_report import run_info  # noqa: E402
 
 
 def transcript_stats(log):
-    p = os.path.join(log, "gpt_transcript.jsonl")
+    p = os.path.join(log, "transcript.jsonl")  # api_player (unified harness); gpt_player wrote gpt_transcript.jsonl
+    if not os.path.exists(p):
+        p = os.path.join(log, "gpt_transcript.jsonl")
     st = dict(turns=0, shell=0, view=0, robot=0, auto_finish=0, api_err=0, inp=0, cached=0, out=0, reason=0, ended=None)
     if not os.path.exists(p):
         au = os.path.join(log, "audit.json")  # Claude subagent runs: tool counts from the audit of its transcript

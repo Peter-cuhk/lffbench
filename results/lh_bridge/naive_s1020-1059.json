@@ -1,0 +1,2367 @@
+[
+{
+"seed": 1020,
+"kind": "naive",
+"dxc": 0.0797,
+"cyaw": -0.0,
+"edge": 0.0541,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+166
+],
+[
+"S2",
+"achieved",
+342
+],
+[
+"S3",
+"achieved",
+449
+],
+[
+"S4",
+"achieved",
+546
+]
+],
+"steps": 597,
+"wall": 8.4
+},
+{
+"seed": 1022,
+"kind": "naive",
+"dxc": 0.0776,
+"cyaw": 14.7,
+"edge": 0.0541,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 6,
+"res1": 3,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+167
+],
+[
+"S2",
+"achieved",
+346
+],
+[
+"S3",
+"achieved",
+462
+],
+[
+"S1",
+"lost",
+486
+],
+[
+"S2",
+"lost",
+486
+],
+[
+"S3",
+"lost",
+486
+],
+[
+"S1",
+"restored",
+499
+],
+[
+"S2",
+"restored",
+500
+],
+[
+"S3",
+"restored",
+500
+],
+[
+"S2",
+"lost",
+507
+],
+[
+"S3",
+"lost",
+507
+],
+[
+"S1",
+"lost",
+508
+]
+],
+"steps": 1292,
+"wall": 16.1
+},
+{
+"seed": 1024,
+"kind": "naive",
+"dxc": 0.086,
+"cyaw": 11.8,
+"edge": 0.0527,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+155
+],
+[
+"S2",
+"achieved",
+342
+],
+[
+"S3",
+"achieved",
+449
+],
+[
+"S1",
+"lost",
+480
+],
+[
+"S2",
+"lost",
+480
+],
+[
+"S3",
+"lost",
+480
+],
+[
+"S1",
+"restored",
+629
+],
+[
+"S2",
+"restored",
+629
+],
+[
+"S3",
+"restored",
+629
+]
+],
+"steps": 672,
+"wall": 8.6
+},
+{
+"seed": 1026,
+"kind": "naive",
+"dxc": 0.0562,
+"cyaw": -13.4,
+"edge": 0.0519,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+166
+],
+[
+"S2",
+"achieved",
+353
+],
+[
+"S3",
+"achieved",
+465
+],
+[
+"S1",
+"lost",
+512
+],
+[
+"S2",
+"lost",
+512
+],
+[
+"S3",
+"lost",
+512
+]
+],
+"steps": 619,
+"wall": 8.1
+},
+{
+"seed": 1028,
+"kind": "naive",
+"dxc": 0.0613,
+"cyaw": 10.8,
+"edge": 0.054,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 6,
+"res1": 3,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+161
+],
+[
+"S2",
+"achieved",
+338
+],
+[
+"S3",
+"achieved",
+453
+],
+[
+"S1",
+"lost",
+477
+],
+[
+"S2",
+"lost",
+477
+],
+[
+"S3",
+"lost",
+477
+],
+[
+"S1",
+"restored",
+484
+],
+[
+"S2",
+"restored",
+484
+],
+[
+"S3",
+"restored",
+484
+],
+[
+"S2",
+"lost",
+497
+],
+[
+"S3",
+"lost",
+497
+],
+[
+"S1",
+"lost",
+498
+],
+[
+"S4",
+"achieved",
+583
+]
+],
+"steps": 643,
+"wall": 8.6
+},
+{
+"seed": 1030,
+"kind": "naive",
+"dxc": 0.0751,
+"cyaw": -11.0,
+"edge": 0.0531,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+172
+],
+[
+"S2",
+"achieved",
+355
+],
+[
+"S3",
+"achieved",
+472
+],
+[
+"S1",
+"lost",
+501
+],
+[
+"S2",
+"lost",
+501
+],
+[
+"S3",
+"lost",
+501
+]
+],
+"steps": 610,
+"wall": 7.9
+},
+{
+"seed": 1032,
+"kind": "naive",
+"dxc": 0.08,
+"cyaw": -15.0,
+"edge": 0.0534,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+170
+],
+[
+"S2",
+"achieved",
+346
+],
+[
+"S3",
+"achieved",
+455
+],
+[
+"S4",
+"achieved",
+552
+]
+],
+"steps": 603,
+"wall": 7.9
+},
+{
+"seed": 1034,
+"kind": "naive",
+"dxc": 0.0872,
+"cyaw": 13.7,
+"edge": 0.0525,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+159
+],
+[
+"S2",
+"achieved",
+347
+],
+[
+"S3",
+"achieved",
+463
+],
+[
+"S1",
+"lost",
+487
+],
+[
+"S2",
+"lost",
+487
+],
+[
+"S3",
+"lost",
+487
+]
+],
+"steps": 595,
+"wall": 7.5
+},
+{
+"seed": 1036,
+"kind": "naive",
+"dxc": 0.0564,
+"cyaw": 8.8,
+"edge": 0.0525,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+159
+],
+[
+"S2",
+"achieved",
+325
+],
+[
+"S3",
+"achieved",
+442
+],
+[
+"S1",
+"lost",
+594
+],
+[
+"S2",
+"lost",
+594
+],
+[
+"S3",
+"lost",
+594
+],
+[
+"S1",
+"restored",
+612
+],
+[
+"S2",
+"restored",
+612
+],
+[
+"S3",
+"restored",
+612
+]
+],
+"steps": 908,
+"wall": 13.2
+},
+{
+"seed": 1038,
+"kind": "naive",
+"dxc": 0.0684,
+"cyaw": -15.0,
+"edge": 0.0525,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+157
+],
+[
+"S2",
+"achieved",
+346
+],
+[
+"S3",
+"achieved",
+455
+],
+[
+"S4",
+"achieved",
+558
+]
+],
+"steps": 609,
+"wall": 8.0
+},
+{
+"seed": 1040,
+"kind": "naive",
+"dxc": 0.0789,
+"cyaw": -11.4,
+"edge": 0.0524,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 9,
+"res1": 6,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+166
+],
+[
+"S2",
+"achieved",
+354
+],
+[
+"S3",
+"achieved",
+471
+],
+[
+"S1",
+"lost",
+495
+],
+[
+"S2",
+"lost",
+495
+],
+[
+"S3",
+"lost",
+495
+],
+[
+"S1",
+"restored",
+745
+],
+[
+"S2",
+"restored",
+745
+],
+[
+"S3",
+"restored",
+745
+],
+[
+"S1",
+"lost",
+760
+],
+[
+"S3",
+"lost",
+760
+],
+[
+"S2",
+"lost",
+761
+],
+[
+"S2",
+"restored",
+1167
+],
+[
+"S1",
+"restored",
+1182
+],
+[
+"S3",
+"restored",
+1182
+],
+[
+"S3",
+"lost",
+1272
+],
+[
+"S1",
+"lost",
+1273
+],
+[
+"S2",
+"lost",
+1273
+]
+],
+"steps": 1301,
+"wall": 17.8
+},
+{
+"seed": 1042,
+"kind": "naive",
+"dxc": 0.0811,
+"cyaw": -3.9,
+"edge": 0.0521,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+168
+],
+[
+"S2",
+"achieved",
+355
+],
+[
+"S3",
+"achieved",
+469
+],
+[
+"S1",
+"lost",
+500
+],
+[
+"S2",
+"lost",
+500
+],
+[
+"S3",
+"lost",
+500
+],
+[
+"S1",
+"restored",
+629
+],
+[
+"S2",
+"restored",
+649
+],
+[
+"S3",
+"restored",
+649
+]
+],
+"steps": 692,
+"wall": 9.6
+},
+{
+"seed": 1044,
+"kind": "naive",
+"dxc": 0.0874,
+"cyaw": -4.4,
+"edge": 0.0522,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+175
+],
+[
+"S2",
+"achieved",
+351
+],
+[
+"S3",
+"achieved",
+465
+],
+[
+"S4",
+"achieved",
+563
+]
+],
+"steps": 614,
+"wall": 8.3
+},
+{
+"seed": 1046,
+"kind": "naive",
+"dxc": 0.0714,
+"cyaw": -19.2,
+"edge": 0.0523,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+156
+],
+[
+"S2",
+"achieved",
+345
+],
+[
+"S3",
+"achieved",
+456
+],
+[
+"S2",
+"lost",
+480
+],
+[
+"S3",
+"lost",
+480
+],
+[
+"S1",
+"lost",
+481
+]
+],
+"steps": 816,
+"wall": 10.3
+},
+{
+"seed": 1048,
+"kind": "naive",
+"dxc": 0.0626,
+"cyaw": 13.2,
+"edge": 0.0521,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 9,
+"res1": 6,
+"fail1": "touching",
+"ev1": [
+[
+"S1",
+"achieved",
+164
+],
+[
+"S2",
+"achieved",
+354
+],
+[
+"S3",
+"achieved",
+470
+],
+[
+"S1",
+"lost",
+525
+],
+[
+"S3",
+"lost",
+525
+],
+[
+"S2",
+"lost",
+526
+],
+[
+"S1",
+"restored",
+596
+],
+[
+"S2",
+"restored",
+610
+],
+[
+"S3",
+"restored",
+610
+],
+[
+"S1",
+"lost",
+620
+],
+[
+"S2",
+"lost",
+620
+],
+[
+"S3",
+"lost",
+620
+],
+[
+"S1",
+"restored",
+900
+],
+[
+"S2",
+"restored",
+900
+],
+[
+"S3",
+"restored",
+900
+],
+[
+"S1",
+"lost",
+909
+],
+[
+"S3",
+"lost",
+909
+],
+[
+"S2",
+"lost",
+1150
+]
+],
+"steps": 1177,
+"wall": 16.4
+},
+{
+"seed": 1050,
+"kind": "naive",
+"dxc": 0.058,
+"cyaw": 17.6,
+"edge": 0.0532,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+160
+],
+[
+"S2",
+"achieved",
+346
+],
+[
+"S3",
+"achieved",
+454
+],
+[
+"S3",
+"lost",
+497
+],
+[
+"S2",
+"lost",
+498
+],
+[
+"S1",
+"lost",
+509
+],
+[
+"S1",
+"restored",
+618
+],
+[
+"S2",
+"restored",
+650
+],
+[
+"S3",
+"restored",
+650
+]
+],
+"steps": 691,
+"wall": 9.1
+},
+{
+"seed": 1052,
+"kind": "naive",
+"dxc": 0.0877,
+"cyaw": 3.8,
+"edge": 0.0519,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+159
+],
+[
+"S2",
+"achieved",
+334
+],
+[
+"S3",
+"achieved",
+451
+],
+[
+"S1",
+"lost",
+475
+],
+[
+"S2",
+"lost",
+475
+],
+[
+"S3",
+"lost",
+475
+]
+],
+"steps": 586,
+"wall": 7.9
+},
+{
+"seed": 1054,
+"kind": "naive",
+"dxc": 0.0806,
+"cyaw": -17.7,
+"edge": 0.052,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+166
+],
+[
+"S2",
+"achieved",
+348
+],
+[
+"S3",
+"achieved",
+465
+],
+[
+"S1",
+"lost",
+497
+],
+[
+"S2",
+"lost",
+497
+],
+[
+"S3",
+"lost",
+497
+],
+[
+"S1",
+"restored",
+644
+],
+[
+"S2",
+"restored",
+644
+],
+[
+"S3",
+"restored",
+649
+]
+],
+"steps": 688,
+"wall": 9.0
+},
+{
+"seed": 1056,
+"kind": "naive",
+"dxc": 0.0755,
+"cyaw": -14.7,
+"edge": 0.0535,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+161
+],
+[
+"S2",
+"achieved",
+340
+],
+[
+"S3",
+"achieved",
+458
+],
+[
+"S4",
+"achieved",
+560
+]
+],
+"steps": 611,
+"wall": 7.9
+},
+{
+"seed": 1058,
+"kind": "naive",
+"dxc": 0.0826,
+"cyaw": 10.2,
+"edge": 0.0526,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+167
+],
+[
+"S2",
+"achieved",
+364
+],
+[
+"S3",
+"achieved",
+476
+],
+[
+"S1",
+"lost",
+500
+],
+[
+"S2",
+"lost",
+500
+],
+[
+"S3",
+"lost",
+500
+]
+],
+"steps": 823,
+"wall": 10.6
+},
+{
+"seed": 1021,
+"kind": "naive",
+"dxc": 0.059,
+"cyaw": 18.9,
+"edge": 0.053,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 9,
+"res1": 6,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+168
+],
+[
+"S2",
+"achieved",
+345
+],
+[
+"S3",
+"achieved",
+461
+],
+[
+"S2",
+"lost",
+515
+],
+[
+"S3",
+"lost",
+515
+],
+[
+"S1",
+"lost",
+516
+],
+[
+"S1",
+"restored",
+529
+],
+[
+"S2",
+"restored",
+529
+],
+[
+"S3",
+"restored",
+529
+],
+[
+"S1",
+"lost",
+612
+],
+[
+"S2",
+"lost",
+612
+],
+[
+"S3",
+"lost",
+612
+],
+[
+"S1",
+"restored",
+948
+],
+[
+"S2",
+"restored",
+1126
+],
+[
+"S3",
+"restored",
+1126
+],
+[
+"S2",
+"lost",
+1139
+],
+[
+"S3",
+"lost",
+1139
+],
+[
+"S1",
+"lost",
+1140
+]
+],
+"steps": 1168,
+"wall": 17.5
+},
+{
+"seed": 1023,
+"kind": "naive",
+"dxc": 0.0812,
+"cyaw": -4.0,
+"edge": 0.0531,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+164
+],
+[
+"S2",
+"achieved",
+355
+],
+[
+"S3",
+"achieved",
+470
+],
+[
+"S4",
+"achieved",
+567
+]
+],
+"steps": 618,
+"wall": 8.2
+},
+{
+"seed": 1025,
+"kind": "naive",
+"dxc": 0.064,
+"cyaw": 6.5,
+"edge": 0.0521,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 6,
+"res1": 3,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+165
+],
+[
+"S2",
+"achieved",
+356
+],
+[
+"S3",
+"achieved",
+472
+],
+[
+"S2",
+"lost",
+496
+],
+[
+"S3",
+"lost",
+496
+],
+[
+"S1",
+"lost",
+497
+],
+[
+"S1",
+"restored",
+503
+],
+[
+"S2",
+"restored",
+503
+],
+[
+"S3",
+"restored",
+503
+],
+[
+"S2",
+"lost",
+511
+],
+[
+"S3",
+"lost",
+511
+],
+[
+"S1",
+"lost",
+512
+]
+],
+"steps": 1302,
+"wall": 16.9
+},
+{
+"seed": 1027,
+"kind": "naive",
+"dxc": 0.0554,
+"cyaw": -13.7,
+"edge": 0.0512,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+172
+],
+[
+"S2",
+"achieved",
+366
+],
+[
+"S3",
+"achieved",
+478
+],
+[
+"S1",
+"lost",
+629
+],
+[
+"S2",
+"lost",
+629
+],
+[
+"S3",
+"lost",
+629
+],
+[
+"S1",
+"restored",
+648
+],
+[
+"S2",
+"restored",
+648
+],
+[
+"S3",
+"restored",
+648
+]
+],
+"steps": 700,
+"wall": 9.5
+},
+{
+"seed": 1029,
+"kind": "naive",
+"dxc": 0.0614,
+"cyaw": -12.9,
+"edge": 0.0534,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+171
+],
+[
+"S2",
+"achieved",
+362
+],
+[
+"S3",
+"achieved",
+479
+],
+[
+"S2",
+"lost",
+517
+],
+[
+"S3",
+"lost",
+517
+],
+[
+"S1",
+"lost",
+518
+]
+],
+"steps": 1294,
+"wall": 16.3
+},
+{
+"seed": 1031,
+"kind": "naive",
+"dxc": 0.0787,
+"cyaw": 6.5,
+"edge": 0.0537,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+157
+],
+[
+"S2",
+"achieved",
+351
+],
+[
+"S3",
+"achieved",
+470
+],
+[
+"S1",
+"lost",
+494
+],
+[
+"S2",
+"lost",
+494
+],
+[
+"S3",
+"lost",
+494
+]
+],
+"steps": 594,
+"wall": 7.4
+},
+{
+"seed": 1033,
+"kind": "naive",
+"dxc": 0.0769,
+"cyaw": -18.2,
+"edge": 0.054,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+168
+],
+[
+"S2",
+"achieved",
+358
+],
+[
+"S3",
+"achieved",
+474
+],
+[
+"S1",
+"lost",
+503
+],
+[
+"S2",
+"lost",
+503
+],
+[
+"S3",
+"lost",
+503
+]
+],
+"steps": 698,
+"wall": 9.0
+},
+{
+"seed": 1035,
+"kind": "naive",
+"dxc": 0.088,
+"cyaw": -17.5,
+"edge": 0.054,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+159
+],
+[
+"S2",
+"achieved",
+335
+],
+[
+"S3",
+"achieved",
+443
+],
+[
+"S4",
+"achieved",
+539
+]
+],
+"steps": 590,
+"wall": 7.6
+},
+{
+"seed": 1037,
+"kind": "naive",
+"dxc": 0.0709,
+"cyaw": -2.2,
+"edge": 0.0531,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 6,
+"res1": 3,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+160
+],
+[
+"S2",
+"achieved",
+350
+],
+[
+"S3",
+"achieved",
+463
+],
+[
+"S1",
+"lost",
+487
+],
+[
+"S2",
+"lost",
+487
+],
+[
+"S3",
+"lost",
+487
+],
+[
+"S1",
+"restored",
+495
+],
+[
+"S2",
+"restored",
+495
+],
+[
+"S3",
+"restored",
+495
+],
+[
+"S1",
+"lost",
+501
+],
+[
+"S2",
+"lost",
+501
+],
+[
+"S3",
+"lost",
+501
+]
+],
+"steps": 823,
+"wall": 10.3
+},
+{
+"seed": 1039,
+"kind": "naive",
+"dxc": 0.0817,
+"cyaw": 6.8,
+"edge": 0.0537,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 3,
+"fail1": "incomplete_S4",
+"ev1": [
+[
+"S1",
+"achieved",
+170
+],
+[
+"S2",
+"achieved",
+357
+],
+[
+"S3",
+"achieved",
+473
+],
+[
+"S1",
+"lost",
+504
+],
+[
+"S2",
+"lost",
+504
+],
+[
+"S3",
+"lost",
+504
+],
+[
+"S1",
+"restored",
+652
+],
+[
+"S2",
+"restored",
+652
+],
+[
+"S3",
+"restored",
+654
+]
+],
+"steps": 696,
+"wall": 9.0
+},
+{
+"seed": 1041,
+"kind": "naive",
+"dxc": 0.0705,
+"cyaw": 15.2,
+"edge": 0.0529,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+160
+],
+[
+"S2",
+"achieved",
+355
+],
+[
+"S3",
+"achieved",
+480
+],
+[
+"S4",
+"achieved",
+573
+]
+],
+"steps": 624,
+"wall": 8.0
+},
+{
+"seed": 1043,
+"kind": "naive",
+"dxc": 0.0853,
+"cyaw": 7.3,
+"edge": 0.0547,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+164
+],
+[
+"S2",
+"achieved",
+341
+],
+[
+"S3",
+"achieved",
+457
+],
+[
+"S1",
+"lost",
+481
+],
+[
+"S2",
+"lost",
+481
+],
+[
+"S3",
+"lost",
+481
+]
+],
+"steps": 804,
+"wall": 10.7
+},
+{
+"seed": 1045,
+"kind": "naive",
+"dxc": 0.0746,
+"cyaw": -10.8,
+"edge": 0.053,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+167
+],
+[
+"S2",
+"achieved",
+357
+],
+[
+"S3",
+"achieved",
+482
+],
+[
+"S1",
+"lost",
+511
+],
+[
+"S2",
+"lost",
+511
+],
+[
+"S3",
+"lost",
+511
+]
+],
+"steps": 620,
+"wall": 7.9
+},
+{
+"seed": 1047,
+"kind": "naive",
+"dxc": 0.075,
+"cyaw": -8.9,
+"edge": 0.0523,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+166
+],
+[
+"S2",
+"achieved",
+335
+],
+[
+"S3",
+"achieved",
+452
+],
+[
+"S4",
+"achieved",
+547
+]
+],
+"steps": 598,
+"wall": 7.8
+},
+{
+"seed": 1049,
+"kind": "naive",
+"dxc": 0.0805,
+"cyaw": -9.8,
+"edge": 0.053,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 3,
+"res1": 0,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+165
+],
+[
+"S2",
+"achieved",
+339
+],
+[
+"S3",
+"achieved",
+452
+],
+[
+"S1",
+"lost",
+476
+],
+[
+"S2",
+"lost",
+476
+],
+[
+"S3",
+"lost",
+476
+]
+],
+"steps": 799,
+"wall": 10.1
+},
+{
+"seed": 1051,
+"kind": "naive",
+"dxc": 0.0616,
+"cyaw": 15.3,
+"edge": 0.0533,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 12,
+"res1": 9,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+163
+],
+[
+"S2",
+"achieved",
+357
+],
+[
+"S3",
+"achieved",
+472
+],
+[
+"S1",
+"lost",
+501
+],
+[
+"S2",
+"lost",
+501
+],
+[
+"S3",
+"lost",
+501
+],
+[
+"S1",
+"restored",
+509
+],
+[
+"S2",
+"restored",
+509
+],
+[
+"S3",
+"restored",
+509
+],
+[
+"S1",
+"lost",
+525
+],
+[
+"S2",
+"lost",
+525
+],
+[
+"S3",
+"lost",
+525
+],
+[
+"S2",
+"restored",
+577
+],
+[
+"S1",
+"restored",
+580
+],
+[
+"S3",
+"restored",
+580
+],
+[
+"S1",
+"lost",
+600
+],
+[
+"S3",
+"lost",
+600
+],
+[
+"S1",
+"restored",
+616
+],
+[
+"S3",
+"restored",
+616
+],
+[
+"S1",
+"lost",
+623
+],
+[
+"S2",
+"lost",
+623
+],
+[
+"S3",
+"lost",
+623
+],
+[
+"S2",
+"restored",
+716
+],
+[
+"S2",
+"lost",
+902
+]
+],
+"steps": 959,
+"wall": 12.9
+},
+{
+"seed": 1053,
+"kind": "naive",
+"dxc": 0.0598,
+"cyaw": 14.7,
+"edge": 0.0509,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 2,
+"res1": 0,
+"fail1": "regressed_S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+166
+],
+[
+"S2",
+"achieved",
+358
+],
+[
+"S3",
+"achieved",
+477
+],
+[
+"S2",
+"lost",
+522
+],
+[
+"S3",
+"lost",
+522
+]
+],
+"steps": 626,
+"wall": 8.3
+},
+{
+"seed": 1055,
+"kind": "naive",
+"dxc": 0.069,
+"cyaw": -9.0,
+"edge": 0.0532,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 5,
+"res1": 2,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+158
+],
+[
+"S2",
+"achieved",
+336
+],
+[
+"S3",
+"achieved",
+454
+],
+[
+"S1",
+"lost",
+478
+],
+[
+"S3",
+"lost",
+478
+],
+[
+"S1",
+"restored",
+485
+],
+[
+"S3",
+"restored",
+485
+],
+[
+"S1",
+"lost",
+502
+],
+[
+"S2",
+"lost",
+502
+],
+[
+"S3",
+"lost",
+502
+]
+],
+"steps": 1284,
+"wall": 16.5
+},
+{
+"seed": 1057,
+"kind": "naive",
+"dxc": 0.0611,
+"cyaw": 17.1,
+"edge": 0.0528,
+"n_att": 1,
+"succ": [
+false
+],
+"reg1": 6,
+"res1": 3,
+"fail1": "regressed_S1S2S3",
+"ev1": [
+[
+"S1",
+"achieved",
+167
+],
+[
+"S2",
+"achieved",
+359
+],
+[
+"S3",
+"achieved",
+472
+],
+[
+"S1",
+"lost",
+529
+],
+[
+"S2",
+"lost",
+529
+],
+[
+"S3",
+"lost",
+529
+],
+[
+"S1",
+"restored",
+538
+],
+[
+"S2",
+"restored",
+544
+],
+[
+"S3",
+"restored",
+544
+],
+[
+"S1",
+"lost",
+622
+],
+[
+"S2",
+"lost",
+622
+],
+[
+"S3",
+"lost",
+622
+]
+],
+"steps": 925,
+"wall": 12.3
+},
+{
+"seed": 1059,
+"kind": "naive",
+"dxc": 0.066,
+"cyaw": 9.4,
+"edge": 0.0528,
+"n_att": 1,
+"succ": [
+true
+],
+"reg1": 0,
+"res1": 0,
+"fail1": "none",
+"ev1": [
+[
+"S1",
+"achieved",
+163
+],
+[
+"S2",
+"achieved",
+358
+],
+[
+"S3",
+"achieved",
+473
+],
+[
+"S4",
+"achieved",
+568
+]
+],
+"steps": 619,
+"wall": 8.1
+}
+]

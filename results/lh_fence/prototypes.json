@@ -1,0 +1,977 @@
+{
+ "note": "Design prototypes for lh_fence v2 (2026-10-11, scratchpad lh_fence/). Sonnet-like motions: carry 21 cm at 0.15 m/s, 0.1 m/s to 1.5 cm above, last 1.5 cm at 0.03 m/s, open, lift at 0.15 m/s.",
+ "P_a_bar_handle": {
+  "desc": "v1 domino panel with a horizontal bar handle along its width (two legs + capsule bar, 1.2 cm above the board) instead of the ball knob",
+  "rows": [
+   {
+    "test": "standing, fingers ALONG the bar (Sonnet habit)",
+    "zoff": 0.0,
+    "reached_cm": 0.1,
+    "held": true,
+    "tilt_after_lift": 0.0,
+    "width": 0.044
+   },
+   {
+    "test": "standing, fingers ACROSS the bar",
+    "zoff": 0.0,
+    "reached_cm": 0.2,
+    "held": true,
+    "tilt_after_lift": 0.1,
+    "width": 0.008
+   },
+   {
+    "test": "fallen (lying on its face), fingers across the bar",
+    "lying_tilt": 90.0,
+    "zoff": 0.0,
+    "reached_cm": 0.6,
+    "held": false,
+    "tilt_after_lift": 90.0,
+    "width": 0.001
+   },
+   {
+    "test": "standing, fingers ALONG the bar (Sonnet habit)",
+    "zoff": -0.004,
+    "reached_cm": -0.3,
+    "held": true,
+    "tilt_after_lift": 0.1,
+    "width": 0.044
+   },
+   {
+    "test": "standing, fingers ACROSS the bar",
+    "zoff": -0.004,
+    "reached_cm": -0.3,
+    "held": true,
+    "tilt_after_lift": 0.1,
+    "width": 0.008
+   },
+   {
+    "test": "fallen (lying on its face), fingers across the bar",
+    "lying_tilt": 90.0,
+    "zoff": -0.004,
+    "reached_cm": 0.5,
+    "held": false,
+    "tilt_after_lift": 90.0,
+    "width": 0.001
+   }
+  ],
+  "verdict": "rejected: the habit grasp (fingers along the bar) still holds the panel (8 cm opening straddles the 4.6 cm handle), so the safe orientation stays the default; a fallen panel cannot be lifted by its bar (0/2)"
+ },
+ "P_b_posts_and_panels": {
+  "desc": "real fence: square posts with ball knobs, panels end to end between them (width along the line); one post standing, the panel released next to it with the habit grasp (fingers along the line); D = post knob to panel knob along the line; light = plain wood, heavy/footed = hidden steel foot",
+  "push_by_mass": [
+   {
+    "mass": "light",
+    "D": 0.035,
+    "reverse": false,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 92.9,
+    "tilt": 89.5,
+    "mover_tilt": 0.0,
+    "shift_cm": 5.64
+   },
+   {
+    "mass": "light",
+    "D": 0.04,
+    "reverse": false,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 93.8,
+    "tilt": 89.5,
+    "mover_tilt": 0.0,
+    "shift_cm": 5.64
+   },
+   {
+    "mass": "light",
+    "D": 0.045,
+    "reverse": false,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 93.3,
+    "tilt": 89.5,
+    "mover_tilt": 0.0,
+    "shift_cm": 5.63
+   },
+   {
+    "mass": "light",
+    "D": 0.05,
+    "reverse": false,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 93.0,
+    "tilt": 89.5,
+    "mover_tilt": 0.0,
+    "shift_cm": 5.66
+   },
+   {
+    "mass": "light",
+    "D": 0.055,
+    "reverse": false,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 92.9,
+    "tilt": 89.5,
+    "mover_tilt": 0.0,
+    "shift_cm": 5.64
+   },
+   {
+    "mass": "medium",
+    "D": 0.035,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0162,
+    "M": 0.144,
+    "maxtilt": 17.9,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "medium",
+    "D": 0.04,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0162,
+    "M": 0.144,
+    "maxtilt": 15.3,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "medium",
+    "D": 0.045,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0162,
+    "M": 0.144,
+    "maxtilt": 12.6,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "medium",
+    "D": 0.05,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0162,
+    "M": 0.144,
+    "maxtilt": 9.8,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "medium",
+    "D": 0.055,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0162,
+    "M": 0.144,
+    "maxtilt": 7.0,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "light",
+    "D": 0.035,
+    "reverse": true,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 15.0,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.02
+   },
+   {
+    "mass": "light",
+    "D": 0.04,
+    "reverse": true,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 11.9,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.01
+   },
+   {
+    "mass": "light",
+    "D": 0.045,
+    "reverse": true,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 8.9,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "light",
+    "D": 0.05,
+    "reverse": true,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 6.0,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "light",
+    "D": 0.055,
+    "reverse": true,
+    "held": true,
+    "zc": 0.068,
+    "M": 0.024,
+    "maxtilt": 3.0,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "heavy",
+    "D": 0.035,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0114,
+    "M": 0.274,
+    "maxtilt": 17.8,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "heavy",
+    "D": 0.04,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0114,
+    "M": 0.274,
+    "maxtilt": 15.1,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "heavy",
+    "D": 0.045,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0114,
+    "M": 0.274,
+    "maxtilt": 12.4,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "heavy",
+    "D": 0.05,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0114,
+    "M": 0.274,
+    "maxtilt": 9.6,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   },
+   {
+    "mass": "heavy",
+    "D": 0.055,
+    "reverse": false,
+    "held": true,
+    "zc": 0.0114,
+    "M": 0.274,
+    "maxtilt": 6.8,
+    "tilt": 0.0,
+    "mover_tilt": 0.0,
+    "shift_cm": 0.0
+   }
+  ],
+  "push_by_post_size": [
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.035,
+    "tip": 8.2,
+    "max": 91.4,
+    "final": 89.4,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.0425,
+    "tip": 8.2,
+    "max": 93.9,
+    "final": 89.4,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.05,
+    "tip": 8.2,
+    "max": 92.8,
+    "final": 89.4,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.055,
+    "tip": 8.2,
+    "max": 6.3,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.06,
+    "tip": 8.2,
+    "max": 3.1,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.035,
+    "tip": 29.2,
+    "max": 18.0,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.0425,
+    "tip": 29.2,
+    "max": 13.5,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.05,
+    "tip": 29.2,
+    "max": 8.9,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.055,
+    "tip": 29.2,
+    "max": 5.8,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.06,
+    "tip": 29.2,
+    "max": 2.7,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "light",
+    "D": 0.035,
+    "tip": 8.6,
+    "max": 92.5,
+    "final": 89.4,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "light",
+    "D": 0.0425,
+    "tip": 8.6,
+    "max": 91.8,
+    "final": 89.4,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "light",
+    "D": 0.05,
+    "tip": 8.6,
+    "max": 92.4,
+    "final": 89.4,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "light",
+    "D": 0.055,
+    "tip": 8.6,
+    "max": 5.5,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "light",
+    "D": 0.06,
+    "tip": 8.6,
+    "max": 2.2,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "heavy",
+    "D": 0.035,
+    "tip": 30.3,
+    "max": 18.0,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "heavy",
+    "D": 0.0425,
+    "tip": 30.3,
+    "max": 13.2,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "heavy",
+    "D": 0.05,
+    "tip": 30.3,
+    "max": 8.4,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "heavy",
+    "D": 0.055,
+    "tip": 30.3,
+    "max": 5.1,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": -0.005,
+    "mass": "heavy",
+    "D": 0.06,
+    "tip": 30.3,
+    "max": 1.9,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.035,
+    "tip": 6.9,
+    "max": 92.6,
+    "final": 88.8,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.0425,
+    "tip": 6.9,
+    "max": 91.9,
+    "final": 88.8,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.05,
+    "tip": 6.9,
+    "max": 92.2,
+    "final": 88.8,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.055,
+    "tip": 6.9,
+    "max": 90.6,
+    "final": 88.8,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "light",
+    "D": 0.06,
+    "tip": 6.9,
+    "max": 3.1,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.035,
+    "tip": 27.0,
+    "max": 17.9,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.0425,
+    "tip": 27.0,
+    "max": 13.5,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.05,
+    "tip": 27.0,
+    "max": 8.9,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.055,
+    "tip": 27.0,
+    "max": 5.9,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.008,
+    "dh": 0.0,
+    "mass": "heavy",
+    "D": 0.06,
+    "tip": 27.0,
+    "max": 2.8,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "light",
+    "D": 0.035,
+    "tip": 7.9,
+    "max": 92.7,
+    "final": 89.5,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "light",
+    "D": 0.0425,
+    "tip": 7.9,
+    "max": 93.0,
+    "final": 89.5,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "light",
+    "D": 0.05,
+    "tip": 7.9,
+    "max": 93.6,
+    "final": 89.5,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "light",
+    "D": 0.055,
+    "tip": 7.9,
+    "max": 7.7,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "light",
+    "D": 0.06,
+    "tip": 7.9,
+    "max": 3.8,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "heavy",
+    "D": 0.035,
+    "tip": 28.2,
+    "max": 17.9,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "heavy",
+    "D": 0.0425,
+    "tip": 28.2,
+    "max": 13.7,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "heavy",
+    "D": 0.05,
+    "tip": 28.2,
+    "max": 9.4,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "heavy",
+    "D": 0.055,
+    "tip": 28.2,
+    "max": 6.5,
+    "final": 0.0,
+    "held": true
+   },
+   {
+    "bh": 0.009,
+    "dh": 0.005,
+    "mass": "heavy",
+    "D": 0.06,
+    "tip": 28.2,
+    "max": 3.5,
+    "final": 0.0,
+    "held": true
+   }
+  ],
+  "verdict": "chosen: light posts fall for D <= 5.0 (1.8 cm posts) / 5.5 cm (1.6 cm posts), footed posts rock back (max 18 deg at D 3.5); post set down beside a standing panel tilts it <= 15 deg, it rocks back"
+ },
+ "P_c_swing": {
+  "desc": "v1 domino layout, tight 3.7 cm, the carried panel (fingers along its width = Sonnet habit) carried ALONG the row towards a standing neighbour, hidden knob pivot friction mu_t",
+  "rows": [
+   {
+    "mu_t": 0.0015,
+    "v": 0.08,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 0.2,
+    "swing_descent": 0.5,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0015,
+    "v": 0.08,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 0.2,
+    "swing_descent": 0.5,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0015,
+    "v": 0.15,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 1.0,
+    "swing_descent": 0.7,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0015,
+    "v": 0.15,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 1.0,
+    "swing_descent": 0.7,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0015,
+    "v": 0.25,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 1.6,
+    "swing_descent": 0.9,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0015,
+    "v": 0.25,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 1.7,
+    "swing_descent": 0.8,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0005,
+    "v": 0.08,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 0.9,
+    "swing_descent": 2.1,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0005,
+    "v": 0.08,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 0.9,
+    "swing_descent": 2.6,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0005,
+    "v": 0.15,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 4.9,
+    "swing_descent": 4.2,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0005,
+    "v": 0.15,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 5.0,
+    "swing_descent": 4.7,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0005,
+    "v": 0.25,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 8.3,
+    "swing_descent": 7.2,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0005,
+    "v": 0.25,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 8.4,
+    "swing_descent": 7.1,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0002,
+    "v": 0.08,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 1.2,
+    "swing_descent": 3.4,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0002,
+    "v": 0.08,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 1.2,
+    "swing_descent": 4.2,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0002,
+    "v": 0.15,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 8.0,
+    "swing_descent": 6.9,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0002,
+    "v": 0.15,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 8.0,
+    "swing_descent": 7.5,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0002,
+    "v": 0.25,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 13.3,
+    "swing_descent": 7.3,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0002,
+    "v": 0.25,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 13.4,
+    "swing_descent": 7.2,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0,
+    "v": 0.08,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 1.4,
+    "swing_descent": 4.1,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0,
+    "v": 0.08,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 1.4,
+    "swing_descent": 4.9,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0,
+    "v": 0.15,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 9.1,
+    "swing_descent": 7.2,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0,
+    "v": 0.15,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 9.0,
+    "swing_descent": 7.8,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0,
+    "v": 0.25,
+    "zc": 0.12,
+    "held": true,
+    "swing_carry": 15.1,
+    "swing_descent": 5.9,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   },
+   {
+    "mu_t": 0.0,
+    "v": 0.25,
+    "zc": 0.2,
+    "held": true,
+    "swing_carry": 15.0,
+    "swing_descent": 6.2,
+    "nb_max": 0.0,
+    "nb_final": 0.0,
+    "placed": true
+   }
+  ],
+  "verdict": "rejected: 0/24 neighbours touched (swing up to 15 deg during the carry, 6-8 deg at the descent, damped when the bottom touches the table)"
+ }
+}

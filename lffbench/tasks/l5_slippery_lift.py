@@ -72,6 +72,7 @@ def set_hidden_weight(env, obj, half, mass, w_frac, w_pos, w_half=W_HALF):
     m.body_ipos[bid] = c
     m.body_iquat[bid] = [1.0, 0.0, 0.0, 0.0]
     m.body_inertia[bid] = I
+    envs.refit_bounds(env, bid)  # the collision BVH lives in the inertial frame (envs.refit_bounds)
     return c
 
 

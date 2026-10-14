@@ -47,5 +47,5 @@ test "${PIPESTATUS[0]}" = 0
 echo
 echo "Done. Next:"
 echo "  sudo bash jail/setup_jail.sh                 # the agent's shell jail (LA interface)"
-echo "  cp .env.example .env && edit .env            # OPENAI_API_KEY / OPENAI_BASE_URL"
-echo "  source run_env.sh && python scripts/check_setup.py --api"
+echo "  cp .env.example .env && edit .env            # API key(s) for your provider: RUN_WITH_YOUR_API.md section 3"
+echo "  source run_env.sh && python scripts/check_setup.py   # --api also sends one tiny OpenAI request"
