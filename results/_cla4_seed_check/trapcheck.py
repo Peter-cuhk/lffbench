@@ -1,6 +1,6 @@
 """Seed-3000 instance check: hidden params + scripted naive/oracle first attempt. Writes nothing into the repo."""
 import importlib, json, pkgutil, sys, os
-ROOT = "/mnt/cpfs/workspace/agentic-robotics/lffbench"
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 import lffbench.tasks as task_pkg
 from lffbench.task_base import TASKS

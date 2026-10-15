@@ -317,9 +317,9 @@
   }
  ],
  "renders": {
-  "orig": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l2_turntable_restore/arms/orig_naive_end_3000.png",
-  "twin": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l2_turntable_restore/arms/twin_naive_end_3000.png",
-  "h0": "/mnt/cpfs/workspace/agentic-robotics/lffbench/results/l2_turntable_restore/arms/h0_naive_end_3000.png"
+  "orig": "results/l2_turntable_restore/arms/orig_naive_end_3000.png",
+  "twin": "results/l2_turntable_restore/arms/twin_naive_end_3000.png",
+  "h0": "results/l2_turntable_restore/arms/h0_naive_end_3000.png"
  },
  "render_seed": 3000
 }

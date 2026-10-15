@@ -111,7 +111,7 @@ validate 实测原文（seed 1000–1019）：
 
 ## 复现
 ```bash
-cd /mnt/cpfs/workspace/agentic-robotics/lffbench && source run_env.sh && export OMP_NUM_THREADS=1
+cd <repo root> && source run_env.sh && export OMP_NUM_THREADS=1
 python scripts/validate.py --task l6_count_into_box --n 20 --k 5 > logs/validate_l6_count.log 2>&1
 python scripts/make_video.py --task l6_count_into_box --kind adaptive --seed 1000
 python scripts/l6_controls.py l6_count_into_box 20   # 对照 -> results/l6_count_into_box/controls.json

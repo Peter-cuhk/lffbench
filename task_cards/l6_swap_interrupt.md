@@ -108,7 +108,7 @@ CONTROLS_PLACEHOLDER
 
 ## 复现
 ```bash
-cd /mnt/cpfs/workspace/agentic-robotics/lffbench && source run_env.sh && export OMP_NUM_THREADS=1
+cd <repo root> && source run_env.sh && export OMP_NUM_THREADS=1
 python scripts/validate.py --task l6_swap_interrupt --n 20 --k 5 > logs/validate_l6_swap.log 2>&1
 ```
 对照（打滑缩略图、无打滑、错配记忆、blind_continue）的脚本当时放在 scratchpad 里，逻辑很短：`task.inject = False` 关掉打滑；把 `task.saved_memory` 换成返回别的实例开局布局的函数即是错配记忆；`run_scripted("blind_continue", …)` 即附加对照。
