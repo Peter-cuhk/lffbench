@@ -162,3 +162,76 @@ def test_chat_backend_payload():
     assert req["tools"][0]["type"] == "function" and req["tools"][0]["function"]["name"] == "move_to"
     n_img = sum(c["type"] == "image_url" for m in req["messages"] if isinstance(m["content"], list) for c in m["content"])
     assert n_img == 2  # 1 history + newest live (budget 2 -> hysteresis keeps 1 live)
+
+
+def _chat_reply(call_id, reasoning=None):
+    msg = {"role": "assistant", "content": None,
+           "tool_calls": [{"id": call_id, "type": "function",
+                           "function": {"name": "move_to", "arguments": '{"x": 0.25}'}}]}
+    if reasoning:
+        msg["reasoning_content"] = reasoning
+    return {"id": "c1", "object": "chat.completion", "created": 0, "model": "kimi-k3",
+            "choices": [{"index": 0, "message": msg, "finish_reason": "tool_calls"}],
+            "usage": {"prompt_tokens": 100, "completion_tokens": 50, "total_tokens": 150}}
+
+
+def test_chat_backend_keeps_reasoning_content():
+    """Kimi-style reasoning_content: logged as the summary and sent back on that assistant message."""
+    openai = import_openai()
+    import httpx2
+    seen, replies = [], [_chat_reply("call_1", "the bar tipped left"), _chat_reply("call_2")]
+
+    def handler(request):
+        seen.append(json.loads(request.content))
+        return httpx2.Response(200, json=replies.pop(0))
+
+    client = openai.OpenAI(api_key="sk-test-not-real", base_url="http://mock.invalid/v1", max_retries=0,
+                           http_client=httpx2.Client(transport=httpx2.MockTransport(handler)))
+    b = ChatCompletionsBackend(client=client, max_live_images=None)
+    conv = Conversation("SYS")
+    conv.add_user([dict(type="text", text="Begin.")])
+    r = b.act(conv, TOOLS)
+    assert r.reasoning_summary == "the bar tipped left" and r.tool_calls[0].id == "call_1"
+    conv.add_assistant(r.text, r.tool_calls, raw=r.raw, backend=b.name)
+    conv.add_tool_output("call_1", "move_to", '{"ok": true}')
+    b.act(conv, TOOLS)
+    asst = [m for m in seen[1]["messages"] if m["role"] == "assistant"]
+    assert asst[0]["reasoning_content"] == "the bar tipped left"
+    assert "reasoning_content" not in b.build_request(conv, TOOLS)["messages"][0]
+    b.replay_reasoning = False
+    assert "reasoning_content" not in [m for m in b.build_request(conv, TOOLS)["messages"] if m["role"] == "assistant"][0]
+
+
+def test_empty_gateway_reply_is_not_a_model_turn():
+    """A reply with no output and no usage (seen through a gateway) must be retried, not appended as a turn."""
+    out = OpenAIResponsesBackend.parse_response(OpenAIResponsesBackend(client=object()),
+                                                {"id": "r", "status": "completed", "output": []})
+    assert out.status == "incomplete" and "empty" in out.error
+
+    class Empty:
+        class chat:
+            class completions:
+                @staticmethod
+                def create(**kw):
+                    return type("R", (), {"choices": [], "usage": None})()
+    conv = Conversation("SYS")
+    conv.add_user([dict(type="text", text="Begin.")])
+    r = ChatCompletionsBackend(client=Empty()).act(conv, TOOLS)
+    assert r.status == "incomplete" and not r.tool_calls
+
+
+def test_context_overflow_wordings():
+    import importlib.util, os
+    spec = importlib.util.spec_from_file_location(
+        "api_player", os.path.join(os.path.dirname(__file__), "..", "scripts", "api_player.py"))
+    ap = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(ap)
+    for msg in ["BadRequestError: Error code: 400 - prompt is too long: 215000 tokens > 200000 maximum",
+                "BadRequestError: This model's maximum context length is 400000 tokens (context_length_exceeded)",
+                "BadRequestError: Invalid request: Your request exceeded model token limit: 262144",
+                "InvalidArgument: The input token count (1100000) exceeds the maximum number of tokens allowed",
+                "BadRequestError: too many images in request"]:
+        assert ap.context_overflow(msg), msg
+    for msg in ["RateLimitError: 429 Go usage limit exceeded", "APIConnectionError: Connection error.",
+                "RuntimeError: empty response stream (no message_start event)"]:
+        assert not ap.context_overflow(msg), msg

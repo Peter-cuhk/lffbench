@@ -233,6 +233,8 @@ class OpenAIResponsesBackend(Backend):
         err = None
         if status == "incomplete":
             err = "incomplete: " + str(_get(_get(resp, "incomplete_details"), "reason"))
+        elif not output and u is None:  # seen through a gateway: no output and no usage; the player asks again
+            status, err = "incomplete", "empty response (no output, no usage)"
         return BackendResponse(tool_calls=calls, text="\n".join(t for t in texts if t) or None,
                                reasoning_summary="\n".join(s for s in summ if s) or None, usage=usage,
                                raw=[_to_dict(i) for i in output], status=status, error=err)

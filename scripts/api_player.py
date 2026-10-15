@@ -195,8 +195,15 @@ def build_backend(a, v2):
 
 
 def context_overflow(err):
+    """The request no longer fits: token limit (OpenAI / Anthropic / Gemini / Kimi wordings) or too many images."""
     e = err.lower()
-    return "context" in e and ("length" in e or "window" in e or "too long" in e)
+    return (("context" in e and ("length" in e or "window" in e or "too long" in e)) or "prompt is too long" in e
+            or ("exceed" in e and "token" in e) or "too many images" in e or "maximum number of images" in e)
+
+
+def live_images(conv):
+    return sum(1 for it in conv.items if it["kind"] == "user" and it.get("live") for p in it["parts"]
+               if p["type"] == "image")
 
 
 def main(argv=None, default_provider=None, transcript_name="transcript.jsonl"):
@@ -209,7 +216,11 @@ def main(argv=None, default_provider=None, transcript_name="transcript.jsonl"):
     ap.add_argument("--max-turns", type=int, default=400)
     ap.add_argument("--max-live-images", type=int, default=16)
     ap.add_argument("--max-output-tokens", type=int, default=32768, help="chat provider only")
-    ap.add_argument("--api-retries", type=int, default=4, help="retries of a failed API call before giving up")
+    ap.add_argument("--api-retries", type=int, default=8,
+                    help="retries of a failed API call before giving up (back-off 5 s doubling to 120 s: ~9 min)")
+    ap.add_argument("--max-request-images", type=int, default=500,
+                    help="when the conversation holds more viewed images than this, switch to the context-full "
+                         "policy (Claude through a gateway failed at 601 images, 2026-10-15)")
     ap.add_argument("--style", default="v1", choices=["v1", "v2", "la"],
                     help="v2: images are not attached automatically; the model views them on demand with "
                          "view_images, and no history is pruned (the agent manages its own context)")
@@ -261,18 +272,21 @@ def main(argv=None, default_provider=None, transcript_name="transcript.jsonl"):
     usage_tot = dict(input_tokens=0, cached_tokens=0, cache_write_tokens=0, output_tokens=0, reasoning_tokens=0)
     for turn in range(a.max_turns):
         resp, err = None, None
+        if v2 and backend.max_live_images is None and live_images(conv) > a.max_request_images:
+            backend.max_live_images = 32  # same context-full policy as below, before the request limit is hit
+            log(dict(ev="context_overflow", reason="image count", n_images=live_images(conv), keep_images=32))
         for r in range(a.api_retries + 1):
             t0 = time.time()
             try:
                 out = backend.act(conv, tools)
             except Exception as e:  # flaky endpoint: back off and retry the identical request
                 err = f"{type(e).__name__}: {str(e)[:300]}"
-                if a.provider == "openai" and v2 and context_overflow(err):
-                    # the context is full: from now on keep only the newest viewed images (agent-chosen ones)
+                if v2 and context_overflow(err):
+                    # the context is full (every provider): from now on keep only the newest viewed images
                     backend.max_live_images = 32 if backend.max_live_images is None else max(backend.max_live_images // 2, 4)
-                    log(dict(ev="context_overflow", keep_images=backend.max_live_images))
+                    log(dict(ev="context_overflow", reason=err[:120], keep_images=backend.max_live_images))
                 log(dict(ev="api_error", turn=turn, retry=r, error=err, dt=time.time() - t0))
-                time.sleep(min(60, 5 * 2 ** r))
+                time.sleep(min(120, 5 * 2 ** r))
                 continue
             if out.status == "refusal":  # the provider declined: no fallback model (it would change the model under test)
                 resp, err = out, out.error

@@ -3,8 +3,9 @@
 Same conversation as the OpenAI backends, converted to Messages API blocks:
 - system prompt = conv.system; tools = the harness tool specs (strict, one call per turn like the GPT player);
 - every assistant turn is stored with its full `content` (thinking blocks with signatures, text, tool_use) and replayed
-  unchanged, so the model keeps its reasoning across tool calls; the request history is append-only (current Claude
-  models reject edited history that carries thinking blocks), so no live-image pruning by default;
+  unchanged, so the model keeps its reasoning across tool calls. Assistant turns are never edited; old images in user
+  turns may be replaced by a text note (checked 2026-10-15 on Sonnet 5.5 / Opus 5.5 with thinking blocks in the
+  history: accepted), which the player does only when the context or the per-request image limit is reached;
 - tool outputs of one turn become `tool_result` blocks at the start of the next user message; images the harness
   attaches after them (observations, view_images) follow in the same user message;
 - adaptive thinking with an explicit effort (the per-model default differs: Opus 5.5 medium, Sonnet 5.5 high);
@@ -155,8 +156,11 @@ class AnthropicMessagesBackend(Backend):
         req = self.build_request(conv, tools)
         stats = self.request_stats(req)
         t0 = time.time()
-        with self.client().messages.stream(**req) as stream:
-            msg = stream.get_final_message()
+        try:
+            with self.client().messages.stream(**req) as stream:
+                msg = stream.get_final_message()
+        except AssertionError:  # the SDK asserts on a stream without message_start (seen through a gateway)
+            raise RuntimeError("empty response stream (no message_start event)") from None
         out = self.parse_response(msg)
         out.latency_s = time.time() - t0
         out.request_stats = stats
@@ -191,6 +195,8 @@ class AnthropicMessagesBackend(Backend):
             status, err = "refusal", f"refusal: category={_get(d, 'category')} {_get(d, 'explanation') or ''}".strip()
         elif stop == "max_tokens":
             status, err = "incomplete", "incomplete: max_tokens"
+        elif not content and u is None:
+            status, err = "incomplete", "empty response (no content, no usage)"
         return BackendResponse(tool_calls=calls, text="\n".join(t for t in texts if t) or None,
                                reasoning_summary="\n".join(summ) or None, usage=usage,
                                raw=[_to_dict(b) for b in content], status=status, error=err)
