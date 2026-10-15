@@ -40,6 +40,13 @@ On Ubuntu >= 23.10, if the shell check fails with `uid_map` / `Operation not per
 `--effort` (default `high`) is mapped to each provider's reasoning setting. Use the provider's exact model name for
 `--model`.
 
+**Gateways and relays.** If your key goes through a gateway that routes one model name to several upstream channels,
+check each channel before the main run: some relays (e.g. ones built on coding-assistant subscriptions) silently add
+their own system prompt, which changes the model under test. Send a one-line prompt such as "Reply with the word
+pong." and look at the reported input tokens: about 10–20 is clean; hundreds or thousands means a hidden prompt was
+added. Pin a clean channel for the whole run (many gateways accept the channel id as `--model`), and report which one
+you used. Prompt caching through such gateways is often ineffective; that only affects cost.
+
 ## 4. Smoke test (one cheap run, about 5–15 min)
 ```bash
 python scripts/api_batch.py start --batch smoke --provider anthropic --model <model-name> \
