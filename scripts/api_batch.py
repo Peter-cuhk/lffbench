@@ -199,13 +199,13 @@ class Runner:
                   f"{{ [ ! -f {ENV_FILE} ] || {{ set -a && source {ENV_FILE} && set +a; }}; }} && "
                   f"exec python scripts/harness_run.py --harness {ah} --session {log}/session.json "
                   f"--provider {r['provider']} --model {shlex.quote(r['model'])} --effort {r['effort']} "
-                  f"--timeout {int(self.m.get('run_timeout_s', 10800))}{opts} > {log}/harness_run.log 2>&1")
+                  f"--timeout {int(self.m.get('run_timeout_s', 28800))}{opts} > {log}/harness_run.log 2>&1")
         p = subprocess.Popen(["bash", "-c", player], start_new_session=True, stdin=subprocess.DEVNULL,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         self.update(r, player_pid=p.pid)
         status = None
         try:
-            code = p.wait(timeout=self.m.get("run_timeout_s", 10800))
+            code = p.wait(timeout=self.m.get("run_timeout_s", 28800))
         except subprocess.TimeoutExpired:
             os.killpg(p.pid, signal.SIGTERM)
             code, status = p.wait(), "timeout"
@@ -428,7 +428,8 @@ def main():
     s.add_argument("--no-hide-k", action="store_true", help="history runs: README / status show all k attempts")
     s.add_argument("--concurrency", type=int, default=4)
     s.add_argument("--port0", type=int, default=14000)
-    s.add_argument("--run-timeout", type=int, default=10800, help="seconds per run before the player is killed")
+    s.add_argument("--run-timeout", type=int, default=28800,
+                   help="seconds per run before the player is killed (default 8 h: a long-horizon history run can need 300+ model calls)")
     s.add_argument("--perception", default="rgb", choices=["rgb", "rgbd"])
     s.add_argument("--video", action="store_true")
     s.add_argument("--feedback", default="F1", choices=["F0", "F1", "F2"])

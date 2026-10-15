@@ -69,8 +69,9 @@ python scripts/api_batch.py status --batch main_<model>
 python scripts/api_batch.py retry  --batch main_<model>   # re-run failed / stopped / timed-out runs (rate limits etc.)
 python scripts/api_batch.py table  --batch main_<model>
 ```
-This is 92 × 4 = 368 runs per model. A history run of a long-horizon task can take 30–60 min of wall time and
-100+ model calls. To start smaller, run a subset first (pass fewer `--tasks`), check cost, then continue with a new
+This is 92 × 4 = 368 runs per model. A history run of a long-horizon task can need 300+ model calls; at 20–60 s
+per call that is 2–5 h of wall time. A run is killed after `--run-timeout` seconds (default 8 h) and marked timed out;
+raise it if your endpoint is slow. To start smaller, run a subset first (pass fewer `--tasks`), check cost, then continue with a new
 `--batch` name. `python scripts/api_batch.py contract --batch a --batch b` checks that two batches used the same task
 code and protocol and can share one table.
 
