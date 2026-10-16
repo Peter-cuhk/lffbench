@@ -11,10 +11,16 @@ Hidden variable: the turning direction that opens the lock, clockwise (CW) or co
 above (alternates with the seed parity, so every block of instances is balanced). The other way the key has 3 deg of
 play and then a hard stop. Both look exactly the same.
 
-Rule (stated in the instruction and enforced): one turn per attempt -- grasp the key, ONE move command that turns the
-wrist while holding it, release. A "turn" is any move_to that starts with the key held and changes the commanded yaw
-by >= 5 deg, or that rotates the key by > 3 deg. Without the rule an agent could try both ways inside one attempt and
-the task would no longer test what is learnt across attempts (see the task card for the within-attempt variant).
+Turns per attempt: not limited (2026-10-16, user). Until then the instruction allowed one turn per attempt and an
+attempt with more than one turn failed; in every logged run whose first turn went the wrong way the agent turned the
+other way within the same attempt and opened the lock, so the rule only made it repeat that correction in the next
+attempt. The attempt now succeeds once the lock is open, however many turns it took. The trap is logged as an error
+event instead: a turn "hits the stop" when it drives the key onto the stop on the locked side before the lock is open;
+`trap_fired` = some turn did, `n_wrong_way` = how many did, `recovered_in_attempt` = trap fired and the lock was then
+opened in the same attempt. A "turn" is any move_to that starts with the key held and changes the commanded yaw by
+>= 5 deg, or that rotates the key by > 3 deg. A wrong turn costs one command, so this task does not meet design rule
+R3 (the common-sense interaction must have a cost); its signal is clean success (first turn the right way) vs.
+in-attempt recovery, and whether the agent keeps twisting the wrong way.
 
 Why the prior fails: the user's example -- many people first try counterclockwise. The scripted prior turns CCW by
 90 deg, so it fails on every CW instance (half of them): the key rotates by its 3 deg of play, then the wrist stalls.
@@ -58,6 +64,7 @@ TWIST_MAX = np.radians(6.0)  # wrist stalls when it has twisted this far past a 
 STALL_EXIT = 20  # control steps of stalling before the move gives up
 TURN_YAW = np.radians(5.0)
 TURN_KEY = np.radians(3.0)
+STOP_HIT = PLAY - np.radians(0.5)  # key this far the locked way = sitting on the locked-side stop
 Z_GRIP = envs.TABLE_Z + LH + HEAD_Z  # grasp-point height for the key head (its centre)
 
 
@@ -120,6 +127,24 @@ def _fb(v):
     return f"{100 * abs(v):.1f} cm {'forward' if v > 0 else 'backward'}"
 
 
+def _turn_txt(t, lead):
+    """F2 sentence for one logged turn: what the wrist and the key did, and whether the gripper held the key."""
+    dk = t["key_end_deg"] - t["key_start_deg"]
+    txt = f"{lead} the wrist rotated {_rot_words(t['wrist_turn_deg'])} (seen from above)"
+    if abs(dk) < 1.0:
+        txt += " and the key did not rotate at all"
+    else:
+        txt += f" and the key rotated {_rot_words(dk)}"
+    if t["stalled"]:
+        txt += ", then it would not turn any further and the wrist stopped there"
+    if t["held_at_start"]:
+        txt += ("; the gripper lost hold of the key during the turn." if not t["held_at_end"]
+                else "; the gripper held the key throughout the turn.")
+    else:
+        txt += "; the gripper was not holding the key when that move started."
+    return txt
+
+
 class KeySkills(Skills):
     """Skills for the key task: literal yaw, wrist speed limit, stalling wrist, and a log of turns / grasps / unlock."""
 
@@ -176,7 +201,9 @@ class KeySkills(Skills):
 
     def move_to(self, target, yaw=None, speed=None, tol=0.004, max_steps=250, apply_bias=True, wrap_yaw=True):
         """Skills.move_to with the wrist reference rotating at <= W_MAX and an early stop when the wrist stalls.
-        Logs the move as a turn when it starts with the key held and rotates the wrist, or when it rotates the key."""
+        Logs the move as a turn when it starts with the key held and rotates the wrist, or when it rotates the key;
+        `hit_stop`: the turn went the locked way (wrist command if the key was held, else the key's motion) and the key
+        was on the locked-side stop during it, while the lock was still locked (the trap)."""
         t = self.task
         tgt = np.asarray(target, float) + (self.bias if apply_bias else 0.0)
         if yaw is not None:
@@ -185,7 +212,8 @@ class KeySkills(Skills):
         dyaw = self.yaw - yaw0
         R_goal = self._R()
         p0 = self.eef_pos()
-        q0, held0 = t.key_q(), self.holding_key()
+        q0, held0, locked0 = t.key_q(), self.holding_key(), not t.unlocked
+        q_open_min = t.open_sign() * q0  # lowest key angle the open way during the move
         dist = np.linalg.norm(tgt - p0)
         direction = (tgt - p0) / max(dist, 1e-9)
         s = 0.0
@@ -199,6 +227,7 @@ class KeySkills(Skills):
             frac = min(1.0, (k + 1) * DT * W_MAX / max(abs(dyaw), 1e-6))
             R = _rotz(yaw0 + frac * dyaw) @ self.R0
             self._act(ref - self.eef_pos(), _rot_err(R, self.eef_mat()), self.grip)
+            q_open_min = min(q_open_min, t.open_sign() * t.key_q())
             if self.stall_steps >= STALL_EXIT:
                 break
             if (np.linalg.norm(tgt - self.eef_pos()) < tol and (speed is None or s >= dist) and frac >= 1.0
@@ -213,13 +242,15 @@ class KeySkills(Skills):
                    pos=self.eef_pos().round(4).tolist(), steps=k + 1, stalled=bool(stalled))
         self.log.append(rep)
         dq = t.key_q() - q0
+        locked_way = t.open_sign() * (dyaw if held0 else dq) < 0
         if (held0 and abs(dyaw) >= TURN_YAW) or abs(dq) > TURN_KEY:
             self.turns.append(dict(step=self.n_steps, held_at_start=bool(held0), held_at_end=self.holding_key(),
                                    key_start_deg=round(float(np.degrees(q0)), 1),
                                    key_end_deg=round(float(np.degrees(t.key_q())), 1),
                                    wrist_cmd_deg=round(float(np.degrees(dyaw)), 1),
                                    wrist_turn_deg=round(float(np.degrees(self.eef_yaw() - yaw0)), 1),
-                                   stalled=bool(stalled)))
+                                   stalled=bool(stalled),
+                                   hit_stop=bool(locked0 and locked_way and q_open_min <= -STOP_HIT)))
         return rep
 
     def set_gripper(self, close, steps=15):
@@ -245,13 +276,10 @@ class KeyTurn(LFFTask):
     capabilities = ("Perceive", "Reason", "Plan")
     protocol = "cross"
     instruction = ("Unlock the lock on the grey box: grasp the flat head of the brass key from above and turn the key "
-                   "a quarter turn (90 degrees). The red bolt on the box slides in when it is unlocked. Only one turn "
-                   "is allowed per attempt: grasp the key, turn it with ONE move command while holding it, then "
-                   "release it.")
+                   "a quarter turn (90 degrees). The red bolt on the box slides in when it is unlocked.")
     instruction_indirect = ("Open the lock of the small grey metal box: take hold of the flat gold-coloured tab that "
                             "sticks up out of its top and rotate it a quarter turn (90 degrees). The red block on the "
-                            "box slides in when it is open. Only one turn is allowed per attempt: grasp the tab, rotate "
-                            "it with ONE move command while holding it, then release it.")
+                            "box slides in when it is open.")
 
     # ------------------------------------------------------------ scene
     def make_bddl(self):
@@ -343,10 +371,13 @@ class KeyTurn(LFFTask):
         envs.settle(self.env, 20)
         sk = self.sk
         n_turns = len(sk.turns)
-        success = bool(self.unlocked and n_turns <= 1)
+        n_wrong = sum(t["hit_stop"] for t in sk.turns)
+        success = bool(self.unlocked)
         open_deg = float(np.degrees(self.open_sign() * self.key_q()))
-        out = dict(success=success, unlocked=bool(self.unlocked), n_turns=n_turns, key_deg=round(np.degrees(self.key_q()), 1),
-                   open_deg=round(open_deg, 1), turns=sk.turns, closes=sk.closes, first_turn=None)
+        out = dict(success=success, unlocked=bool(self.unlocked), n_turns=n_turns, n_wrong_way=n_wrong,
+                   trap_fired=n_wrong > 0, recovered_in_attempt=bool(n_wrong and success),
+                   key_deg=round(np.degrees(self.key_q()), 1), open_deg=round(open_deg, 1), turns=sk.turns,
+                   closes=sk.closes, first_turn=sk.turns[0] if sk.turns else None)
         parts = []
         grasp_txt = ""
         if sk.closes:
@@ -364,27 +395,14 @@ class KeyTurn(LFFTask):
             out["failure"] = "no_turn"
             parts.append("The lock is still locked: the key was never turned.")
         else:
-            out["failure"] = "several_turns" if n_turns > 1 else "still_locked"
-            if n_turns > 1:
-                parts.append(f"The key was turned (or pushed round) in {n_turns} separate moves; only one turn is "
-                             f"allowed per attempt, so this attempt failed.")
-            parts.append("The lock is unlocked." if self.unlocked else "The lock is still locked.")
-            t = sk.turns[0]
-            out["first_turn"] = t
-            dk = t["key_end_deg"] - t["key_start_deg"]
-            txt = f"During your (first) turn the wrist rotated {_rot_words(t['wrist_turn_deg'])} (seen from above)"
-            if abs(dk) < 1.0:
-                txt += " and the key did not rotate at all"
+            out["failure"] = "still_locked"
+            parts.append("The lock is still locked.")
+            if n_turns == 1:
+                parts.append(_turn_txt(sk.turns[0], "During your turn"))
             else:
-                txt += f" and the key rotated {_rot_words(dk)}"
-            if t["stalled"]:
-                txt += f", then it would not turn any further and the wrist stopped there"
-            if t["held_at_start"]:
-                txt += ("; the gripper lost hold of the key during the turn." if not t["held_at_end"]
-                        else "; the gripper held the key throughout the turn.")
-            else:
-                txt += "; the gripper was not holding the key when that move started."
-            parts.append(txt)
+                parts.append(f"The key was turned (or pushed round) in {n_turns} separate moves.")
+                parts.append(_turn_txt(sk.turns[0], "During the first one"))
+                parts.append(_turn_txt(sk.turns[-1], "During the last one"))
         if grasp_txt and not success:
             parts.append(grasp_txt)
         out["detail"] = " ".join(parts)
@@ -392,7 +410,7 @@ class KeyTurn(LFFTask):
 
     # ------------------------------------------------------------ scripted execution (cross protocol)
     def execute(self, inst, params):
-        """Grasp the key head from above across its thickness (+ jitter), ONE wrist turn of `turn` degrees
+        """Grasp the key head from above across its thickness (+ jitter), one wrist turn of `turn` degrees
         (+ = counterclockwise seen from above), release, lift."""
         sk = self.sk
         p = self.head_xyz() + np.r_[params.get("dxy", (0.0, 0.0)), params.get("dz", 0.0)]  # perfect perception
@@ -416,7 +434,7 @@ class KeyTurn(LFFTask):
     def adapt_params(self, inst, history):
         """Scripted F2 learner. A turn after which the key rotated less than 10 deg the commanded way (it stopped)
         -> that way is blocked -> turn the other way. A turn that rotated the key further but not far enough -> same
-        way, a bit more. Anything else (no turn, several turns, lost grip) -> repeat the last direction."""
+        way, a bit more. Anything else (no turn, lost grip) -> repeat the last direction."""
         blocked = set()
         good = 0
         for h in history:

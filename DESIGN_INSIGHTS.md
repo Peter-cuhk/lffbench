@@ -56,7 +56,7 @@ lh_fence v1、v2 的陷阱都假设"手指沿着排张开会碰倒邻件"。脚�
 - **不要改任务代码**：测试侧发现任务问题时报回设计侧，由设计侧改、定版、改版本号。测试侧改了任何东西，都要写清楚改了什么。
 
 ## 6. 当前任务集（`sets/main_v1.txt`，24 个任务、92 个实例；各任务 Sonnet 小试的信号见 task card）
-- **隐变量短任务（10，每个 5 实例）**：offcenter_push、slide_to_target、tablecloth_pull、wall_flush、under_table_tool、fit_container、key_turn、turntable_restore、card_shelf（新，Sonnet 小试 S / FFF / FFF）、loaded_beam（新，3/3 FS，跨尝试学习干净）。
+- **隐变量短任务（10，每个 5 实例）**：offcenter_push、slide_to_target、tablecloth_pull、wall_flush、under_table_tool、fit_container、key_turn（10-16 起不限转动次数：转错当场改正算尝试内恢复，信号看 CS / IR）、turntable_restore、card_shelf（新，Sonnet 小试 S / FFF / FFF）、loaded_beam（新，3/3 FS，跨尝试学习干净）。
 - **长程（8，每个 3 实例）**：lid_box、bridge、tray_delivery、balance_board、false_bottom_lid（新，3/3 在尝试内修好）、clear_cover（新 v2，3/3 FFF，从没发现盖子）、bystander（新，S / FFF / FFF）、nudge_row（新 v2，FS / FFS / S：6 次放完杯子的尝试里陷阱触发 4 次，其中 2 次在同一次尝试内扶正，1 次在下一次尝试改成转腕 90° 避开）。
 - **简单档（6，每个 3 实例）**：bias_place、height_bias、knock_restore、restore_layout、too_wide_push、nest_order。对强模型已饱和，留着给弱模型拉开差距。
 - **已删**：lh_fence（陷阱对真实模型不起作用）、l1_yaw_bias、L6 ×3（进度一直在上下文里，测不出东西）、l3_card_edge（被 card_shelf 取代）、l5_slippery_lift（被 loaded_beam 取代）、l4_diagonal_fit、l7_hidden_mechanism。代码留在仓库，但不进主表。

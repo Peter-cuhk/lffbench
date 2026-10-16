@@ -82,6 +82,12 @@ raise it if your endpoint is slow. To start smaller, run a subset first (pass fe
 `--batch` name. `python scripts/api_batch.py contract --batch a --batch b` checks that two batches used the same task
 code and protocol and can share one table.
 
+**Task changes since the first release.** 2026-10-16: `l7_key_turn` no longer limits the number of turns per
+attempt. The instruction no longer says "only one turn is allowed"; an attempt succeeds once the lock is open, and
+turning the key the wrong way first is logged in the outcome as `trap_fired` / `recovered_in_attempt`. If you ran
+`l7_key_turn` before this change, re-run those instances: `api_batch.py contract` flags them, because the task code
+hash in their contract differs. All other tasks are unchanged.
+
 Please do not modify task code, the README template or the tools. If you must change something to get it running,
 tell us exactly what you changed.
 

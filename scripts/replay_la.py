@@ -71,7 +71,8 @@ def main():
                       f"driven={100*g['driven']:.2f}cm touch={g['touch']:>3} board_dxy={g['board_dxy']} "
                       f"cube_dxy={g['cube_dxy']} cube_from_start={g['cube_from_start']}")
     out = task.outcome(inst)
-    keys = ("moved_toward_robot", "n_pulls", "pulls_cm", "pre_pull_cube_cm", "stray_cm", "n_pushes", "max_advance")
+    keys = ("moved_toward_robot", "n_pulls", "pulls_cm", "pre_pull_cube_cm", "stray_cm", "n_pushes", "max_advance",
+            "n_turns", "n_wrong_way", "trap_fired", "recovered_in_attempt")
     print("REPLAY :", "S" if out["success"] else "F", out.get("failure"), {k: out[k] for k in keys if k in out})
     if "--fb" in sys.argv:
         print("F2     :", task.feedback(inst, out, "F2"))

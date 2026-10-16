@@ -2,6 +2,8 @@
 # Pass to scripts/api_batch.py with:  --tasks $(grep -v '^#' sets/main_v1.txt)
 # Seeds: the first seeds >= 3000 where the scripted naive policy fails and the oracle succeeds on attempt 1
 # (hidden-variable subset: 5 instances; other tasks: 3). See task_cards/<task>.md for each task.
+# Changes: 2026-10-16 l7_key_turn no longer limits turns per attempt (success = lock opened; turning the
+#   wrong way first is logged as trap_fired). Re-run l7_key_turn runs made before this change; other tasks unchanged.
 #
 # hidden-variable short tasks (10)
 l7_offcenter_push:3000,3001,3002,3003,3004
