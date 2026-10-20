@@ -1,0 +1,15 @@
+{
+ "key": "claude_code_full-oauth|2.1.267|0399c793ff571d59|claude-opus-5-5|high",
+ "fingerprint_sha256": "06d6245468d20e3550a7ea4b8b4e7d9eda296ae16915dffa1b5bd7d12066efa6",
+ "written": "2026-10-20 02:16:17",
+ "summary": {
+  "system_chars": 6048,
+  "tools": [
+   "mcp__lff__robot",
+   "mcp__lff__shell",
+   "mcp__lff__view_images"
+  ],
+  "effort_in_request": "high",
+  "model_in_request": "claude-opus-5-5"
+ }
+}

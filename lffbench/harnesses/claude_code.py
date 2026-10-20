@@ -9,6 +9,22 @@ HOME / CLAUDE_CONFIG_DIR / TMPDIR are one-time dirs
 under /tmp/lffstate/<hex>, the work dir is /tmp/lffrun/<12 hex> (its path is written into the system prompt), the MCP
 server is scripts/mcp_robot_server.py on the run's session.
 
+Two ways to authenticate (auth=):
+  apikey   ANTHROPIC_API_KEY (api_env)
+  oauth    a Claude subscription: the long-lived token of `claude setup-token`, passed as CLAUDE_CODE_OAUTH_TOKEN
+           (api_env; never taken from the calling environment). claude_code_full only: --bare reads nothing but
+           ANTHROPIC_API_KEY / apiKeyHelper (2.1.267 --help).
+Measured with 2.1.267 against the fake server (2026-10-20): the same single request in both modes, identical system
+prompt, tools, messages and parameters; oauth sends Authorization: Bearer instead of x-api-key, two more beta flags
+(oauth-2025-04-20, extended-cache-ttl-2025-04-11) and cache_control ttl=1h. Pins are per auth mode (pin name
+claude_code_full-oauth).
+
+Early exit: `claude -p` ends when the model replies without a tool call, also mid-episode. scripts/harness_run.py then
+sends the reference driver's nudge with `claude -p <nudge> --resume <session>` (resume_argv), as for Codex. Hence no
+--no-session-persistence: the session transcript is kept in the one-time CLAUDE_CONFIG_DIR (removed after the run);
+the audit allows only this run's session. Measured against the fake server: the resumed request has the same system
+prompt, tools, parameters and headers, then the earlier turns and the nudge as a user message.
+
 Fail-closed launch: before the real run the same argv / env is started once against a local fake Anthropic server
 (free) with a schema-only MCP server; the first request's tool list, system prompt, harness-added message prefix and
 request parameters are normalised and hashed, and the launch is refused unless the hash equals the pinned one
@@ -35,6 +51,9 @@ ROOT = C.ROOT
 MCP_SCRIPT = os.path.join(ROOT, "scripts", "mcp_robot_server.py")
 MCP_TOOLS = ["mcp__lff__robot", "mcp__lff__shell", "mcp__lff__view_images"]
 BASE_PATH = "/usr/bin:/bin"
+OAUTH_KEY = "CLAUDE_CODE_OAUTH_TOKEN"
+PREFLIGHT_CREDENTIAL = dict(apikey=("ANTHROPIC_API_KEY", "sk-preflight-not-a-key"),
+                            oauth=(OAUTH_KEY, "sk-ant-oat01-" + "x" * 95 + "AA"))  # dummies, only for the fake server
 
 
 def claude_bin():
@@ -92,10 +111,12 @@ class ClaudeCode(HarnessAdapter):
     uses_mcp = True
     clean_dirs = ("home", "config", "tmp")
     ancestor_files = ("CLAUDE.md", "CLAUDE.local.md", ".claude", "AGENTS.md")
+    can_resume = True
     capabilities = dict(
         only_benchmark_tools=Cap("yes", "preflight", '--tools "" + --strict-mcp-config: request tools = 3 MCP tools'),
         images_reach_model=Cap("yes", "probe", "MCP image content forwarded as image blocks, md5 equal"),
-        non_persistent_session=Cap("yes", "probe", "--no-session-persistence; one-time config dir removed after run"),
+        non_persistent_session=Cap("yes", "probe", "only this run's session (kept for -p --resume) in the one-time "
+                                   "config dir, removed after the run"),
         pinned_version=Cap("yes", "launch", "claude --version + binary sha256 in harness.json; pin per version"),
         machine_readable_events=Cap("yes", "stream", "--output-format stream-json --verbose"),
         tool_calls_logged=Cap("yes", "stream", "tool_use / tool_result in stream + mcp_transcript + events.jsonl"),
@@ -110,10 +131,20 @@ class ClaudeCode(HarnessAdapter):
     )
 
     def __init__(self, api_env=None, max_budget_usd=None, timeout_s=10800, pins_dir=None, allow_unpinned=False,
-                 python=None, extra_args=None, jail=False):
-        """api_env: the only API variables passed to the harness, e.g. {"ANTHROPIC_API_KEY": ..., optional
-        "ANTHROPIC_BASE_URL": ...}. Never inherited from the calling environment. jail: run the CLI in the
+                 python=None, extra_args=None, jail=False, auth="apikey"):
+        """api_env: the only API variables passed to the harness: {"ANTHROPIC_API_KEY": ...} (auth="apikey") or
+        {"CLAUDE_CODE_OAUTH_TOKEN": ...} (auth="oauth", a subscription token of `claude setup-token`), optional
+        "ANTHROPIC_BASE_URL". Never inherited from the calling environment. jail: run the CLI in the
         native-harness jail (lffbench/harnesses/jail.py; /proc stays the host's: Bun needs it)."""
+        if auth not in PREFLIGHT_CREDENTIAL:
+            raise ValueError(f"auth must be one of {sorted(PREFLIGHT_CREDENTIAL)}, not {auth!r}")
+        if auth == "oauth" and self.bare:
+            raise ValueError("claude_code (--bare) authenticates only with ANTHROPIC_API_KEY / apiKeyHelper; "
+                             "use claude_code_full for a subscription token")
+        other = PREFLIGHT_CREDENTIAL["oauth" if auth == "apikey" else "apikey"][0]
+        if other in (api_env or {}):
+            raise ValueError(f"auth={auth}: api_env must not hold {other} (the CLI would use it instead)")
+        self.auth = auth
         if jail:
             from .jail import HarnessJail
             self.jail = HarnessJail(claude_bin(), proc="host")
@@ -139,7 +170,13 @@ class ClaudeCode(HarnessAdapter):
 
     def pin_key(self, ep):
         v = self.version()
-        return pins.key(self.name, v["version"], v["binary"]["sha256"], ep.model, ep.effort)
+        name = self.name if self.auth == "apikey" else f"{self.name}-{self.auth}"
+        return pins.key(name, v["version"], v["binary"]["sha256"], ep.model, ep.effort)
+
+    def auth_info(self):
+        key = PREFLIGHT_CREDENTIAL[self.auth][0]
+        return dict(mode=self.auth, credential_var=key, credential_set=bool(self.api_env.get(key)),
+                    keys=sorted(self.api_env))
 
     # ------------------------------------------------------------------------------------------------ prepare
     def mcp_config(self, session_path=None, describe=False):
@@ -157,11 +194,33 @@ class ClaudeCode(HarnessAdapter):
             a.append("--bare")
         a += ["--tools", "", "--strict-mcp-config", "--mcp-config", spec_paths["mcp_config"],
               "--allowedTools", ",".join(MCP_TOOLS), "--permission-mode", "dontAsk", "--disable-slash-commands",
-              "--no-session-persistence", "--output-format", "stream-json", "--verbose",
-              "--model", ep.model, "--effort", ep.effort]
+              "--output-format", "stream-json", "--verbose", "--model", ep.model, "--effort", ep.effort]
         if self.max_budget_usd:
             a += ["--max-budget-usd", str(self.max_budget_usd)]
         return a + self.extra_args
+
+    @staticmethod
+    def session_ids(stdout_path):
+        """Session ids of the init events in the stream, in order (one per launch / resume)."""
+        out = []
+        try:
+            for line in open(stdout_path, encoding="utf-8", errors="replace"):
+                if line.startswith("{") and '"init"' in line:
+                    d = json.loads(line)
+                    if d.get("type") == "system" and d.get("subtype") == "init" and d.get("session_id"):
+                        out.append(d["session_id"])
+        except (OSError, ValueError):
+            pass
+        return out
+
+    def resume_argv(self, h, message):
+        """`claude -p <message> ... --resume <session>`: the launch's flags unchanged, the message in the place of the
+        first message (right after -p, before the variadic --allowedTools)."""
+        sids = self.session_ids(h.spec.stdout_path)
+        if not sids:
+            raise HarnessRefused("resume: no session id in the stream")
+        a = list(h.spec.argv)
+        return a[:2] + [message] + a[3:] + ["--resume", sids[0]]
 
     def env(self, state):
         e = dict(PATH=BASE_PATH, HOME=state["home"], CLAUDE_CONFIG_DIR=state["config"], TMPDIR=state["tmp"],
@@ -216,8 +275,9 @@ class ClaudeCode(HarnessAdapter):
             with open(mcp_path, "w") as f:
                 json.dump(self.mcp_config(None), f)
             argv = self.argv(dict(mcp_config=mcp_path), ep, spec.first_message)
-            env = self.env(pre_state)
-            env.update(ANTHROPIC_BASE_URL=fake.base_url, ANTHROPIC_API_KEY="sk-preflight-not-a-key")
+            env = {k: v for k, v in self.env(pre_state).items() if k not in self.api_env}  # no real credential
+            cred_key, cred_dummy = PREFLIGHT_CREDENTIAL[self.auth]
+            env.update({"ANTHROPIC_BASE_URL": fake.base_url, cred_key: cred_dummy})
             r = subprocess.run(self.jailed_argv(argv, env, spec.cwd, list(pre_state.values())), env=env, cwd=spec.cwd,
                                stdin=subprocess.DEVNULL, capture_output=True, timeout=180)
             reqs = fake.message_requests()
@@ -233,6 +293,10 @@ class ClaudeCode(HarnessAdapter):
                          if x.startswith('{"type":"system"') and '"init"' in x), {})
             if init.get("tools") != MCP_TOOLS:
                 problems.append(f"init event tools {init.get('tools')}")
+            want_src = "ANTHROPIC_API_KEY" if self.auth == "apikey" else "none"  # none = no API key: the OAuth token
+            if init.get("apiKeySource") != want_src:
+                problems.append(f"init apiKeySource {init.get('apiKeySource')!r}, expected {want_src!r} for "
+                                f"auth={self.auth}")
             if self.bare and "memory_paths" in init:
                 problems.append("init event has memory_paths under --bare")
             if [s.get("status") for s in init.get("mcp_servers", [])] != ["connected"]:
@@ -305,6 +369,7 @@ class ClaudeCode(HarnessAdapter):
         spec, ep = h.spec, h.ep
         tw = TrajWriter(os.path.join(ep.log_dir, "trajectory.jsonl"))
         init, result, by_id, compactions, other = None, None, {}, 0, []
+        inits, results = [], []  # one init / result per launch or resume
         lines = open(spec.stdout_path, encoding="utf-8", errors="replace").read().splitlines()
         for line in lines:
             if not line.startswith("{"):
@@ -312,7 +377,8 @@ class ClaudeCode(HarnessAdapter):
             d = json.loads(line)
             t = d.get("type")
             if t == "system" and d.get("subtype") == "init":
-                init = d
+                init = init or d
+                inits.append(d)
             elif t == "system":
                 if "compact" in str(d.get("subtype", "")):
                     compactions += 1
@@ -349,20 +415,27 @@ class ClaudeCode(HarnessAdapter):
                         tw.add_result(b.get("tool_use_id"), "\n".join(texts), bool(b.get("is_error")), imgs)
             elif t == "result":
                 result = d
+                results.append(d)
         v = self.version()
         tw.set_header(session_id=(init or {}).get("session_id"), source=os.path.basename(spec.stdout_path),
                       agent=dict(name=self.name, version=v["version"], model_name=ep.model, effort=ep.effort),
                       tools=(init or {}).get("tools"))
-        u = (result or {}).get("usage") or {}
+
+        def tot(key, sub=None):  # summed over the segments (each resume reports its own usage)
+            vals = [((r.get("usage") or {}).get(key) if sub is None else r.get(key)) for r in results]
+            vals = [x for x in vals if isinstance(x, (int, float))]
+            return sum(vals) if vals else None
+        cost = tot("total_cost_usd", sub=True)
         tw.set_final(h.exit_reason, native_result={k: (result or {}).get(k) for k in
                                                    ("subtype", "is_error", "num_turns", "duration_ms",
                                                     "duration_api_ms", "total_cost_usd", "usage", "modelUsage")},
-                     total_prompt_tokens=(u.get("input_tokens") or 0) + (u.get("cache_read_input_tokens") or 0)
-                     + (u.get("cache_creation_input_tokens") or 0),
-                     total_completion_tokens=u.get("output_tokens"), total_cached_tokens=u.get("cache_read_input_tokens"),
-                     total_cost_usd=(result or {}).get("total_cost_usd"), compactions=compactions)
+                     total_prompt_tokens=(tot("input_tokens") or 0) + (tot("cache_read_input_tokens") or 0)
+                     + (tot("cache_creation_input_tokens") or 0),
+                     total_completion_tokens=tot("output_tokens"), total_cached_tokens=tot("cache_read_input_tokens"),
+                     total_cost_usd=cost, compactions=compactions, segments=len(results))
         tw.write()
-        h.info.update(init_full=init, result=result, compactions=compactions, other_system=other, traj=tw)
+        h.info.update(init_full=init, inits=inits, result=result, results=results, compactions=compactions,
+                      other_system=other, traj=tw)
         return tw
 
     # ------------------------------------------------------------------------------------------------ audit
@@ -371,8 +444,16 @@ class ClaudeCode(HarnessAdapter):
         init = h.info.get("init_full") or {}
         tw = h.info.get("traj")
         v, problems, notes = [], [], []
-        if init.get("tools") != MCP_TOOLS:
-            v.append(f"init tools {init.get('tools')}")
+        inits = h.info.get("inits") or [init]
+        for i, x in enumerate(inits):  # every launch / resume
+            if x.get("tools") != MCP_TOOLS:
+                v.append(f"init {i} tools {x.get('tools')}")
+        sids = sorted({x.get("session_id") for x in inits if x.get("session_id")})
+        if len(sids) > 1:
+            v.append(f"several sessions in one run: {sids}")
+        if h.info.get("resumes"):
+            notes.append(f"resumed {len(h.info['resumes'])}x with the reference driver's nudge (CLI exited before the "
+                         f"episode was over)")
         if self.bare and init.get("memory_paths"):
             v.append(f"memory_paths {init.get('memory_paths')}")
         if not self.bare and init.get("memory_paths"):
@@ -389,9 +470,14 @@ class ClaudeCode(HarnessAdapter):
         left = dict(config=snapshot_tree(spec.state_dirs["config"]), home=snapshot_tree(spec.state_dirs["home"]),
                     work=snapshot_tree(spec.cwd))
         mcp_logs = [p for p in left["home"] if "/mcp-logs-" in p]
-        transcripts = [p for p in left["config"] + left["home"] if p.endswith(".jsonl") and p not in mcp_logs]
+        own = [p for p in left["config"] if sids and p.startswith("projects/")
+               and (p.endswith(f"/{sids[0]}.jsonl") or f"/{sids[0]}/" in p)]  # this run's session (for --resume)
+        transcripts = [p for p in left["config"] + left["home"] if p.endswith(".jsonl") and p not in mcp_logs
+                       and p not in own]
         if transcripts:
-            v.append(f"session transcripts written: {transcripts}")
+            v.append(f"session transcripts other than this run's session: {transcripts}")
+        if own:
+            notes.append(f"this run's own session kept in the one-time config dir (for --resume): {own}")
         if mcp_logs:  # MCP connection log of the CLI in the one-time HOME (removed after the run, never read back)
             notes.append(f"Claude Code wrote its MCP log into the one-time HOME: {mcp_logs}")
         if left["work"]:

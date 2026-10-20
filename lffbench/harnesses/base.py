@@ -290,7 +290,8 @@ class HarnessAdapter:
                 break
             time.sleep(0.05)
         h.info.setdefault("resumes", []).append(dict(t=time.time(), pid=h.pid, message=message,
-                                                     argv=argv[:-1] + ["<message>"], env_observed_keys=keys))
+                                                     argv=[("<message>" if x == message else x) for x in argv],
+                                                     env_observed_keys=keys))
         return h
 
     def wait(self, h, timeout=None):
