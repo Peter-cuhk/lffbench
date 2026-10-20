@@ -11,6 +11,8 @@ the same answer. Past the end of the script the server answers with a final text
   ("text", s)              a text block / assistant message
   ("exec", js)             Responses: one `exec` custom tool call (Codex code mode) with this JavaScript
   ("fcall", name, args)    Responses: a plain function call
+  ("nscall", ns, name, args)  Responses: a function call into a tool namespace (Codex without code mode calls our MCP
+                           tools this way: name "robot", namespace "mcp__lff"; measured with 0.163)
 
   srv = FakeAnthropic(script, record_dir).start(); ... srv.base_url ...; srv.stop()
 """
@@ -166,6 +168,9 @@ class FakeResponses(_Base):
             elif st[0] == "fcall":
                 out.append(dict(type="function_call", id=f"fc_fake_{n}_{j}", call_id=f"call_fake_{i:03d}_{j}",
                                 name=st[1], arguments=json.dumps(st[2]), status="completed"))
+            elif st[0] == "nscall":
+                out.append(dict(type="function_call", id=f"fc_fake_{n}_{j}", call_id=f"call_fake_{i:03d}_{j}",
+                                namespace=st[1], name=st[2], arguments=json.dumps(st[3]), status="completed"))
             else:
                 out.append(dict(type="message", id=f"msg_fake_{n}_{j}", role="assistant", status="completed",
                                 content=[dict(type="output_text", text=st[1], annotations=[])]))

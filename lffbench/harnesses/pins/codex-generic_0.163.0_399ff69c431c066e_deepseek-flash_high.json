@@ -1,0 +1,23 @@
+{
+ "key": "codex-generic|0.163.0|399ff69c431c066e|deepseek-flash|high",
+ "fingerprint_sha256": "c998aa8a7624948e949f21c563d129e964416edc94f9e22b0237a9d8c46dbe47",
+ "written": "2026-10-20 02:36:39",
+ "summary": {
+  "developer_chars": 16979,
+  "top_tools": [
+   "list_mcp_resource_templates",
+   "list_mcp_resources",
+   "mcp__lff.robot",
+   "mcp__lff.shell",
+   "mcp__lff.view_images",
+   "read_mcp_resource",
+   "request_user_input"
+  ],
+  "effort_in_request": "high",
+  "model_in_request": "deepseek-flash",
+  "sandbox": {
+   "sandbox": "seccomp",
+   "sandbox_mode": "read-only"
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "key": "codex-chatgpt-generic|0.163.0|399ff69c431c066e|gpt-6-astra|medium",
+ "fingerprint_sha256": "ae30000e0db69f6b50aefe798b87406f633e414e071a66fd0f5e85b006d8b0ea",
+ "written": "2026-10-20 02:33:27",
+ "summary": {
+  "developer_chars": 16979,
+  "top_tools": [
+   "list_mcp_resource_templates",
+   "list_mcp_resources",
+   "mcp__lff.robot",
+   "mcp__lff.shell",
+   "mcp__lff.view_images",
+   "read_mcp_resource",
+   "request_user_input"
+  ],
+  "effort_in_request": "medium",
+  "model_in_request": "gpt-6-astra",
+  "sandbox": {
+   "sandbox": "seccomp",
+   "sandbox_mode": "read-only"
+  }
+ }
+}

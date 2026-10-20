@@ -157,8 +157,12 @@ def translate(steps, api):
                 out.append([("tool", "mcp__lff__" + st[1], st[2])])
             elif api == "ref":
                 out.append([("tool", st[1], st[2])])
+            elif api == "codex-generic":  # no code mode: our tools are functions in the mcp__lff namespace
+                out.append([("nscall", "mcp__lff", st[1], st[2])])
             else:
                 out.append([("exec", js_call(st[1], st[2]))])
+        elif st[0] == "fcall" and api == "codex-generic":
+            out.append([("fcall", st[1], st[2])])
         elif st[0] == "builtin" and api == "claude":
             out.append([("tool", st[1], st[2])])
         elif st[0] == "js" and api == "codex":
@@ -173,21 +177,33 @@ def fake_for(adapter_name, script, rec):
 
 
 def api_of(adapter_name):
-    return "codex" if adapter_name == "codex" else "claude"
+    if adapter_name == "codex":
+        return "codex" if CODEX_CATALOG == "native" else "codex-generic"
+    return "claude"
 
 
 JAIL = False  # --jail: every adapter runs in the native-harness jail (docs/15 §3.4)
 CODEX_AUTH = "apikey"  # --codex-auth chatgpt: codex authenticates with a copy of the real ChatGPT login (requests still
 CODEX_AUTH_HOME = None  # go only to the fake server); its source CODEX_HOME is taken before the canary env is set up
+CLAUDE_AUTH = "apikey"  # --claude-auth oauth: claude_code_full authenticates with a dummy subscription token
+CODEX_CATALOG = "generic"  # --codex-catalog: the shared main-table configuration, or Codex's native one (code mode)
+
+
+def codex_code_mode():
+    return CODEX_CATALOG == "native"
 
 
 def adapter_kw(name, fake, allow_unpinned=True, pins_dir=None):
     if name == "codex" and CODEX_AUTH == "chatgpt":
         return dict(auth="chatgpt", auth_home=CODEX_AUTH_HOME, base_url=fake.base_url, timeout_s=600,
-                    allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
+                    allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL, catalog=CODEX_CATALOG)
     if name == "codex":
         return dict(api_env={"OPENAI_API_KEY": "sk-fake-not-a-key"}, base_url=fake.base_url, timeout_s=600,
-                    allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
+                    allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL, catalog=CODEX_CATALOG)
+    if name == "claude_code_full" and CLAUDE_AUTH == "oauth":
+        from lffbench.harnesses.claude_code import PREFLIGHT_CREDENTIAL
+        return dict(api_env={"CLAUDE_CODE_OAUTH_TOKEN": PREFLIGHT_CREDENTIAL["oauth"][1], "ANTHROPIC_BASE_URL": fake.base_url},
+                    auth="oauth", timeout_s=600, allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
     return dict(api_env={"ANTHROPIC_API_KEY": "sk-fake-not-a-key", "ANTHROPIC_BASE_URL": fake.base_url},
                 timeout_s=600, allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
 
@@ -227,6 +243,18 @@ def first_user_blocks(name, body):
     m = (body.get("messages") or [{}])[0]
     c = m.get("content")
     return [c] if isinstance(c, str) else [b.get("text") for b in c or [] if b.get("type") == "text"]
+
+
+def user_texts(name, body):
+    """Text of every user message in the request, in order (tool results excluded)."""
+    if name == "codex":
+        return first_user_blocks(name, body)
+    out = []
+    for m in body.get("messages") or []:
+        if m.get("role") == "user":
+            c = m.get("content")
+            out += [c] if isinstance(c, str) else [b.get("text") for b in c or [] if b.get("type") == "text"]
+    return out
 
 
 def images_in(name, body):
@@ -337,7 +365,11 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     log, sb, port = servers.start(f"hs1-{name}")
     rel_session = os.path.relpath(os.path.join(log, "session.json"), sb)
     probe = []
-    if A == "codex":
+    if A == "codex" and not codex_code_mode():  # plain function calls to tools that must not exist + one residual
+        probe += [("fcall", t, {"command": "ls /"}) for t in ("exec", "exec_command", "shell", "apply_patch",
+                                                             "view_image", "web_search")]
+        probe += [("fcall", "list_mcp_resources", {})]
+    elif A == "codex":
         probe += [("js", "text(JSON.stringify({require: typeof require, fetch: typeof fetch, process: typeof process, "
                          "exec_command: typeof tools.exec_command, shell: typeof tools.shell, "
                          "view_image: typeof tools.view_image, web_search: typeof tools.web_search}));"),
@@ -380,7 +412,13 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
             f"preflight_fp={str((hj.get('preflight') or {}).get('fingerprint_sha256'))[:12]}")
 
     # 2 tool list
-    if A == "codex":
+    if A == "codex" and not codex_code_mode():
+        from lffbench.harnesses.codex import EXPECTED_TOP_GENERIC
+        pre = hj.get("preflight") or {}
+        ok = not pre.get("problems") and pre.get("top_tools") == EXPECTED_TOP_GENERIC and pre.get("code_mode") is False
+        rep.add(A, 2, "tool list = our 3 MCP functions + declared residual set (generic catalog, no code mode)", ok,
+                f"top={pre.get('top_tools')} code_mode={pre.get('code_mode')} catalog={pre.get('catalog')}")
+    elif A == "codex":
         pre = hj.get("preflight") or {}
         ok = not pre.get("problems") and pre.get("all_tools") is not None
         rep.add(A, 2, "tool list = declared residual set (top-level + ALL_TOOLS)", ok,
@@ -410,7 +448,18 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     prefix = blocks[:blocks.index(fm)] if fm in blocks else blocks
     tools_ok, tdet = True, ""
     ours, _ = C.tool_schemas()
-    if A == "codex":
+    if A == "codex" and not codex_code_mode():
+        pf = json.load(open(os.path.join(log, "harness_preflight.json")))["fingerprint"]
+        tt = {t["name"]: t for t in pf.get("tools") or []}
+        for t in ours:
+            r = tt.get("mcp__lff." + t["name"]) or {}
+            if r.get("description") != t["description"] or r.get("parameters") != t["parameters"]:
+                tools_ok = False
+                tdet += f" {t['name']}: desc_eq={r.get('description') == t['description']} " \
+                        f"schema_eq={r.get('parameters') == t['parameters']} got={json.dumps(r.get('parameters'))[:200]};"
+        prefix_note = f"harness preset: {pf.get('developer_chars')} chars of developer messages; user input = exactly " \
+                      f"our message"
+    elif A == "codex":
         pf = json.load(open(os.path.join(log, "harness_preflight.json")))["fingerprint"]
         at = {t["name"]: t for t in pf.get("all_tools") or [] if isinstance(t, dict)}
         for t in ours:
@@ -439,7 +488,13 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     outs = tool_outputs(A, last)
     det = []
     ok5 = True
-    if A == "codex":
+    if A == "codex" and not codex_code_mode():
+        un = [o for o in outs if "unsupported call" in o]
+        ok5 &= len(un) >= 6
+        det.append(f"calls to absent tools rejected={len(un)}/6")
+        ores = next((o for o in outs if "resources" in o), "")
+        det.append("list_mcp_resources: " + ores[-120:].replace("\n", " "))
+    elif A == "codex":
         o0 = next((o for o in outs if '"require"' in o), "")
         try:
             d = json.loads(o0[o0.index("{"):o0.rindex("}") + 1])
@@ -484,7 +539,7 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     rep.add(A, 6, "image bytes reach the model unchanged (md5)", all(w in got for w in want),
             f"expected 4 distinct files (2 viewed twice); request has {len(got)} images; all md5 found="
             f"{all(w in got for w in want)}" + (" (Codex: forwarded because the scripted JS calls image())"
-                                                 if A == "codex" else ""))
+                                                 if A == "codex" and codex_code_mode() else ""))
 
     # 8 three logs
     traj = jread(os.path.join(log, "trajectory.jsonl"))
@@ -561,6 +616,10 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     state = hj3a.get("state_dirs") or {}
     left = {k: HB.snapshot_tree(v) for k, v in state.items() if k != "state" and os.path.isdir(v)}
     threads, thread1 = None, None
+    sid1 = None
+    if A != "codex":  # read before run 2 overwrites the stream log
+        from lffbench.harnesses.claude_code import ClaudeCode
+        sid1 = (ClaudeCode.session_ids(os.path.join(log3, "claude_stream.jsonl")) or [None])[0]
     if A == "codex":
         from lffbench.harnesses.codex import Codex
         thread1 = Codex.thread_id(os.path.join(log3, "codex_events.jsonl"))
@@ -577,6 +636,8 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     if A == "codex":  # not --ephemeral (exec resume): run 1's own session stays in its one-time CODEX_HOME
         transcripts = [p for p in transcripts if not (thread1 and p.startswith("sessions/")
                                                       and p.endswith(f"-{thread1}.jsonl"))]
+    else:  # no --no-session-persistence (-p --resume): run 1's own session stays in its one-time config dir
+        transcripts = [p for p in transcripts if not (sid1 and p.startswith("projects/") and p.endswith(f"/{sid1}.jsonl"))]
     ok9 = (code1 == 0 and code2 == 0 and not leaked and not transcripts
            and (threads in (None, 0) or (A == "codex" and threads == 1)))
     rep.add(A, 9, "no state: a second run in the SAME config dirs sees nothing of the first", ok9,
@@ -584,7 +645,7 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
             f"threads rows={threads}")
 
     # ---------------- S3b: early exit before the episode is over -> resumed with the reference driver's nudge
-    if A == "codex":  # the adapters with can_resume (Claude Code: not yet)
+    if A in ("codex", "claude_code", "claude_code_full"):  # the adapters with can_resume
         log5, sb5, port5 = servers.start(f"hs5-{name}", extra="--max-tool-calls 4")
         steps = [("mcp", "robot", {"command": "finish reason=\"probe\""}), ("mcp", "shell", {"command": "echo a"}),
                  ("text", "I stopped after the one authorized attempt."), ("mcp", "shell", {"command": "echo b"}),
@@ -596,12 +657,19 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
                 "is NOT over.")
         mcp5 = [d for d in jread(os.path.join(log5, "mcp_transcript.jsonl")) if d.get("ev") == "tool"]
         shell_calls = [d.get("calls_in_attempt") for d in mcp5 if d["name"] == "shell"]
-        users = [first_user_blocks(A, b) for _, b in reqs5]
+        users = [user_texts(A, b) for _, b in reqs5]
         nudged = [i for i, u in enumerate(users) if u and u[-1] == want]
         b0, b1 = reqs5[0][1], reqs5[nudged[0]][1] if nudged else {}
-        preset = (A != "codex" or (json.dumps(b0.get("input", [])[:4], sort_keys=True)
-                                   == json.dumps(b1.get("input", [])[:4], sort_keys=True)
-                                   and b0.get("model") == b1.get("model") and b0.get("reasoning") == b1.get("reasoning")))
+        if A == "codex":  # developer messages, tools and parameters (not the conversation)
+            def preset_of(b):
+                return json.dumps([[it for it in b.get("input", []) if it.get("type") == "additional_tools"
+                                    or (it.get("type") == "message" and it.get("role") == "developer")],
+                                   b.get("tools"), b.get("model"), b.get("reasoning"), b.get("text"),
+                                   b.get("parallel_tool_calls")], sort_keys=True)
+            preset = bool(nudged) and preset_of(b0) == preset_of(b1)
+        else:
+            preset = all(json.dumps(b0.get(k), sort_keys=True) == json.dumps(b1.get(k), sort_keys=True)
+                         for k in ("system", "tools", "model", "thinking", "output_config", "max_tokens"))
         history = bool(nudged) and "I stopped after the one authorized attempt." in json.dumps(b1)
         au5 = json.load(open(os.path.join(log5, "harness_audit.json")))
         ok12 = (code == 0 and len(resumes) == 4 and all(r["message"] == want for r in resumes)
@@ -765,7 +833,7 @@ def oracle_paths(rep, servers, scratch, adapters):
     first_user = next((d.get("text") for d in jread(os.path.join(log, "transcript.jsonl")) if d.get("ev") == "user"), None)
     ref_info = dict(instructions=start.get("instructions"), first_user=first_user,
                     first_message_sha256=hj.get("first_message_sha256"), contract=hj.get("contract_sha256"))
-    for A in [x for x in ("claude_code", "codex") if x in adapters]:
+    for A in [x for x in ("claude_code", "claude_code_full", "codex") if x in adapters]:
         log, sb, port = servers.start(f"hs6-{A}")
         code, hj, reqs = run_native(A, log, ORACLE, os.path.join(scratch, f"req_oracle_{A}"))
         paths[f"mcp ({A})"] = (log, code, hj)
@@ -814,10 +882,23 @@ def main():
     ap.add_argument("--codex-auth", default="apikey", choices=["apikey", "chatgpt"],
                     help="codex: fake API key, or a copy of the real ChatGPT login (LFF_CODEX_AUTH_HOME / CODEX_HOME); "
                          "requests still go only to the fake server; pins are per auth mode")
+    ap.add_argument("--claude-auth", default="apikey", choices=["apikey", "oauth"],
+                    help="claude_code_full: fake API key or a dummy subscription token (claude_code is --bare: apikey "
+                         "only); requests go only to the fake server; pins are per auth mode")
+    ap.add_argument("--codex-catalog", default="generic", choices=["generic", "native"],
+                    help="codex: the shared main-table configuration or Codex's native one; pins are per catalog")
+    ap.add_argument("--codex-model", default=None, metavar="MODEL:EFFORT",
+                    help="codex: check / pin this model instead of gpt-6-astra (high, medium), e.g. deepseek-flash:high "
+                         "with --codex-auth apikey (requests go only to the fake server)")
     a = ap.parse_args()
-    global JAIL, CODEX_AUTH, CODEX_AUTH_HOME
+    if a.codex_model:
+        m, _, e = a.codex_model.partition(":")
+        MODELS["codex"], EXTRA_PINS["codex"] = (m, e or "high"), []
+    global JAIL, CODEX_AUTH, CODEX_AUTH_HOME, CLAUDE_AUTH, CODEX_CATALOG
     JAIL = a.jail
     CODEX_AUTH = a.codex_auth
+    CLAUDE_AUTH = a.claude_auth
+    CODEX_CATALOG = a.codex_catalog
     CODEX_AUTH_HOME = os.path.abspath(os.environ.get("LFF_CODEX_AUTH_HOME") or os.environ.get("CODEX_HOME")
                                       or os.path.expanduser("~/.codex"))
     adapters = [x for x in a.adapters.split(",") if x]
@@ -829,7 +910,8 @@ def main():
     servers = Servers(runs, Ports(a.port0))
     rep = Report()
     saved_env = dict(os.environ)
-    meta = dict(time=time.strftime("%F %T"), adapters=adapters, jail=JAIL, codex_auth=CODEX_AUTH)
+    meta = dict(time=time.strftime("%F %T"), adapters=adapters, jail=JAIL, codex_auth=CODEX_AUTH, claude_auth=CLAUDE_AUTH,
+                codex_catalog=CODEX_CATALOG)
     try:
         # static: capability declarations (a class with a missing item cannot even be defined)
         try:

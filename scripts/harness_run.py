@@ -10,9 +10,15 @@ message (byte-identical README), only our MCP server (scripts/mcp_robot_server.p
 dir, an opaque work dir /tmp/lffrun/<12 hex> and a process environment that is exactly a whitelist.
 
 API variables (never inherited from the calling Claude Code / Codex session):
-  claude_code*: key LFF_ANTHROPIC_API_KEY or ANTHROPIC_API_KEY; endpoint --api-base-url or LFF_ANTHROPIC_BASE_URL
-                (default: the CLI's own default, the official API)
-  codex:        --codex-auth chatgpt (default): the ChatGPT subscription login of LFF_CODEX_AUTH_HOME / CODEX_HOME
+  claude_code*: --claude-auth oauth (default for claude_code_full): a Claude subscription, the long-lived token of
+                `claude setup-token` from LFF_CLAUDE_OAUTH_TOKEN or the KEY=value file LFF_CLAUDE_OAUTH_FILE (key
+                LFF_CLAUDE_OAUTH_TOKEN or CLAUDE_CODE_OAUTH_TOKEN), passed as CLAUDE_CODE_OAUTH_TOKEN;
+                --claude-auth apikey (default and only choice for claude_code, which is --bare): key
+                LFF_ANTHROPIC_API_KEY or ANTHROPIC_API_KEY;
+                endpoint --api-base-url or LFF_ANTHROPIC_BASE_URL (default: the CLI's own default, the official API)
+  codex:        --codex-provider deepseek: DeepSeek's Responses endpoint (https://api.deepseek.com/), key
+                LFF_DEEPSEEK_API_KEY or DEEPSEEK_API_KEY (passed to Codex as its provider's OPENAI_API_KEY);
+                --codex-auth chatgpt (default): the ChatGPT subscription login of LFF_CODEX_AUTH_HOME / CODEX_HOME
                 (a copy of its auth.json, no API key; endpoint the ChatGPT Codex backend unless --api-base-url);
                 --codex-auth apikey: key LFF_OPENAI_API_KEY or OPENAI_API_KEY; endpoint --api-base-url,
                 LFF_OPENAI_BASE_URL or OPENAI_BASE_URL (as api_player), else https://api.openai.com/v1
@@ -40,18 +46,48 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from api_player import MAX_NO_TOOL, call_server, continue_nudge  # noqa: E402
 
 
-def api_env_for(harness, base_url, codex_auth="apikey"):
+def claude_oauth_token():
+    """The subscription token for claude_code_full --claude-auth oauth: LFF_CLAUDE_OAUTH_TOKEN, else the KEY=value
+    file LFF_CLAUDE_OAUTH_FILE. Never CLAUDE_CODE_OAUTH_TOKEN of the calling environment (that may be the calling
+    Claude Code session's own login)."""
+    tok = os.environ.get("LFF_CLAUDE_OAUTH_TOKEN")
+    if tok:
+        return tok.strip()
+    path = os.environ.get("LFF_CLAUDE_OAUTH_FILE")
+    if path and os.path.isfile(path):
+        for line in open(path):
+            k, _, v = line.strip().partition("=")
+            if k.strip().removeprefix("export ").strip() in ("LFF_CLAUDE_OAUTH_TOKEN", "CLAUDE_CODE_OAUTH_TOKEN") and v:
+                return v.strip().strip("'\"")
+    raise SystemExit("claude --claude-auth oauth: no token; run `claude setup-token` and put LFF_CLAUDE_OAUTH_TOKEN=... "
+                     "into the file named by LFF_CLAUDE_OAUTH_FILE (or export LFF_CLAUDE_OAUTH_TOKEN)")
+
+
+def default_claude_auth(harness):
+    return "apikey" if harness == "claude_code" else "oauth"
+
+
+def api_env_for(harness, base_url, codex_auth="apikey", claude_auth="apikey", codex_provider="openai"):
     """-> (variables passed to the harness, endpoint or None, endpoint label for harness.json). Endpoints are never
     written to the logs, only where they came from."""
     if harness.startswith("claude_code"):
         e = {}
-        key = os.environ.get("LFF_ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
-        if key:
-            e["ANTHROPIC_API_KEY"] = key
+        if claude_auth == "oauth":
+            e["CLAUDE_CODE_OAUTH_TOKEN"] = claude_oauth_token()
+        else:
+            key = os.environ.get("LFF_ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+            if key:
+                e["ANTHROPIC_API_KEY"] = key
         url = base_url or os.environ.get("LFF_ANTHROPIC_BASE_URL")
         if url:
             e["ANTHROPIC_BASE_URL"] = url
-        return e, url, ("--api-base-url" if base_url else "LFF_ANTHROPIC_BASE_URL") if url else "CLI default (official)"
+        dflt = "CLI default (official)" + (", subscription token" if claude_auth == "oauth" else "")
+        return e, url, ("--api-base-url" if base_url else "LFF_ANTHROPIC_BASE_URL") if url else dflt
+    if harness == "codex" and codex_provider == "deepseek":  # DeepSeek's own Responses endpoint, an API key
+        key = os.environ.get("LFF_DEEPSEEK_API_KEY") or os.environ.get("DEEPSEEK_API_KEY")
+        from lffbench.harnesses.codex import DEEPSEEK_URL
+        return ({"OPENAI_API_KEY": key} if key else {}), base_url or DEEPSEEK_URL, \
+            "--api-base-url" if base_url else "DeepSeek (DEEPSEEK_URL, key LFF_DEEPSEEK_API_KEY / DEEPSEEK_API_KEY)"
     if harness == "codex" and codex_auth == "chatgpt":
         return {}, base_url, "--api-base-url" if base_url else "ChatGPT Codex backend (subscription login)"
     if harness == "codex":
@@ -124,12 +160,18 @@ def run(a, adapter_kw=None):
     ep = EpisodeSpec.from_session(a.session, a.model, a.effort, provider)
     contract, csha = C.write_contract(ep.log_dir)
     if adapter_kw is None:
-        api_env, url, endpoint = api_env_for(a.harness, a.api_base_url, getattr(a, "codex_auth", "apikey"))
+        claude_auth = getattr(a, "claude_auth", None) or default_claude_auth(a.harness)
+        if getattr(a, "codex_provider", "openai") == "deepseek":
+            a.codex_auth = "apikey"  # no subscription login for DeepSeek
+        api_env, url, endpoint = api_env_for(a.harness, a.api_base_url, getattr(a, "codex_auth", "apikey"),
+                                             claude_auth, getattr(a, "codex_provider", "openai"))
         adapter_kw = dict(timeout_s=a.timeout)
         if a.harness.startswith("claude_code"):
-            adapter_kw.update(api_env=api_env, max_budget_usd=a.max_budget_usd, allow_unpinned=a.allow_unpinned)
+            adapter_kw.update(api_env=api_env, max_budget_usd=a.max_budget_usd, allow_unpinned=a.allow_unpinned,
+                              auth=claude_auth)
         elif a.harness == "codex":
-            adapter_kw.update(api_env=api_env, base_url=url, allow_unpinned=a.allow_unpinned, auth=a.codex_auth)
+            adapter_kw.update(api_env=api_env, base_url=url, allow_unpinned=a.allow_unpinned, auth=a.codex_auth,
+                              catalog=a.codex_catalog)
         if getattr(a, "jail", False):
             if a.harness == "ours":
                 raise SystemExit("--jail is for native harnesses")
@@ -144,7 +186,8 @@ def run(a, adapter_kw=None):
     hj = dict(harness=ad.name, version=ver.get("version"), binary=ver.get("binary"), model=a.model, effort=a.effort,
               provider=provider, capabilities={k: vars(c) for k, c in ad.capabilities.items()},
               contract_sha256=csha, task=ep.task, seed=ep.seed, api_endpoint_from=endpoint, status="preparing",
-              t_prepare=time.time(), jail=ad.jail_info(), auth=ad.auth_info() if ad.name != "ours" else None)
+              t_prepare=time.time(), jail=ad.jail_info(), auth=ad.auth_info() if ad.name != "ours" else None,
+              config=ad.config_info() if hasattr(ad, "config_info") else None)
     if ad.name == "ours":
         first = None
         spec = ad.prepare(ep)
@@ -220,6 +263,15 @@ def parser():
     ap.add_argument("--api-base-url", default=None)
     ap.add_argument("--codex-auth", default="chatgpt", choices=["chatgpt", "apikey"],
                     help="codex: ChatGPT subscription login (copy of auth.json) or an API key (see above)")
+    ap.add_argument("--claude-auth", default=None, choices=["oauth", "apikey"],
+                    help="claude_code*: subscription token (default for claude_code_full) or an API key (claude_code, "
+                         "--bare, takes only an API key); see above")
+    ap.add_argument("--codex-provider", default="openai", choices=["openai", "deepseek"],
+                    help="codex: model provider; deepseek = DeepSeek's Responses endpoint with LFF_DEEPSEEK_API_KEY / "
+                         "DEEPSEEK_API_KEY (implies --codex-auth apikey)")
+    ap.add_argument("--codex-catalog", default="generic", choices=["generic", "native"],
+                    help="codex: model catalog, the main table's shared configuration (default) or Codex's native "
+                         "one (control); see lffbench/harnesses/codex.py")
     ap.add_argument("--max-budget-usd", type=float, default=None, help="claude_code*: --max-budget-usd")
     ap.add_argument("--timeout", type=float, default=10800)
     ap.add_argument("--allow-unpinned", action="store_true",

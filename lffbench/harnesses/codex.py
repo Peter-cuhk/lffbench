@@ -27,7 +27,18 @@ Measured with 0.163 against the fake server: same body keys and headers in both 
 preset differs (exec tool description), so pins are per auth mode (pin name codex-chatgpt).
 The calling environment's HTTP(S) proxy is passed through (base.proxy_env; NO_PROXY = loopback only).
 
-Known, accepted differences (reported, not fixable by config in 0.156):
+Model configuration (catalog=, user 2026-10-20): Codex picks the system prompt, tool form and context window per
+model from its model catalog. We always pass an explicit model_catalog_json written into the one-time CODEX_HOME, so
+nothing depends on the catalog the subscription backend serves on the day:
+  generic  (main table, every model) one entry built from codex_catalogs/generic_<version>.json: what Codex sends for a
+           model it has no entry for (its generic Codex CLI prompt, plain function tools, no code mode); per model only
+           slug, input modalities and reasoning levels. Measured with 0.163 against the fake server: the request equals
+           the no-catalog fallback for an unknown slug apart from message ids.
+  native   (control) codex_catalogs/native_<version>.json = `codex debug models --bundled` of that binary: the request
+           equals the one without any catalog (GPT: code mode, its own prompt). The pins of before 10-20 stay valid.
+Pins are per catalog (pin name codex[-chatgpt][-generic]).
+
+Known, accepted differences in native (code mode) catalogs (reported, not fixable by config in 0.156):
   - code mode: the model sees one `exec` tool (JavaScript in a V8 isolate without fs / network); our tools are nested
     and listed only in ALL_TOOLS; MCP images reach the model only if the model's JS calls image(...)
   - apply_patch (blocked by the read-only sandbox), clock, 3 MCP-resource tools (our server has no resources),
@@ -111,6 +122,15 @@ EXPECTED_TOP = ["collaboration.followup_task", "collaboration.interrupt_agent", 
                 "functions.wait"]
 EXPECTED_ALL_TOOLS = ["apply_patch", "clock__curr_time", "list_mcp_resource_templates", "list_mcp_resources",
                       "mcp__lff__robot", "mcp__lff__shell", "mcp__lff__view_images", "read_mcp_resource"]
+# generic catalog (no code mode), measured with 0.163: our tools are plain functions in the mcp__lff namespace
+EXPECTED_TOP_GENERIC = ["list_mcp_resource_templates", "list_mcp_resources", "mcp__lff.robot", "mcp__lff.shell",
+                        "mcp__lff.view_images", "read_mcp_resource", "request_user_input"]
+CATALOG_DIR = os.path.join(ROOT, "lffbench", "harnesses", "codex_catalogs")
+CATALOG_FILE = "lff_model_catalog.json"  # written into the one-time CODEX_HOME before launch
+CATALOGS = ("generic", "native")
+# generic catalog: the per-model fields (input modalities; the run's reasoning level is always listed)
+TEXT_ONLY_MODELS = {"deepseek-v4-pro": ["text"]}  # DeepSeek's Codex guide (read 2026-10-20): v4-pro takes no images
+DEEPSEEK_URL = "https://api.deepseek.com/"  # same guide: base_url, wire_api = "responses"
 MCP_TOOLS = ["robot", "shell", "view_images"]
 OK_ITEMS = ("agent_message", "reasoning", "mcp_tool_call", "error")
 PREFLIGHT_JS = "text(JSON.stringify(ALL_TOOLS));"
@@ -144,7 +164,7 @@ def _walk_tools(ts, prefix=""):
     return out
 
 
-def request_fingerprint(body, cwd, first_message):
+def request_fingerprint(body, cwd, first_message, expected_top=None):
     problems = []
     items = body.get("input") or []
     top = _walk_tools(body.get("tools"))
@@ -157,8 +177,9 @@ def request_fingerprint(body, cwd, first_message):
         elif it.get("type") == "message" and it.get("role") == "user":
             users.append(it)
     names = sorted(t["name"] for t in top)
-    if names != EXPECTED_TOP:
-        problems.append(f"top-level tools {names} != expected {EXPECTED_TOP}")
+    expected_top = EXPECTED_TOP if expected_top is None else expected_top
+    if names != expected_top:
+        problems.append(f"top-level tools {names} != expected {expected_top}")
     texts = [c.get("text") for u in users for c in u.get("content") or []]
     if texts != [first_message]:
         problems.append(f"user input is not exactly our first message ({len(texts)} user text blocks)")
@@ -178,6 +199,30 @@ def request_fingerprint(body, cwd, first_message):
     fp = dict(tools=sorted(top, key=lambda t: t["name"]), developer=dev, params=params, sandbox=sandbox,
               developer_chars=sum(len(d) for d in dev))
     return fp, problems
+
+
+def model_catalog(mode, version, model, modalities=None, effort=None):
+    """-> (catalog dict for model_catalog_json, source file). Refuses (fail-closed) when the version has no catalog
+    file or, for native, when the model has no entry."""
+    if mode not in CATALOGS:
+        raise ValueError(f"catalog must be one of {CATALOGS}, not {mode!r}")
+    src = os.path.join(CATALOG_DIR, f"{mode}_{version}.json")
+    if not os.path.exists(src):
+        raise HarnessRefused(f"no {mode} model catalog for Codex {version} ({os.path.relpath(src, ROOT)})")
+    d = json.load(open(src))
+    if mode == "native":
+        if not any(m.get("slug") == model for m in d.get("models") or []):
+            raise HarnessRefused(f"native catalog {os.path.basename(src)} has no entry for {model}")
+        return d, src
+    e = dict(d["entry"], slug=model, display_name=model)
+    modalities = modalities or TEXT_ONLY_MODELS.get(model)
+    if modalities:
+        e["input_modalities"] = list(modalities)
+    levels = [dict(x) for x in e.get("supported_reasoning_levels") or []]
+    if effort and effort not in [x.get("effort") for x in levels]:
+        levels.append(dict(effort=effort, description=effort))
+    e["supported_reasoning_levels"] = levels
+    return dict(models=[e]), src
 
 
 def all_tools_from(body):
@@ -203,9 +248,12 @@ class Codex(HarnessAdapter):
     clean_dirs = ("home", "codex_home", "tmp")
     ancestor_files = ("AGENTS.md", "AGENTS.override.md", ".codex")
     capabilities = dict(
-        only_benchmark_tools=Cap("partial", "preflight", "our 3 MCP tools are reachable only via exec(JS); residual "
-                                 "apply_patch(blocked) / clock / resource×3 / request_user_input / collaboration×6"),
-        images_reach_model=Cap("partial", "probe", "only if the model's JS calls image(); bytes unchanged when it does"),
+        only_benchmark_tools=Cap("partial", "preflight", "generic catalog: our 3 MCP tools as functions + residual "
+                                 "resource×3 / request_user_input; native (code mode): reachable only via exec(JS), "
+                                 "residual apply_patch(blocked) / clock / resource×3 / request_user_input / "
+                                 "collaboration×6"),
+        images_reach_model=Cap("partial", "probe", "generic: MCP images go to the model; native (code mode): only if "
+                               "the model's JS calls image(); bytes unchanged either way"),
         non_persistent_session=Cap("yes", "probe", "only this run's thread, in the one-time CODEX_HOME (for exec "
                                    "resume), removed after the run; memories off"),
         pinned_version=Cap("yes", "launch", "codex --version + binary sha256 in harness.json; pin per version"),
@@ -224,11 +272,18 @@ class Codex(HarnessAdapter):
     )
 
     def __init__(self, api_env=None, base_url=None, timeout_s=10800, pins_dir=None, allow_unpinned=False,
-                 python=None, extra_args=None, jail=False, auth="apikey", auth_home=None):
+                 python=None, extra_args=None, jail=False, auth="apikey", auth_home=None, catalog="generic",
+                 modalities=None):
         """api_env: {"OPENAI_API_KEY": ...} (the provider's env_key, auth="apikey"); base_url: Responses endpoint
         (default: official API / ChatGPT Codex backend by auth). auth="chatgpt": a ChatGPT login copied from
         auth_home (default LFF_CODEX_AUTH_HOME, else the calling CODEX_HOME, else ~/.codex), no API key.
-        jail: run the CLI in the native-harness jail (lffbench/harnesses/jail.py, static /proc)."""
+        jail: run the CLI in the native-harness jail (lffbench/harnesses/jail.py, static /proc).
+        catalog: "generic" (shared configuration of the main table) or "native" (Codex's own entry for the model);
+        modalities: input modalities of a generic entry (default text + image)."""
+        if catalog not in CATALOGS:
+            raise ValueError(f"catalog must be one of {CATALOGS}, not {catalog!r}")
+        self.catalog, self.modalities = catalog, (list(modalities) if modalities else None)
+        self._catalog_sha = {}  # one-time CODEX_HOME -> sha256 of the catalog written there
         if auth not in ("apikey", "chatgpt"):
             raise ValueError(f"auth must be apikey or chatgpt, not {auth!r}")
         if jail:
@@ -240,7 +295,7 @@ class Codex(HarnessAdapter):
         if auth == "chatgpt":
             self.auth_home = os.path.abspath(auth_home or os.environ.get("LFF_CODEX_AUTH_HOME")
                                              or os.environ.get("CODEX_HOME") or os.path.expanduser("~/.codex"))
-            self.clean_allowed = {"codex_home": (AUTH_FILE,)}
+        self.clean_allowed = {"codex_home": ((AUTH_FILE,) if auth == "chatgpt" else ()) + (CATALOG_FILE,)}
         self.api_env = dict(api_env or {}) if auth == "apikey" else {}
         self.base_url = base_url or (OFFICIAL_API if auth == "apikey" else CHATGPT_BACKEND)
         self.proxy = proxy_env()
@@ -257,6 +312,22 @@ class Codex(HarnessAdapter):
             return dict(mode="apikey", keys=sorted(self.api_env))
         st = chatgpt_login_status(self.auth_home)
         return dict(mode="chatgpt", source=self.auth_home, **{k: v for k, v in st.items() if k != "ok"})
+
+    def config_info(self):
+        """For harness.json: which model catalog the run used."""
+        return dict(catalog=self.catalog, modalities=self.modalities)
+
+    def _install_catalog(self, codex_home, ep):
+        """Write the run's model catalog into the one-time CODEX_HOME (the only file besides auth.json allowed there
+        at launch). -> (path, sha256, source file, code mode)."""
+        cat, src = model_catalog(self.catalog, self.version()["version"], ep.model, self.modalities, ep.effort)
+        path = os.path.join(codex_home, CATALOG_FILE)
+        with open(path, "w") as f:
+            json.dump(cat, f)
+        sha = C.sha256_file(path)
+        self._catalog_sha[codex_home] = sha
+        entry = next(m for m in cat["models"] if m.get("slug") == ep.model)
+        return path, sha, os.path.relpath(src, ROOT), entry.get("tool_mode") == "code_mode_only"
 
     def _install_auth(self, codex_home):
         """auth="chatgpt": copy the source login into a one-time CODEX_HOME (refused if it is due for a refresh)."""
@@ -314,10 +385,11 @@ class Codex(HarnessAdapter):
     def pin_key(self, ep):
         v = self.version()
         name = self.name if self.auth == "apikey" else f"{self.name}-{self.auth}"
+        name += "" if self.catalog == "native" else f"-{self.catalog}"
         return pins.key(name, v["version"], v["binary"]["sha256"], ep.model, ep.effort)
 
     # ------------------------------------------------------------------------------------------------ prepare
-    def config_args(self, ep, session_path, base_url):
+    def config_args(self, ep, session_path, base_url, codex_home):
         mcp_cmd, mcp_args = self.mcp_server_command(self.python, MCP_SCRIPT, ["--session", session_path] if session_path
                                                     else ["--schema-only"])
         c = ["model_reasoning_effort=" + toml_str(ep.effort),
@@ -333,15 +405,16 @@ class Codex(HarnessAdapter):
              "mcp_servers.lff.env={PATH=" + toml_str(BASE_PATH) + "}",
              'mcp_servers.lff.enabled_tools=["robot","shell","view_images"]',
              'mcp_servers.lff.default_tools_approval_mode="approve"', "mcp_servers.lff.required=true",
-             "mcp_servers.lff.startup_timeout_sec=60", "mcp_servers.lff.tool_timeout_sec=900"]
+             "mcp_servers.lff.startup_timeout_sec=60", "mcp_servers.lff.tool_timeout_sec=900",
+             "model_catalog_json=" + toml_str(os.path.join(codex_home, CATALOG_FILE))]
         return c
 
-    def argv(self, ep, session_path, base_url, first_message):
+    def argv(self, ep, session_path, base_url, first_message, codex_home):
         a = [codex_bin(), "exec", "--json", "--skip-git-repo-check", "--ignore-user-config",
              "--ignore-rules", "-s", "read-only", "-m", ep.model]
         for f in DISABLE:
             a += ["--disable", f]
-        for c in self.config_args(ep, session_path, base_url):
+        for c in self.config_args(ep, session_path, base_url, codex_home):
             a += ["-c", c]
         return a + self.extra_args + [first_message]
 
@@ -390,11 +463,14 @@ class Codex(HarnessAdapter):
             self.jail.stderr_dir = ep.log_dir
         if not reuse_state and os.listdir(state["codex_home"]):
             raise HarnessRefused("CODEX_HOME is not empty")
-        argv = self.argv(ep, ep.session_path, self.base_url, first_message)
+        cat_path, cat_sha, cat_src, code_mode = self._install_catalog(state["codex_home"], ep)
+        argv = self.argv(ep, ep.session_path, self.base_url, first_message, state["codex_home"])
         return LaunchSpec(argv=argv, env=self.env(state), cwd=work, run_dir=work, state_dirs=state,
                           first_message=first_message, stdout_path=os.path.join(ep.log_dir, "codex_events.jsonl"),
                           stderr_path=os.path.join(ep.log_dir, "codex_stderr.txt"),
                           redact_argv={len(argv) - 1: f"<first message: sha256={C.sha256_text(first_message)}>"},
+                          config_files=dict(model_catalog_json=dict(path=cat_path, sha256=cat_sha, source=cat_src,
+                                                                    catalog=self.catalog, code_mode=code_mode)),
                           timeout_s=self.timeout_s)
 
     def launch(self, spec, ep, skip_preflight=False):
@@ -408,38 +484,45 @@ class Codex(HarnessAdapter):
     def config_sha256(self, spec, ep):
         """Hash of everything configurable (argv without the first message, env values except keys / one-time dirs)."""
         argv = [re.sub(r"/tmp/lffsock/[0-9a-f]{12}/[^\"\],]+", "<JAIL_SOCKET>", a.replace(ep.session_path, "<SESSION>"))
-                for a in self.logged_argv(spec)[1:-1]]
+                .replace(spec.state_dirs["codex_home"], "<CODEX_HOME>") for a in self.logged_argv(spec)[1:-1]]
         env = {k: (v if k not in self.api_env else "<api>") for k, v in spec.env.items()
                if k not in ("HOME", "CODEX_HOME", "TMPDIR") + PROXY_KEYS + NO_PROXY_KEYS}
-        return C.sha256_json(dict(argv=argv, env=env))
+        cat = (spec.config_files.get("model_catalog_json") or {}).get("sha256")
+        return C.sha256_json(dict(argv=argv, env=env, model_catalog_sha256=cat))
 
     # ------------------------------------------------------------------------------------------------ preflight
     def preflight(self, spec, ep, record_dir=None):
         t0 = time.time()
-        fake = FakeResponses([[("exec", PREFLIGHT_JS)], [("text", "preflight ok")]], record_dir=record_dir).start()
+        code_mode = (spec.config_files.get("model_catalog_json") or {}).get("code_mode", True)
+        script = [[("exec", PREFLIGHT_JS)], [("text", "preflight ok")]] if code_mode else [[("text", "preflight ok")]]
+        fake = FakeResponses(script, record_dir=record_dir).start()
         pre = self._state_dirs()
         try:
             self._install_auth(pre["codex_home"])
-            argv = self.argv(ep, None, fake.base_url, spec.first_message)
+            self._install_catalog(pre["codex_home"], ep)
+            argv = self.argv(ep, None, fake.base_url, spec.first_message, pre["codex_home"])
             env = self.env(pre)
             if self.auth == "apikey":
                 env["OPENAI_API_KEY"] = "sk-preflight-not-a-key"
             r = subprocess.run(self.jailed_argv(argv, env, spec.cwd, list(pre.values())), env=env, cwd=spec.cwd,
                                stdin=subprocess.DEVNULL, capture_output=True, timeout=180)
             reqs = fake.model_requests()
-            if len(reqs) < 2:
+            if len(reqs) < (2 if code_mode else 1):
                 raise HarnessRefused(f"preflight: {len(reqs)} model requests (rc={r.returncode}): "
                                      f"{r.stderr.decode('utf-8', 'replace')[-800:]}")
-            fp, problems = request_fingerprint(reqs[0][1], spec.cwd, spec.first_message)
-            at = all_tools_from(reqs[1][1])
-            if at is None:
-                problems.append("exec preflight did not print ALL_TOOLS")
-                at = []
-            at_names = sorted(t.get("name") if isinstance(t, dict) else str(t) for t in at)
-            if at_names != EXPECTED_ALL_TOOLS:
-                problems.append(f"ALL_TOOLS {at_names} != expected {EXPECTED_ALL_TOOLS}")
-            fp["all_tools"] = [({k: (_norm(v, spec.cwd) if isinstance(v, str) else v) for k, v in t.items()}
-                                if isinstance(t, dict) else t) for t in sorted(at, key=lambda t: json.dumps(t))]
+            fp, problems = request_fingerprint(reqs[0][1], spec.cwd, spec.first_message,
+                                               EXPECTED_TOP if code_mode else EXPECTED_TOP_GENERIC)
+            at_names = None
+            if code_mode:  # our tools are nested in exec: the scripted exec call prints them
+                at = all_tools_from(reqs[1][1])
+                if at is None:
+                    problems.append("exec preflight did not print ALL_TOOLS")
+                    at = []
+                at_names = sorted(t.get("name") if isinstance(t, dict) else str(t) for t in at)
+                if at_names != EXPECTED_ALL_TOOLS:
+                    problems.append(f"ALL_TOOLS {at_names} != expected {EXPECTED_ALL_TOOLS}")
+                fp["all_tools"] = [({k: (_norm(v, spec.cwd) if isinstance(v, str) else v) for k, v in t.items()}
+                                    if isinstance(t, dict) else t) for t in sorted(at, key=lambda t: json.dumps(t))]
             effort = (fp["params"].get("reasoning") or {}).get("effort")
             if effort != ep.effort:
                 problems.append(f"reasoning.effort in request {effort!r} != {ep.effort!r}")
@@ -447,7 +530,8 @@ class Codex(HarnessAdapter):
                 problems.append(f"work dir not empty after preflight: {os.listdir(spec.cwd)}")
             fp_sha = C.sha256_json(fp)
             out = dict(fingerprint_sha256=fp_sha, developer_chars=fp["developer_chars"], n_requests=len(reqs),
-                       top_tools=[t["name"] for t in fp["tools"]], all_tools=at_names, effort_in_request=effort,
+                       top_tools=[t["name"] for t in fp["tools"]], all_tools=at_names, code_mode=code_mode,
+                       catalog=self.catalog, effort_in_request=effort,
                        model_in_request=fp["params"].get("model"), sandbox=fp["sandbox"], dt_s=round(time.time() - t0, 1),
                        problems=problems)
             pin = pins.load(self.pin_key(ep), self.pins_dir)
@@ -515,7 +599,8 @@ class Codex(HarnessAdapter):
         v = self.version()
         tw.set_header(session_id=thread, source=os.path.basename(spec.stdout_path),
                       agent=dict(name=self.name, version=v["version"], model_name=ep.model, effort=ep.effort),
-                      tools=EXPECTED_ALL_TOOLS)
+                      tools=EXPECTED_ALL_TOOLS if (spec.config_files.get("model_catalog_json") or {}).get(
+                          "code_mode", True) else EXPECTED_TOP_GENERIC)
         tw.set_final(h.exit_reason, native_result=dict(errors=errors[-5:], item_types=sorted(set(items))),
                      total_prompt_tokens=usage["input"], total_completion_tokens=usage["output"],
                      total_cached_tokens=usage["cached"], total_cost_usd=None, reasoning_tokens=usage["reasoning"])
@@ -585,7 +670,8 @@ class Codex(HarnessAdapter):
                          f"episode was over)")
         if left["work"]:
             v.append(f"files in the work dir: {left['work']}")
-        notes.append("image forwarding (model calls image()) is not visible in --json; needs the model proxy (P1)")
+        if (spec.config_files.get("model_catalog_json") or {}).get("code_mode", True):
+            notes.append("image forwarding (model calls image()) is not visible in --json; needs the model proxy (P1)")
         mcp_env = None
         mt = os.path.join(ep.log_dir, "mcp_transcript.jsonl")
         if os.path.exists(mt):

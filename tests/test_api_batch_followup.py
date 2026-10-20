@@ -24,11 +24,11 @@ def runs_dir(tmp_path, monkeypatch):
     return tmp_path
 
 
-def write_log(tmp, name, outcomes):
+def write_log(tmp, name, outcomes, protocol="cross"):
     """A run log whose server log has one `done` per attempt (outcomes: 'FFS' etc.)."""
     d = tmp / "logs" / name
     d.mkdir(parents=True)
-    ev = [dict(ev="session_start", t=0.0)]
+    ev = [dict(ev="session_start", protocol=protocol, t=0.0)]
     for i, o in enumerate(outcomes, 1):
         ev.append(dict(ev="http", attempt=i, cmd="move", t=i, t_recv=i, t_send=i + 0.1, server_s=0.1, think_s=1.0))
         ev.append(dict(ev="call", attempt=i, cmd="move", step=1, t=i))
@@ -41,7 +41,8 @@ def start(batch, tasks, **kw):
     ns = dict(batch=batch, harness="ours", provider="chat", api_base_url=None, max_budget_usd=None,
               allow_unpinned=False, jail=False, model="m", effort="high", tasks=tasks, k=3, indep_reps=None,
               conds=None, no_barrier=False, no_hide_k=False, concurrency=1, port0=14000, run_timeout=60,
-              perception="rgb", video=False, feedback="F1", nominal=False, memfree="followup", seeds_per_task=None)
+              perception="rgb", video=False, feedback="F1", nominal=False, memfree="followup", seeds_per_task=None,
+              codex_auth="chatgpt", codex_catalog="generic", codex_provider="openai", claude_auth=None)  # the CLI defaults
     ns.update(kw)
     with redirect_stdout(io.StringIO()):
         api_batch.cmd_start(argparse.Namespace(**ns))
@@ -83,6 +84,14 @@ def test_chain(runs_dir):
     failed = dict(h3, status="failed")
     assert api_batch.plan_followup(m, failed) is None
     assert len({r["id"] for r in m["runs"]}) == len(m["runs"])
+
+
+def test_no_chain_when_the_scene_persists(runs_dir):
+    # protocol "within" (scene not reset between attempts): a fresh agent would start from the initial scene while the
+    # history run's attempt 2 starts from the failed one -> no memory-free retries for these tasks (user 2026-10-20)
+    m = start("b", ["t1:3000"])
+    assert finish(m, m["runs"][0], write_log(runs_dir, "w1", "FFF", protocol="within")) is None
+    assert [r["cond"] for r in m["runs"]] == ["harness"]
 
 
 def test_table_rows(runs_dir):

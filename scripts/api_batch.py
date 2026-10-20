@@ -19,7 +19,9 @@ and, with --harness, for native agent harnesses (side table, docs/15).
 --harness (default ours): which agent harness drives each run, through scripts/harness_run.py (lffbench/harnesses):
   ours              scripts/api_player.py, unchanged (--provider as before)
   claude_code       Claude Code CLI --bare, only our MCP tools, one-time config dirs (arm B; provider anthropic)
-  claude_code_full  Claude Code CLI without --bare (full system prompt), otherwise the same (arm B')
+  claude_code_full  Claude Code CLI without --bare (full system prompt), otherwise the same (arm B');
+                    --claude-auth oauth (default): the subscription token of `claude setup-token` (LFF_CLAUDE_OAUTH_FILE),
+                    apikey: ANTHROPIC_API_KEY (claude_code takes only apikey)
   codex             Codex CLI exec --ephemeral, empty CODEX_HOME, only our MCP tools reachable (arm F; provider openai);
                     --codex-auth chatgpt (default): the ChatGPT subscription login, apikey: OPENAI_API_KEY
 Native harnesses are refused at launch (status "refused") unless their preset prompt / tool list matches the pin
@@ -34,7 +36,9 @@ run; more attempts are announced only after a failure; --no-hide-k to show k).
            since under --hide-k it sees exactly what a fresh agent sees. Only if attempt 1 fails does the runner add a
            fresh single-attempt agent (noharness rep 1, "chain" = the history run's id); if that one fails too, the
            next (rep 2), up to k-1 of them; the first success ends the chain. An instance solved on attempt 1 thus
-           costs one attempt in all.
+           costs one attempt in all. Not for tasks whose scene persists between attempts (task protocol "within"):
+           a fresh agent would start from the initial scene, the history run's attempt 2 from the failed one, so the
+           two conditions would differ; these tasks are reported without memory-free retries (user 2026-10-20).
   upfront  the 2026-10-11 protocol: --indep-reps independent runs per instance (default k, all of them run), all
            before the history runs (--conds order; --no-barrier to mix the phases).
   none     history runs only.
@@ -116,7 +120,7 @@ def next_id(m):
 # attempt (--hide-k makes it identical to a fresh agent's), so the memory-free pass@k of an instance is: attempt 1 of
 # the history run, or any of its chain runs, succeeded.
 PLAN_KEYS = ("task", "seed", "provider", "agent_harness", "api_base_url", "max_budget_usd", "allow_unpinned", "jail",
-             "codex_auth",
+             "codex_auth", "claude_auth", "codex_catalog", "codex_provider",
              "model", "effort", "perception", "video", "style", "feedback", "phase", "nominal")
 
 
@@ -133,11 +137,25 @@ def attempt_results(log):
     return [res[i] for i in sorted(res)]
 
 
+def episode_protocol(log):
+    """The task's attempt protocol ("cross": reset between attempts, "within": the scene persists) from the robot
+    server log's session_start line; None if unknown."""
+    p = os.path.join(log or "", "events.jsonl")
+    if os.path.exists(p):
+        for line in open(p):
+            e = json.loads(line)
+            if e.get("ev") == "session_start":
+                return e.get("protocol")
+    return None
+
+
 def plan_followup(m, r):
     """Run r has finished: append the next memory-free retry of its instance if one is due; returns it or None."""
     if r["status"] != "done":
         return None
     if r["cond"] == "harness" and r.get("followup"):
+        if episode_protocol(r.get("log")) == "within":  # no like-for-like fresh agent (module docstring)
+            return None
         root, nxt, res = r, 1, attempt_results(r.get("log"))[:1]
     elif r.get("chain"):
         root = next((x for x in m["runs"] if x["id"] == r["chain"]), None)
@@ -188,6 +206,13 @@ def cmd_start(a):
         a.provider = need
     elif not a.provider:
         sys.exit("--provider is required with --harness ours")
+    claude_auth = None
+    if a.harness.startswith("claude_code"):
+        claude_auth = a.claude_auth or ("apikey" if a.harness == "claude_code" else "oauth")
+        if claude_auth == "oauth" and a.harness == "claude_code":
+            sys.exit("--harness claude_code (--bare) takes only an API key; use claude_code_full for a subscription")
+    elif a.claude_auth:
+        sys.exit("--claude-auth is for --harness claude_code / claude_code_full")
     if a.jail and a.harness == "ours":
         sys.exit("--jail is for native harnesses (the reference driver runs our own code)")
     if a.memfree == "upfront":
@@ -209,7 +234,11 @@ def cmd_start(a):
                     m["runs"].append(dict(id=next_id(m), task=task, seed=int(seed), provider=a.provider,
                                           agent_harness=a.harness, api_base_url=a.api_base_url,
                                           max_budget_usd=a.max_budget_usd, allow_unpinned=a.allow_unpinned,
-                                          jail=a.jail, codex_auth=(a.codex_auth if a.harness == "codex" else None),
+                                          jail=a.jail, codex_auth=(("apikey" if a.codex_provider == "deepseek" else a.codex_auth)
+                                                                  if a.harness == "codex" else None),
+                                          claude_auth=claude_auth,
+                                          codex_catalog=(a.codex_catalog if a.harness == "codex" else None),
+                                          codex_provider=(a.codex_provider if a.harness == "codex" else None),
                                           model=a.model, effort=a.effort, cond=c, rep=rep, k=k, mem=mem,
                                           hide_k=(c == "harness" and not a.no_hide_k), perception=a.perception,
                                           video=a.video, style="la", feedback=a.feedback, phase=conds.index(cond),
@@ -293,6 +322,12 @@ class Runner:
             opts += " --jail"
         if r.get("codex_auth"):
             opts += f" --codex-auth {r['codex_auth']}"
+        if r.get("claude_auth"):
+            opts += f" --claude-auth {r['claude_auth']}"
+        if r.get("agent_harness") == "codex":  # runs planned before 10-20 have no catalog: Codex's native one
+            opts += f" --codex-catalog {r.get('codex_catalog') or 'native'}"
+        if r.get("codex_provider") == "deepseek":
+            opts += " --codex-provider deepseek"
         # every harness (also ours: api_player.py with the same arguments as before, its output still in
         # api_player.log) goes through the adapter layer, which adds harness.json / contract.json / trajectory.jsonl
         player = (f"cd {ROOT} && source run_env.sh >/dev/null 2>&1 && "
@@ -562,6 +597,14 @@ def main():
     s.add_argument("--allow-unpinned", action="store_true", help="native harnesses: launch without a pin")
     s.add_argument("--codex-auth", default="chatgpt", choices=["chatgpt", "apikey"],
                    help="codex: ChatGPT subscription login (default) or OPENAI_API_KEY")
+    s.add_argument("--claude-auth", default=None, choices=["oauth", "apikey"],
+                   help="claude_code*: subscription token (default for claude_code_full) or ANTHROPIC_API_KEY "
+                        "(claude_code, --bare: apikey only)")
+    s.add_argument("--codex-provider", default="openai", choices=["openai", "deepseek"],
+                   help="codex: model provider; deepseek implies --codex-auth apikey (see harness_run.py)")
+    s.add_argument("--codex-catalog", default="generic", choices=["generic", "native"],
+                   help="codex: model configuration, the main table's shared one (default) or Codex's native one "
+                        "(control; see lffbench/harnesses/codex.py)")
     s.add_argument("--jail", action="store_true",
                    help="native harnesses: run the CLI in the native-harness jail (docs/15 §3.4, lffbench/harnesses/jail.py)")
     s.add_argument("--model", required=True)
