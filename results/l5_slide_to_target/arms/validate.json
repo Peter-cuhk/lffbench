@@ -20,7 +20,8 @@
   "cross_orig_on_twin": false
  },
  "image_seed": 3000,
- "created": "2026-10-12",
+ "created": "2026-10-19",
+ "note": "re-run 2026-10-19 after the far-side tolerance change (TOL_PAST = 2.0 cm) and the 10-19 rule change (unlimited strikes, free slide >= 3 cm); 10-12 version: validate.json.bak-20261019-tol",
  "rows": [
   {
    "seed": 3000,
@@ -44,46 +45,49 @@
     "success": false,
     "failure": "position",
     "along_err": 0.0694,
-    "detail": "The cube stopped 6.9 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 6.9 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "orig_oracle_params": {
     "speed": 0.22593749999999999
    },
    "orig_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.0022,
-    "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.2 cm short of the centre of the green square (in the square)."
    },
    "h0_naive": {
     "success": true,
+    "failure": null,
     "along_err": 0.0026,
-    "detail": "The cube stopped 0.3 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.3 cm past the centre of the green square (in the square)."
    },
    "twin_naive": {
     "success": false,
     "failure": "position",
     "along_err": -0.0213,
-    "detail": "The cube stopped 2.1 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.1 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "twin_oracle_params": {
     "speed": 0.55125
    },
    "twin_oracle": {
     "success": true,
+    "failure": null,
     "along_err": 0.0001,
-    "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.0 cm past the centre of the green square (in the square)."
    },
    "cross_twin_on_orig": {
     "success": false,
     "failure": "position",
     "along_err": 0.0975,
-    "detail": "The cube stopped 9.8 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 9.8 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "cross_orig_on_twin": {
     "success": false,
     "failure": "position",
     "along_err": -0.0451,
-    "detail": "The cube stopped 4.5 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 4.5 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "as_expected": {
     "orig_naive": true,
@@ -95,7 +99,7 @@
     "cross_orig_on_twin": true
    },
    "all_as_expected": true,
-   "sec": 65.1
+   "sec": 96.1
   },
   {
    "seed": 3001,
@@ -119,46 +123,49 @@
     "success": false,
     "failure": "position",
     "along_err": 0.0295,
-    "detail": "The cube stopped 2.9 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.9 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "orig_oracle_params": {
     "speed": 0.24937499999999999
    },
    "orig_oracle": {
     "success": true,
+    "failure": null,
     "along_err": 0.0003,
-    "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.0 cm past the centre of the green square (in the square)."
    },
    "h0_naive": {
     "success": true,
+    "failure": null,
     "along_err": 0.0014,
-    "detail": "The cube stopped 0.1 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.1 cm past the centre of the green square (in the square)."
    },
    "twin_naive": {
     "success": false,
     "failure": "position",
     "along_err": -0.0273,
-    "detail": "The cube stopped 2.7 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.7 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "twin_oracle_params": {
     "speed": 0.44999999999999996
    },
    "twin_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.0,
-    "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.0 cm short of the centre of the green square (in the square)."
    },
    "cross_twin_on_orig": {
     "success": false,
     "failure": "position",
     "along_err": 0.0374,
-    "detail": "The cube stopped 3.7 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 3.7 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "cross_orig_on_twin": {
     "success": false,
     "failure": "position",
     "along_err": -0.0205,
-    "detail": "The cube stopped 2.0 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.0 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "as_expected": {
     "orig_naive": true,
@@ -170,7 +177,7 @@
     "cross_orig_on_twin": true
    },
    "all_as_expected": true,
-   "sec": 107.4
+   "sec": 136.9
   },
   {
    "seed": 3003,
@@ -194,46 +201,49 @@
     "success": false,
     "failure": "position",
     "along_err": -0.0173,
-    "detail": "The cube stopped 1.7 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 1.7 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "orig_oracle_params": {
     "speed": 0.36
    },
    "orig_oracle": {
     "success": true,
+    "failure": null,
     "along_err": 0.0003,
-    "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.0 cm past the centre of the green square (in the square)."
    },
    "h0_naive": {
     "success": true,
+    "failure": null,
     "along_err": 0.0003,
-    "detail": "The cube stopped 0.0 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.0 cm past the centre of the green square (in the square)."
    },
    "twin_naive": {
     "success": false,
     "failure": "position",
     "along_err": 0.0274,
-    "detail": "The cube stopped 2.7 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.7 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "twin_oracle_params": {
     "speed": 0.241875
    },
    "twin_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.0014,
-    "detail": "The cube stopped 0.1 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.1 cm short of the centre of the green square (in the square)."
    },
    "cross_twin_on_orig": {
     "success": false,
     "failure": "position",
     "along_err": -0.0313,
-    "detail": "The cube stopped 3.1 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 3.1 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "cross_orig_on_twin": {
     "success": false,
     "failure": "position",
     "along_err": 0.0354,
-    "detail": "The cube stopped 3.5 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 3.5 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "as_expected": {
     "orig_naive": true,
@@ -245,7 +255,7 @@
     "cross_orig_on_twin": true
    },
    "all_as_expected": true,
-   "sec": 107.4
+   "sec": 136.3
   },
   {
    "seed": 3004,
@@ -269,46 +279,49 @@
     "success": false,
     "failure": "position",
     "along_err": -0.0166,
-    "detail": "The cube stopped 1.7 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 1.7 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "orig_oracle_params": {
     "speed": 0.42
    },
    "orig_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.002,
-    "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.2 cm short of the centre of the green square (in the square)."
    },
    "h0_naive": {
     "success": true,
+    "failure": null,
     "along_err": -0.0031,
-    "detail": "The cube stopped 0.3 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.3 cm short of the centre of the green square (in the square)."
    },
    "twin_naive": {
     "success": false,
     "failure": "position",
     "along_err": 0.0215,
-    "detail": "The cube stopped 2.1 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.1 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "twin_oracle_params": {
     "speed": 0.24
    },
    "twin_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.0002,
-    "detail": "The cube stopped 0.0 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.0 cm short of the centre of the green square (in the square)."
    },
    "cross_twin_on_orig": {
     "success": false,
     "failure": "position",
     "along_err": -0.0252,
-    "detail": "The cube stopped 2.5 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 2.5 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "cross_orig_on_twin": {
     "success": false,
     "failure": "position",
     "along_err": 0.0378,
-    "detail": "The cube stopped 3.8 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 3.8 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "as_expected": {
     "orig_naive": true,
@@ -320,7 +333,7 @@
     "cross_orig_on_twin": true
    },
    "all_as_expected": true,
-   "sec": 20.0
+   "sec": 27.0
   },
   {
    "seed": 3007,
@@ -344,46 +357,49 @@
     "success": false,
     "failure": "position",
     "along_err": 0.0405,
-    "detail": "The cube stopped 4.1 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 4.1 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "orig_oracle_params": {
     "speed": 0.22499999999999998
    },
    "orig_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.0015,
-    "detail": "The cube stopped 0.1 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.1 cm short of the centre of the green square (in the square)."
    },
    "h0_naive": {
     "success": true,
+    "failure": null,
     "along_err": 0.0027,
-    "detail": "The cube stopped 0.3 cm past the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.3 cm past the centre of the green square (in the square)."
    },
    "twin_naive": {
     "success": false,
     "failure": "position",
     "along_err": -0.0338,
-    "detail": "The cube stopped 3.4 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 3.4 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "twin_oracle_params": {
     "speed": 0.5700000000000001
    },
    "twin_oracle": {
     "success": true,
+    "failure": null,
     "along_err": -0.0017,
-    "detail": "The cube stopped 0.2 cm short of the centre of the green square (completely inside the square)."
+    "detail": "The cube stopped 0.2 cm short of the centre of the green square (in the square)."
    },
    "cross_twin_on_orig": {
     "success": false,
     "failure": "position",
     "along_err": 0.1041,
-    "detail": "The cube stopped 10.4 cm past the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 10.4 cm past the centre of the green square (it sticks out beyond the far green line)."
    },
    "cross_orig_on_twin": {
     "success": false,
     "failure": "position",
     "along_err": -0.0502,
-    "detail": "The cube stopped 5.0 cm short of the centre of the green square (not completely inside the square)."
+    "detail": "The cube stopped 5.0 cm short of the centre of the green square (it sticks out past the edge of the square nearest the robot)."
    },
    "as_expected": {
     "orig_naive": true,
@@ -395,7 +411,7 @@
     "cross_orig_on_twin": true
    },
    "all_as_expected": true,
-   "sec": 108.6
+   "sec": 133.6
   }
  ]
 }

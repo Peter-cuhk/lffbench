@@ -101,7 +101,7 @@ def test_scripted_end_to_end_l5_n3(tmp_path):
                                          "--feedback", "F2", "--n", "3", "--k", "5", "--seed0", "1000",
                                          "--out", str(tmp_path), "--dry-run-payload", "--dump-requests", "2"])
     assert agg["n_runs"] == 3 and agg["n_error_runs"] == 0
-    assert agg["succ_at"][-1] == 1.0, agg  # validate.json: adaptive succ@5 = 0.95 over 20 seeds; seeds 1000-1002 succeed
+    assert agg["succ_at"][-1] == 1.0, agg  # cross-attempt secant through the tools: seeds 1000-1002 succeed by attempt 5
     summ = json.load(open(os.path.join(run_dir, "summary.json")))
     assert len(summ["runs"]) == 3 and all(r["status"] == "ok" for r in summ["runs"])
     ev = [json.loads(l) for l in open(os.path.join(run_dir, "events.jsonl"))]
@@ -117,12 +117,16 @@ def test_scripted_end_to_end_l5_n3(tmp_path):
             assert os.path.exists(os.path.join(run_dir, p))
         assert e["ended_by"] == "done"
     assert len(os.listdir(os.path.join(run_dir, "requests"))) == 2
-    # the scripted policy driven through the tool interface reproduces the task's own reference rollouts
+    # the scripted policy driven through the tool interface reproduces the task's own reference rollouts. Since
+    # 2026-10-19 the task's adaptive policy re-strikes within the attempt (one strike per attempt here), so only
+    # attempt 1 has a reference: the single default strike, i.e. validate.json's naive attempt 1.
     fresh, vj = _validate_is_fresh()
     if fresh:
-        ref = {r["seed"]: r for r in json.load(open(vj))["runs"] if r["kind"] == "adaptive"}
+        ref = {r["seed"]: r for r in json.load(open(vj))["runs"] if r["kind"] == "naive"}
         for e in ends:
-            h = ref[e["seed"]]["history"][e["attempt"] - 1]
+            if e["attempt"] != 1:
+                continue
+            h = ref[e["seed"]]["history"][0]
             assert abs(h["outcome"]["along_err"] - e["outcome"]["along_err"]) < 0.002, (e["seed"], e["attempt"])
             assert abs(h["params"]["speed"] - e["backend_meta"]["params"]["speed"]) < 1e-3
 

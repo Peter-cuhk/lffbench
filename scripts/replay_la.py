@@ -72,7 +72,8 @@ def main():
                       f"cube_dxy={g['cube_dxy']} cube_from_start={g['cube_from_start']}")
     out = task.outcome(inst)
     keys = ("moved_toward_robot", "n_pulls", "pulls_cm", "pre_pull_cube_cm", "stray_cm", "n_pushes", "max_advance",
-            "n_turns", "n_wrong_way", "trap_fired", "recovered_in_attempt")
+            "n_turns", "n_wrong_way", "n_strikes", "n_missed_strikes", "free_slide_cm", "n_bad_pushes",
+            "first_push_yaw_deg", "n_open_gripper_pushes", "irrecoverable", "trap_fired", "recovered_in_attempt")
     print("REPLAY :", "S" if out["success"] else "F", out.get("failure"), {k: out[k] for k in keys if k in out})
     if "--fb" in sys.argv:
         print("F2     :", task.feedback(inst, out, "F2"))

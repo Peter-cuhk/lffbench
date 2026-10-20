@@ -4,6 +4,14 @@
 # (hidden-variable subset: 5 instances; other tasks: 3). See task_cards/<task>.md for each task.
 # Changes: 2026-10-16 l7_key_turn no longer limits turns per attempt (success = lock opened; turning the
 #   wrong way first is logged as trap_fired). Re-run l7_key_turn runs made before this change; other tasks unchanged.
+#   2026-10-19 l5_slide_to_target and l7_offcenter_push no longer limit strikes / pushes per attempt (slide: the cube
+#   must end at rest in the square after sliding freely >= 3 cm; offcenter: every push must use the closed gripper,
+#   and the instruction states only the end state, no longer "straight forward ... without turning").
+#   Later the same day slide's far side was relaxed: the cube may lie on the far green line (judged: centre <= 2 cm
+#   past the square's centre; near side and sides still 1 cm), because < 1 cm past it cannot be seen in the agentview.
+#   Re-run runs of these two tasks made before this change. l5_tablecloth_pull keeps its one-pull rule. Seeds unchanged.
+#   2026-10-19 all tasks: elbow joint (robot0_joint4) upper limit -0.07 -> -0.55 rad (lffbench/envs.py; a far, stretched
+#   pose could lock the elbow for the rest of the attempt). Every contract hash changed: do not mix earlier runs.
 #
 # hidden-variable short tasks (10)
 l7_offcenter_push:3000,3001,3002,3003,3004

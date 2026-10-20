@@ -55,6 +55,7 @@ python -m pytest -q tests/test_agent_sim.py                                    #
 yaw 0 时两指沿世界 y 轴开合（实测：手指 body 在 y = ±0.02），yaw 90 沿 x 轴。yaw 按 180° 取模：`Skills.move_to`（共享代码，
 2026-10-06 协调者改）会取与当前 yaw 最近、且 |yaw| ≤ 90°+0.4 rad（约 113°）的等价角，避免手腕绕 180° 把手臂卷进关节限位；
 `move_to` 报告里的 `yaw_used_deg` 是实际用的角度。
+肘关节（`robot0_joint4`）上限从 Panda 原厂的 −0.07 rad 收紧到 −0.55（`envs.ELBOW_Q4_MAX`，2026-10-19）：原来快速移动越过手臂伸到最远的姿态（约 −0.47）后，肘关节会弯到反方向，被上限挡住，之后的移动都停在离目标 4–17 cm 处。收紧后可达范围不变。
 方向词：harness 生成的文字里一律以机器人为参照，并在 system prompt 里定义——forward = +x、backward = −x、left = +y（机器人左手）、
 right = −y、up = +z，"不是图像里的左右"；同时说明 agentview 图里机器人的左边出现在图像右侧。任务自己的 F2 文本由任务作者统一。
 

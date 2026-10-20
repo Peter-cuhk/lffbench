@@ -1,0 +1,262 @@
+[
+ {
+  "seed": 1000,
+  "mu": 0.1110270898750156,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.63,
+   "cube-3mm": -0.4,
+   "cube+3mm": 0.35,
+   "cube+5mm": 0.68,
+   "board-5mm": -1.32,
+   "board+5mm": 0.21
+  }
+ },
+ {
+  "seed": 1000,
+  "mu": 0.1110270898750156,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.09,
+   "cube-3mm": -1.02,
+   "cube+3mm": 0.14,
+   "cube+5mm": 0.51,
+   "board-5mm": -2.13,
+   "board+5mm": 0.09
+  }
+ },
+ {
+  "seed": 1001,
+  "mu": 0.11757884284413173,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.95,
+   "cube-3mm": -0.52,
+   "cube+3mm": 0.16,
+   "cube+5mm": 0.5,
+   "board-5mm": -0.37,
+   "board+5mm": 0.47
+  }
+ },
+ {
+  "seed": 1001,
+  "mu": 0.11757884284413173,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -0.85,
+   "cube-3mm": -0.18,
+   "cube+3mm": 0.93,
+   "cube+5mm": 1.51,
+   "board-5mm": -0.45,
+   "board+5mm": 0.42
+  }
+ },
+ {
+  "seed": 1002,
+  "mu": 0.10163765770923022,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -1.26,
+   "cube-3mm": -0.74,
+   "cube+3mm": 0.76,
+   "cube+5mm": 0.4,
+   "board-5mm": 0.07,
+   "board+5mm": 0.54
+  }
+ },
+ {
+  "seed": 1002,
+  "mu": 0.10163765770923022,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.15,
+   "cube-3mm": -0.33,
+   "cube+3mm": 0.77,
+   "cube+5mm": 1.29,
+   "board-5mm": 0.2,
+   "board+5mm": 0.52
+  }
+ },
+ {
+  "seed": 1003,
+  "mu": 0.09002186112630645,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.79,
+   "cube-3mm": -0.52,
+   "cube+3mm": 0.38,
+   "cube+5mm": 0.35,
+   "board-5mm": -0.48,
+   "board+5mm": -0.09
+  }
+ },
+ {
+  "seed": 1003,
+  "mu": 0.09002186112630645,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.01,
+   "cube-3mm": -0.1,
+   "cube+3mm": 0.89,
+   "cube+5mm": 0.86,
+   "board-5mm": -0.9,
+   "board+5mm": 0.7
+  }
+ },
+ {
+  "seed": 1004,
+  "mu": 0.08004428907235131,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.52,
+   "cube-3mm": -0.62,
+   "cube+3mm": 0.56,
+   "cube+5mm": 0.99,
+   "board-5mm": -0.19,
+   "board+5mm": 0.42
+  }
+ },
+ {
+  "seed": 1004,
+  "mu": 0.08004428907235131,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.09,
+   "cube-3mm": -0.65,
+   "cube+3mm": 0.45,
+   "cube+5mm": 0.53,
+   "board-5mm": -0.3,
+   "board+5mm": 0.71
+  }
+ },
+ {
+  "seed": 1005,
+  "mu": 0.08424340766193511,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.34,
+   "cube-3mm": -0.1,
+   "cube+3mm": 0.73,
+   "cube+5mm": 1.19,
+   "board-5mm": -0.08,
+   "board+5mm": 1.52
+  }
+ },
+ {
+  "seed": 1005,
+  "mu": 0.08424340766193511,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -0.37,
+   "cube-3mm": 0.21,
+   "cube+3mm": 0.85,
+   "cube+5mm": 1.62,
+   "board-5mm": -0.19,
+   "board+5mm": 2.23
+  }
+ },
+ {
+  "seed": 1006,
+  "mu": 0.09887123681742503,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.97,
+   "cube-3mm": -0.77,
+   "cube+3mm": 0.35,
+   "cube+5mm": 0.36,
+   "board-5mm": -0.62,
+   "board+5mm": 0.89
+  }
+ },
+ {
+  "seed": 1006,
+  "mu": 0.09887123681742503,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.33,
+   "cube-3mm": -0.94,
+   "cube+3mm": 0.43,
+   "cube+5mm": 0.93,
+   "board-5mm": -0.48,
+   "board+5mm": 1.21
+  }
+ },
+ {
+  "seed": 1007,
+  "mu": 0.08366320265934431,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.99,
+   "cube-3mm": -0.7,
+   "cube+3mm": 0.65,
+   "cube+5mm": 0.46,
+   "board-5mm": 0.4,
+   "board+5mm": 0.2
+  }
+ },
+ {
+  "seed": 1007,
+  "mu": 0.08366320265934431,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.08,
+   "cube-3mm": -0.29,
+   "cube+3mm": -0.09,
+   "cube+5mm": 0.58,
+   "board-5mm": 0.23,
+   "board+5mm": 0.78
+  }
+ },
+ {
+  "seed": 1008,
+  "mu": 0.0888689809594518,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -1.03,
+   "cube-3mm": -0.64,
+   "cube+3mm": 0.3,
+   "cube+5mm": 0.02,
+   "board-5mm": -0.36,
+   "board+5mm": 0.01
+  }
+ },
+ {
+  "seed": 1008,
+  "mu": 0.0888689809594518,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -1.08,
+   "cube-3mm": -0.61,
+   "cube+3mm": 0.56,
+   "cube+5mm": 0.86,
+   "board-5mm": -0.81,
+   "board+5mm": 0.3
+  }
+ },
+ {
+  "seed": 1009,
+  "mu": 0.08289239445966246,
+  "v": 0.6,
+  "shifts_cm": {
+   "cube-5mm": -0.96,
+   "cube-3mm": -0.96,
+   "cube+3mm": 0.24,
+   "cube+5mm": 0.33,
+   "board-5mm": -1.02,
+   "board+5mm": 0.17
+  }
+ },
+ {
+  "seed": 1009,
+  "mu": 0.08289239445966246,
+  "v": 0.45,
+  "shifts_cm": {
+   "cube-5mm": -0.92,
+   "cube-3mm": -0.4,
+   "cube+3mm": 0.52,
+   "cube+5mm": 1.23,
+   "board-5mm": -0.35,
+   "board+5mm": 0.91
+  }
+ }
+]

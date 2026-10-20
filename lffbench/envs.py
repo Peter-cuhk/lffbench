@@ -9,6 +9,12 @@ os.environ.setdefault("LIBERO_CONFIG_PATH", os.path.join(os.path.dirname(os.path
 import numpy as np
 
 TABLE_Z = 0.90  # LIBERO main_table top surface (table_offset z)
+# Upper limit of the Panda elbow (robot0_joint4; stock -0.0698). The arm is fully stretched at about -0.47 rad; a fast
+# move out of a far pose could carry the elbow past that into (-0.47, -0.07], where the OSC's only way to shorten the
+# arm runs into the stock limit and every later move stops 4-17 cm short for the rest of the attempt (measured
+# 2026-10-19: 50 of 160 targets of the workspace box; 44 of 714 logged LA attempts). Capping the joint keeps the elbow
+# on the normal side: reach is unchanged, and no scripted oracle / naive run of the main set goes above -0.73.
+ELBOW_Q4_MAX = -0.55
 
 
 def make_env(bddl_path, cam_res=256, cams=("agentview", "robot0_eye_in_hand"), depth=False, controller=None):
@@ -53,6 +59,8 @@ def make_env(bddl_path, cam_res=256, cams=("agentview", "robot0_eye_in_hand"), d
         renderer_config=None,
     )
     env.lff_language = info["language_instruction"]
+    m = env.sim.model  # hard_reset=False: the model (and this limit) survives env.reset()
+    m.jnt_range[m.joint_name2id("robot0_joint4"), 1] = ELBOW_Q4_MAX
     return env
 
 
