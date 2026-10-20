@@ -54,6 +54,22 @@ class Cap:
     note: str = ""
 
 
+PROXY_KEYS = ("HTTPS_PROXY", "HTTP_PROXY", "https_proxy", "http_proxy")
+NO_PROXY_KEYS = ("NO_PROXY", "no_proxy")
+NO_PROXY_LOCAL = "127.0.0.1,localhost,::1"
+
+
+def proxy_env(environ=None):
+    """The calling environment's HTTP(S) proxy, passed to a native harness so it can reach the model API on machines
+    that only get out through a proxy. NO_PROXY is loopback only (the preflight's fake API), never the host's list.
+    Not part of config_sha256 (machine plumbing, not harness configuration)."""
+    environ = os.environ if environ is None else environ
+    e = {k: environ[k] for k in PROXY_KEYS if environ.get(k)}
+    if e:
+        e.update({k: NO_PROXY_LOCAL for k in NO_PROXY_KEYS})
+    return e
+
+
 class CapabilityError(TypeError):
     pass
 
@@ -164,8 +180,11 @@ class HarnessAdapter:
     capabilities = None
     uses_mcp = False
     clean_dirs = ()                  # keys of spec.state_dirs that must be empty at launch
+    clean_allowed = {}               # key of spec.state_dirs -> file names the adapter itself put there (e.g. auth.json)
     ancestor_files = ()              # instruction files that must not exist in the work dir or any ancestor
     unsafe_skip_clean_check = False  # tests/harness_selfcheck only (probing what the harness would read)
+    jail = None                      # lffbench/harnesses/jail.HarnessJail when the adapter runs jailed (docs/15 §3.4)
+    can_resume = False               # resume(): the CLI can continue its session with one more user message
 
     def clean_state_problems(self, spec):
         """Fail-closed: the work dir and the one-time dirs must be empty, and no instruction file may sit in an
@@ -175,8 +194,9 @@ class HarnessAdapter:
             p.append(f"work dir not empty: {sorted(os.listdir(spec.cwd))[:5]}")
         for k in self.clean_dirs:
             d = spec.state_dirs.get(k)
-            if d and os.path.isdir(d) and os.listdir(d):
-                p.append(f"{k} dir not empty: {sorted(os.listdir(d))[:5]}")
+            left = [n for n in os.listdir(d) if n not in self.clean_allowed.get(k, ())] if d and os.path.isdir(d) else []
+            if left:
+                p.append(f"{k} dir not empty: {sorted(left)[:5]}")
         d = spec.cwd
         while d and d != "/":
             d = os.path.dirname(d)
@@ -209,6 +229,23 @@ class HarnessAdapter:
         raise NotImplementedError
 
     # -------------------------------------------------------------------------------------------- shared
+    def mcp_server_command(self, python, script, args):
+        """(command, args) of the MCP server entry in the harness config: our server, or, jailed, the relay to it."""
+        if self.jail is not None:
+            return self.jail.mcp_command([python, script] + list(args), env={"PATH": "/usr/bin:/bin"})
+        return python, [script] + list(args)
+
+    def jailed_argv(self, argv, env, cwd, dirs):
+        """argv as started: unchanged, or wrapped into the jail with `dirs` (one-time dirs) mounted back."""
+        return self.jail.wrap(argv, env, cwd, dirs) if self.jail is not None else list(argv)
+
+    def jail_info(self):
+        return self.jail.info() if self.jail is not None else dict(enabled=False)
+
+    def auth_info(self):
+        """How the harness authenticates to the model API (for harness.json; never a secret)."""
+        return dict(mode="api_env", keys=sorted(getattr(self, "api_env", {}) or {}))
+
     def launch(self, spec, ep, skip_preflight=False):
         if not self.unsafe_skip_clean_check:
             probs = self.clean_state_problems(spec)
@@ -219,7 +256,8 @@ class HarnessAdapter:
         out = open(spec.stdout_path, "wb")
         err = open(spec.stderr_path, "wb")
         h = RunHandle(spec=spec, ep=ep, t_start=time.time())
-        h.proc = subprocess.Popen(spec.argv, env=spec.env, cwd=spec.cwd, stdin=subprocess.DEVNULL, stdout=out,
+        argv = self.jailed_argv(spec.argv, spec.env, spec.cwd, list(spec.state_dirs.values()) + [spec.run_dir])
+        h.proc = subprocess.Popen(argv, env=spec.env, cwd=spec.cwd, stdin=subprocess.DEVNULL, stdout=out,
                                   stderr=err, start_new_session=True)
         h.pid = h.proc.pid
         for _ in range(20):  # the exec has happened once /proc/<pid>/environ differs from ours
@@ -228,6 +266,31 @@ class HarnessAdapter:
                 break
             time.sleep(0.05)
         h.env_observed_keys = env_keys_of(h.pid)
+        return h
+
+    def resume_argv(self, h, message):
+        """argv that continues the run's session with one more user message (adapters with can_resume)."""
+        raise NotImplementedError
+
+    def resume(self, h, message):
+        """Continue the run's session with one more user message, after the CLI exited before the episode was over
+        (scripts/harness_run.py sends the reference driver's nudge). Same env, work dir and one-time dirs; the output
+        is appended to the same stdout / stderr files."""
+        spec = h.spec
+        argv = self.resume_argv(h, message)
+        out, err = open(spec.stdout_path, "ab"), open(spec.stderr_path, "ab")
+        jargv = self.jailed_argv(argv, spec.env, spec.cwd, list(spec.state_dirs.values()) + [spec.run_dir])
+        h.proc = subprocess.Popen(jargv, env=spec.env, cwd=spec.cwd, stdin=subprocess.DEVNULL, stdout=out,
+                                  stderr=err, start_new_session=True)
+        h.pid, h.exit_code, h.exit_reason = h.proc.pid, None, ""
+        keys = None
+        for _ in range(20):
+            keys = env_keys_of(h.pid)
+            if keys is not None and set(keys) == set(spec.env):
+                break
+            time.sleep(0.05)
+        h.info.setdefault("resumes", []).append(dict(t=time.time(), pid=h.pid, message=message,
+                                                     argv=argv[:-1] + ["<message>"], env_observed_keys=keys))
         return h
 
     def wait(self, h, timeout=None):
@@ -260,6 +323,8 @@ class HarnessAdapter:
         for d in spec.state_dirs.values():
             if d.startswith(("/tmp/lffrun/", "/tmp/lffstate/")) and os.path.isdir(d):
                 shutil.rmtree(d, ignore_errors=True)
+        if self.jail is not None:
+            self.jail.close()
 
 
 def snapshot_tree(root):

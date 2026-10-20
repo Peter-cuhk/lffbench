@@ -3,7 +3,7 @@
   ours              reference driver scripts/api_player.py (main table)
   claude_code       Claude Code CLI, --bare, only our MCP tools (arm B)
   claude_code_full  Claude Code CLI without --bare: full system prompt, still one-time dirs and only MCP (arm B')
-  codex             Codex CLI exec, ephemeral, empty CODEX_HOME, only our MCP tools reachable (arm F)
+  codex             Codex CLI exec (+ exec resume on early exit), one-time CODEX_HOME, only our MCP tools (arm F)
 
 Use scripts/harness_run.py (one session) or scripts/api_batch.py start --harness ... (batches).
 """

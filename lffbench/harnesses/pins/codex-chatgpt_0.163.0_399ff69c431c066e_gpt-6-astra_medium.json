@@ -1,0 +1,36 @@
+{
+ "key": "codex-chatgpt|0.163.0|399ff69c431c066e|gpt-6-astra|medium",
+ "fingerprint_sha256": "034292e12859cda9de8c2481b91f6c3194b83754303be8c40c3ec775bcabf9ad",
+ "written": "2026-10-19 22:12:31",
+ "summary": {
+  "developer_chars": 24091,
+  "top_tools": [
+   "collaboration.followup_task",
+   "collaboration.interrupt_agent",
+   "collaboration.list_agents",
+   "collaboration.send_message",
+   "collaboration.spawn_agent",
+   "collaboration.wait_agent",
+   "functions.exec",
+   "functions.request_user_input",
+   "functions.request_user_input_async",
+   "functions.wait"
+  ],
+  "all_tools": [
+   "apply_patch",
+   "clock__curr_time",
+   "list_mcp_resource_templates",
+   "list_mcp_resources",
+   "mcp__lff__robot",
+   "mcp__lff__shell",
+   "mcp__lff__view_images",
+   "read_mcp_resource"
+  ],
+  "effort_in_request": "medium",
+  "model_in_request": "gpt-6-astra",
+  "sandbox": {
+   "sandbox": "seccomp",
+   "sandbox_mode": "read-only"
+  }
+ }
+}

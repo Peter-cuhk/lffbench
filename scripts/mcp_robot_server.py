@@ -35,7 +35,16 @@ class Session:
         iface = json.load(open(os.path.join(self.log_dir, "agent_iface.json")))
         self.token, self.max_tool_calls = iface["token"], int(iface["max_tool_calls"])
         self.calls_in_attempt, self.finished = 0, False
-        self.tlog = open(os.path.join(self.log_dir, "mcp_transcript.jsonl"), "a")
+        tpath = os.path.join(self.log_dir, "mcp_transcript.jsonl")
+        if os.path.exists(tpath):  # a later process of the same run (a resumed harness CLI): carry the budget over
+            for line in open(tpath):
+                try:
+                    d = json.loads(line)
+                except ValueError:
+                    continue
+                if d.get("ev") == "tool" and d.get("calls_in_attempt") is not None:
+                    self.calls_in_attempt, self.finished = int(d["calls_in_attempt"]), bool(d.get("finished"))
+        self.tlog = open(tpath, "a")
 
     def log(self, d):
         d["t"] = time.time()
@@ -144,7 +153,8 @@ def serve(sess):
                 content, err = sess.call(name, args)
                 sess.log(dict(ev="tool", name=name, arguments=args, dt=round(time.time() - t0, 2), is_error=err,
                               output=[c["text"] for c in content if c["type"] == "text"],
-                              images=sum(1 for c in content if c["type"] == "image"), finished=sess.finished))
+                              images=sum(1 for c in content if c["type"] == "image"), finished=sess.finished,
+                              calls_in_attempt=getattr(sess, "calls_in_attempt", None)))
                 result = dict(content=content, isError=err)
             else:
                 send(dict(jsonrpc="2.0", id=mid, error=dict(code=-32601, message=f"method not found: {method}")))

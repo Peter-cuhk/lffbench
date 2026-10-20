@@ -20,7 +20,7 @@ import os
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-DROP_HEADERS = ("x-api-key", "authorization", "cookie")
+DROP_HEADERS = ("x-api-key", "authorization", "cookie", "chatgpt-account-id")
 
 
 class _Base:

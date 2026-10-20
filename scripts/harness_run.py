@@ -12,8 +12,10 @@ dir, an opaque work dir /tmp/lffrun/<12 hex> and a process environment that is e
 API variables (never inherited from the calling Claude Code / Codex session):
   claude_code*: key LFF_ANTHROPIC_API_KEY or ANTHROPIC_API_KEY; endpoint --api-base-url or LFF_ANTHROPIC_BASE_URL
                 (default: the CLI's own default, the official API)
-  codex:        key LFF_OPENAI_API_KEY or OPENAI_API_KEY; endpoint --api-base-url, LFF_OPENAI_BASE_URL or
-                OPENAI_BASE_URL (as api_player), else https://api.openai.com/v1
+  codex:        --codex-auth chatgpt (default): the ChatGPT subscription login of LFF_CODEX_AUTH_HOME / CODEX_HOME
+                (a copy of its auth.json, no API key; endpoint the ChatGPT Codex backend unless --api-base-url);
+                --codex-auth apikey: key LFF_OPENAI_API_KEY or OPENAI_API_KEY; endpoint --api-base-url,
+                LFF_OPENAI_BASE_URL or OPENAI_BASE_URL (as api_player), else https://api.openai.com/v1
   ours:         as api_player.py (its own environment)
 
 Writes into the run's log dir: contract.json, first_message.txt, harness.json (harness name, version, argv with the
@@ -34,8 +36,11 @@ sys.path.insert(0, ROOT)
 from lffbench.harnesses import PROVIDER, EpisodeSpec, HarnessRefused, get_adapter, render_first_message  # noqa: E402
 from lffbench.harnesses import contract as C  # noqa: E402
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from api_player import MAX_NO_TOOL, call_server, continue_nudge  # noqa: E402
 
-def api_env_for(harness, base_url):
+
+def api_env_for(harness, base_url, codex_auth="apikey"):
     """-> (variables passed to the harness, endpoint or None, endpoint label for harness.json). Endpoints are never
     written to the logs, only where they came from."""
     if harness.startswith("claude_code"):
@@ -47,6 +52,8 @@ def api_env_for(harness, base_url):
         if url:
             e["ANTHROPIC_BASE_URL"] = url
         return e, url, ("--api-base-url" if base_url else "LFF_ANTHROPIC_BASE_URL") if url else "CLI default (official)"
+    if harness == "codex" and codex_auth == "chatgpt":
+        return {}, base_url, "--api-base-url" if base_url else "ChatGPT Codex backend (subscription login)"
     if harness == "codex":
         key = os.environ.get("LFF_OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
         src = ("--api-base-url" if base_url else "LFF_OPENAI_BASE_URL" if os.environ.get("LFF_OPENAI_BASE_URL")
@@ -54,6 +61,54 @@ def api_env_for(harness, base_url):
         url = base_url or os.environ.get("LFF_OPENAI_BASE_URL") or os.environ.get("OPENAI_BASE_URL")
         return ({"OPENAI_API_KEY": key} if key else {}), url, src
     return {}, None, "api_player's own environment"
+
+
+def mcp_tool_state(log_dir):
+    """-> (number of MCP tool calls so far, whether our MCP server saw the episode end) from mcp_transcript.jsonl."""
+    n, finished = 0, False
+    try:
+        for line in open(os.path.join(log_dir, "mcp_transcript.jsonl")):
+            try:
+                d = json.loads(line)
+            except ValueError:
+                continue
+            if d.get("ev") == "tool":
+                n, finished = n + 1, bool(d.get("finished"))
+    except OSError:
+        pass
+    return n, finished
+
+
+def continue_episode(ad, h, ep, stop):
+    """The CLI exited although the episode is not over (it ends when the model replies without a tool call): send
+    the reference driver's nudge as a user turn, as api_player does after such a reply, and wait again. Same rule:
+    after MAX_NO_TOOL nudges in a row without a tool call in between, the next such reply ends the run. -> log list."""
+    out, no_tool, (n_calls, _) = [], 0, mcp_tool_state(ep.log_dir)
+    deadline = h.t_start + h.spec.timeout_s
+    while ad.can_resume and h.exit_reason == "exited" and not stop["flag"]:
+        n, finished = mcp_tool_state(ep.log_dir)
+        if finished:  # api_player stops here too, without a status call
+            break
+        try:  # the status call api_player makes for its nudge
+            stx = json.loads(call_server(ep.port, ep.token, "status", {}))
+        except Exception as e:
+            out.append(dict(ev="status_failed", error=f"{type(e).__name__}: {e}"[:300], t=time.time()))
+            break
+        if stx.get("finished"):
+            break
+        no_tool = 1 if n > n_calls else no_tool + 1
+        n_calls = n
+        if no_tool > MAX_NO_TOOL:
+            out.append(dict(ev="abort", reason=f"no tool call {no_tool} times", t=time.time()))
+            break
+        if time.time() >= deadline:
+            h.exit_reason = "timeout"
+            break
+        msg = continue_nudge(ep.port, ep.token, stx)
+        out.append(dict(ev="resume", message=msg, attempt=stx.get("attempt"), mcp_tool_calls=n, t=time.time()))
+        ad.resume(h, msg)
+        ad.wait(h, timeout=max(1.0, deadline - time.time()))
+    return out
 
 
 def write_json(path, d):
@@ -69,12 +124,16 @@ def run(a, adapter_kw=None):
     ep = EpisodeSpec.from_session(a.session, a.model, a.effort, provider)
     contract, csha = C.write_contract(ep.log_dir)
     if adapter_kw is None:
-        api_env, url, endpoint = api_env_for(a.harness, a.api_base_url)
+        api_env, url, endpoint = api_env_for(a.harness, a.api_base_url, getattr(a, "codex_auth", "apikey"))
         adapter_kw = dict(timeout_s=a.timeout)
         if a.harness.startswith("claude_code"):
             adapter_kw.update(api_env=api_env, max_budget_usd=a.max_budget_usd, allow_unpinned=a.allow_unpinned)
         elif a.harness == "codex":
-            adapter_kw.update(api_env=api_env, base_url=url, allow_unpinned=a.allow_unpinned)
+            adapter_kw.update(api_env=api_env, base_url=url, allow_unpinned=a.allow_unpinned, auth=a.codex_auth)
+        if getattr(a, "jail", False):
+            if a.harness == "ours":
+                raise SystemExit("--jail is for native harnesses")
+            adapter_kw["jail"] = True
         else:
             adapter_kw.update(provider=provider)
     else:
@@ -85,7 +144,7 @@ def run(a, adapter_kw=None):
     hj = dict(harness=ad.name, version=ver.get("version"), binary=ver.get("binary"), model=a.model, effort=a.effort,
               provider=provider, capabilities={k: vars(c) for k, c in ad.capabilities.items()},
               contract_sha256=csha, task=ep.task, seed=ep.seed, api_endpoint_from=endpoint, status="preparing",
-              t_prepare=time.time())
+              t_prepare=time.time(), jail=ad.jail_info(), auth=ad.auth_info() if ad.name != "ours" else None)
     if ad.name == "ours":
         first = None
         spec = ad.prepare(ep)
@@ -123,6 +182,10 @@ def run(a, adapter_kw=None):
                   preflight={k: v for k, v in pre.items() if k != "fingerprint"}, init=h.info.get("init"))
         write_json(hj_path, hj)
         ad.wait(h)
+        cont = [] if getattr(a, "no_continue", False) else continue_episode(ad, h, ep, stop)
+        if cont:
+            hj["continuation"] = cont
+            write_json(hj_path, hj)
         if stop["flag"]:
             h.exit_reason, code = "stopped", 143
         tw = ad.collect(h)
@@ -155,11 +218,18 @@ def parser():
     ap.add_argument("--model", required=True)
     ap.add_argument("--effort", default="high")
     ap.add_argument("--api-base-url", default=None)
+    ap.add_argument("--codex-auth", default="chatgpt", choices=["chatgpt", "apikey"],
+                    help="codex: ChatGPT subscription login (copy of auth.json) or an API key (see above)")
     ap.add_argument("--max-budget-usd", type=float, default=None, help="claude_code*: --max-budget-usd")
     ap.add_argument("--timeout", type=float, default=10800)
     ap.add_argument("--allow-unpinned", action="store_true",
                     help="launch even if no pin exists for this version / model / effort (the preflight still runs)")
     ap.add_argument("--keep-run-dir", action="store_true", help="do not delete the one-time dirs (debugging)")
+    ap.add_argument("--no-continue", action="store_true",
+                    help="do not resume a CLI that exited before the episode was over (self-check / debugging)")
+    ap.add_argument("--jail", action="store_true",
+                    help="native harnesses: run the CLI in the native-harness jail (docs/15 §3.4): as uid 65534, no host "
+                         "path visible, MCP server outside behind a socket relay")
     return ap
 
 

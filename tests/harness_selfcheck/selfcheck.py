@@ -176,17 +176,26 @@ def api_of(adapter_name):
     return "codex" if adapter_name == "codex" else "claude"
 
 
+JAIL = False  # --jail: every adapter runs in the native-harness jail (docs/15 §3.4)
+CODEX_AUTH = "apikey"  # --codex-auth chatgpt: codex authenticates with a copy of the real ChatGPT login (requests still
+CODEX_AUTH_HOME = None  # go only to the fake server); its source CODEX_HOME is taken before the canary env is set up
+
+
 def adapter_kw(name, fake, allow_unpinned=True, pins_dir=None):
+    if name == "codex" and CODEX_AUTH == "chatgpt":
+        return dict(auth="chatgpt", auth_home=CODEX_AUTH_HOME, base_url=fake.base_url, timeout_s=600,
+                    allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
     if name == "codex":
         return dict(api_env={"OPENAI_API_KEY": "sk-fake-not-a-key"}, base_url=fake.base_url, timeout_s=600,
-                    allow_unpinned=allow_unpinned, pins_dir=pins_dir)
+                    allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
     return dict(api_env={"ANTHROPIC_API_KEY": "sk-fake-not-a-key", "ANTHROPIC_BASE_URL": fake.base_url},
-                timeout_s=600, allow_unpinned=allow_unpinned, pins_dir=pins_dir)
+                timeout_s=600, allow_unpinned=allow_unpinned, pins_dir=pins_dir, jail=JAIL)
 
 
 def run_native(name, log, script_steps, rec, allow_unpinned=True, pins_dir=None, reuse_state=None,
-               unsafe=False, skip_preflight=False, keep=False, tamper=None):
-    """One harness_run.run() of adapter `name` on session `log` against a scripted fake API."""
+               unsafe=False, skip_preflight=False, keep=False, tamper=None, cont=False):
+    """One harness_run.run() of adapter `name` on session `log` against a scripted fake API. cont: resume the CLI
+    when it exits before the episode is over (off elsewhere: the scripts end with a reply mid-episode)."""
     fake = fake_for(name, translate(script_steps, api_of(name)), rec)
     try:
         kw = adapter_kw(name, fake, allow_unpinned, pins_dir)
@@ -195,7 +204,7 @@ def run_native(name, log, script_steps, rec, allow_unpinned=True, pins_dir=None,
         m, e = MODELS[name]
         a = harness_run.parser().parse_args(["--harness", name, "--session", os.path.join(log, "session.json"),
                                              "--model", m, "--effort", e])
-        a.reuse_state, a.skip_preflight, a.keep_run_dir = reuse_state, skip_preflight, keep
+        a.reuse_state, a.skip_preflight, a.keep_run_dir, a.no_continue = reuse_state, skip_preflight, keep, not cont
         if unsafe:
             orig = HB.HarnessAdapter.unsafe_skip_clean_check
             HB.HarnessAdapter.unsafe_skip_clean_check = True
@@ -551,11 +560,12 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
     code1, hj3a, reqs3a = run_native(A, log3, r1_steps, os.path.join(scratch, f"req_{A}_s3a"), keep=True)
     state = hj3a.get("state_dirs") or {}
     left = {k: HB.snapshot_tree(v) for k, v in state.items() if k != "state" and os.path.isdir(v)}
-    threads = None
+    threads, thread1 = None, None
     if A == "codex":
+        from lffbench.harnesses.codex import Codex
+        thread1 = Codex.thread_id(os.path.join(log3, "codex_events.jsonl"))
         for f in left.get("codex_home", []):
             if re.match(r"state_\d+\.sqlite$", f):
-                from lffbench.harnesses.codex import Codex
                 threads = Codex.sqlite_rows(os.path.join(state["codex_home"], f), "threads")
     code2, hj3b, reqs3b = run_native(A, log3, [("text", "second run")], os.path.join(scratch, f"req_{A}_s3b"),
                                      reuse_state=state, unsafe=True)
@@ -564,10 +574,46 @@ def check_native(name, rep, servers, scratch, canaries, outer_env, ref_info):
         if v.startswith(("/tmp/lffstate/", "/tmp/lffrun/")):
             shutil.rmtree(v, ignore_errors=True)
     transcripts = [p for v in left.values() for p in v if p.endswith(".jsonl") and "mcp-logs" not in p]
-    ok9 = code1 == 0 and code2 == 0 and not leaked and not transcripts and (threads in (None, 0))
+    if A == "codex":  # not --ephemeral (exec resume): run 1's own session stays in its one-time CODEX_HOME
+        transcripts = [p for p in transcripts if not (thread1 and p.startswith("sessions/")
+                                                      and p.endswith(f"-{thread1}.jsonl"))]
+    ok9 = (code1 == 0 and code2 == 0 and not leaked and not transcripts
+           and (threads in (None, 0) or (A == "codex" and threads == 1)))
     rep.add(A, 9, "no state: a second run in the SAME config dirs sees nothing of the first", ok9,
             f"run1 exit={code1} run2 exit={code2} canary in run2 requests={leaked} files left after run1={left} "
             f"threads rows={threads}")
+
+    # ---------------- S3b: early exit before the episode is over -> resumed with the reference driver's nudge
+    if A == "codex":  # the adapters with can_resume (Claude Code: not yet)
+        log5, sb5, port5 = servers.start(f"hs5-{name}", extra="--max-tool-calls 4")
+        steps = [("mcp", "robot", {"command": "finish reason=\"probe\""}), ("mcp", "shell", {"command": "echo a"}),
+                 ("text", "I stopped after the one authorized attempt."), ("mcp", "shell", {"command": "echo b"}),
+                 ("text", "stop 2"), ("text", "stop 3"), ("text", "stop 4"), ("text", "stop 5")]
+        code, hj5, reqs5 = run_native(A, log5, steps, os.path.join(scratch, f"req_{A}_s3b"), cont=True)
+        cont = hj5.get("continuation") or []
+        resumes = [c for c in cont if c.get("ev") == "resume"]
+        want = ("Continue: issue the next robot command with the `robot` tool. You are in attempt 2 of 2; the episode "
+                "is NOT over.")
+        mcp5 = [d for d in jread(os.path.join(log5, "mcp_transcript.jsonl")) if d.get("ev") == "tool"]
+        shell_calls = [d.get("calls_in_attempt") for d in mcp5 if d["name"] == "shell"]
+        users = [first_user_blocks(A, b) for _, b in reqs5]
+        nudged = [i for i, u in enumerate(users) if u and u[-1] == want]
+        b0, b1 = reqs5[0][1], reqs5[nudged[0]][1] if nudged else {}
+        preset = (A != "codex" or (json.dumps(b0.get("input", [])[:4], sort_keys=True)
+                                   == json.dumps(b1.get("input", [])[:4], sort_keys=True)
+                                   and b0.get("model") == b1.get("model") and b0.get("reasoning") == b1.get("reasoning")))
+        history = bool(nudged) and "I stopped after the one authorized attempt." in json.dumps(b1)
+        au5 = json.load(open(os.path.join(log5, "harness_audit.json")))
+        ok12 = (code == 0 and len(resumes) == 4 and all(r["message"] == want for r in resumes)
+                and [c["ev"] for c in cont][-1] == "abort" and shell_calls == [1, 2] and users[-1].count(want) == 4
+                and preset and history and au5.get("ok") is True)
+        rep.add(A, 12, "CLI exits mid-episode -> resumed with the reference nudge (history kept, same preset, MCP "
+                "budget carried over, run ends after 4 tool-less replies in a row)", ok12,
+                f"exit={code} continuation={[(c['ev'], c.get('attempt')) for c in cont]} "
+                f"nudge ok={all(r['message'] == want for r in resumes)} requests ending in the nudge={nudged} "
+                f"nudges in the last request={users[-1].count(want) if users else 0} "
+                f"shell calls_in_attempt={shell_calls} preset same={preset} history kept={history} "
+                f"audit={au5.get('violations')}")
 
     # ---------------- S4: fail-closed launch guards + what the harness would read without them
     m, e = MODELS[A]
@@ -764,7 +810,16 @@ def main():
     ap.add_argument("--write-pins", action="store_true", help="pin the fingerprints of adapters whose checks passed")
     ap.add_argument("--skip-oracle", action="store_true")
     ap.add_argument("--keep", action="store_true", help="keep run logs and captured requests")
+    ap.add_argument("--jail", action="store_true", help="run every native adapter in the native-harness jail")
+    ap.add_argument("--codex-auth", default="apikey", choices=["apikey", "chatgpt"],
+                    help="codex: fake API key, or a copy of the real ChatGPT login (LFF_CODEX_AUTH_HOME / CODEX_HOME); "
+                         "requests still go only to the fake server; pins are per auth mode")
     a = ap.parse_args()
+    global JAIL, CODEX_AUTH, CODEX_AUTH_HOME
+    JAIL = a.jail
+    CODEX_AUTH = a.codex_auth
+    CODEX_AUTH_HOME = os.path.abspath(os.environ.get("LFF_CODEX_AUTH_HOME") or os.environ.get("CODEX_HOME")
+                                      or os.path.expanduser("~/.codex"))
     adapters = [x for x in a.adapters.split(",") if x]
     out = os.path.abspath(a.out)
     os.makedirs(out, exist_ok=True)
@@ -774,7 +829,7 @@ def main():
     servers = Servers(runs, Ports(a.port0))
     rep = Report()
     saved_env = dict(os.environ)
-    meta = dict(time=time.strftime("%F %T"), adapters=adapters)
+    meta = dict(time=time.strftime("%F %T"), adapters=adapters, jail=JAIL, codex_auth=CODEX_AUTH)
     try:
         # static: capability declarations (a class with a missing item cannot even be defined)
         try:

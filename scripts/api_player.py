@@ -179,6 +179,22 @@ def call_server(port, token, cmd, args):
         return r.read().decode()
 
 
+MAX_NO_TOOL = 3  # nudges in a row for replies without a tool call; the next such reply ends the run
+
+
+def continue_nudge(port, token, stx=None):
+    """The user message sent when the model replies without a tool call before the episode is over. Native harnesses
+    send the same text when their CLI exits early (scripts/harness_run.py). stx: a status reply already fetched."""
+    try:  # tell it where it is: models sometimes believe the episode ended after a failed attempt
+        if stx is None:
+            stx = json.loads(call_server(port, token, "status", {}))
+        where = (f" You are in attempt {stx.get('attempt')} of {stx.get('max_attempts')}; the episode is NOT over."
+                 if stx.get("attempt") else "")
+    except Exception:
+        where = ""
+    return "Continue: issue the next robot command with the `robot` tool." + where
+
+
 def build_backend(a, v2):
     """The model backend for --provider; image pruning only where the provider allows editing earlier turns."""
     if a.provider == "openai":
@@ -319,14 +335,8 @@ def main(argv=None, default_provider=None, transcript_name="transcript.jsonl"):
             break
         if not resp.tool_calls:
             no_tool += 1
-            try:  # tell it where it is: models sometimes believe the episode ended after a failed attempt
-                stx = json.loads(call_server(port, token, "status", {}))
-                where = (f" You are in attempt {stx.get('attempt')} of {stx.get('max_attempts')}; the episode is NOT over."
-                         if stx.get("attempt") else "")
-            except Exception:
-                where = ""
-            nudge = "Continue: issue the next robot command with the `robot` tool." + where
-            if no_tool > 3:
+            nudge = continue_nudge(port, token)
+            if no_tool > MAX_NO_TOOL:
                 log(dict(ev="abort", reason="no tool call 4 times"))
                 break
             conv.add_user([dict(type="text", text=nudge)], live=False)

@@ -4,7 +4,8 @@ Two variants:
   claude_code        arm B : -p --bare (system prompt ~400 chars, no CLAUDE.md / auto-memory / hooks / plugins)
   claude_code_full   arm B': same but without --bare: Claude Code's full system prompt; still a one-time config dir and
                      HOME, an empty opaque work dir, --tools "" and only our MCP server
-Both: process env is exactly the whitelist (env -i equivalent), HOME / CLAUDE_CONFIG_DIR / TMPDIR are one-time dirs
+Both: process env is exactly the whitelist (env -i equivalent; plus the calling HTTP(S) proxy, base.proxy_env),
+HOME / CLAUDE_CONFIG_DIR / TMPDIR are one-time dirs
 under /tmp/lffstate/<hex>, the work dir is /tmp/lffrun/<12 hex> (its path is written into the system prompt), the MCP
 server is scripts/mcp_robot_server.py on the run's session.
 
@@ -25,7 +26,8 @@ import time
 
 from . import contract as C
 from . import pins
-from .base import (Cap, HarnessAdapter, HarnessRefused, LaunchSpec, binary_info, new_run_dir, snapshot_tree)
+from .base import (NO_PROXY_KEYS, PROXY_KEYS, Cap, HarnessAdapter, HarnessRefused, LaunchSpec, binary_info,
+                   new_run_dir, proxy_env, snapshot_tree)
 from .fakeapi import FakeAnthropic
 from .trajectory import TrajWriter, strip_mcp
 
@@ -108,10 +110,15 @@ class ClaudeCode(HarnessAdapter):
     )
 
     def __init__(self, api_env=None, max_budget_usd=None, timeout_s=10800, pins_dir=None, allow_unpinned=False,
-                 python=None, extra_args=None):
+                 python=None, extra_args=None, jail=False):
         """api_env: the only API variables passed to the harness, e.g. {"ANTHROPIC_API_KEY": ..., optional
-        "ANTHROPIC_BASE_URL": ...}. Never inherited from the calling environment."""
+        "ANTHROPIC_BASE_URL": ...}. Never inherited from the calling environment. jail: run the CLI in the
+        native-harness jail (lffbench/harnesses/jail.py; /proc stays the host's: Bun needs it)."""
+        if jail:
+            from .jail import HarnessJail
+            self.jail = HarnessJail(claude_bin(), proc="host")
         self.api_env = dict(api_env or {})
+        self.proxy = proxy_env()
         self.max_budget_usd = max_budget_usd
         self.timeout_s = timeout_s
         self.pins_dir = pins_dir
@@ -135,10 +142,14 @@ class ClaudeCode(HarnessAdapter):
         return pins.key(self.name, v["version"], v["binary"]["sha256"], ep.model, ep.effort)
 
     # ------------------------------------------------------------------------------------------------ prepare
-    def mcp_config(self, session_path=None):
-        args = [MCP_SCRIPT, "--session", session_path] if session_path else [MCP_SCRIPT, "--schema-only"]
-        return {"mcpServers": {"lff": {"type": "stdio", "command": self.python, "args": args,
-                                       "env": {"PATH": BASE_PATH}}}}
+    def mcp_config(self, session_path=None, describe=False):
+        """describe: for config_sha256 only (jailed, no relay is set up for it)."""
+        args = ["--session", session_path] if session_path else ["--schema-only"]
+        if describe or self.jail is None:
+            cmd, a = ("<jail relay>" if self.jail is not None else self.python), [MCP_SCRIPT] + args
+        else:
+            cmd, a = self.mcp_server_command(self.python, MCP_SCRIPT, args)
+        return {"mcpServers": {"lff": {"type": "stdio", "command": cmd, "args": a, "env": {"PATH": BASE_PATH}}}}
 
     def argv(self, spec_paths, ep, first_message):
         a = [claude_bin(), "-p", first_message]
@@ -156,6 +167,7 @@ class ClaudeCode(HarnessAdapter):
         e = dict(PATH=BASE_PATH, HOME=state["home"], CLAUDE_CONFIG_DIR=state["config"], TMPDIR=state["tmp"],
                  LANG="C.UTF-8", CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC="1", DISABLE_AUTOUPDATER="1",
                  DISABLE_TELEMETRY="1", DISABLE_ERROR_REPORTING="1", MCP_TIMEOUT="60000", MCP_TOOL_TIMEOUT="900000")
+        e.update(self.proxy)
         e.update(self.api_env)
         return e
 
@@ -171,6 +183,8 @@ class ClaudeCode(HarnessAdapter):
     def prepare(self, ep, first_message, reuse_state=None):
         work = new_run_dir("/tmp/lffrun")
         state = reuse_state or self._state_dirs(os.path.basename(work))
+        if self.jail is not None:
+            self.jail.stderr_dir = ep.log_dir
         mcp_path = os.path.join(state["state"], "mcp.json")
         with open(mcp_path, "w") as f:
             json.dump(self.mcp_config(ep.session_path), f)
@@ -188,8 +202,8 @@ class ClaudeCode(HarnessAdapter):
         one-time dirs)."""
         argv = [("<MCP_CONFIG>" if a == spec.config_files["mcp_config"] else a) for a in self.logged_argv(spec)[3:]]
         env = {k: (v if k not in self.api_env else "<api>") for k, v in spec.env.items()
-               if k not in ("HOME", "CLAUDE_CONFIG_DIR", "TMPDIR")}
-        return C.sha256_json(dict(argv=argv, mcp=self.mcp_config("<SESSION>"), env=env))
+               if k not in ("HOME", "CLAUDE_CONFIG_DIR", "TMPDIR") + PROXY_KEYS + NO_PROXY_KEYS}
+        return C.sha256_json(dict(argv=argv, mcp=self.mcp_config("<SESSION>", describe=True), env=env))
 
     # ------------------------------------------------------------------------------------------------ preflight
     def preflight(self, spec, ep, record_dir=None):
@@ -204,7 +218,8 @@ class ClaudeCode(HarnessAdapter):
             argv = self.argv(dict(mcp_config=mcp_path), ep, spec.first_message)
             env = self.env(pre_state)
             env.update(ANTHROPIC_BASE_URL=fake.base_url, ANTHROPIC_API_KEY="sk-preflight-not-a-key")
-            r = subprocess.run(argv, env=env, cwd=spec.cwd, stdin=subprocess.DEVNULL, capture_output=True, timeout=180)
+            r = subprocess.run(self.jailed_argv(argv, env, spec.cwd, list(pre_state.values())), env=env, cwd=spec.cwd,
+                               stdin=subprocess.DEVNULL, capture_output=True, timeout=180)
             reqs = fake.message_requests()
             if not reqs:
                 raise HarnessRefused(f"preflight: harness sent no request (rc={r.returncode}): "
