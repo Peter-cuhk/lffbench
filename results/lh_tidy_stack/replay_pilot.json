@@ -1,0 +1,1602 @@
+{
+ "note": "replays of the Sonnet pilot runs/claude/np3_lh_tidy_stack (seeds 3000/3002/3003; all logged attempts) with the copied replay_la.py logic: 'v2' = final code (open loop: diverges once v2 physics differs), 'v1_sanity' = v1 code (reproduces every logged outcome), 'end_state_under_v2' = the logged end state (v1 replay) loaded into v2 physics and left 4 s",
+ "v2": [
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3000_full_F1_direct_k3_1016-193258_p16100",
+   "seed": 3000,
+   "attempt": 1,
+   "n_cmds": 136,
+   "logged": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 8,
+    "buckle_levels": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.57,
+     2.46,
+     3.1,
+     2.45,
+     2.45,
+     2.45,
+     2.48
+    ],
+    "pile": [
+     "blue"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": false
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 4,
+    "buckle_levels": [
+     1,
+     null,
+     null,
+     null
+    ],
+    "buckle_how": [
+     "fold",
+     "fold",
+     "crush",
+     "crush"
+    ],
+    "buckle_loads_N": [
+     3.45,
+     3.73,
+     3.57,
+     3.63
+    ],
+    "pile": [],
+    "cup_fallen": false,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "There is no box resting flat on the mat. The red box lies tilted 4.7 cm forward and 1.5 cm to the right of the mat's centre, not in the pile. The green box stands 11.1 cm forward and 19.1 cm to the left of the mat's centre, not in the pile. The blue box stands 8.1 cm forward and 0.6 cm to the right of the mat's centre, not in the pile. The yellow box stands 2.5 cm forward and 20.9 cm to the left of the mat's centre, not in the pile. The cup is not standing on top of a complete pile. During the attempt the blue box bent sideways under the weight on it 1 time(s) and everything above it slid off. The blue box gave way 3 time(s) when the gripper pushed down on it.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 410,
+     "load_N": 3.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ],
+     "how": "fold",
+     "cause": "load",
+     "resting_N": 3.45,
+     "lying": false
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3342,
+     "load_N": 3.73,
+     "level": null,
+     "items_on": [],
+     "how": "fold",
+     "cause": "press",
+     "resting_N": 0.0,
+     "lying": false
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4109,
+     "load_N": 3.57,
+     "level": null,
+     "items_on": [],
+     "how": "crush",
+     "cause": "press",
+     "resting_N": 0.0,
+     "lying": true
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4611,
+     "load_N": 3.63,
+     "level": null,
+     "items_on": [],
+     "how": "crush",
+     "cause": "press",
+     "resting_N": 0.0,
+     "lying": true
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 402,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 596,
+     "load_N": 2.57,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 868,
+     "load_N": 2.46,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3341,
+     "load_N": 3.1,
+     "level": 1,
+     "items_on": [
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3834,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4072,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4516,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4668,
+     "load_N": 2.48,
+     "level": 1,
+     "items_on": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3000_full_F1_direct_k3_1016-193258_p16100",
+   "seed": 3000,
+   "attempt": 2,
+   "n_cmds": 105,
+   "logged": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 8,
+    "buckle_levels": [
+     1,
+     1,
+     null,
+     2,
+     2,
+     null,
+     2,
+     2
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.45,
+     2.56,
+     2.76,
+     2.53,
+     2.49,
+     2.45,
+     2.46
+    ],
+    "pile": [
+     "green"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 1,
+    "buckle_levels": [
+     1
+    ],
+    "buckle_how": [
+     "fold"
+    ],
+    "buckle_loads_N": [
+     3.45
+    ],
+    "pile": [
+     "blue"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is blue (bottom to top). The red box stands 9.2 cm backward and 0.5 cm to the right of the mat's centre, not in the pile. The green box stands 9.8 cm forward and 2.3 cm to the left of the mat's centre, not in the pile. The yellow box stands 14.4 cm forward and 7.9 cm to the left of the mat's centre, not in the pile. The cup is not standing on top of a complete pile. During the attempt the blue box bent sideways under the weight on it 1 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 312,
+     "load_N": 3.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ],
+     "how": "fold",
+     "cause": "load",
+     "resting_N": 3.45,
+     "lying": false
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 294,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 577,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1354,
+     "load_N": 2.56,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1720,
+     "load_N": 2.76,
+     "level": 2,
+     "items_on": [
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2152,
+     "load_N": 2.53,
+     "level": 2,
+     "items_on": [
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2713,
+     "load_N": 2.49,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2836,
+     "load_N": 2.45,
+     "level": 2,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2972,
+     "load_N": 2.46,
+     "level": 2,
+     "items_on": [
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3002_full_F1_direct_k3_1016-193304_p16101",
+   "seed": 3002,
+   "attempt": 1,
+   "n_cmds": 86,
+   "logged": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 4,
+    "buckle_levels": [
+     null,
+     3,
+     3,
+     null
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.45,
+     2.45,
+     2.58
+    ],
+    "pile": [
+     "red",
+     "green",
+     "blue"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 1,
+    "buckle_levels": [
+     3
+    ],
+    "buckle_how": [
+     "fold"
+    ],
+    "buckle_loads_N": [
+     3.45
+    ],
+    "pile": [
+     "red",
+     "green"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is red / green (bottom to top). The blue box stands 9.2 cm backward and 2.8 cm to the left of the mat's centre, not in the pile. The yellow box stands 7.9 cm forward and 8.2 cm to the left of the mat's centre, not in the pile. The cup has fallen over. During the attempt the blue box bent sideways under the weight on it 1 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 537,
+     "load_N": 3.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ],
+     "how": "fold",
+     "cause": "load",
+     "resting_N": 3.45,
+     "lying": false
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 262,
+     "load_N": 2.45,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 528,
+     "load_N": 2.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 819,
+     "load_N": 2.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1184,
+     "load_N": 2.58,
+     "level": null,
+     "items_on": []
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3002_full_F1_direct_k3_1016-193304_p16101",
+   "seed": 3002,
+   "attempt": 2,
+   "n_cmds": 109,
+   "logged": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": true,
+    "n_buckles": 5,
+    "buckle_levels": [
+     null,
+     null,
+     2,
+     2,
+     2
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.51,
+     2.49,
+     2.48,
+     2.51
+    ],
+    "pile": [
+     "green",
+     "blue",
+     "red",
+     "yellow"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": true
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": false,
+    "n_buckles": 1,
+    "buckle_levels": [
+     null
+    ],
+    "buckle_how": [
+     "fold"
+    ],
+    "buckle_loads_N": [
+     3.45
+    ],
+    "pile": [
+     "blue"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is blue (bottom to top). The red box stands 8.2 cm forward and 6.3 cm to the right of the mat's centre, not in the pile. The green box stands 4.9 cm backward and 0.8 cm to the right of the mat's centre, not in the pile. The yellow box stands 10.8 cm forward and 1.1 cm to the left of the mat's centre, not in the pile. The cup has fallen over. The blue box gave way 1 time(s) when the gripper pushed down on it.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2465,
+     "load_N": 3.45,
+     "level": null,
+     "items_on": [],
+     "how": "fold",
+     "cause": "press",
+     "resting_N": 0.0,
+     "lying": false
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1163,
+     "load_N": 2.45,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1259,
+     "load_N": 2.51,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1631,
+     "load_N": 2.49,
+     "level": 2,
+     "items_on": [
+      "red"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2014,
+     "load_N": 2.48,
+     "level": 2,
+     "items_on": [
+      "red"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2679,
+     "load_N": 2.51,
+     "level": 2,
+     "items_on": [
+      "red",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3003_full_F1_direct_k3_1016-193308_p16102",
+   "seed": 3003,
+   "attempt": 1,
+   "n_cmds": 103,
+   "logged": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": true,
+    "n_buckles": 2,
+    "buckle_levels": [
+     null,
+     4
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.57,
+     2.5
+    ],
+    "pile": [
+     "blue",
+     "yellow",
+     "red",
+     "green"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": true
+   },
+   "replay": {
+    "success": false,
+    "failure": "regressed",
+    "trap_fired": false,
+    "n_buckles": 0,
+    "buckle_levels": [],
+    "buckle_how": [],
+    "buckle_loads_N": [],
+    "pile": [
+     "blue",
+     "yellow"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is blue / yellow (bottom to top). The red box stands 21.6 cm forward and 0.0 cm to the left of the mat's centre, not in the pile. The green box stands 41.2 cm forward and 0.4 cm to the left of the mat's centre, not in the pile. The cup has fallen over.",
+   "replay_buckles": [],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "green",
+     "step": 1327,
+     "load_N": 2.57,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "green",
+     "step": 1786,
+     "load_N": 2.5,
+     "level": 4,
+     "items_on": [
+      "cup"
+     ]
+    }
+   ]
+  }
+ ],
+ "v1_sanity": [
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3000_full_F1_direct_k3_1016-193258_p16100",
+   "seed": 3000,
+   "attempt": 1,
+   "n_cmds": 136,
+   "logged": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 8,
+    "buckle_levels": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.57,
+     2.46,
+     3.1,
+     2.45,
+     2.45,
+     2.45,
+     2.48
+    ],
+    "pile": [
+     "blue"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": false
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 8,
+    "buckle_levels": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.57,
+     2.46,
+     3.1,
+     2.45,
+     2.45,
+     2.45,
+     2.48
+    ],
+    "pile": [
+     "blue"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is blue (bottom to top). The red box stands 8.4 cm forward and 0.9 cm to the left of the mat's centre, not in the pile. The green box stands 1.3 cm forward and 7.5 cm to the left of the mat's centre, not in the pile. The yellow box stands 19.5 cm forward and 2.8 cm to the right of the mat's centre, not in the pile. The cup is not standing on top of a complete pile. During the attempt the blue box bent sideways under the weight on it 8 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 402,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 596,
+     "load_N": 2.57,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 868,
+     "load_N": 2.46,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3341,
+     "load_N": 3.1,
+     "level": 1,
+     "items_on": [
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3834,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4072,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4516,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4668,
+     "load_N": 2.48,
+     "level": 1,
+     "items_on": [
+      "red"
+     ]
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 402,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 596,
+     "load_N": 2.57,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 868,
+     "load_N": 2.46,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3341,
+     "load_N": 3.1,
+     "level": 1,
+     "items_on": [
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 3834,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4072,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4516,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 4668,
+     "load_N": 2.48,
+     "level": 1,
+     "items_on": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3000_full_F1_direct_k3_1016-193258_p16100",
+   "seed": 3000,
+   "attempt": 2,
+   "n_cmds": 105,
+   "logged": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 8,
+    "buckle_levels": [
+     1,
+     1,
+     null,
+     2,
+     2,
+     null,
+     2,
+     2
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.45,
+     2.56,
+     2.76,
+     2.53,
+     2.49,
+     2.45,
+     2.46
+    ],
+    "pile": [
+     "green"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 8,
+    "buckle_levels": [
+     1,
+     1,
+     null,
+     2,
+     2,
+     null,
+     2,
+     2
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.45,
+     2.56,
+     2.76,
+     2.53,
+     2.49,
+     2.45,
+     2.46
+    ],
+    "pile": [
+     "green"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is green (bottom to top). The red box stands 1.1 cm forward and 11.4 cm to the left of the mat's centre, not in the pile. The blue box lies tilted 0.2 cm backward and 5.1 cm to the left of the mat's centre, not in the pile. The yellow box stands 2.7 cm forward and 9.9 cm to the left of the mat's centre, not in the pile. The cup has fallen over. During the attempt the blue box bent sideways under the weight on it 8 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 294,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 577,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1354,
+     "load_N": 2.56,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1720,
+     "load_N": 2.76,
+     "level": 2,
+     "items_on": [
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2152,
+     "load_N": 2.53,
+     "level": 2,
+     "items_on": [
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2713,
+     "load_N": 2.49,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2836,
+     "load_N": 2.45,
+     "level": 2,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2972,
+     "load_N": 2.46,
+     "level": 2,
+     "items_on": [
+      "yellow"
+     ]
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 294,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 577,
+     "load_N": 2.45,
+     "level": 1,
+     "items_on": [
+      "red",
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1354,
+     "load_N": 2.56,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1720,
+     "load_N": 2.76,
+     "level": 2,
+     "items_on": [
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2152,
+     "load_N": 2.53,
+     "level": 2,
+     "items_on": [
+      "yellow"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2713,
+     "load_N": 2.49,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2836,
+     "load_N": 2.45,
+     "level": 2,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2972,
+     "load_N": 2.46,
+     "level": 2,
+     "items_on": [
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3002_full_F1_direct_k3_1016-193304_p16101",
+   "seed": 3002,
+   "attempt": 1,
+   "n_cmds": 86,
+   "logged": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 4,
+    "buckle_levels": [
+     null,
+     3,
+     3,
+     null
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.45,
+     2.45,
+     2.58
+    ],
+    "pile": [
+     "red",
+     "green",
+     "blue"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "n_buckles": 4,
+    "buckle_levels": [
+     null,
+     3,
+     3,
+     null
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.45,
+     2.45,
+     2.58
+    ],
+    "pile": [
+     "red",
+     "green",
+     "blue"
+    ],
+    "cup_fallen": true,
+    "recovered_in_attempt": false
+   },
+   "replay_detail": "The pile on the mat is red / green / blue (bottom to top). The yellow box stands 11.9 cm backward and 19.5 cm to the left of the mat's centre, not in the pile. The cup has fallen over. During the attempt the blue box bent sideways under the weight on it 4 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 262,
+     "load_N": 2.45,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 528,
+     "load_N": 2.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 819,
+     "load_N": 2.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1184,
+     "load_N": 2.58,
+     "level": null,
+     "items_on": []
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 262,
+     "load_N": 2.45,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 528,
+     "load_N": 2.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 819,
+     "load_N": 2.45,
+     "level": 3,
+     "items_on": [
+      "yellow",
+      "cup"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1184,
+     "load_N": 2.58,
+     "level": null,
+     "items_on": []
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3002_full_F1_direct_k3_1016-193304_p16101",
+   "seed": 3002,
+   "attempt": 2,
+   "n_cmds": 109,
+   "logged": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": true,
+    "n_buckles": 5,
+    "buckle_levels": [
+     null,
+     null,
+     2,
+     2,
+     2
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.51,
+     2.49,
+     2.48,
+     2.51
+    ],
+    "pile": [
+     "green",
+     "blue",
+     "red",
+     "yellow"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": true
+   },
+   "replay": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": true,
+    "n_buckles": 5,
+    "buckle_levels": [
+     null,
+     null,
+     2,
+     2,
+     2
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.45,
+     2.51,
+     2.49,
+     2.48,
+     2.51
+    ],
+    "pile": [
+     "green",
+     "blue",
+     "red",
+     "yellow"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": true
+   },
+   "replay_detail": "All four boxes are stacked on the mat and the cup stands on top. During the attempt the blue box bent sideways under the weight on it 5 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1163,
+     "load_N": 2.45,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1259,
+     "load_N": 2.51,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1631,
+     "load_N": 2.49,
+     "level": 2,
+     "items_on": [
+      "red"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2014,
+     "load_N": 2.48,
+     "level": 2,
+     "items_on": [
+      "red"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2679,
+     "load_N": 2.51,
+     "level": 2,
+     "items_on": [
+      "red",
+      "yellow"
+     ]
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1163,
+     "load_N": 2.45,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1259,
+     "load_N": 2.51,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 1631,
+     "load_N": 2.49,
+     "level": 2,
+     "items_on": [
+      "red"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2014,
+     "load_N": 2.48,
+     "level": 2,
+     "items_on": [
+      "red"
+     ]
+    },
+    {
+     "event": "buckle",
+     "box": "blue",
+     "step": 2679,
+     "load_N": 2.51,
+     "level": 2,
+     "items_on": [
+      "red",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3003_full_F1_direct_k3_1016-193308_p16102",
+   "seed": 3003,
+   "attempt": 1,
+   "n_cmds": 103,
+   "logged": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": true,
+    "n_buckles": 2,
+    "buckle_levels": [
+     null,
+     4
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.57,
+     2.5
+    ],
+    "pile": [
+     "blue",
+     "yellow",
+     "red",
+     "green"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": true
+   },
+   "replay": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": true,
+    "n_buckles": 2,
+    "buckle_levels": [
+     null,
+     4
+    ],
+    "buckle_how": null,
+    "buckle_loads_N": [
+     2.57,
+     2.5
+    ],
+    "pile": [
+     "blue",
+     "yellow",
+     "red",
+     "green"
+    ],
+    "cup_fallen": false,
+    "recovered_in_attempt": true
+   },
+   "replay_detail": "All four boxes are stacked on the mat and the cup stands on top. During the attempt the green box bent sideways under the weight on it 2 time(s) and everything above it slid off.",
+   "replay_buckles": [
+    {
+     "event": "buckle",
+     "box": "green",
+     "step": 1327,
+     "load_N": 2.57,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "green",
+     "step": 1786,
+     "load_N": 2.5,
+     "level": 4,
+     "items_on": [
+      "cup"
+     ]
+    }
+   ],
+   "logged_buckles": [
+    {
+     "event": "buckle",
+     "box": "green",
+     "step": 1327,
+     "load_N": 2.57,
+     "level": null,
+     "items_on": []
+    },
+    {
+     "event": "buckle",
+     "box": "green",
+     "step": 1786,
+     "load_N": 2.5,
+     "level": 4,
+     "items_on": [
+      "cup"
+     ]
+    }
+   ]
+  }
+ ],
+ "end_state_under_v2": [
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3002_full_F1_direct_k3_1016-193304_p16101",
+   "attempt": 2,
+   "v1_replay": {
+    "success": true,
+    "pile": [
+     "green",
+     "blue",
+     "red",
+     "yellow"
+    ]
+   },
+   "v2_loads": {
+    "resting": 6.529253020585457,
+    "robot": 0.0,
+    "held": 0.0,
+    "support": 7.1157305208368795
+   },
+   "v2_after": {
+    "success": false,
+    "failure": "collapsed",
+    "pile": [],
+    "buckle_how": [
+     "crush"
+    ],
+    "buckle_causes": [
+     "load"
+    ],
+    "buckle_loads_N": [
+     3.45
+    ],
+    "detail": "There is no box resting flat on the mat. The red box stands 4.9 cm forward and 1.4 cm to the right of the mat's centre, not in the pile. The green box stands 6.0 cm backward and 0.7 cm to the right of the mat's centre, not in the pile. The blue box lies tilted 0.5 cm backward and 1.5 cm to the right of the mat's centre, not in the pile. The yellow box stands 10.8 cm forward and 0.4 cm to the right of the mat's centre, not in the pile. The cup has fallen over. During the attempt the blue box was crushed flat under the weight on it 1 time(s) and everything above it slid off."
+   }
+  },
+  {
+   "run": "np3_lh_tidy_stack-sonnet-harness_lh_tidy_stack_s3003_full_F1_direct_k3_1016-193308_p16102",
+   "attempt": 1,
+   "v1_replay": {
+    "success": true,
+    "pile": [
+     "blue",
+     "yellow",
+     "red",
+     "green"
+    ]
+   },
+   "v2_loads": {
+    "resting": 5.113260580308194,
+    "robot": 0.0,
+    "held": 0.0,
+    "support": 6.653832729511372
+   },
+   "v2_after": {
+    "success": true,
+    "failure": "none",
+    "pile": [
+     "blue",
+     "yellow",
+     "red",
+     "green"
+    ],
+    "buckle_how": [],
+    "buckle_causes": [],
+    "buckle_loads_N": [],
+    "detail": "All four boxes are stacked on the mat and the cup stands on top."
+   }
+  }
+ ]
+}

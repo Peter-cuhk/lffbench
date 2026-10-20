@@ -1,0 +1,278 @@
+{
+ "pilot": [
+  3001,
+  3002,
+  3004
+ ],
+ "log": [
+  {
+   "seed": 3000,
+   "heavy": "red",
+   "short_corner": "far-right",
+   "heavy_rank_naive": 1,
+   "supply_side": "left",
+   "short_h_mm": 14.7,
+   "naive": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "red",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.2,
+     "blue": 5.4,
+     "green": 5.4,
+     "yellow": 5.4
+    },
+    "table_tilt": 4.74
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "red",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.2,
+     "blue": 5.4,
+     "green": 5.4,
+     "yellow": 5.4
+    },
+    "table_tilt": 4.74
+   },
+   "pilot": false
+  },
+  {
+   "seed": 3001,
+   "heavy": "yellow",
+   "short_corner": "near-left",
+   "heavy_rank_naive": 2,
+   "supply_side": "right",
+   "short_h_mm": 14.3,
+   "naive": {
+    "succ": false,
+    "fail": "toppled_by_rock",
+    "trap": true,
+    "fell": [
+     "blue"
+    ],
+    "rocks": [
+     {
+      "released": "yellow",
+      "fell": [
+       "blue"
+      ],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.3,
+     "blue": 90.2,
+     "green": 5.3,
+     "yellow": 5.2
+    },
+    "table_tilt": 4.62
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "yellow",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.3,
+     "blue": 5.4,
+     "green": 5.3,
+     "yellow": 5.2
+    },
+    "table_tilt": 4.62
+   },
+   "pilot": true
+  },
+  {
+   "seed": 3002,
+   "heavy": "blue",
+   "short_corner": "near-left",
+   "heavy_rank_naive": 3,
+   "supply_side": "front",
+   "short_h_mm": 15.0,
+   "naive": {
+    "succ": false,
+    "fail": "toppled_by_rock",
+    "trap": true,
+    "fell": [
+     "red",
+     "yellow"
+    ],
+    "rocks": [
+     {
+      "released": "blue",
+      "fell": [
+       "red",
+       "yellow"
+      ],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 95.0,
+     "blue": 5.4,
+     "green": 5.5,
+     "yellow": 90.2
+    },
+    "table_tilt": 4.83
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "blue",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.5,
+     "blue": 5.4,
+     "green": 5.5,
+     "yellow": 5.5
+    },
+    "table_tilt": 4.83
+   },
+   "pilot": true
+  },
+  {
+   "seed": 3003,
+   "heavy": "yellow",
+   "short_corner": "far-left",
+   "heavy_rank_naive": 1,
+   "supply_side": "right",
+   "short_h_mm": 14.5,
+   "naive": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "yellow",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.3,
+     "blue": 5.3,
+     "green": 5.3,
+     "yellow": 5.3
+    },
+    "table_tilt": 4.68
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "yellow",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.3,
+     "blue": 5.3,
+     "green": 5.3,
+     "yellow": 5.3
+    },
+    "table_tilt": 4.68
+   },
+   "pilot": false
+  },
+  {
+   "seed": 3004,
+   "heavy": "blue",
+   "short_corner": "far-right",
+   "heavy_rank_naive": 2,
+   "supply_side": "front",
+   "short_h_mm": 16.0,
+   "naive": {
+    "succ": false,
+    "fail": "toppled_by_rock",
+    "trap": true,
+    "fell": [
+     "red"
+    ],
+    "rocks": [
+     {
+      "released": "blue",
+      "fell": [
+       "red"
+      ],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 90.2,
+     "blue": 5.7,
+     "green": 5.9,
+     "yellow": 5.9
+    },
+    "table_tilt": 5.15
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "fell": [],
+    "rocks": [
+     {
+      "released": "blue",
+      "fell": [],
+      "touched_before": [],
+      "touched_while_falling": []
+     }
+    ],
+    "tilts": {
+     "red": 5.9,
+     "blue": 5.7,
+     "green": 5.9,
+     "yellow": 5.9
+    },
+    "table_tilt": 5.15
+   },
+   "pilot": true
+  }
+ ]
+}

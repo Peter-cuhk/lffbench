@@ -1,0 +1,128 @@
+{
+ "pilot_seeds": [
+  3000,
+  3002,
+  3003
+ ],
+ "rows": [
+  {
+   "seed": 3000,
+   "soft": "blue",
+   "benign": false,
+   "soft_rank_nearest": 0,
+   "naive": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "buckle_levels": [
+     1,
+     1
+    ],
+    "pile": [
+     "blue"
+    ],
+    "n_buckles": 2
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "pile": [
+     "green",
+     "yellow",
+     "red",
+     "blue"
+    ]
+   }
+  },
+  {
+   "seed": 3001,
+   "soft": "red",
+   "benign": false,
+   "soft_rank_nearest": 3,
+   "naive": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": false,
+    "buckle_levels": [],
+    "pile": [
+     "blue",
+     "green",
+     "yellow",
+     "red"
+    ],
+    "n_buckles": 0
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "pile": [
+     "blue",
+     "green",
+     "yellow",
+     "red"
+    ]
+   }
+  },
+  {
+   "seed": 3002,
+   "soft": "blue",
+   "benign": false,
+   "soft_rank_nearest": 2,
+   "naive": {
+    "success": false,
+    "failure": "cup_fallen",
+    "trap_fired": true,
+    "buckle_levels": [
+     3
+    ],
+    "pile": [
+     "red",
+     "green",
+     "blue",
+     "yellow"
+    ],
+    "n_buckles": 1
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "pile": [
+     "red",
+     "green",
+     "yellow",
+     "blue"
+    ]
+   }
+  },
+  {
+   "seed": 3003,
+   "soft": "green",
+   "benign": false,
+   "soft_rank_nearest": 1,
+   "naive": {
+    "success": false,
+    "failure": "collapsed",
+    "trap_fired": true,
+    "buckle_levels": [
+     2,
+     2
+    ],
+    "pile": [
+     "yellow",
+     "green"
+    ],
+    "n_buckles": 2
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "pile": [
+     "yellow",
+     "blue",
+     "red",
+     "green"
+    ]
+   }
+  }
+ ]
+}

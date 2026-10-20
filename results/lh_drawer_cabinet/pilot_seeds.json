@@ -1,0 +1,133 @@
+{
+ "pilot": [
+  3000,
+  3001,
+  3003
+ ],
+ "log": [
+  {
+   "seed": 3000,
+   "drawer": "self-closing",
+   "bottle_side": "left",
+   "naive": {
+    "succ": false,
+    "fail": "bottle_knocked",
+    "trap": true,
+    "lost": [
+     "brown",
+     "green"
+    ],
+    "jerk_cm": [
+     [
+      -3.38,
+      0.01
+     ]
+    ],
+    "touched_before_fall": [
+     false,
+     false
+    ],
+    "tilts": {
+     "green": 63.1,
+     "brown": 56.5
+    },
+    "detail": "The green bottle has tipped over forward on the cabinet top and leans 63 degrees against the rail along the top's far edge; its base is 3.2 cm backward and 5.8 cm to the right of the centre of the cabinet top. It had stood on the cabinet top; it fell when the drawer snapped shut and the cabinet jerked. The brown bottle has tipped over forward on the cabinet top and leans 56 degrees against the rail along the top's far edge; its base is 2.1 cm backward and 7.1 cm to the left of the centre of the cabinet top. It had stood on the cabinet top; it fell when the drawer snapped shut and the cabinet jerked."
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  },
+  {
+   "seed": 3001,
+   "drawer": "self-closing",
+   "bottle_side": "right",
+   "naive": {
+    "succ": false,
+    "fail": "bottle_knocked",
+    "trap": true,
+    "lost": [
+     "brown",
+     "green"
+    ],
+    "jerk_cm": [
+     [
+      -3.64,
+      -0.03
+     ]
+    ],
+    "touched_before_fall": [
+     false,
+     false
+    ],
+    "tilts": {
+     "green": 56.1,
+     "brown": 67.6
+    },
+    "detail": "The green bottle has tipped over forward on the cabinet top and leans 56 degrees against the rail along the top's far edge; its base is 0.6 cm forward and 7.6 cm to the left of the centre of the cabinet top. It had stood on the cabinet top; it fell when the drawer snapped shut and the cabinet jerked. The brown bottle has tipped over forward on the cabinet top and leans 68 degrees against the rail along the top's far edge; its base is 4.3 cm backward and 4.9 cm to the right of the centre of the cabinet top. It had stood on the cabinet top; it fell when the drawer snapped shut and the cabinet jerked."
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  },
+  {
+   "seed": 3002,
+   "drawer": "soft-close",
+   "bottle_side": "right",
+   "naive": {
+    "succ": true,
+    "fail": "none",
+    "trap": false,
+    "lost": [],
+    "jerk_cm": [],
+    "touched_before_fall": [
+     false,
+     false
+    ],
+    "tilts": {
+     "green": 0.0,
+     "brown": 0.0
+    },
+    "detail": "Both bottles stand on the cabinet, the two cubes are in the closed drawer."
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  },
+  {
+   "seed": 3003,
+   "drawer": "self-closing",
+   "bottle_side": "right",
+   "naive": {
+    "succ": false,
+    "fail": "bottle_knocked",
+    "trap": true,
+    "lost": [
+     "brown",
+     "green"
+    ],
+    "jerk_cm": [
+     [
+      -3.34,
+      0.06
+     ]
+    ],
+    "touched_before_fall": [
+     false,
+     false
+    ],
+    "tilts": {
+     "green": 90.0,
+     "brown": 67.0
+    },
+    "detail": "The green bottle has fallen over and lies on the table; its base is 9.0 cm backward and 20.0 cm to the left of the centre of the cabinet top. It had stood on the cabinet top; it fell when the drawer snapped shut and the cabinet jerked. The brown bottle has tipped over forward on the cabinet top and leans 67 degrees against the rail along the top's far edge; its base is 4.2 cm backward and 8.6 cm to the right of the centre of the cabinet top. It had stood on the cabinet top; it fell when the drawer snapped shut and the cabinet jerked."
+   },
+   "oracle": {
+    "succ": true,
+    "fail": "none"
+   }
+  }
+ ]
+}

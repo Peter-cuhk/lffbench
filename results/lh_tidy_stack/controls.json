@@ -1,0 +1,2406 @@
+{
+ "mode": "kinds",
+ "rows": [
+  {
+   "seed": 1000,
+   "kind": "naive_centred",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "oracle_noise",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "blue",
+      "red",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "switch",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1,
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "blue",
+      "red",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive_lying",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "oracle_lying",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "blue",
+      "red",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive_centred",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle_noise",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "switch",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive_lying",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle_lying",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive_centred",
+   "soft": "yellow",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "green",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle_noise",
+   "soft": "yellow",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "green",
+      "red",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "switch",
+   "soft": "yellow",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "cup_fallen",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "green",
+      "yellow",
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "green",
+      "red",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive_lying",
+   "soft": "yellow",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle_lying",
+   "soft": "yellow",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "green",
+      "red",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2,
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1,
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive_centred",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle_noise",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "switch",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive_lying",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle_lying",
+   "soft": "yellow",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive_centred",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle_noise",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "switch",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "cup_fallen",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "blue",
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive_lying",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle_lying",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive_centred",
+   "soft": "green",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle_noise",
+   "soft": "green",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "blue",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "switch",
+   "soft": "green",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2,
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "red",
+      "green"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "blue",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive_lying",
+   "soft": "green",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle_lying",
+   "soft": "green",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "red",
+      "blue",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1,
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "blue",
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive_centred",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle_noise",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "green",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "switch",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "cup_fallen",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "blue",
+      "green"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "green",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive_lying",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle_lying",
+   "soft": "blue",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "green",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive_centred",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle_noise",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "switch",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2,
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive_lying",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle_lying",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "blue",
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1,
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "blue",
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "blue",
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive_centred",
+   "soft": "green",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "red",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle_noise",
+   "soft": "green",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "red",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "switch",
+   "soft": "green",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "red",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive_lying",
+   "soft": "green",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "red",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle_lying",
+   "soft": "green",
+   "rank": 3,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "blue",
+      "red",
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive_centred",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle_noise",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "switch",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive_lying",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle_lying",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red",
+      "blue"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "yellow"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive_centred",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle_noise",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "blue",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "switch",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1,
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "blue",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive_lying",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      1
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle_lying",
+   "soft": "green",
+   "rank": 0,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "red",
+      "blue",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive_centred",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle_noise",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "switch",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive_lying",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle_lying",
+   "soft": null,
+   "rank": null,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive_centred",
+   "soft": "red",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle_noise",
+   "soft": "red",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "switch",
+   "soft": "red",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "cup_fallen",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "red",
+      "blue"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive_lying",
+   "soft": "red",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      3
+     ],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle_lying",
+   "soft": "red",
+   "rank": 2,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "yellow",
+      "green",
+      "blue",
+      "red"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive_centred",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle_noise",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "switch",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2,
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green",
+      "yellow",
+      "red"
+     ]
+    },
+    {
+     "a": 2,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive_lying",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": false,
+     "failure": "collapsed",
+     "trap": true,
+     "levels": [
+      2
+     ],
+     "recovered": false,
+     "pile": [
+      "green"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle_lying",
+   "soft": "yellow",
+   "rank": 1,
+   "attempts": [
+    {
+     "a": 1,
+     "success": true,
+     "failure": "none",
+     "trap": false,
+     "levels": [],
+     "recovered": false,
+     "pile": [
+      "green",
+      "red",
+      "blue",
+      "yellow"
+     ]
+    }
+   ]
+  }
+ ],
+ "seconds": 2134.462472677231
+}

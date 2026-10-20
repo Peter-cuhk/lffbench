@@ -1,0 +1,49 @@
+# LFF-Bench main task set v2 (DRAFT, 2026-10-16): v1 + the six tasks removed on 2026-10-13 (restored: user, 10-16 --
+# do not drop a task on one model's results; decide after all models have run) + new long-horizon tasks (being built).
+# Same format and seed rule as v1; v1 (sets/main_v1.txt) stays unchanged for runs already under way.
+# Pass to scripts/api_batch.py with:  --tasks $(grep -v '^#' sets/main_v2.txt)
+# Seeds: the first seeds >= 3000 where the scripted naive policy fails and the oracle succeeds on attempt 1
+# (hidden-variable subset: 5 instances; other tasks: 3). See task_cards/<task>.md for each task.
+# Changes: 2026-10-16 l7_key_turn no longer limits turns per attempt (success = lock opened; turning the
+#   wrong way first is logged as trap_fired). Re-run l7_key_turn runs made before this change; other tasks unchanged.
+#
+# hidden-variable short tasks (10)
+l7_offcenter_push:3000,3001,3002,3003,3004
+l5_slide_to_target:3000,3001,3003,3004,3007
+l5_tablecloth_pull:3000,3001,3002,3003,3004
+l3_wall_flush:3000,3001,3002,3003,3004
+l3_under_table_tool:3000,3001,3002,3003,3004
+l4_fit_container:3000,3001,3002,3003,3004
+l7_key_turn:3001,3003,3005,3007,3009
+l2_turntable_restore:3000,3001,3002,3003,3004
+l3_card_shelf:3003,3004,3007,3009,3013
+l5_loaded_beam:3000,3001,3002,3003,3004
+# long-horizon tasks (later stages can break earlier progress)
+lh_lid_box:3000,3001,3003
+lh_bridge:3001,3002,3004
+lh_tray_delivery:3000,3002,3003
+lh_balance_board:3000,3001,3003
+lh_false_bottom_lid:3000,3001,3003
+lh_clear_cover:3000,3001,3003
+lh_bystander:3000,3001,3002
+lh_nudge_row:3000,3001,3003
+# easy tier (saturated for strong models; kept for weaker ones)
+l1_bias_place:3001,3002,3003
+l1_height_bias:3000,3001,3002
+l2_knock_restore:3000,3001,3002
+l2_restore_layout:3000,3001,3002
+l3_too_wide_push:3000,3001,3002
+l4_nest_order:3000,3001,3004
+# restored on 2026-10-16 (easy tier, 3 instances each; saturated for Sonnet 5.5, kept for other models;
+#   L1-L5 levels (user, 10-16): yaw_bias L1, card_edge L3, slippery_lift L5, the three former L6 memory tasks L2)
+l1_yaw_bias:3000,3001,3002
+l3_card_edge:3000,3001,3002
+l5_slippery_lift:3000,3001,3002
+l6_swap_interrupt:3000,3001,3002
+l6_sequence_resume:3000,3001,3003
+l6_count_into_box:3000,3002,3004
+# new long-horizon tasks (2026-10-16; scripted validation n=20 k=3 + LA smoke test done; no real-model pilot yet)
+lh_tidy_stack:3000,3002,3003
+lh_wobbly_table:3001,3002,3004
+lh_shelf_droop:3000,3001,3003
+lh_drawer_cabinet:3000,3001,3003

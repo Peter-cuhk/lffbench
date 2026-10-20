@@ -1,0 +1,2292 @@
+{
+ "task": "lh_drawer_cabinet",
+ "note": "t14_robust.py: bottles teleported onto the top (placement variants), cubes into the drawer, then only the drawer push (variants of speed / height); fell = bottle no longer on top at the end",
+ "rows": [
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.96
+   ],
+   "jerk": [
+    [
+     -2.55,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 52.7,
+    "brown": 52.8
+   },
+   "drawer_closed": true,
+   "mv": 0.35,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "front_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.04
+   ],
+   "jerk": [
+    [
+     -2.55,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 71.8,
+    "brown": 71.8
+   },
+   "drawer_closed": true,
+   "mv": 0.35,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "back_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.09
+   ],
+   "jerk": [
+    [
+     -2.7,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 45.1,
+    "brown": 44.3
+   },
+   "drawer_closed": true,
+   "mv": 0.36,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "wide_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.96
+   ],
+   "jerk": [
+    [
+     -2.55,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 52.9,
+    "brown": 52.9
+   },
+   "drawer_closed": true,
+   "mv": 0.35,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "one_bottle",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    false
+   ],
+   "n_fell": 1,
+   "n_on": 1,
+   "speeds": [
+    2.1
+   ],
+   "jerk": [
+    [
+     -2.8,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 70.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.37,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "diag_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.02
+   ],
+   "jerk": [
+    [
+     -2.5,
+     -0.01
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 56.2
+   },
+   "drawer_closed": true,
+   "mv": 0.38,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.33
+   ],
+   "jerk": [
+    [
+     -3.14,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 70.8,
+    "brown": 70.8
+   },
+   "drawer_closed": true,
+   "mv": 0.4,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "front_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.33
+   ],
+   "jerk": [
+    [
+     -3.19,
+     0.01
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 90.0
+   },
+   "drawer_closed": true,
+   "mv": 3.63,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "back_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.34
+   ],
+   "jerk": [
+    [
+     -3.37,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 44.9,
+    "brown": 44.3
+   },
+   "drawer_closed": true,
+   "mv": 0.4,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "wide_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.38
+   ],
+   "jerk": [
+    [
+     -3.58,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 46.6,
+    "brown": 46.8
+   },
+   "drawer_closed": true,
+   "mv": 0.4,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "one_bottle",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    false
+   ],
+   "n_fell": 1,
+   "n_on": 1,
+   "speeds": [
+    2.41
+   ],
+   "jerk": [
+    [
+     -3.81,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 67.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "diag_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.32
+   ],
+   "jerk": [
+    [
+     -3.37,
+     -0.02
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 57.4
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.25
+   ],
+   "jerk": [
+    [
+     -3.13,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 61.1,
+    "brown": 61.1
+   },
+   "drawer_closed": true,
+   "mv": 0.44,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "front_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.19
+   ],
+   "jerk": [
+    [
+     -2.95,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 72.6,
+    "brown": 72.6
+   },
+   "drawer_closed": true,
+   "mv": 0.44,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "back_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.17
+   ],
+   "jerk": [
+    [
+     -3.13,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 47.4,
+    "brown": 47.5
+   },
+   "drawer_closed": true,
+   "mv": 0.45,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "wide_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.25
+   ],
+   "jerk": [
+    [
+     -3.13,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 61.1,
+    "brown": 61.2
+   },
+   "drawer_closed": true,
+   "mv": 0.44,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "one_bottle",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    false
+   ],
+   "n_fell": 1,
+   "n_on": 1,
+   "speeds": [
+    2.3
+   ],
+   "jerk": [
+    [
+     -3.5,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 52.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.45,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "diag_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.17
+   ],
+   "jerk": [
+    [
+     -3.09,
+     -0.02
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 50.4
+   },
+   "drawer_closed": true,
+   "mv": 0.45,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.99
+   ],
+   "jerk": [
+    [
+     -3.28,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 54.5,
+    "brown": 54.5
+   },
+   "drawer_closed": true,
+   "mv": 0.38,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "front_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.91
+   ],
+   "jerk": [
+    [
+     -3.24,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 72.0,
+    "brown": 72.0
+   },
+   "drawer_closed": true,
+   "mv": 0.39,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "back_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.96
+   ],
+   "jerk": [
+    [
+     -3.28,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 46.8,
+    "brown": 46.9
+   },
+   "drawer_closed": true,
+   "mv": 0.38,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "wide_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.99
+   ],
+   "jerk": [
+    [
+     -3.28,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 54.6,
+    "brown": 54.5
+   },
+   "drawer_closed": true,
+   "mv": 0.38,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "one_bottle",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    false
+   ],
+   "n_fell": 1,
+   "n_on": 1,
+   "speeds": [
+    2.06
+   ],
+   "jerk": [
+    [
+     -3.59,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 50.6,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.39,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "diag_pair",
+   "push": "v4_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.93
+   ],
+   "jerk": [
+    [
+     -3.23,
+     -0.01
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 53.1
+   },
+   "drawer_closed": true,
+   "mv": 0.4,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "front_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.41,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "back_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.41,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "wide_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.41,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "one_bottle",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 1,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.43,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "diag_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.41,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "front_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "back_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "wide_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "one_bottle",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 1,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.43,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "diag_pair",
+   "push": "v4_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v2_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.07
+   ],
+   "jerk": [
+    [
+     -3.46,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 56.8,
+    "brown": 56.7
+   },
+   "drawer_closed": true,
+   "mv": 0.38,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v10_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.05
+   ],
+   "jerk": [
+    [
+     -2.57,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 51.5,
+    "brown": 51.4
+   },
+   "drawer_closed": true,
+   "mv": 0.43,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v3_z3",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.98
+   ],
+   "jerk": [
+    [
+     -3.0,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 51.5,
+    "brown": 90.0
+   },
+   "drawer_closed": true,
+   "mv": 1.02,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v5_z8",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.99
+   ],
+   "jerk": [
+    [
+     -3.3,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 62.0,
+    "brown": 62.0
+   },
+   "drawer_closed": true,
+   "mv": 1.34,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1000,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "fast",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.1
+   ],
+   "jerk": [
+    [
+     -1.84,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 90.0
+   },
+   "drawer_closed": true,
+   "mv": 3.05,
+   "spring": 12.97,
+   "carcass": 0.415,
+   "mu": 0.213
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v2_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.38
+   ],
+   "jerk": [
+    [
+     -4.13,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 49.9,
+    "brown": 49.9
+   },
+   "drawer_closed": true,
+   "mv": 0.42,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v10_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.35
+   ],
+   "jerk": [
+    [
+     -3.55,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 53.2,
+    "brown": 53.2
+   },
+   "drawer_closed": true,
+   "mv": 0.44,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v3_z3",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.36
+   ],
+   "jerk": [
+    [
+     -3.92,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 50.2,
+    "brown": 50.2
+   },
+   "drawer_closed": true,
+   "mv": 1.06,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v5_z8",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.37
+   ],
+   "jerk": [
+    [
+     -3.77,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 49.8,
+    "brown": 49.8
+   },
+   "drawer_closed": true,
+   "mv": 1.33,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1001,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "fast",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [
+    2.34
+   ],
+   "jerk": [
+    [
+     -2.15,
+     0.02
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 3.33,
+   "spring": 14.41,
+   "carcass": 0.356,
+   "mu": 0.164
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v2_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.25
+   ],
+   "jerk": [
+    [
+     -3.21,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 61.3,
+    "brown": 61.3
+   },
+   "drawer_closed": true,
+   "mv": 0.43,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v10_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.11
+   ],
+   "jerk": [
+    [
+     -3.21,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 52.9,
+    "brown": 52.9
+   },
+   "drawer_closed": true,
+   "mv": 0.45,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v3_z3",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.24
+   ],
+   "jerk": [
+    [
+     -3.86,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 55.5,
+    "brown": 55.4
+   },
+   "drawer_closed": true,
+   "mv": 1.01,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v5_z8",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.15
+   ],
+   "jerk": [
+    [
+     -3.34,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 49.9,
+    "brown": 50.0
+   },
+   "drawer_closed": true,
+   "mv": 1.4,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1003,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "fast",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    2.25
+   ],
+   "jerk": [
+    [
+     -1.34,
+     -0.01
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 66.4,
+    "brown": 90.0
+   },
+   "drawer_closed": true,
+   "mv": 3.49,
+   "spring": 14.27,
+   "carcass": 0.433,
+   "mu": 0.158
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v2_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.98
+   ],
+   "jerk": [
+    [
+     -2.78,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 53.9,
+    "brown": 53.8
+   },
+   "drawer_closed": true,
+   "mv": 0.36,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v10_z5",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.92
+   ],
+   "jerk": [
+    [
+     -2.91,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 47.9,
+    "brown": 47.6
+   },
+   "drawer_closed": true,
+   "mv": 0.62,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v3_z3",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.92
+   ],
+   "jerk": [
+    [
+     -2.43,
+     -0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 61.9,
+    "brown": 61.9
+   },
+   "drawer_closed": true,
+   "mv": 0.96,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "v5_z8",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [
+    1.95
+   ],
+   "jerk": [
+    [
+     -2.7,
+     0.0
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam",
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 61.2,
+    "brown": 61.2
+   },
+   "drawer_closed": true,
+   "mv": 1.4,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1004,
+   "slam": true,
+   "variant": "centre_pair",
+   "push": "fast",
+   "fell": [
+    true,
+    false
+   ],
+   "n_fell": 1,
+   "n_on": 2,
+   "speeds": [
+    2.02
+   ],
+   "jerk": [
+    [
+     -2.08,
+     -0.01
+    ]
+   ],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "drawer_slam"
+   ],
+   "tilts": {
+    "green": 21.7,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 3.04,
+   "spring": 12.6,
+   "carcass": 0.45,
+   "mu": 0.204
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v2_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.41,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v10_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 2.27,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v3_z3",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 1.04,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v5_z8",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.03,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1002,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "fast",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "robot_hand",
+    "robot_arm"
+   ],
+   "tilts": {
+    "green": 90.0,
+    "brown": 90.0
+   },
+   "drawer_closed": true,
+   "mv": 10.49,
+   "spring": 13.41,
+   "carcass": 0.364,
+   "mu": 0.161
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v2_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.39,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v10_z5",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 2.81,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v3_z3",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 1.0,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "v5_z8",
+   "fell": [
+    false,
+    false
+   ],
+   "n_fell": 0,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [],
+   "tilts": {
+    "green": 0.0,
+    "brown": 0.0
+   },
+   "drawer_closed": true,
+   "mv": 0.01,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  },
+  {
+   "seed": 1005,
+   "slam": false,
+   "variant": "centre_pair",
+   "push": "fast",
+   "fell": [
+    true,
+    true
+   ],
+   "n_fell": 2,
+   "n_on": 2,
+   "speeds": [],
+   "jerk": [],
+   "touched": [
+    false,
+    false
+   ],
+   "causes": [
+    "robot_hand",
+    "robot_arm"
+   ],
+   "tilts": {
+    "green": 154.8,
+    "brown": 90.0
+   },
+   "drawer_closed": true,
+   "mv": 10.45,
+   "spring": 14.17,
+   "carcass": 0.429,
+   "mu": 0.208
+  }
+ ]
+}

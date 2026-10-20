@@ -1,0 +1,38 @@
+# LFF-Bench main set v2, ONE instance per task (2026-10-19, user: to save tokens, test as many instances as there are tasks).
+# Generated from sets/main_v2.txt by taking the first seed of each task (same rule ds_main1 used on main_v1).
+# Pass to scripts/api_batch.py with:  --tasks $(grep -v '^#' sets/main_v2_1inst.txt)
+#
+l7_offcenter_push:3000
+l5_slide_to_target:3000
+l5_tablecloth_pull:3000
+l3_wall_flush:3000
+l3_under_table_tool:3000
+l4_fit_container:3000
+l7_key_turn:3001
+l2_turntable_restore:3000
+l3_card_shelf:3003
+l5_loaded_beam:3000
+lh_lid_box:3000
+lh_bridge:3001
+lh_tray_delivery:3000
+lh_balance_board:3000
+lh_false_bottom_lid:3000
+lh_clear_cover:3000
+lh_bystander:3000
+lh_nudge_row:3000
+l1_bias_place:3001
+l1_height_bias:3000
+l2_knock_restore:3000
+l2_restore_layout:3000
+l3_too_wide_push:3000
+l4_nest_order:3000
+l1_yaw_bias:3000
+l3_card_edge:3000
+l5_slippery_lift:3000
+l6_swap_interrupt:3000
+l6_sequence_resume:3000
+l6_count_into_box:3000
+lh_tidy_stack:3000
+lh_wobbly_table:3001
+lh_shelf_droop:3000
+lh_drawer_cabinet:3000

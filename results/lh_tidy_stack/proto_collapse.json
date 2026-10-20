@@ -1,0 +1,576 @@
+{
+ "note": "v2 final physics probes (2026-10-18). upright: naive_once on the 14 trap seeds of 1000-1019 (soft_axis_z = z of the soft box axis at the end, 1 = upright; max_kink deg). lying: naive_lying (the soft box starts on a side face and is stacked lying) on 4 trap seeds (all 14 in controls.json). press_held: a held box / cup pressed press_mm below contact onto the intact soft box, mean loads (N): rest / robot (own fingers) / held_item / support; buckles = law triggers (0: a held item does not count). press_gripper: the closed gripper pressed press_mm onto the top of the unloaded soft box (cause press).",
+ "upright": [
+  {
+   "seed": 1000,
+   "rank": 0,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    1
+   ],
+   "pile": [
+    "green"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 38.5
+  },
+  {
+   "seed": 1002,
+   "rank": 2,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    3
+   ],
+   "pile": [
+    "blue",
+    "green",
+    "yellow"
+   ],
+   "cupfall": true,
+   "soft_axis_z": 1.0,
+   "max_kink": 37.9
+  },
+  {
+   "seed": 1003,
+   "rank": 1,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    2
+   ],
+   "pile": [
+    "green",
+    "red"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 40.2
+  },
+  {
+   "seed": 1004,
+   "rank": 0,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    1
+   ],
+   "pile": [
+    "red"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 53.4
+  },
+  {
+   "seed": 1006,
+   "rank": 2,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    3
+   ],
+   "pile": [
+    "green",
+    "yellow",
+    "blue"
+   ],
+   "cupfall": true,
+   "soft_axis_z": 1.0,
+   "max_kink": 54.1
+  },
+  {
+   "seed": 1007,
+   "rank": 1,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    2
+   ],
+   "pile": [
+    "red",
+    "green"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 47.5
+  },
+  {
+   "seed": 1008,
+   "rank": 0,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    1
+   ],
+   "pile": [
+    "red"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 54.6
+  },
+  {
+   "seed": 1010,
+   "rank": 2,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    3
+   ],
+   "pile": [
+    "yellow",
+    "red",
+    "blue"
+   ],
+   "cupfall": true,
+   "soft_axis_z": 1.0,
+   "max_kink": 50.1
+  },
+  {
+   "seed": 1011,
+   "rank": 1,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    2
+   ],
+   "pile": [
+    "green",
+    "yellow"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 45.0
+  },
+  {
+   "seed": 1012,
+   "rank": 0,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    1
+   ],
+   "pile": [
+    "red"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 41.6
+  },
+  {
+   "seed": 1015,
+   "rank": 1,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    2
+   ],
+   "pile": [
+    "green",
+    "red"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 37.4
+  },
+  {
+   "seed": 1016,
+   "rank": 0,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    1
+   ],
+   "pile": [
+    "green"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 47.3
+  },
+  {
+   "seed": 1018,
+   "rank": 2,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    3
+   ],
+   "pile": [
+    "yellow",
+    "green",
+    "red"
+   ],
+   "cupfall": true,
+   "soft_axis_z": 1.0,
+   "max_kink": 51.7
+  },
+  {
+   "seed": 1019,
+   "rank": 1,
+   "succ": false,
+   "fail": "collapsed",
+   "nb": 1,
+   "lv": [
+    2
+   ],
+   "pile": [
+    "green",
+    "yellow"
+   ],
+   "cupfall": false,
+   "soft_axis_z": 1.0,
+   "max_kink": 38.3
+  }
+ ],
+ "lying": [
+  {
+   "seed": 1000,
+   "rank": 0,
+   "soft": "green",
+   "succ": false,
+   "fail": "collapsed",
+   "levels": [
+    1
+   ],
+   "how": [
+    "crush"
+   ],
+   "loads": [
+    3.45
+   ],
+   "crush": 1.0,
+   "kink": 3.7,
+   "pile": [
+    "green"
+   ],
+   "cupfall": false
+  },
+  {
+   "seed": 1003,
+   "rank": 1,
+   "soft": "red",
+   "succ": false,
+   "fail": "collapsed",
+   "levels": [
+    2
+   ],
+   "how": [
+    "crush"
+   ],
+   "loads": [
+    3.45
+   ],
+   "crush": 1.0,
+   "kink": 3.8,
+   "pile": [
+    "green"
+   ],
+   "cupfall": false
+  },
+  {
+   "seed": 1006,
+   "rank": 2,
+   "soft": "blue",
+   "succ": false,
+   "fail": "collapsed",
+   "levels": [
+    3
+   ],
+   "how": [
+    "crush"
+   ],
+   "loads": [
+    3.45
+   ],
+   "crush": 1.0,
+   "kink": 3.7,
+   "pile": [
+    "green",
+    "yellow"
+   ],
+   "cupfall": false
+  },
+  {
+   "seed": 1011,
+   "rank": 1,
+   "soft": "yellow",
+   "succ": false,
+   "fail": "collapsed",
+   "levels": [
+    2
+   ],
+   "how": [
+    "crush"
+   ],
+   "loads": [
+    3.45
+   ],
+   "crush": 1.0,
+   "kink": 3.8,
+   "pile": [
+    "green"
+   ],
+   "cupfall": false
+  }
+ ],
+ "press_held": [
+  {
+   "item": "box",
+   "press_mm": -5,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 0.0,
+   "support": 0.59,
+   "buckles": 0,
+   "eef_err_mm": -2.6,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 0,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 1.52,
+   "support": 2.11,
+   "buckles": 0,
+   "eef_err_mm": -0.1,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 3,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.39,
+   "support": 2.98,
+   "buckles": 0,
+   "eef_err_mm": 1.9,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 5,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.37,
+   "support": 2.95,
+   "buckles": 0,
+   "eef_err_mm": 2.0,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 7,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.61,
+   "support": 3.19,
+   "buckles": 0,
+   "eef_err_mm": 2.9,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 10,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.75,
+   "support": 3.34,
+   "buckles": 0,
+   "eef_err_mm": 6.0,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 15,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.79,
+   "support": 3.38,
+   "buckles": 0,
+   "eef_err_mm": 7.8,
+   "held": true
+  },
+  {
+   "item": "box",
+   "press_mm": 20,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.85,
+   "support": 3.44,
+   "buckles": 0,
+   "eef_err_mm": 8.9,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": -5,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 0.0,
+   "support": 0.59,
+   "buckles": 0,
+   "eef_err_mm": -2.8,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 0,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 1.56,
+   "support": 2.15,
+   "buckles": 0,
+   "eef_err_mm": -0.0,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 3,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.36,
+   "support": 2.95,
+   "buckles": 0,
+   "eef_err_mm": 1.9,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 5,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.38,
+   "support": 2.97,
+   "buckles": 0,
+   "eef_err_mm": 1.9,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 7,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.39,
+   "support": 2.98,
+   "buckles": 0,
+   "eef_err_mm": 2.0,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 10,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.46,
+   "support": 3.05,
+   "buckles": 0,
+   "eef_err_mm": 3.1,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 15,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.62,
+   "support": 3.21,
+   "buckles": 0,
+   "eef_err_mm": 5.1,
+   "held": true
+  },
+  {
+   "item": "cup",
+   "press_mm": 20,
+   "rest": 0.0,
+   "robot": 0.0,
+   "held_item": 2.72,
+   "support": 3.31,
+   "buckles": 0,
+   "eef_err_mm": 6.3,
+   "held": true
+  }
+ ],
+ "press_gripper": [
+  {
+   "press_mm": 0,
+   "rest": 0.0,
+   "robot": 0.0,
+   "support": 0.59,
+   "buckled": false,
+   "how": null,
+   "cause": null
+  },
+  {
+   "press_mm": 3,
+   "rest": 0.0,
+   "robot": 0.66,
+   "support": 1.24,
+   "buckled": true,
+   "how": "fold",
+   "cause": "press"
+  },
+  {
+   "press_mm": 5,
+   "rest": 0.0,
+   "robot": 0.66,
+   "support": 1.25,
+   "buckled": true,
+   "how": "fold",
+   "cause": "press"
+  },
+  {
+   "press_mm": 7,
+   "rest": 0.0,
+   "robot": 0.64,
+   "support": 1.22,
+   "buckled": true,
+   "how": "fold",
+   "cause": "press"
+  },
+  {
+   "press_mm": 10,
+   "rest": 0.0,
+   "robot": 0.52,
+   "support": 1.11,
+   "buckled": true,
+   "how": "fold",
+   "cause": "press"
+  },
+  {
+   "press_mm": 15,
+   "rest": 0.0,
+   "robot": 0.47,
+   "support": 1.05,
+   "buckled": true,
+   "how": "fold",
+   "cause": "press"
+  },
+  {
+   "press_mm": 20,
+   "rest": 0.0,
+   "robot": 0.77,
+   "support": 1.36,
+   "buckled": true,
+   "how": "fold",
+   "cause": "press"
+  }
+ ]
+}

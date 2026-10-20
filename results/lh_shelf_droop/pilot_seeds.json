@@ -1,0 +1,194 @@
+{
+ "pilot_seeds": [
+  3000,
+  3001,
+  3003
+ ],
+ "rule": "first 3 seeds >= 3000 where naive fails with the trap fired and oracle succeeds",
+ "rows": [
+  {
+   "seed": 3000,
+   "bracket": "loose",
+   "side": "right",
+   "preload": 0.631654383866862,
+   "naive": {
+    "success": false,
+    "failure": "slid_off",
+    "trap_fired": true,
+    "sag_visible": true,
+    "fell": [
+     "green",
+     "red",
+     "yellow"
+    ],
+    "fell_before_finish": true,
+    "first_fall_dt_s": 1.05,
+    "first_sag_after": "yellow",
+    "max_droop_deg": 25.0,
+    "r_cm": {
+     "red": 23.0,
+     "green": 22.9,
+     "blue": 10.7,
+     "yellow": 11.5
+    },
+    "detail": "The red jar lies on its side on the table, 3 cm out from the shelf's front edge. It had stood on the shelf; it slid off when the shelf board drooped under the load. The green jar lies on its side on the table, 3 cm out from the shelf's front edge. It had stood on the shelf; it slid off when the shelf board drooped under the load. During the attempt the shelf board drooped 1 time(s) (down to 25 degrees) and 3 time(s) a jar slid off; 1 time(s) a jar was put back."
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": false,
+    "sag_visible": false,
+    "fell": [],
+    "fell_before_finish": false,
+    "first_fall_dt_s": null,
+    "first_sag_after": null,
+    "max_droop_deg": 0.0,
+    "r_cm": {
+     "red": 3.5,
+     "green": 3.5,
+     "blue": 3.5,
+     "yellow": 3.5
+    },
+    "detail": "All four jars stand upright on the shelf board."
+   },
+   "qualifies": true
+  },
+  {
+   "seed": 3001,
+   "bracket": "loose",
+   "side": "left",
+   "preload": 0.6631768686473195,
+   "naive": {
+    "success": false,
+    "failure": "slid_off",
+    "trap_fired": true,
+    "sag_visible": true,
+    "fell": [
+     "blue",
+     "green",
+     "yellow"
+    ],
+    "fell_before_finish": true,
+    "first_fall_dt_s": 1.35,
+    "first_sag_after": "green",
+    "max_droop_deg": 25.0,
+    "r_cm": {
+     "red": 8.9,
+     "green": 10.0,
+     "blue": 23.1,
+     "yellow": 22.9
+    },
+    "detail": "The blue jar lies on its side on the table, 3 cm out from the shelf's front edge. It had stood on the shelf; it slid off when the shelf board drooped under the load. The yellow jar lies on its side on the table, 2 cm out from the shelf's front edge. It had stood on the shelf; it slid off when the shelf board drooped under the load. During the attempt the shelf board drooped 1 time(s) (down to 25 degrees) and 3 time(s) a jar slid off; 1 time(s) a jar was put back."
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": false,
+    "sag_visible": false,
+    "fell": [],
+    "fell_before_finish": false,
+    "first_fall_dt_s": null,
+    "first_sag_after": null,
+    "max_droop_deg": 0.0,
+    "r_cm": {
+     "red": 3.5,
+     "green": 3.5,
+     "blue": 3.5,
+     "yellow": 3.5
+    },
+    "detail": "All four jars stand upright on the shelf board."
+   },
+   "qualifies": true
+  },
+  {
+   "seed": 3002,
+   "bracket": "stiff",
+   "side": "right",
+   "preload": 2.5,
+   "naive": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": false,
+    "sag_visible": false,
+    "fell": [],
+    "fell_before_finish": false,
+    "first_fall_dt_s": null,
+    "first_sag_after": null,
+    "max_droop_deg": 0.0,
+    "r_cm": {
+     "red": 10.1,
+     "green": 10.1,
+     "blue": 9.8,
+     "yellow": 10.1
+    },
+    "detail": "All four jars stand upright on the shelf board."
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": false,
+    "sag_visible": false,
+    "fell": [],
+    "fell_before_finish": false,
+    "first_fall_dt_s": null,
+    "first_sag_after": null,
+    "max_droop_deg": 0.0,
+    "r_cm": {
+     "red": 3.5,
+     "green": 3.5,
+     "blue": 3.5,
+     "yellow": 3.5
+    },
+    "detail": "All four jars stand upright on the shelf board."
+   },
+   "qualifies": false
+  },
+  {
+   "seed": 3003,
+   "bracket": "loose",
+   "side": "right",
+   "preload": 0.661395091293602,
+   "naive": {
+    "success": false,
+    "failure": "slid_off",
+    "trap_fired": true,
+    "sag_visible": true,
+    "fell": [
+     "blue",
+     "green",
+     "red"
+    ],
+    "fell_before_finish": true,
+    "first_fall_dt_s": 1.05,
+    "first_sag_after": "red",
+    "max_droop_deg": 25.1,
+    "r_cm": {
+     "red": 10.8,
+     "green": 22.4,
+     "blue": 23.0,
+     "yellow": 11.1
+    },
+    "detail": "The green jar lies on its side on the table, 2 cm out from the shelf's front edge. It had stood on the shelf; it slid off when the shelf board drooped under the load. The blue jar lies on its side on the table, 3 cm out from the shelf's front edge. It had stood on the shelf; it slid off when the shelf board drooped under the load. During the attempt the shelf board drooped 1 time(s) (down to 25 degrees) and 3 time(s) a jar slid off; 1 time(s) a jar was put back."
+   },
+   "oracle": {
+    "success": true,
+    "failure": "none",
+    "trap_fired": false,
+    "sag_visible": false,
+    "fell": [],
+    "fell_before_finish": false,
+    "first_fall_dt_s": null,
+    "first_sag_after": null,
+    "max_droop_deg": 0.0,
+    "r_cm": {
+     "red": 3.5,
+     "green": 3.5,
+     "blue": 3.5,
+     "yellow": 3.5
+    },
+    "detail": "All four jars stand upright on the shelf board."
+   },
+   "qualifies": true
+  }
+ ]
+}

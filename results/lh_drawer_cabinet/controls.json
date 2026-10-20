@@ -1,0 +1,4744 @@
+{
+ "task": "lh_drawer_cabinet",
+ "n": 20,
+ "k": 3,
+ "seeds": "1000-1019",
+ "note": "controls (scratch batch.py, same code as validate.json): switch = naive then drawer-first without a final look; oracle_noise = oracle +-5 mm; naive_slow = naive pushing at 2 cm/s; naive_cap = naive grasping the ball cap (bottle hangs)",
+ "summary": {
+  "naive_cap": {
+   "succ_at_k": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "trap_at_1": 14,
+   "n": 20,
+   "fails_at_1": {
+    "bottle_knocked": 14,
+    "none": 6
+   },
+   "touched_before_fall": 0
+  },
+  "naive_slow": {
+   "succ_at_k": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "trap_at_1": 14,
+   "n": 20,
+   "fails_at_1": {
+    "bottle_knocked": 14,
+    "none": 6
+   },
+   "touched_before_fall": 0
+  },
+  "oracle_noise": {
+   "succ_at_k": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "trap_at_1": 0,
+   "n": 20,
+   "fails_at_1": {
+    "none": 20
+   },
+   "touched_before_fall": 0
+  },
+  "switch": {
+   "succ_at_k": [
+    0.3,
+    1.0,
+    1.0
+   ],
+   "trap_at_1": 14,
+   "n": 20,
+   "fails_at_1": {
+    "bottle_knocked": 14,
+    "none": 6
+   },
+   "touched_before_fall": 0
+  }
+ },
+ "runs": [
+  {
+   "seed": 1000,
+   "kind": "switch",
+   "slam": true,
+   "sec": 31,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.0
+     ],
+     "jerk": [
+      [
+       -2.89,
+       0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.1,
+      "brown": 56.1
+     },
+     "mv": 0.41,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.16
+     ],
+     "jerk": [
+      [
+       -3.6,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.44,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.18
+     ],
+     "jerk": [
+      [
+       -3.57,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.43,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.98
+     ],
+     "jerk": [
+      [
+       -2.57,
+       0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 61.1,
+      "brown": 56.9
+     },
+     "mv": 0.38,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1000,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.0
+     ],
+     "jerk": [
+      [
+       -2.89,
+       0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.2,
+      "brown": 56.0
+     },
+     "mv": 0.41,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "switch",
+   "slam": true,
+   "sec": 31,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.36
+     ],
+     "jerk": [
+      [
+       -4.16,
+       0.02
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 67.3,
+      "brown": 60.7
+     },
+     "mv": 0.55,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.42
+     ],
+     "jerk": [
+      [
+       -4.71,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.57,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.48
+     ],
+     "jerk": [
+      [
+       -4.37,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.47,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.36
+     ],
+     "jerk": [
+      [
+       -4.17,
+       0.06
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 149.4,
+      "brown": 56.0
+     },
+     "mv": 0.66,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1001,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.36
+     ],
+     "jerk": [
+      [
+       -4.5,
+       0.02
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 67.3,
+      "brown": 61.0
+     },
+     "mv": 0.55,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "switch",
+   "slam": false,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.34,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "oracle_noise",
+   "slam": false,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.43,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive_slow",
+   "slam": false,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.36,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1002,
+   "kind": "naive_cap",
+   "slam": false,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.34,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "switch",
+   "slam": true,
+   "sec": 38,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.25
+     ],
+     "jerk": [
+      [
+       -3.29,
+       0.06
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 67.8,
+      "brown": 53.2
+     },
+     "mv": 0.65,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.33
+     ],
+     "jerk": [
+      [
+       -3.92,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.66,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.34
+     ],
+     "jerk": [
+      [
+       -3.8,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.47,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.23
+     ],
+     "jerk": [
+      [
+       -3.44,
+       0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 62.4,
+      "brown": 51.9
+     },
+     "mv": 0.64,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1003,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.25
+     ],
+     "jerk": [
+      [
+       -3.29,
+       0.06
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 67.9,
+      "brown": 53.1
+     },
+     "mv": 0.65,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "switch",
+   "slam": true,
+   "sec": 37,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.99
+     ],
+     "jerk": [
+      [
+       -2.64,
+       -0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.0,
+      "brown": 56.0
+     },
+     "mv": 0.71,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.08
+     ],
+     "jerk": [
+      [
+       -3.54,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.72,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.13
+     ],
+     "jerk": [
+      [
+       -3.86,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.99
+     ],
+     "jerk": [
+      [
+       -3.26,
+       -0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 53.2,
+      "brown": 90.0
+     },
+     "mv": 0.72,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1004,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 18,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.99
+     ],
+     "jerk": [
+      [
+       -2.64,
+       -0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.1,
+      "brown": 56.4
+     },
+     "mv": 0.7,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "switch",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.83,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "oracle_noise",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.44,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive_slow",
+   "slam": false,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.79,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1005,
+   "kind": "naive_cap",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.83,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "switch",
+   "slam": true,
+   "sec": 37,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.94
+     ],
+     "jerk": [
+      [
+       -2.9,
+       0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 50.4,
+      "brown": 53.4
+     },
+     "mv": 0.31,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.2
+     ],
+     "jerk": [
+      [
+       -3.54,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.35,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.14
+     ],
+     "jerk": [
+      [
+       -3.49,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.37,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.06
+     ],
+     "jerk": [
+      [
+       -3.6,
+       0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 49.7,
+      "brown": 53.3
+     },
+     "mv": 0.27,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1006,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 18,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.94
+     ],
+     "jerk": [
+      [
+       -2.9,
+       0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 50.2,
+      "brown": 53.3
+     },
+     "mv": 0.31,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "switch",
+   "slam": true,
+   "sec": 38,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.19
+     ],
+     "jerk": [
+      [
+       -3.47,
+       -0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.6,
+      "brown": 69.7
+     },
+     "mv": 0.36,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.36
+     ],
+     "jerk": [
+      [
+       -4.09,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.39,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.31
+     ],
+     "jerk": [
+      [
+       -4.56,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.14
+     ],
+     "jerk": [
+      [
+       -3.89,
+       -0.04
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 57.4,
+      "brown": 62.8
+     },
+     "mv": 0.36,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1007,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.19
+     ],
+     "jerk": [
+      [
+       -3.47,
+       -0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 57.3,
+      "brown": 69.7
+     },
+     "mv": 0.37,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "switch",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.37,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "oracle_noise",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.47,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive_slow",
+   "slam": false,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.38,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1008,
+   "kind": "naive_cap",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.37,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "switch",
+   "slam": true,
+   "sec": 38,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.24
+     ],
+     "jerk": [
+      [
+       -3.3,
+       0.04
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 58.0,
+      "brown": 52.2
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.38
+     ],
+     "jerk": [
+      [
+       -4.42,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.48,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.48
+     ],
+     "jerk": [
+      [
+       -4.21,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 21,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.26
+     ],
+     "jerk": [
+      [
+       -3.4,
+       -0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.2,
+      "brown": 90.0
+     },
+     "mv": 1.02,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1009,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.24
+     ],
+     "jerk": [
+      [
+       -3.3,
+       0.04
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 57.7,
+      "brown": 51.0
+     },
+     "mv": 0.46,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "switch",
+   "slam": true,
+   "sec": 38,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.1
+     ],
+     "jerk": [
+      [
+       -3.17,
+       -0.08
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 55.0,
+      "brown": 67.8
+     },
+     "mv": 0.85,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.31
+     ],
+     "jerk": [
+      [
+       -4.88,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.86,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.33
+     ],
+     "jerk": [
+      [
+       -4.27,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.11
+     ],
+     "jerk": [
+      [
+       -3.76,
+       -0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 67.7,
+      "brown": 55.6
+     },
+     "mv": 0.85,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1010,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.1
+     ],
+     "jerk": [
+      [
+       -3.17,
+       -0.08
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.7,
+      "brown": 67.7
+     },
+     "mv": 0.85,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "switch",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.56,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "oracle_noise",
+   "slam": false,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive_slow",
+   "slam": false,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.55,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1011,
+   "kind": "naive_cap",
+   "slam": false,
+   "sec": 18,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.56,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "switch",
+   "slam": true,
+   "sec": 38,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.12
+     ],
+     "jerk": [
+      [
+       -3.27,
+       -0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 68.6,
+      "brown": 49.9
+     },
+     "mv": 0.74,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.3
+     ],
+     "jerk": [
+      [
+       -4.03,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.77,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.23
+     ],
+     "jerk": [
+      [
+       -3.79,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.12
+     ],
+     "jerk": [
+      [
+       -3.6,
+       0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 68.6,
+      "brown": 50.2
+     },
+     "mv": 0.77,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1012,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.13
+     ],
+     "jerk": [
+      [
+       -3.18,
+       -0.03
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 69.4,
+      "brown": 70.6
+     },
+     "mv": 0.74,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "switch",
+   "slam": true,
+   "sec": 31,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.28
+     ],
+     "jerk": [
+      [
+       -3.27,
+       -0.08
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 67.9,
+      "brown": 61.5
+     },
+     "mv": 0.73,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.54
+     ],
+     "jerk": [
+      [
+       -4.2,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.75,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.57
+     ],
+     "jerk": [
+      [
+       -4.06,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 17,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.28
+     ],
+     "jerk": [
+      [
+       -3.9,
+       -0.06
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 54.1,
+      "brown": 62.1
+     },
+     "mv": 0.8,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1013,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.31
+     ],
+     "jerk": [
+      [
+       -3.19,
+       -0.07
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 68.5,
+      "brown": 69.3
+     },
+     "mv": 0.72,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "switch",
+   "slam": false,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "oracle_noise",
+   "slam": false,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.43,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive_slow",
+   "slam": false,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1014,
+   "kind": "naive_cap",
+   "slam": false,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "switch",
+   "slam": true,
+   "sec": 36,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.25
+     ],
+     "jerk": [
+      [
+       -3.3,
+       -0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 90.0,
+      "brown": 90.0
+     },
+     "mv": 0.44,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.29
+     ],
+     "jerk": [
+      [
+       -3.93,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.43,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 17,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.36
+     ],
+     "jerk": [
+      [
+       -4.39,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.39,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.25
+     ],
+     "jerk": [
+      [
+       -3.12,
+       -0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 90.0,
+      "brown": 55.2
+     },
+     "mv": 0.39,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1015,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.25
+     ],
+     "jerk": [
+      [
+       -3.31,
+       -0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 90.0,
+      "brown": 90.0
+     },
+     "mv": 0.45,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "switch",
+   "slam": true,
+   "sec": 37,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.22
+     ],
+     "jerk": [
+      [
+       -2.64,
+       -0.08
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 62.3,
+      "brown": 62.9
+     },
+     "mv": 0.73,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.37
+     ],
+     "jerk": [
+      [
+       -4.6,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.76,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.29
+     ],
+     "jerk": [
+      [
+       -3.74,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 20,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.23
+     ],
+     "jerk": [
+      [
+       -3.61,
+       -0.02
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 62.5,
+      "brown": 62.0
+     },
+     "mv": 0.74,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1016,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.22
+     ],
+     "jerk": [
+      [
+       -2.64,
+       -0.08
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 62.5,
+      "brown": 69.0
+     },
+     "mv": 0.74,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "switch",
+   "slam": false,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.58,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "oracle_noise",
+   "slam": false,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.48,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive_slow",
+   "slam": false,
+   "sec": 17,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.52,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1017,
+   "kind": "naive_cap",
+   "slam": false,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [],
+     "jerk": [],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.57,
+     "q": -0.0,
+     "nf": 0,
+     "order": "BCD",
+     "ev": []
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "switch",
+   "slam": true,
+   "sec": 31,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.02
+     ],
+     "jerk": [
+      [
+       -3.0,
+       0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 52.6,
+      "brown": 48.9
+     },
+     "mv": 0.79,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.21
+     ],
+     "jerk": [
+      [
+       -3.73,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.82,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.19
+     ],
+     "jerk": [
+      [
+       -4.5,
+       -0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 17,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.97
+     ],
+     "jerk": [
+      [
+       -2.73,
+       0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 53.3,
+      "brown": 55.4
+     },
+     "mv": 0.81,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1018,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 16,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.04
+     ],
+     "jerk": [
+      [
+       -2.99,
+       0.05
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 51.7,
+      "brown": 53.7
+     },
+     "mv": 0.8,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "switch",
+   "slam": true,
+   "sec": 31,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      1.99
+     ],
+     "jerk": [
+      [
+       -2.32,
+       0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 69.2,
+      "brown": 67.1
+     },
+     "mv": 0.48,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    },
+    {
+     "a": 2,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.14
+     ],
+     "jerk": [
+      [
+       -4.04,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.53,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "oracle_noise",
+   "slam": true,
+   "sec": 19,
+   "att": [
+    {
+     "a": 1,
+     "succ": true,
+     "fail": "none",
+     "trap": false,
+     "rec": false,
+     "speeds": [
+      2.15
+     ],
+     "jerk": [
+      [
+       -3.65,
+       0.0
+      ]
+     ],
+     "lost": [],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 0.0,
+      "brown": 0.0
+     },
+     "mv": 0.42,
+     "q": -0.0,
+     "nf": 0,
+     "order": "CDB",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive_slow",
+   "slam": true,
+   "sec": 17,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.07
+     ],
+     "jerk": [
+      [
+       -2.88,
+       -0.01
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 55.4,
+      "brown": 56.5
+     },
+     "mv": 0.5,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1019,
+   "kind": "naive_cap",
+   "slam": true,
+   "sec": 15,
+   "att": [
+    {
+     "a": 1,
+     "succ": false,
+     "fail": "bottle_knocked",
+     "trap": true,
+     "rec": false,
+     "speeds": [
+      2.0
+     ],
+     "jerk": [
+      [
+       -2.55,
+       0.0
+      ]
+     ],
+     "lost": [
+      "brown",
+      "green"
+     ],
+     "touch": [
+      false,
+      false
+     ],
+     "tilts": {
+      "green": 56.4,
+      "brown": 54.8
+     },
+     "mv": 0.48,
+     "q": -0.0,
+     "nf": 2,
+     "order": "BCD",
+     "ev": [
+      [
+       "drawer_slam",
+       null,
+       null
+      ],
+      [
+       "bottle_fell",
+       "green",
+       "drawer_slam"
+      ],
+      [
+       "bottle_fell",
+       "brown",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "green_bottle_on_top",
+       "drawer_slam"
+      ],
+      [
+       "lost",
+       "brown_bottle_on_top",
+       "drawer_slam"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

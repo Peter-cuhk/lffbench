@@ -1,0 +1,1563 @@
+{
+ "mode": "dose",
+ "rows": [
+  {
+   "f_crit": 1.5,
+   "seed": 1000,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1001,
+   "rank": 3,
+   "success": false,
+   "trap": true,
+   "levels": [
+    4
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "cup_fallen",
+   "pile": [
+    "green",
+    "red",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1002,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "blue",
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1003,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1004,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1005,
+   "rank": 3,
+   "success": false,
+   "trap": true,
+   "levels": [
+    4
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "cup_fallen",
+   "pile": [
+    "red",
+    "green",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1006,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1007,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1008,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1009,
+   "rank": 3,
+   "success": false,
+   "trap": true,
+   "levels": [
+    4
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "cup_fallen",
+   "pile": [
+    "yellow",
+    "green",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1010,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "yellow",
+    "red",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1011,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1012,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1013,
+   "rank": 3,
+   "success": false,
+   "trap": true,
+   "levels": [
+    4
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "cup_fallen",
+   "pile": [
+    "blue",
+    "red",
+    "yellow",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1015,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1016,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1018,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "yellow",
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 1.5,
+   "seed": 1019,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    1.5
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1000,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1001,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "red",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1002,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "blue",
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1003,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1004,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1005,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "red",
+    "green",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1006,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1007,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1008,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1009,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "green",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1010,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "yellow",
+    "red",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1011,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1012,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1013,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "blue",
+    "red",
+    "yellow",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1015,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1016,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1018,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "yellow",
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 2.9,
+   "seed": 1019,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    2.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1000,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1001,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "red",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1002,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "blue",
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1003,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1004,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1005,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "red",
+    "green",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1006,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1007,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1008,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1009,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "green",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1010,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "yellow",
+    "red",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1011,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1012,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1013,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "blue",
+    "red",
+    "yellow",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1015,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1016,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1018,
+   "rank": 2,
+   "success": false,
+   "trap": true,
+   "levels": [
+    3
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "yellow",
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 3.45,
+   "seed": 1019,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    3.45
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1000,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1001,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "red",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1002,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "blue",
+    "green",
+    "yellow",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1003,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1004,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1005,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "red",
+    "green",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1006,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "yellow",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1007,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1008,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1009,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "green",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1010,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "red",
+    "blue",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1011,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1012,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1013,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "blue",
+    "red",
+    "yellow",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1015,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1016,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1018,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "green",
+    "red",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 4.9,
+   "seed": 1019,
+   "rank": 1,
+   "success": false,
+   "trap": true,
+   "levels": [
+    2
+   ],
+   "loads": [
+    4.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1000,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    6.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1001,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "red",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1002,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "blue",
+    "green",
+    "yellow",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1003,
+   "rank": 1,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "red",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1004,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    6.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1005,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "red",
+    "green",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1006,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "yellow",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1007,
+   "rank": 1,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "red",
+    "green",
+    "blue",
+    "yellow"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1008,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    6.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1009,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "green",
+    "blue",
+    "red"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1010,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "red",
+    "blue",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1011,
+   "rank": 1,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "yellow",
+    "red",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1012,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    6.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "red"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1013,
+   "rank": 3,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "blue",
+    "red",
+    "yellow",
+    "green"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1015,
+   "rank": 1,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "red",
+    "yellow",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1016,
+   "rank": 0,
+   "success": false,
+   "trap": true,
+   "levels": [
+    1
+   ],
+   "loads": [
+    6.9
+   ],
+   "failure": "collapsed",
+   "pile": [
+    "green"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1018,
+   "rank": 2,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "yellow",
+    "green",
+    "red",
+    "blue"
+   ]
+  },
+  {
+   "f_crit": 6.9,
+   "seed": 1019,
+   "rank": 1,
+   "success": true,
+   "trap": false,
+   "levels": [],
+   "loads": [],
+   "failure": "none",
+   "pile": [
+    "green",
+    "yellow",
+    "red",
+    "blue"
+   ]
+  }
+ ],
+ "seconds": 1418.346748828888
+}

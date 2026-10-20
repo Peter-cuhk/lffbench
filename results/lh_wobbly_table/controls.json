@@ -1,0 +1,4034 @@
+{
+"note": "lh_wobbly_table controls (2026-10-16, final code = the validated one, seeds 1000-1019, k=3; script controls.py in the builder scratchpad lh_wobbly_table/). naive_heavy_first = naive habits (far-first order, 1-4 cm releases, forward bias 0.8-2 cm +- 0.6) but the heavy bottle first; switch = attempt 1 naive, then the bottle that rocked the table first, no repair; naive_near_first = naive but the nearest spots first; oracle_noise = oracle with +-5 mm placement noise.",
+"controls": {
+"naive_heavy_first": {
+"succ_at_k": [
+1.0,
+1.0,
+1.0
+],
+"trap_at_1": 0,
+"failures_at_1": {
+"none": 20
+},
+"runs": [
+{
+"seed": 1000,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.66,
+0.56
+],
+"blue": [
+0.95,
+0.2
+],
+"green": [
+0.58,
+0.47
+],
+"yellow": [
+1.33,
+-0.11
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1001,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "green",
+"order": "far_first",
+"off": {
+"red": [
+1.68,
+0.58
+],
+"blue": [
+2.59,
+0.6
+],
+"green": [
+2.02,
+0.06
+],
+"yellow": [
+1.72,
+-0.58
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.7,
+"green": 5.6,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1002,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+0.94,
+0.58
+],
+"blue": [
+1.12,
+0.42
+],
+"green": [
+0.66,
+0.6
+],
+"yellow": [
+1.15,
+-0.51
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.1,
+"green": 5.1,
+"yellow": 5.0
+}
+}
+]
+},
+{
+"seed": 1003,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+1.46,
+-0.53
+],
+"blue": [
+1.07,
+-0.03
+],
+"green": [
+0.68,
+-0.38
+],
+"yellow": [
+1.2,
+-0.26
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.4,
+"green": 5.6,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1004,
+"heavy_rank": 2,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+2.19,
+-0.34
+],
+"blue": [
+1.91,
+0.27
+],
+"green": [
+1.31,
+0.35
+],
+"yellow": [
+1.98,
+-0.07
+]
+},
+"tilts": {
+"red": 5.0,
+"blue": 5.3,
+"green": 5.2,
+"yellow": 5.2
+}
+}
+]
+},
+{
+"seed": 1005,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+2.16,
+-0.56
+],
+"blue": [
+1.5,
+0.37
+],
+"green": [
+1.65,
+-0.02
+],
+"yellow": [
+2.13,
+0.45
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.8,
+"green": 5.7,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1006,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+2.37,
+0.14
+],
+"blue": [
+2.41,
+0.11
+],
+"green": [
+2.0,
+0.54
+],
+"yellow": [
+1.67,
+-0.55
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1007,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.78,
+0.12
+],
+"blue": [
+0.99,
+0.21
+],
+"green": [
+1.78,
+-0.58
+],
+"yellow": [
+1.18,
+-0.46
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.7,
+"green": 5.7,
+"yellow": 5.7
+}
+}
+]
+},
+{
+"seed": 1008,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.78,
+0.35
+],
+"blue": [
+1.87,
+0.22
+],
+"green": [
+1.49,
+-0.51
+],
+"yellow": [
+0.72,
+0.52
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.5,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1009,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.41,
+0.06
+],
+"blue": [
+1.43,
+-0.1
+],
+"green": [
+1.2,
+-0.36
+],
+"yellow": [
+1.42,
+0.23
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1010,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.77,
+-0.45
+],
+"blue": [
+0.82,
+-0.16
+],
+"green": [
+1.22,
+-0.37
+],
+"yellow": [
+1.28,
+0.28
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1011,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.5,
+0.09
+],
+"blue": [
+1.55,
+0.45
+],
+"green": [
+0.82,
+0.33
+],
+"yellow": [
+0.87,
+-0.23
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.6,
+"green": 5.6,
+"yellow": 5.6
+}
+}
+]
+},
+{
+"seed": 1012,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "blue",
+"order": "far_first",
+"off": {
+"red": [
+1.8,
+-0.4
+],
+"blue": [
+1.15,
+0.23
+],
+"green": [
+1.64,
+0.43
+],
+"yellow": [
+1.65,
+0.33
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.3,
+"green": 5.4,
+"yellow": 5.3
+}
+}
+]
+},
+{
+"seed": 1013,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "blue",
+"order": "far_first",
+"off": {
+"red": [
+2.08,
+0.12
+],
+"blue": [
+1.69,
+-0.09
+],
+"green": [
+0.95,
+-0.22
+],
+"yellow": [
+1.54,
+0.26
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.6,
+"green": 5.8,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1014,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.34,
+0.28
+],
+"blue": [
+1.55,
+-0.51
+],
+"green": [
+1.44,
+0.59
+],
+"yellow": [
+0.89,
+0.6
+]
+},
+"tilts": {
+"red": 5.7,
+"blue": 5.8,
+"green": 5.9,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1015,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.31,
+-0.5
+],
+"blue": [
+1.83,
+0.09
+],
+"green": [
+2.02,
+0.62
+],
+"yellow": [
+1.49,
+0.61
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.9,
+"green": 5.9,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1016,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+1.39,
+-0.32
+],
+"blue": [
+1.55,
+0.35
+],
+"green": [
+1.03,
+0.55
+],
+"yellow": [
+1.35,
+0.52
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.3
+}
+}
+]
+},
+{
+"seed": 1017,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.45,
+0.59
+],
+"blue": [
+1.31,
+0.23
+],
+"green": [
+2.0,
+-0.23
+],
+"yellow": [
+1.42,
+0.34
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.6,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1018,
+"heavy_rank": 2,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.16,
+0.3
+],
+"blue": [
+0.95,
+-0.16
+],
+"green": [
+0.6,
+0.09
+],
+"yellow": [
+0.27,
+-0.16
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.4,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1019,
+"heavy_rank": 3,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+0.61,
+0.22
+],
+"blue": [
+1.2,
+0.32
+],
+"green": [
+1.07,
+-0.15
+],
+"yellow": [
+0.62,
+-0.36
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.7,
+"green": 5.8,
+"yellow": 5.6
+}
+}
+]
+}
+]
+},
+"switch": {
+"succ_at_k": [
+0.25,
+1.0,
+1.0
+],
+"trap_at_1": 15,
+"failures_at_1": {
+"none": 5,
+"toppled_by_rock": 15
+},
+"runs": [
+{
+"seed": 1000,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+0.66,
+0.56
+],
+"blue": [
+0.95,
+0.2
+],
+"green": [
+0.58,
+0.47
+],
+"yellow": [
+1.33,
+-0.11
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1001,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.68,
+0.58
+],
+"blue": [
+6.69,
+8.22
+],
+"green": [
+2.21,
+0.61
+],
+"yellow": [
+1.72,
+-0.59
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 90.2,
+"green": 5.6,
+"yellow": 5.9
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "green",
+"order": "far_first",
+"off": {
+"red": [
+1.68,
+0.58
+],
+"blue": [
+2.59,
+0.6
+],
+"green": [
+2.02,
+0.06
+],
+"yellow": [
+1.72,
+-0.58
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.7,
+"green": 5.6,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1002,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"red"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+-1.95,
+1.21
+],
+"blue": [
+5.37,
+9.14
+],
+"green": [
+0.66,
+0.6
+],
+"yellow": [
+0.68,
+0.59
+]
+},
+"tilts": {
+"red": 94.7,
+"blue": 90.2,
+"green": 5.1,
+"yellow": 5.0
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+0.94,
+0.58
+],
+"blue": [
+1.12,
+0.42
+],
+"green": [
+0.66,
+0.6
+],
+"yellow": [
+1.15,
+-0.51
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.1,
+"green": 5.1,
+"yellow": 5.0
+}
+}
+]
+},
+{
+"seed": 1003,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.46,
+-0.53
+],
+"blue": [
+1.07,
+-0.03
+],
+"green": [
+0.68,
+-0.38
+],
+"yellow": [
+1.2,
+-0.26
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.4,
+"green": 5.6,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1004,
+"heavy_rank": 2,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.11,
+0.38
+],
+"blue": [
+1.91,
+0.27
+],
+"green": [
+6.63,
+-9.37
+],
+"yellow": [
+1.98,
+-0.07
+]
+},
+"tilts": {
+"red": 5.0,
+"blue": 5.3,
+"green": 90.2,
+"yellow": 5.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+2.19,
+-0.34
+],
+"blue": [
+1.91,
+0.27
+],
+"green": [
+1.31,
+0.35
+],
+"yellow": [
+1.98,
+-0.07
+]
+},
+"tilts": {
+"red": 5.0,
+"blue": 5.3,
+"green": 5.2,
+"yellow": 5.2
+}
+}
+]
+},
+{
+"seed": 1005,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.98,
+0.43
+],
+"blue": [
+1.44,
+-3.85
+],
+"green": [
+-9.69,
+3.25
+],
+"yellow": [
+5.83,
+-9.6
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 95.2,
+"green": 90.2,
+"yellow": 90.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+2.16,
+-0.56
+],
+"blue": [
+1.5,
+0.37
+],
+"green": [
+1.65,
+-0.02
+],
+"yellow": [
+2.13,
+0.45
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.8,
+"green": 5.7,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1006,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+2.37,
+0.14
+],
+"blue": [
+2.41,
+0.11
+],
+"green": [
+2.0,
+0.54
+],
+"yellow": [
+1.67,
+-0.55
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1007,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+0.96,
+-0.46
+],
+"blue": [
+0.99,
+0.21
+],
+"green": [
+1.78,
+-0.58
+],
+"yellow": [
+4.97,
+9.73
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.7,
+"green": 5.7,
+"yellow": 90.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.78,
+0.12
+],
+"blue": [
+0.99,
+0.21
+],
+"green": [
+1.78,
+-0.58
+],
+"yellow": [
+1.18,
+-0.46
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.7,
+"green": 5.7,
+"yellow": 5.7
+}
+}
+]
+},
+{
+"seed": 1008,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+0.52,
+0.54
+],
+"blue": [
+-0.01,
+-2.89
+],
+"green": [
+-9.65,
+2.81
+],
+"yellow": [
+5.74,
+-9.37
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 94.9,
+"green": 90.2,
+"yellow": 90.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.78,
+0.35
+],
+"blue": [
+1.87,
+0.22
+],
+"green": [
+1.49,
+-0.51
+],
+"yellow": [
+0.72,
+0.52
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.5,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1009,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+0.41,
+0.06
+],
+"blue": [
+1.43,
+-0.1
+],
+"green": [
+1.2,
+-0.36
+],
+"yellow": [
+1.42,
+0.23
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1010,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.16,
+-0.39
+],
+"blue": [
+0.83,
+-0.13
+],
+"green": [
+2.0,
+3.34
+],
+"yellow": [
+7.35,
+-4.74
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 94.9,
+"yellow": 90.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.77,
+-0.45
+],
+"blue": [
+0.82,
+-0.16
+],
+"green": [
+1.22,
+-0.37
+],
+"yellow": [
+1.28,
+0.28
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1011,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+0.49,
+0.38
+],
+"blue": [
+-7.83,
+6.14
+],
+"green": [
+5.66,
+-9.29
+],
+"yellow": [
+-0.34,
+-3.31
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 90.2,
+"green": 90.2,
+"yellow": 95.1
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.5,
+0.09
+],
+"blue": [
+1.55,
+0.45
+],
+"green": [
+0.82,
+0.33
+],
+"yellow": [
+0.87,
+-0.23
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.6,
+"green": 5.6,
+"yellow": 5.6
+}
+}
+]
+},
+{
+"seed": 1012,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.8,
+-0.4
+],
+"blue": [
+1.15,
+0.23
+],
+"green": [
+1.64,
+0.43
+],
+"yellow": [
+1.65,
+0.33
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.3,
+"green": 5.4,
+"yellow": 5.3
+}
+}
+]
+},
+{
+"seed": 1013,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"red",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+6.11,
+9.46
+],
+"blue": [
+1.17,
+0.32
+],
+"green": [
+0.95,
+-0.22
+],
+"yellow": [
+1.39,
+3.19
+]
+},
+"tilts": {
+"red": 90.2,
+"blue": 5.6,
+"green": 5.9,
+"yellow": 95.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "blue",
+"order": "far_first",
+"off": {
+"red": [
+2.08,
+0.12
+],
+"blue": [
+1.69,
+-0.09
+],
+"green": [
+0.95,
+-0.22
+],
+"yellow": [
+1.54,
+0.26
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.6,
+"green": 5.8,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1014,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.31,
+0.58
+],
+"blue": [
+4.37,
+-9.92
+],
+"green": [
+-9.97,
+2.75
+],
+"yellow": [
+0.97,
+-2.66
+]
+},
+"tilts": {
+"red": 5.7,
+"blue": 90.2,
+"green": 90.2,
+"yellow": 95.3
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.34,
+0.28
+],
+"blue": [
+1.55,
+-0.51
+],
+"green": [
+1.44,
+0.59
+],
+"yellow": [
+0.89,
+0.6
+]
+},
+"tilts": {
+"red": 5.7,
+"blue": 5.8,
+"green": 5.9,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1015,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.73,
+0.6
+],
+"blue": [
+1.83,
+0.09
+],
+"green": [
+5.38,
+9.7
+],
+"yellow": [
+1.49,
+0.61
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.9,
+"green": 90.2,
+"yellow": 5.8
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.31,
+-0.5
+],
+"blue": [
+1.83,
+0.09
+],
+"green": [
+2.02,
+0.62
+],
+"yellow": [
+1.49,
+0.61
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.9,
+"green": 5.9,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1016,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green",
+"red"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+4.23,
+1.64
+],
+"blue": [
+1.56,
+0.35
+],
+"green": [
+8.65,
+-3.21
+],
+"yellow": [
+1.44,
+-0.32
+]
+},
+"tilts": {
+"red": 94.9,
+"blue": 5.5,
+"green": 90.2,
+"yellow": 5.3
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+1.39,
+-0.32
+],
+"blue": [
+1.55,
+0.35
+],
+"green": [
+1.03,
+0.55
+],
+"yellow": [
+1.35,
+0.52
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.3
+}
+}
+]
+},
+{
+"seed": 1017,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+1.25,
+0.21
+],
+"blue": [
+-9.7,
+3.46
+],
+"green": [
+1.24,
+-2.29
+],
+"yellow": [
+6.19,
+-9.14
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 90.2,
+"green": 95.0,
+"yellow": 90.2
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.45,
+0.59
+],
+"blue": [
+1.31,
+0.23
+],
+"green": [
+2.0,
+-0.23
+],
+"yellow": [
+1.42,
+0.34
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.6,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1018,
+"heavy_rank": 2,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+0.45,
+0.05
+],
+"blue": [
+0.95,
+-0.16
+],
+"green": [
+8.31,
+4.07
+],
+"yellow": [
+0.27,
+-0.16
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.4,
+"green": 90.2,
+"yellow": 5.4
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+1.16,
+0.3
+],
+"blue": [
+0.95,
+-0.16
+],
+"green": [
+0.6,
+0.09
+],
+"yellow": [
+0.27,
+-0.16
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.4,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1019,
+"heavy_rank": 3,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green",
+"red"
+],
+"n_rocks": 1,
+"first": null,
+"order": "far_first",
+"off": {
+"red": [
+4.07,
+-1.0
+],
+"blue": [
+1.2,
+0.32
+],
+"green": [
+9.97,
+3.18
+],
+"yellow": [
+0.49,
+0.24
+]
+},
+"tilts": {
+"red": 95.2,
+"blue": 5.7,
+"green": 90.2,
+"yellow": 5.6
+}
+},
+{
+"a": 2,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+0.61,
+0.22
+],
+"blue": [
+1.2,
+0.32
+],
+"green": [
+1.07,
+-0.15
+],
+"yellow": [
+0.62,
+-0.36
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.7,
+"green": 5.8,
+"yellow": 5.6
+}
+}
+]
+}
+]
+},
+"naive_near_first": {
+"succ_at_k": [
+0.25,
+0.25,
+0.25
+],
+"trap_at_1": 15,
+"failures_at_1": {
+"toppled_by_rock": 15,
+"none": 5
+},
+"runs": [
+{
+"seed": 1000,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+0.79,
+0.49
+],
+"blue": [
+-3.02,
+9.18
+],
+"green": [
+1.4,
+3.76
+],
+"yellow": [
+9.48,
+-3.6
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 90.2,
+"green": 94.8,
+"yellow": 90.2
+}
+}
+]
+},
+{
+"seed": 1001,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"red",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+-0.51,
+0.38
+],
+"blue": [
+1.85,
+0.58
+],
+"green": [
+1.39,
+-0.57
+],
+"yellow": [
+-0.85,
+1.74
+]
+},
+"tilts": {
+"red": 95.2,
+"blue": 5.8,
+"green": 5.6,
+"yellow": 95.3
+}
+}
+]
+},
+{
+"seed": 1002,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+0.89,
+0.56
+],
+"blue": [
+0.79,
+0.63
+],
+"green": [
+-9.27,
+-3.64
+],
+"yellow": [
+0.94,
+0.4
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.1,
+"green": 90.2,
+"yellow": 5.0
+}
+}
+]
+},
+{
+"seed": 1003,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"red"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+2.02,
+-3.5
+],
+"blue": [
+9.2,
+3.7
+],
+"green": [
+-3.14,
+-9.48
+],
+"yellow": [
+1.57,
+-0.49
+]
+},
+"tilts": {
+"red": 95.0,
+"blue": 90.2,
+"green": 90.2,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1004,
+"heavy_rank": 2,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.72,
+0.29
+],
+"blue": [
+0.22,
+-2.99
+],
+"green": [
+2.09,
+-0.1
+],
+"yellow": [
+1.95,
+-3.02
+]
+},
+"tilts": {
+"red": 5.0,
+"blue": 94.7,
+"green": 5.2,
+"yellow": 94.6
+}
+}
+]
+},
+{
+"seed": 1005,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+2.16,
+-0.56
+],
+"blue": [
+2.25,
+0.45
+],
+"green": [
+1.65,
+-0.02
+],
+"yellow": [
+1.39,
+0.39
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.8,
+"green": 5.7,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1006,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"red"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+8.75,
+-2.63
+],
+"blue": [
+4.94,
+0.59
+],
+"green": [
+-2.11,
+9.57
+],
+"yellow": [
+2.55,
+0.11
+]
+},
+"tilts": {
+"red": 90.2,
+"blue": 95.0,
+"green": 90.2,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1007,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+0.79,
+0.22
+],
+"blue": [
+-1.92,
+0.34
+],
+"green": [
+-9.53,
+-3.63
+],
+"yellow": [
+1.9,
+-0.59
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 95.1,
+"green": 90.2,
+"yellow": 5.7
+}
+}
+]
+},
+{
+"seed": 1008,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+0.78,
+0.35
+],
+"blue": [
+0.69,
+0.51
+],
+"green": [
+1.49,
+-0.5
+],
+"yellow": [
+1.9,
+0.21
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.5,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1009,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"green",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.36,
+0.22
+],
+"blue": [
+9.23,
+3.45
+],
+"green": [
+-2.84,
+-9.57
+],
+"yellow": [
+1.3,
+-3.05
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 90.2,
+"green": 90.2,
+"yellow": 94.9
+}
+}
+]
+},
+{
+"seed": 1010,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.18,
+0.27
+],
+"blue": [
+-3.32,
+9.71
+],
+"green": [
+1.22,
+-0.37
+],
+"yellow": [
+0.85,
+-0.15
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 90.2,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1011,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+0.5,
+0.09
+],
+"blue": [
+1.55,
+0.45
+],
+"green": [
+0.9,
+-0.24
+],
+"yellow": [
+0.8,
+0.34
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.6,
+"green": 5.6,
+"yellow": 5.6
+}
+}
+]
+},
+{
+"seed": 1012,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green",
+"red",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+2.44,
+-3.3
+],
+"blue": [
+1.76,
+-0.36
+],
+"green": [
+-2.52,
+-9.51
+],
+"yellow": [
+8.15,
+3.85
+]
+},
+"tilts": {
+"red": 94.9,
+"blue": 5.3,
+"green": 90.2,
+"yellow": 90.2
+}
+}
+]
+},
+{
+"seed": 1013,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"green"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.12,
+-0.2
+],
+"blue": [
+1.79,
+0.14
+],
+"green": [
+-9.8,
+-3.05
+],
+"yellow": [
+1.54,
+0.26
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.6,
+"green": 90.2,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1014,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.34,
+0.28
+],
+"blue": [
+1.49,
+-0.49
+],
+"green": [
+0.69,
+0.55
+],
+"yellow": [
+1.63,
+0.6
+]
+},
+"tilts": {
+"red": 5.7,
+"blue": 5.8,
+"green": 5.9,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1015,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.61,
+0.1
+],
+"blue": [
+1.04,
+3.77
+],
+"green": [
+1.62,
+0.61
+],
+"yellow": [
+-9.68,
+-3.42
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 95.3,
+"green": 5.9,
+"yellow": 90.2
+}
+}
+]
+},
+{
+"seed": 1016,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.39,
+-0.32
+],
+"blue": [
+-2.41,
+9.75
+],
+"green": [
+1.72,
+0.33
+],
+"yellow": [
+0.97,
+0.59
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 90.2,
+"green": 5.5,
+"yellow": 5.3
+}
+}
+]
+},
+{
+"seed": 1017,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.45,
+0.59
+],
+"blue": [
+1.74,
+-0.26
+],
+"green": [
+1.55,
+0.27
+],
+"yellow": [
+1.42,
+0.34
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.6,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1018,
+"heavy_rank": 2,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue",
+"yellow"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+1.04,
+-0.19
+],
+"blue": [
+1.21,
+-3.11
+],
+"green": [
+0.54,
+-0.14
+],
+"yellow": [
+-3.07,
+-9.34
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 94.9,
+"green": 5.4,
+"yellow": 90.2
+}
+}
+]
+},
+{
+"seed": 1019,
+"heavy_rank": 3,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": false,
+"fail": "toppled_by_rock",
+"trap": true,
+"rec": false,
+"fell": [
+"blue"
+],
+"n_rocks": 1,
+"first": null,
+"order": "near_first",
+"off": {
+"red": [
+0.61,
+0.22
+],
+"blue": [
+-3.21,
+-9.6
+],
+"green": [
+1.4,
+0.36
+],
+"yellow": [
+0.82,
+-0.12
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 90.2,
+"green": 5.8,
+"yellow": 5.6
+}
+}
+]
+}
+]
+},
+"oracle_noise": {
+"succ_at_k": [
+1.0,
+1.0,
+1.0
+],
+"trap_at_1": 0,
+"failures_at_1": {
+"none": 20
+},
+"runs": [
+{
+"seed": 1000,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.1,
+0.37
+],
+"blue": [
+0.1,
+0.22
+],
+"green": [
+-0.01,
+-0.15
+],
+"yellow": [
+0.65,
+-0.27
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1001,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "green",
+"order": "far_first",
+"off": {
+"red": [
+0.06,
+-0.12
+],
+"blue": [
+0.23,
+0.35
+],
+"green": [
+-0.55,
+0.4
+],
+"yellow": [
+-0.1,
+0.2
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.8,
+"green": 5.6,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1002,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+-0.16,
+0.14
+],
+"blue": [
+0.04,
+-0.06
+],
+"green": [
+0.49,
+-0.23
+],
+"yellow": [
+-0.02,
+0.26
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.1,
+"green": 5.1,
+"yellow": 5.0
+}
+}
+]
+},
+{
+"seed": 1003,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+-0.22,
+0.11
+],
+"blue": [
+-0.24,
+-0.46
+],
+"green": [
+0.39,
+-0.21
+],
+"yellow": [
+0.55,
+-0.49
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.4,
+"green": 5.6,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1004,
+"heavy_rank": 2,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+-0.06,
+-0.34
+],
+"blue": [
+0.09,
+0.03
+],
+"green": [
+-0.26,
+0.21
+],
+"yellow": [
+0.08,
+0.15
+]
+},
+"tilts": {
+"red": 5.0,
+"blue": 5.3,
+"green": 5.2,
+"yellow": 5.2
+}
+}
+]
+},
+{
+"seed": 1005,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+-0.31,
+0.07
+],
+"blue": [
+0.31,
+0.39
+],
+"green": [
+-0.18,
+-0.03
+],
+"yellow": [
+0.05,
+-0.39
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.8,
+"green": 5.7,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1006,
+"heavy_rank": 1,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+0.06,
+0.31
+],
+"blue": [
+0.24,
+0.09
+],
+"green": [
+-0.14,
+0.38
+],
+"yellow": [
+-0.08,
+0.48
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1007,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.15,
+-0.23
+],
+"blue": [
+0.26,
+-0.13
+],
+"green": [
+0.42,
+-0.26
+],
+"yellow": [
+-0.36,
+-0.25
+]
+},
+"tilts": {
+"red": 5.6,
+"blue": 5.7,
+"green": 5.7,
+"yellow": 5.7
+}
+}
+]
+},
+{
+"seed": 1008,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.31,
+0.24
+],
+"blue": [
+-0.18,
+-0.48
+],
+"green": [
+0.12,
+-0.43
+],
+"yellow": [
+0.36,
+-0.11
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.5,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1009,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.06,
+-0.02
+],
+"blue": [
+0.51,
+0.5
+],
+"green": [
+0.37,
+0.35
+],
+"yellow": [
+0.19,
+0.31
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1010,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+-0.2,
+0.21
+],
+"blue": [
+-0.04,
+0.21
+],
+"green": [
+0.19,
+-0.27
+],
+"yellow": [
+0.04,
+0.34
+]
+},
+"tilts": {
+"red": 5.2,
+"blue": 5.4,
+"green": 5.5,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1011,
+"heavy_rank": 4,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+-0.42,
+0.24
+],
+"blue": [
+0.44,
+-0.06
+],
+"green": [
+-0.37,
+0.23
+],
+"yellow": [
+-0.26,
+-0.15
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.6,
+"green": 5.6,
+"yellow": 5.6
+}
+}
+]
+},
+{
+"seed": 1012,
+"heavy_rank": 1,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "blue",
+"order": "far_first",
+"off": {
+"red": [
+-0.39,
+-0.37
+],
+"blue": [
+-0.36,
+-0.28
+],
+"green": [
+-0.12,
+0.38
+],
+"yellow": [
+-0.35,
+0.08
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.3,
+"green": 5.4,
+"yellow": 5.3
+}
+}
+]
+},
+{
+"seed": 1013,
+"heavy_rank": 3,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "blue",
+"order": "far_first",
+"off": {
+"red": [
+0.1,
+0.05
+],
+"blue": [
+-0.39,
+0.24
+],
+"green": [
+-0.18,
+-0.21
+],
+"yellow": [
+0.21,
+0.44
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.6,
+"green": 5.8,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1014,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.18,
+0.2
+],
+"blue": [
+0.06,
+-0.3
+],
+"green": [
+0.46,
+0.24
+],
+"yellow": [
+0.59,
+-0.36
+]
+},
+"tilts": {
+"red": 5.7,
+"blue": 5.8,
+"green": 5.9,
+"yellow": 5.9
+}
+}
+]
+},
+{
+"seed": 1015,
+"heavy_rank": 2,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.25,
+-0.14
+],
+"blue": [
+0.23,
+0.2
+],
+"green": [
+-0.12,
+-0.15
+],
+"yellow": [
+0.44,
+-0.32
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.9,
+"green": 5.9,
+"yellow": 5.8
+}
+}
+]
+},
+{
+"seed": 1016,
+"heavy_rank": 3,
+"side": "left",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+0.47,
+-0.13
+],
+"blue": [
+0.15,
+-0.42
+],
+"green": [
+0.53,
+0.44
+],
+"yellow": [
+-0.22,
+-0.3
+]
+},
+"tilts": {
+"red": 5.5,
+"blue": 5.5,
+"green": 5.5,
+"yellow": 5.2
+}
+}
+]
+},
+{
+"seed": 1017,
+"heavy_rank": 4,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+-0.07,
+-0.27
+],
+"blue": [
+-0.08,
+-0.33
+],
+"green": [
+0.49,
+0.01
+],
+"yellow": [
+-0.04,
+-0.18
+]
+},
+"tilts": {
+"red": 5.4,
+"blue": 5.5,
+"green": 5.6,
+"yellow": 5.5
+}
+}
+]
+},
+{
+"seed": 1018,
+"heavy_rank": 2,
+"side": "front",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "red",
+"order": "far_first",
+"off": {
+"red": [
+0.3,
+0.16
+],
+"blue": [
+-0.33,
+-0.25
+],
+"green": [
+-0.09,
+0.48
+],
+"yellow": [
+0.46,
+-0.33
+]
+},
+"tilts": {
+"red": 5.3,
+"blue": 5.4,
+"green": 5.4,
+"yellow": 5.4
+}
+}
+]
+},
+{
+"seed": 1019,
+"heavy_rank": 3,
+"side": "right",
+"attempts": [
+{
+"a": 1,
+"succ": true,
+"fail": "none",
+"trap": false,
+"rec": false,
+"fell": [],
+"n_rocks": 1,
+"first": "yellow",
+"order": "far_first",
+"off": {
+"red": [
+-0.26,
+0.35
+],
+"blue": [
+-0.15,
+-0.06
+],
+"green": [
+0.05,
+-0.31
+],
+"yellow": [
+-0.25,
+-0.34
+]
+},
+"tilts": {
+"red": 5.8,
+"blue": 5.7,
+"green": 5.8,
+"yellow": 5.6
+}
+}
+]
+}
+]
+}
+}
+}
