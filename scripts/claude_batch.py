@@ -164,6 +164,8 @@ def cmd_audit(a):
 
 def run_stats(r):
     ev = [json.loads(l) for l in open(os.path.join(r["log"], "events.jsonl"))]
+    if r.get("only_attempt"):  # one attempt of a run (api_batch --memfree followup: attempt 1 of a history run)
+        ev = [e for e in ev if e.get("attempt") == r["only_attempt"]]
     dones = [e for e in ev if e["ev"] == "done"]
     http = [e for e in ev if e["ev"] == "http"]
     calls = [e for e in ev if e["ev"] == "call"]
@@ -207,7 +209,7 @@ def cmd_table(a):
         seeds = [s for s, xs in d["n"].items() if all(x["attempts"] > 0 for x in xs)]
         n1 = sum(1 for s in seeds if sorted(d["n"][s], key=lambda x: x["rep"])[0]["first_success"])
         nk = sum(1 for s in seeds if any(x["first_success"] for x in d["n"][s]))
-        allx = H + [x for s in seeds for x in d["n"][s]]
+        allx = H + [x for s in seeds for x in d["n"][s] if not x.get("only_attempt")]  # attempt 1 counted in H
         th = [x["think_per_cmd"] for x in allx if x["think_per_cmd"]]
         cpa = [x["n_calls"] / max(x["attempts"], 1) for x in allx]
         wall = [x["wall_s"] / 60 for x in H if x["wall_s"]]

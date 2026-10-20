@@ -63,6 +63,11 @@ class ChatCompletionsBackend(Backend):
                         content.append(dict(type="image_url", image_url=dict(url=p["image"].data_url(self.jpeg_quality))))
                 msgs.append(dict(role="user", content=content))
             elif it["kind"] == "assistant":
+                if not it.get("text") and not it["tool_calls"]:
+                    # a reasoning-only turn (no text, no tool call; seen with DeepSeek at effort=max): the player still
+                    # counts it and nudges, but OpenAI-compatible APIs reject an assistant message with neither content
+                    # nor tool_calls (DeepSeek: 400 "content or tool_calls must be set"), so it is left out of the request
+                    continue
                 m = dict(role="assistant", content=it.get("text") or None)
                 rc = (it.get("raw") or [{}])[0].get("reasoning_content") if it.get("backend") == self.name else None
                 if rc and self.replay_reasoning:
@@ -75,7 +80,7 @@ class ChatCompletionsBackend(Backend):
                 msgs.append(m)
             elif it["kind"] == "tool_output":
                 msgs.append(dict(role="tool", tool_call_id=it["call_id"], content=it["text"]))
-        req = dict(model=self.model, messages=msgs, tools=chat_tools(tools), tool_choice="auto",
+        req = dict(model=self.model, messages=tool_results_first(msgs), tools=chat_tools(tools), tool_choice="auto",
                    max_tokens=self.max_tokens)
         if self.temperature is not None:  # None: the endpoint's default (reasoning models may reject a temperature)
             req["temperature"] = self.temperature
@@ -114,3 +119,32 @@ class ChatCompletionsBackend(Backend):
                                    error="empty response (no output, no usage)")
         return BackendResponse(tool_calls=calls, text=msg.content or None, reasoning_summary=rc or None, usage=usage,
                                latency_s=lat, raw=[dict(reasoning_content=rc)] if rc else None, request_stats=stats)
+
+
+def tool_results_first(msgs):
+    """OpenAI-compatible APIs require every tool_call of an assistant message to be answered by tool messages directly
+    after it. The player adds the images a tool returned (view_images, robot) as a user message right after that tool's
+    output, so a turn with several tool calls (e.g. view_images then shell) would put a user message between the tool
+    messages (DeepSeek: 400 "insufficient tool messages following tool_calls message"). Move such user messages after
+    the last tool message of the turn; nothing else changes order."""
+    out, i = [], 0
+    while i < len(msgs):
+        m = msgs[i]
+        out.append(m)
+        i += 1
+        if m["role"] != "assistant" or not m.get("tool_calls"):
+            continue
+        need = {tc["id"] for tc in m["tool_calls"]}
+        held = []
+        while i < len(msgs) and need:
+            n = msgs[i]
+            if n["role"] == "tool" and n.get("tool_call_id") in need:
+                out.append(n)
+                need.discard(n["tool_call_id"])
+            elif n["role"] == "user":
+                held.append(n)
+            else:
+                break
+            i += 1
+        out.extend(held)
+    return out

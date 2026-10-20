@@ -11,6 +11,8 @@ and, with --harness, for native agent harnesses (side table, docs/15).
   stop    python scripts/api_batch.py stop --batch m1_opus                    (runner, players, servers; runs -> "stopped")
   retry   python scripts/api_batch.py retry --batch m1_opus [--runs <run> ...] (default: every failed / stopped / timeout run;
           old logs stay, listed under "superseded"; starts the runner again)
+  followup python scripts/api_batch.py followup --batch m1_opus  (switch a batch started before 2026-10-19 to
+          --memfree followup: plans the memory-free retries due for its finished history runs; then `retry` starts them)
   contract python scripts/api_batch.py contract --batch b1 [--batch b2 ...]  (contract_sha256 per instance and condition;
           flags instances whose hash differs between batches: those cells must not share a table)
 
@@ -18,15 +20,25 @@ and, with --harness, for native agent harnesses (side table, docs/15).
   ours              scripts/api_player.py, unchanged (--provider as before)
   claude_code       Claude Code CLI --bare, only our MCP tools, one-time config dirs (arm B; provider anthropic)
   claude_code_full  Claude Code CLI without --bare (full system prompt), otherwise the same (arm B')
-  codex             Codex CLI exec --ephemeral, empty CODEX_HOME, only our MCP tools reachable (arm F; provider openai)
+  codex             Codex CLI exec --ephemeral, empty CODEX_HOME, only our MCP tools reachable (arm F; provider openai);
+                    --codex-auth chatgpt (default): the ChatGPT subscription login, apikey: OPENAI_API_KEY
 Native harnesses are refused at launch (status "refused") unless their preset prompt / tool list matches the pin
 written by tests/harness_selfcheck (--allow-unpinned to launch anyway; the preflight still runs). Every run gets
 harness.json, contract.json, trajectory.jsonl and harness_audit.json in its log dir.
 
 Conditions (same as claude_batch): harness = memory full, k attempts in one agent; noharness = independent single-attempt
-agents (memory none, k=1), --indep-reps of them per instance (default k, for pass@k^iid). Protocol of 2026-10-11 (default):
-all independent runs first, the history runs only after every independent run has finished (--no-barrier to mix them);
-history runs with --hide-k (README and status say 1 attempt, byte-identical to the independent run; --no-hide-k to show k).
+agents (memory none, k=1). History runs use --hide-k (README and status say 1 attempt, byte-identical to an independent
+run; more attempts are announced only after a failure; --no-hide-k to show k).
+--memfree, how the memory-free retries (pass@k without history) are run:
+  followup (default, 2026-10-19): one history run per instance. Its attempt 1 is also the first memory-free attempt,
+           since under --hide-k it sees exactly what a fresh agent sees. Only if attempt 1 fails does the runner add a
+           fresh single-attempt agent (noharness rep 1, "chain" = the history run's id); if that one fails too, the
+           next (rep 2), up to k-1 of them; the first success ends the chain. An instance solved on attempt 1 thus
+           costs one attempt in all.
+  upfront  the 2026-10-11 protocol: --indep-reps independent runs per instance (default k, all of them run), all
+           before the history runs (--conds order; --no-barrier to mix the phases).
+  none     history runs only.
+--seeds-per-task N keeps the first N seeds of each task:seeds (e.g. 1 = one instance per task).
 API keys come from LFF_ENV_FILE (default <repo>/.env, KEY=value lines) or the environment.
 """
 import argparse
@@ -94,6 +106,74 @@ def launch_runner(batch):
     return p.pid
 
 
+def next_id(m):
+    return f"{max((int(r['id']) for r in m['runs']), default=-1) + 1:04d}"
+
+
+# ------------------------------------------------------------------------------------------------- memory-free chains
+# --memfree followup: per instance, history run (cond harness, followup=True) -> noharness rep 1 -> ... -> rep k-1,
+# each link planned only after the previous attempts all failed. Attempt 1 of the history run is the chain's first
+# attempt (--hide-k makes it identical to a fresh agent's), so the memory-free pass@k of an instance is: attempt 1 of
+# the history run, or any of its chain runs, succeeded.
+PLAN_KEYS = ("task", "seed", "provider", "agent_harness", "api_base_url", "max_budget_usd", "allow_unpinned", "jail",
+             "codex_auth",
+             "model", "effort", "perception", "video", "style", "feedback", "phase", "nominal")
+
+
+def attempt_results(log):
+    """[success of attempt 1, of attempt 2, ...] from the robot server log ([] if there is none)."""
+    p = os.path.join(log or "", "events.jsonl")
+    if not os.path.exists(p):
+        return []
+    res = {}
+    for line in open(p):
+        e = json.loads(line)
+        if e.get("ev") == "done":
+            res[e["attempt"]] = bool(e["success"])
+    return [res[i] for i in sorted(res)]
+
+
+def plan_followup(m, r):
+    """Run r has finished: append the next memory-free retry of its instance if one is due; returns it or None."""
+    if r["status"] != "done":
+        return None
+    if r["cond"] == "harness" and r.get("followup"):
+        root, nxt, res = r, 1, attempt_results(r.get("log"))[:1]
+    elif r.get("chain"):
+        root = next((x for x in m["runs"] if x["id"] == r["chain"]), None)
+        nxt, res = r["rep"] + 1, attempt_results(r.get("log"))
+    else:
+        return None
+    if root is None or not res or any(res) or nxt >= root["k"]:
+        return None
+    if any(x.get("chain") == root["id"] and x["rep"] == nxt for x in m["runs"]):
+        return None
+    new = {k: root.get(k) for k in PLAN_KEYS}
+    new.update(id=next_id(m), cond="noharness", rep=nxt, k=1, mem="none", hide_k=False, chain=root["id"],
+               status="pending")
+    m["runs"].append(new)
+    return new
+
+
+def memfree_chain(m, root):
+    """Table rows for the memory-free retries of root's instance: its attempt 1 (rep 0, only_attempt=1) and the chain
+    runs after it. [] while the chain has not ended (a success, or k attempts)."""
+    first = attempt_results(root.get("log"))[:1]
+    if not first:
+        return []
+    rows = [dict(root, cond="noharness", rep=0, k=1, only_attempt=1)]
+    if first[0]:
+        return rows
+    chain = {x["rep"]: x for x in m["runs"] if x.get("chain") == root["id"] and x["status"] == "done" and x.get("log")}
+    for rep in range(1, root["k"]):
+        if rep not in chain:
+            return []
+        rows.append(dict(chain[rep]))
+        if any(attempt_results(chain[rep]["log"])):
+            break
+    return rows
+
+
 # ------------------------------------------------------------------------------------------------------------ start
 def cmd_start(a):
     if runner_alive(a.batch):
@@ -108,24 +188,37 @@ def cmd_start(a):
         a.provider = need
     elif not a.provider:
         sys.exit("--provider is required with --harness ours")
-    conds = [c.strip() for c in a.conds.split(",") if c.strip()]
+    if a.jail and a.harness == "ours":
+        sys.exit("--jail is for native harnesses (the reference driver runs our own code)")
+    if a.memfree == "upfront":
+        conds = [c.strip() for c in (a.conds or "noharness,harness").split(",") if c.strip()]
+    else:
+        if a.conds and a.conds.replace(" ", "") != "harness":
+            sys.exit(f"--conds is for --memfree upfront (--memfree {a.memfree} plans history runs only)")
+        if a.memfree == "followup" and a.no_hide_k:
+            sys.exit("--memfree followup shares attempt 1 of the history run with the memory-free retries: needs --hide-k")
+        conds = ["harness"]
     n0 = len(m["runs"])
     for cond in conds:  # the order of --conds is the order of the phases
         for spec in a.tasks:
             task, seeds = spec.split(":")
-            for seed in seeds.split(","):
+            for seed in seeds.split(",")[:a.seeds_per_task]:
                 plan = [("harness", "full", a.k, 0)] if cond == "harness" else \
                        [("noharness", "none", 1, i) for i in range(reps)]
                 for c, mem, k, rep in plan:
-                    m["runs"].append(dict(id=f"{len(m['runs']):04d}", task=task, seed=int(seed), provider=a.provider,
+                    m["runs"].append(dict(id=next_id(m), task=task, seed=int(seed), provider=a.provider,
                                           agent_harness=a.harness, api_base_url=a.api_base_url,
                                           max_budget_usd=a.max_budget_usd, allow_unpinned=a.allow_unpinned,
+                                          jail=a.jail, codex_auth=(a.codex_auth if a.harness == "codex" else None),
                                           model=a.model, effort=a.effort, cond=c, rep=rep, k=k, mem=mem,
                                           hide_k=(c == "harness" and not a.no_hide_k), perception=a.perception,
                                           video=a.video, style="la", feedback=a.feedback, phase=conds.index(cond),
-                                          nominal=a.nominal, status="pending"))
+                                          nominal=a.nominal, followup=(c == "harness" and a.memfree == "followup"),
+                                          status="pending"))
     save(a.batch, m)
-    print(f"{len(m['runs']) - n0} runs planned ({', '.join(conds)}); manifest {mpath(a.batch)}")
+    print(f"{len(m['runs']) - n0} runs planned ({', '.join(conds)}, --memfree {a.memfree}); manifest {mpath(a.batch)}")
+    if a.memfree == "followup":
+        print("memory-free retries are added while the batch runs, for instances whose attempt 1 failed")
     print("runner pid", launch_runner(a.batch))
 
 
@@ -148,6 +241,9 @@ class Runner:
             runs = self.m["runs"]
             pending = [r for r in runs if r["status"] == "pending"]
             if not pending:
+                # a run still going may yet add a memory-free retry (--memfree followup)
+                if any(r["status"] in ACTIVE and (r.get("followup") or r.get("chain")) for r in runs):
+                    return "wait"
                 return None
             if self.m.get("barrier", True):
                 phase = min(r["phase"] for r in pending)
@@ -193,6 +289,10 @@ class Runner:
             opts += f" --max-budget-usd {r['max_budget_usd']}"
         if r.get("allow_unpinned"):
             opts += " --allow-unpinned"
+        if r.get("jail"):
+            opts += " --jail"
+        if r.get("codex_auth"):
+            opts += f" --codex-auth {r['codex_auth']}"
         # every harness (also ours: api_player.py with the same arguments as before, its output still in
         # api_player.log) goes through the adapter layer, which adds harness.json / contract.json / trajectory.jsonl
         player = (f"cd {ROOT} && source run_env.sh >/dev/null 2>&1 && "
@@ -215,6 +315,8 @@ class Runner:
         self.update(r, status=status, exit_code=code, t_end=time.time(), wall_s=round(time.time() - t0, 1))
         with self.lock:
             self.used_ports.discard(port)
+            if plan_followup(self.m, r):
+                save(self.batch, self.m)
 
     @staticmethod
     def stop_server(log):
@@ -249,6 +351,8 @@ class Runner:
         for r in self.m["runs"]:  # a previous runner died: its half-started runs go back to pending
             if r["status"] in ACTIVE:
                 r["status"] = "pending"
+        for r in list(self.m["runs"]):  # memory-free retries due but not yet planned (runner died, `followup`)
+            plan_followup(self.m, r)
         save(self.batch, self.m)
 
         def on_term(*_):
@@ -314,20 +418,28 @@ def cmd_status(a):
         print(f"{r['id']} {r['status']:13s} {r.get('agent_harness', 'ours'):16s} "
               f"{r['cond']:9s}{r['rep'] if r['cond'] == 'noharness' else '':1} "
               f"{r['task']:24s} s{r['seed']}  {att:4s} calls={u['calls']:3d} api_err={u['api_errors']} "
-              f"in={u['input_tokens'] / 1e6:.2f}M out={u['output_tokens'] / 1e3:.0f}k {u['end'] or ''}")
+              f"in={u['input_tokens'] / 1e6:.2f}M out={u['output_tokens'] / 1e3:.0f}k {u['end'] or ''}"
+              + (f" (memory-free attempt {r['rep'] + 1} after {r['chain']})" if r.get("chain") else ""))
     print("runner", "alive" if runner_alive(a.batch) else "not running", "|", counts)
 
 
 def cmd_table(a):
     def done_runs(b):
         m = load(b)
-        runs = [dict(r) for r in m["runs"] if r.get("log") and r["status"] == "done"]
+        runs = []
+        for r in m["runs"]:
+            if not (r.get("log") and r["status"] == "done") or r.get("chain"):
+                continue
+            runs.append(dict(r))
+            if r["cond"] == "harness" and r.get("followup"):  # its memory-free chain, once finished
+                runs += memfree_chain(m, r)
         for r in runs:  # the harness is part of the table's "model" column (claude_batch groups by task, model)
             if r.get("agent_harness", "ours") != "ours":
                 r["model"] = f"{r['model']} @ {r['agent_harness']}"
         return dict(m, runs=runs)
     claude_batch.load = done_runs  # same manifest fields (task, seed, model, cond, rep, k, log): reuse its table
-    rows = [r for b in a.batch for r in done_runs(b)["runs"]]
+    # token totals: every run once (the rep-0 row of a chain is attempt 1 of a history run, already counted)
+    rows = [r for b in a.batch for r in done_runs(b)["runs"] if not r.get("only_attempt")]
     claude_batch.cmd_table(argparse.Namespace(batch=a.batch))
     by = {}
     for r in rows:
@@ -393,7 +505,7 @@ def cmd_retry(a):
     if runner_alive(a.batch):
         sys.exit("runner still running: stop it first")
     m = load(a.batch)
-    n = 0
+    reset = []
     for r in m["runs"]:
         if (a.runs and (r.get("run") in a.runs or r["id"] in a.runs)) or (not a.runs and r["status"] in RETRYABLE):
             if r.get("log"):
@@ -401,9 +513,39 @@ def cmd_retry(a):
             for k in ("port", "sandbox", "log", "run", "player_pid", "exit_code", "t_start", "t_end", "wall_s", "error"):
                 r.pop(k, None)
             r["status"] = "pending"
-            n += 1
+            reset.append(r)
+    # memory-free retries planned after a run that is now re-run were based on attempts that no longer count
+    stale = [x for x in m["runs"] if x.get("chain") and all(x is not y for y in reset) and any(
+        x["chain"] == y["id"] or (x["chain"] == y.get("chain") and x["rep"] > y["rep"]) for y in reset)]
+    for x in stale:
+        m["runs"].remove(x)
+        if x.get("log"):
+            m.setdefault("superseded", []).append(dict(x, superseded_because="earlier attempt of its chain re-run"))
     save(a.batch, m)
-    print(n, "runs reset to pending; runner pid", launch_runner(a.batch))
+    print(len(reset), "runs reset to pending" + (f", {len(stale)} memory-free retries after them dropped" if stale else "")
+          + "; runner pid", launch_runner(a.batch))
+
+
+def cmd_followup(a):
+    """Switch a batch to --memfree followup: mark its --hide-k history runs and plan the memory-free retries due for
+    those already done. `retry` then starts the runner (and re-runs failed / stopped runs)."""
+    if runner_alive(a.batch):
+        sys.exit("runner still running: stop it first")
+    m = load(a.batch)
+    marked = left = 0
+    for r in m["runs"]:
+        if r["cond"] == "harness" and not r.get("followup"):
+            if r.get("hide_k"):
+                r["followup"] = True
+                marked += 1
+            else:
+                left += 1
+    new = [x for r in list(m["runs"]) for x in [plan_followup(m, r)] if x]
+    save(a.batch, m)
+    print(f"{marked} history runs switched to --memfree followup"
+          + (f" ({left} without --hide-k left out: their attempt 1 is not a fresh agent's)" if left else "")
+          + f"; {len(new)} memory-free retries planned")
+    print(f"start the runner with: python scripts/api_batch.py retry --batch {a.batch}")
 
 
 def main():
@@ -418,12 +560,22 @@ def main():
     s.add_argument("--api-base-url", default=None, help="native harnesses: model API endpoint (see harness_run.py)")
     s.add_argument("--max-budget-usd", type=float, default=None, help="claude_code*: per-run dollar cap")
     s.add_argument("--allow-unpinned", action="store_true", help="native harnesses: launch without a pin")
+    s.add_argument("--codex-auth", default="chatgpt", choices=["chatgpt", "apikey"],
+                   help="codex: ChatGPT subscription login (default) or OPENAI_API_KEY")
+    s.add_argument("--jail", action="store_true",
+                   help="native harnesses: run the CLI in the native-harness jail (docs/15 §3.4, lffbench/harnesses/jail.py)")
     s.add_argument("--model", required=True)
     s.add_argument("--effort", default="high")
     s.add_argument("--tasks", nargs="+", required=True, help="task:seed,seed ...")
     s.add_argument("--k", type=int, default=3)
-    s.add_argument("--indep-reps", type=int, default=None, help="independent runs per instance (default k)")
-    s.add_argument("--conds", default="noharness,harness", help="conditions in phase order")
+    s.add_argument("--seeds-per-task", type=int, default=None, help="only the first N seeds of each task:seeds")
+    s.add_argument("--memfree", default="followup", choices=["followup", "upfront", "none"],
+                   help="memory-free retries: followup (default) = fresh single-attempt agents only after the history "
+                        "run's attempt 1 failed, one at a time, up to k attempts in all, stop at the first success; "
+                        "upfront = --indep-reps independent runs per instance before the history runs; none = no "
+                        "memory-free retries (see the module docstring)")
+    s.add_argument("--indep-reps", type=int, default=None, help="--memfree upfront: independent runs per instance (default k)")
+    s.add_argument("--conds", default=None, help="--memfree upfront: conditions in phase order (default noharness,harness)")
     s.add_argument("--no-barrier", action="store_true", help="do not wait for one phase to finish before the next")
     s.add_argument("--no-hide-k", action="store_true", help="history runs: README / status show all k attempts")
     s.add_argument("--concurrency", type=int, default=4)
@@ -436,7 +588,7 @@ def main():
     s.add_argument("--nominal", action="store_true", help="L1 control: hidden calibration error removed")
     r = sub.add_parser("_runner")
     r.add_argument("--batch", required=True)
-    for name in ("status", "stop"):
+    for name in ("status", "stop", "followup"):
         sub.add_parser(name).add_argument("--batch", required=True)
     t = sub.add_parser("table")
     t.add_argument("--batch", nargs="+", required=True)
@@ -447,7 +599,7 @@ def main():
     rt.add_argument("--runs", nargs="*", default=[])
     a = ap.parse_args()
     dict(start=cmd_start, _runner=cmd_runner, status=cmd_status, table=cmd_table, stop=cmd_stop, retry=cmd_retry,
-         contract=cmd_contract)[a.cmd](a)
+         contract=cmd_contract, followup=cmd_followup)[a.cmd](a)
 
 
 if __name__ == "__main__":
