@@ -69,7 +69,8 @@ def parse(argv=None):
     # openai
     ap.add_argument("--model", default="gpt-6-astra")
     ap.add_argument("--effort", default="medium", help="reasoning effort: low|medium|high|xhigh|max")
-    ap.add_argument("--reasoning-summary", default=None, help="e.g. auto / concise / detailed (may need org verification)")
+    ap.add_argument("--reasoning-summary", default="auto", choices=["auto", "concise", "detailed", "none"],
+                    help="request and log model-returned summaries by default; none disables the request")
     ap.add_argument("--image-detail", default="auto", help="low|high|original|auto")
     ap.add_argument("--max-output-tokens", type=int, default=None)
     ap.add_argument("--service-tier", default=None)
@@ -108,7 +109,8 @@ def build_backend(args):
         if not os.environ.get("OPENAI_API_KEY"):
             sys.exit("OPENAI_API_KEY is not set (and OPENAI_BASE_URL if you use a proxy / gateway).")
         return make_backend("openai", model=args.model, reasoning_effort=args.effort,
-                            reasoning_summary=args.reasoning_summary, image_detail=args.image_detail,
+                            reasoning_summary=None if args.reasoning_summary == "none" else args.reasoning_summary,
+                            image_detail=args.image_detail,
                             max_output_tokens=args.max_output_tokens, service_tier=args.service_tier,
                             prompt_cache_retention=args.prompt_cache_retention, max_live_images=args.max_live_images,
                             jpeg_quality=args.jpeg_quality, cache_breakpoints=args.cache_breakpoints,
