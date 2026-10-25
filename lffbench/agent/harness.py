@@ -285,6 +285,7 @@ class AgentHarness:
         rec = dict(seed=seed, attempt=a, call=n, latency_s=round(resp.latency_s, 3), usage=resp.usage,
                    cost_usd=call_cost(resp.usage, self.cfg.model_for_cost) if resp.usage else None,
                    status=resp.status, error=resp.error, text=resp.text, reasoning_summary=resp.reasoning_summary,
+                   reasoning_summary_status="recorded" if resp.reasoning_summary else "not_returned",
                    tool_calls=[dict(id=t.id, name=t.name, arguments=t.arguments) for t in resp.tool_calls],
                    request=resp.request_stats, conv_images=conv.n_images())
         if self.payload_probe is not None:  # dry run: size of the request GPT-6 would have received

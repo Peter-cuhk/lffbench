@@ -327,7 +327,9 @@ def main(argv=None, default_provider=None, transcript_name="transcript.jsonl"):
             break
         conv.add_assistant(resp.text, resp.tool_calls, raw=resp.raw, backend=backend.name)
         log(dict(ev="assistant", turn=turn, latency_s=resp.latency_s, usage=resp.usage, text=resp.text,
-                 reasoning_summary=resp.reasoning_summary, status=resp.status, error=resp.error,
+                 reasoning_summary=resp.reasoning_summary,
+                 reasoning_summary_status="recorded" if resp.reasoning_summary else "not_returned",
+                 status=resp.status, error=resp.error,
                  tool_calls=[dict(id=c.id, name=c.name, arguments=c.arguments) for c in resp.tool_calls],
                  request_stats=resp.request_stats))
         if finished:
